@@ -273,8 +273,8 @@ kap. 7.3 + dokončení kap. 6 (TODO marker 6.4 + VERIFY-REF psych verze) →
 **P6** kap. 9, 1, 10; **E5.0 typologický diagram do kap. 2** (produkce obrázků); zamknout glosář →
 **P6b ✅** E5.1 fenetický dendrogram + Příloha E + validace + konvergence dokončeny →
 **P7 ✅** 17/17 EN↔CZ párů přeloženo, opraveno a ověřeno →
-**P8 částečně ✅** Quarto/Tectonic sazba, EN/CZ DOCX+PDF, Příloha C a konsolidovaná literatura
-dokončeny; externí companion repo/DOI dosud nevytvořeny.
+**P8 ✅** Quarto/Tectonic sazba, EN/CZ DOCX+PDF, přílohy a konsolidovaná literatura dokončeny;
+veřejný companion repo publikován 14. 7. 2026 jako průběžná pracovní verze bez release a DOI.
 Gate: žádná výsledková próza před freezem; žádný CZ překlad před EN freezem.
 Poznámka: E5.0 lze pull-forward jako rychlé intermezzo mezi P5 a P6; E5.1/E5.2 NIKDY neblokují
 hlavní empirický text (kap. 5–8) ani závěr.
@@ -291,49 +291,39 @@ Pracovní kapitolové seznamy jsou při sestavení odstraněny a nahrazeny jedin
 bibliografií (89 unikátních záznamů). Migrace do `.bib` zůstává pouze volitelnou budoucí změnou.
 Word ani LaTeX needitovat ručně.
 
-**Data + kód — veřejný companion repo (ZVLÁŠŤ od tohoto pracovního repa).** Obsah:
+**Data + kód — veřejný companion repo (ZVLÁŠŤ od tohoto pracovního stromu).** Obsah:
 skripty, R/Quarto notebooky, **anonymizovaná** processed data, codebooky, `DATA_README`,
 `renv.lock`, a **renderované HTML reporty** (ne-IT recenzent čte čísla/grafy bez spouštění).
-NIKDY: originály s PII (už smazány), `.venv`, `renv/library`. Přidat DOI přes **Zenodo**
-(1 klik z GitHubu) do „data availability" statementu. Colab notebook jen jako doplněk
-(R balíčky se v Colabu instalují pomalu). **Před zveřejněním ověřit, že informované souhlasy
-pokrývají sdílení anonymizovaných dat**; jinak repo držet privátní.
+NIKDY: originály s PII, `.venv`, `renv/library`, `rizeni/`, `pozadavky/` ani cizí materiály.
+Companion je na `github.com/JanNehyba/perceived-justice-preservice-teachers`; anonymizaci a PII
+bránu zajišťuje `companion/make_companion.sh`. Jde o průběžnou pracovní verzi, nikoli archivní release.
 
 **Tři repozitáře — NEMÍCHAT.** V programu jsou tři různé entity:
 1. **`github.com/JanNehyba/Justice`** — existující **2021 repo** (EFA notebook + veřejná
    data 2021, n=346). Je **citovaný v kap. 6** jako historický artefakt pilotu → nemazat.
 2. **Tento `habilitace/` pracovní repo** — obsahuje PII-historii → **NIKDY nezveřejnit**.
-3. **Budoucí companion repo (P8)** — anonymizovaná data + kód + reporty celé knihy.
+3. **Companion repo habilitace 1** — nový samostatný veřejný repozitář s anonymizovanými daty,
+   kódem a výstupy celé knihy.
 
-**Rozhodnutí do P8 — struktura veřejných rep (platí pro obě habilitace):**
-- **Jeden companion repo NA HABILITACI, vlastní Zenodo DOI, NIC nesdílet** (pravidlo
-  separace hab-1 ↔ hab-2 z CLAUDE.md). hab-1 = `perceived-justice-…` (#3); hab-2 dostane
-  vlastní repo+DOI, až bude hotová. **Žádný společný „umbrella" repo** (2 monografie ≠ 1 DOI).
-- **Repo #1 (Justice) retire až úplně na konci** — ne teď. Sekvence s pořadím:
-  (1) companion #3 obsahuje `2021-pilot/`; (2) companion je na Zenodu → DOI; (3) citace
-  Nehyba (2021a) v kap. 6 přepnutá z GitHub URL na DOI (přes `_variables.yml`, 1 změna).
-  **Teprve pak** Justice retire.
-- **Retire = přejmenovat, ne hard-delete.** Rename → GitHub starou URL přesměruje; hard-delete
-  přesměrování NEUDRŽÍ → rozbil by případný odkaz v publikovaném ČAPV 2021 sborníku. Smazání OK
-  jen po DOI a s vědomím, že externí 2021 odkazy zmřou (mitigace = DOI dohledatelný).
+**Rozhodnutí Jana 14. 7. 2026:**
+- Companion habilitace 1 je samostatný nový repozitář; habilitace 2 případně dostane vlastní.
+  Žádný společný umbrella repo a žádné sdílení neveřejných dat mezi habilitacemi.
+- Kniha ještě není oficiální a budou úpravy: **nyní bez GitHub release, Zenodo/OSF a DOI**.
+  Archivní krok lze řešit jen na nový explicitní pokyn po finalizaci.
+- **`JanNehyba/Justice` zůstává beze změny.** Nemazat, nearchivovat ani nepřejmenovávat;
+  je to původní repo z roku 2021 a companion do něj nic nepushuje.
 
-**Odkazy (URL / DOI) — jeden zdroj pravdy + kontrola.** Rétorika Markdownu je
+**Odkazy — jeden zdroj pravdy + kontrola.** Rétorika Markdownu je
 formátově neutrální, ale externí odkazy se musí správně přenést do všech výstupů
 (.docx/.pdf/.html) a nesmí se rozejít. Pravidla:
-- **Žádné hádané URL v kapitolách teď.** URL companion repa a DOI ZATÍM NEEXISTUJÍ
-  → finalizují se až v P8. Do té doby držet jako jediný zdroj pravdy `_variables.yml`
-  (`repo.url`, `data.doi`, `book.url`) a v textu psát `{{< var repo.url >}}`; změna
-  jedné řádky se propíše do všech formátů.
+- URL companionu držet jako jediný zdroj pravdy v `_variables.yml` (`repo.url`, `repo.blob`).
+- Ve veřejných výstupech nemají být žádné DOI placeholdery ani tvrzení o archivním vydání.
 - **Link-check před freeze.** Automatický kontrolní pass odkazů při každém renderu;
   tvrdá brána před tiskem (žádné 404 / žádné placeholdery v print .pdf).
-- **Print .pdf = URL viditelné.** Ve vázaném výtisku se neklikne → URL/DOI vypsané
-  (APA reference tisknou full URL/DOI; případné odkazy v těle přes `\url{}` / pozn. pod čarou).
+- **Print .pdf = URL viditelné.** Ve vázaném výtisku se neklikne, proto je URL vypsaná
+  a současně klikací; odkazy na zdroje jsou v popiscích obrázků a tabulek.
   HTML: klikací + `link-citations: true`.
-- **Formát:** DOI jako `https://doi.org/10…`; GitHub jako data-set/software citace.
-  GitHub vs GitHub+Zenodo: doporučeno **GitHub + Zenodo DOI** — finální volba v P8.
-- **Aktuální stav (kontrola 10. 7. 2026):** jediný živý externí odkaz v těle knihy je
-  `github.com/JanNehyba/Justice` v referencích kap. 6 (repo #1) + CRAN odkaz na `psych`;
-  obojí OK. Zmínky GitHub/Zenodo v `OSNOVA.md` jsou jen plánovací, nejdou do knihy.
+- GitHub companion se cituje jako datová sada/kód s živou URL; žádný DOI zatím nemá.
 
 ## Blockery
 - [x] R runtime funguje a reprodukční běhy E4/E5 prošly.

@@ -4,6 +4,8 @@ Companion repository — data, analysis code, and reproducible outputs for the h
 
 Repository: <https://github.com/JanNehyba/perceived-justice-preservice-teachers>
 
+> **Work in progress.** This repository and the included monograph PDFs are being updated while the monograph is finalized. They are not a formal archival release.
+
 ## What is here
 - `data/processed/` — **anonymized** analytic datasets (no direct identifiers), codebooks, and the item/version crosswalk. Data-boundary notes in `data/processed/DATA_README.md`.
 - `analyzy/scripts/` — Python data-preparation scripts (01–03) and helper scripts.
@@ -27,7 +29,7 @@ Raw data (contains or derives from identifiers), source questionnaire exports, t
 Participation was voluntary and anonymous; informed consent covered anonymous academic and research use of the data (see the monograph's ethics appendix). No direct identifiers are present in this repository.
 
 ## Cite
-See `CITATION.cff`. Please cite the monograph and this repository's archival DOI (see the release/OSF record).
+See `CITATION.cff`. Please cite the monograph and the GitHub repository URL shown there.
 
 ## License
 Code: MIT. Data, text, and figures: CC BY 4.0. See `LICENSE`.

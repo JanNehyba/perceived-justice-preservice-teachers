@@ -11,6 +11,11 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+PYTHON_PDF="python3"
+if [ -x "../../.venv/bin/python" ]; then
+  PYTHON_PDF="../../.venv/bin/python"
+fi
+
 language="${1:-en}"
 format="${2:-docx}"
 
@@ -177,7 +182,7 @@ render_language() {
         bookpdf="../vystupy/export/habilitace-CZ.pdf"
       fi
       if [ -f "$coverpdf" ]; then
-        python3 - "$coverpdf" "$bookpdf" <<'PY'
+        "$PYTHON_PDF" - "$coverpdf" "$bookpdf" <<'PY'
 import sys
 from pypdf import PdfWriter, PdfReader
 coverpdf, book = sys.argv[1], sys.argv[2]

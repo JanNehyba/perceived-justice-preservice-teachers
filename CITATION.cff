@@ -8,8 +8,5 @@ authors:
     given-names: Jan
     orcid: "https://orcid.org/0000-0003-4159-5576"
     affiliation: "Faculty of Education, Masaryk University"
-version: "1.0.0"
-date-released: "2026-01-01"   # DOPLNIT skutečné datum vydání
 license: CC-BY-4.0
 repository-code: "https://github.com/JanNehyba/perceived-justice-preservice-teachers"
-# doi: 10.XXXXX/XXXXX          # DOPLNIT DOI po archivaci (OSF / Zenodo)
