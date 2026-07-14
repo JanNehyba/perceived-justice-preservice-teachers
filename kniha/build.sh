@@ -76,6 +76,7 @@ files = [
     "09-discussion.md",
     "10-conclusion.md",
     "99-references.md",
+    "98-abbreviations.md",
 ] + appendices
 
 metadata_labels = (
@@ -210,7 +211,7 @@ PY
     pandoc --from gfm --toc --toc-depth=2 \
       --metadata title="$title" --metadata author="Jan Nehyba" \
       --resource-path=..:../vystupy/obrazky -o "$output" \
-      index.md 0[1-9]-*.md 10-*.md 99-references.md \
+      index.md 0[1-9]-*.md 10-*.md 99-references.md 98-abbreviations.md \
       appendix-A-*.md appendix-B-*.md appendix-C-*.md appendix-D-*.md appendix-E-*.md
   fi
 }

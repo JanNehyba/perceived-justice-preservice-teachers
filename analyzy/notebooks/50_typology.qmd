@@ -9,7 +9,7 @@ execute: { warning: false, message: false }
 <!--
   E5.1 per Appendix E. Inputs: three cross-provider coder matrices
   (typology_matrix_{opus,openai,glm}.csv). Reliability across providers -> consensus ->
-  Gower distance -> NeighborNet (emergent typology) + Ward; ARI/NMI vs a priori families.
+  Gower distance -> NeighborNet + Ward exploratory similarity maps; no a priori families.
   Human-validation and the character-free convergence check are appended by the
   dedicated scripts after the core manifest is written, so a full run ends with
   all three evidence blocks in one frozen manifest.
@@ -19,7 +19,7 @@ execute: { warning: false, message: false }
 ```{r setup}
 suppressPackageStartupMessages({
   library(dplyr); library(tidyr); library(cluster); library(phangorn)
-  library(ape); library(irr); library(mclust); library(igraph)
+  library(ape); library(irr)
 })
 set.seed(744)
 find_root <- function(){ for(p in c(".","..","../..")) if(dir.exists(file.path(p,"data/processed"))) return(normalizePath(p)); stop("root") }
@@ -81,33 +81,42 @@ put("consensus_ties_allthree_differ", sum(apply(codemat,2,function(v) length(uni
 write.csv(cbind(taxon=rownames(wide), wide[,CH]), file.path(TAB,"E5_consensus_matrix.csv"), row.names=FALSE)
 ```
 
-## Emergent typology: Gower distance -> NeighborNet + Ward
+## Exploratory similarity map: Gower distance -> NeighborNet + Ward
 
 ```{r trees}
 D <- cluster::daisy(W, metric="gower")
-fam <- taxa$family[match(rownames(wide), taxa$taxon)]
-famf <- factor(fam)
-pal <- c(distributive="#2E5A9C", procedural="#ED7D31", interactional="#70AD47",
-         rectificatory="#C00000", macro="#7030A0")
 
-# NeighborNet (reticulate network) — the emergent map
+# NeighborNet (reticulate network) — auxiliary exploratory map, with no family encoding
 nn <- tryCatch(phangorn::neighborNet(D), error=function(e){message("nnet: ",conditionMessage(e)); NULL})
 if(!is.null(nn)){
-  # colour tips in the NETWORK's own tip order (not the data-frame row order)
-  tipcol <- pal[as.character(taxa$family[match(nn$tip.label, taxa$taxon)])]
-  draw <- function() tryCatch(plot(nn, type="2D", tip.color=tipcol, cex=0.7),
-                              error=function(e) plot(nn, tip.color=tipcol, cex=0.7))
+  draw <- function() tryCatch(plot(nn, type="2D", tip.color="black", cex=0.7),
+                              error=function(e) plot(nn, tip.color="black", cex=0.7))
   png(file.path(FIG,"E5_dendrogram.png"), width=3000, height=2200, res=230); draw(); dev.off()
   pdf(file.path(FIG,"E5_dendrogram.pdf"), width=12, height=9); draw(); dev.off()
 }
 
-# Ward dendrogram + cut at k = number of a priori families (5) for ARI/NMI
+# Ward dendrogram + simple data-based diagnostic for a display cut.
+# With only 24 concepts this selects an exploratory visual aid, not a validated typology.
 hc <- hclust(D, method="ward.D2")
-k <- nlevels(famf); put("k_families", k)
-cl <- cutree(hc, k)
-put("ARI_vs_families", round(mclust::adjustedRandIndex(cl, as.integer(famf)),3))
-nmi <- igraph::compare(cl, as.integer(famf), method="nmi")
-put("NMI_vs_families", round(nmi,3))
+ks <- 2:8
+diag <- data.frame(
+  k=ks,
+  average_silhouette=vapply(ks, function(k)
+    mean(cluster::silhouette(cutree(hc,k), D)[,"sil_width"]), numeric(1))
+)
+write.csv(diag, file.path(TAB,"E5_cluster_diagnostics.csv"), row.names=FALSE)
+best_k <- diag$k[which.max(diag$average_silhouette)]
+runner <- diag[order(diag$average_silhouette, decreasing=TRUE),][2,]
+put("cluster_selection_method", "maximum average silhouette over k=2..8; exploratory because n=24")
+put("cluster_k_selected", best_k)
+put("cluster_silhouette_selected", round(max(diag$average_silhouette),3))
+put("cluster_silhouette_runner_up", round(runner$average_silhouette,3))
+put("cluster_silhouette_delta", round(max(diag$average_silhouette)-runner$average_silhouette,3))
+cl <- cutree(hc, best_k)
+measured <- rownames(wide) %in% c("Procedural justice","Equality","Need","Merit/desert (equity)")
+write.csv(data.frame(taxon=rownames(wide), ward_cluster=unname(cl), measured_in_book=measured),
+          file.path(TAB,"E5_cluster_membership.csv"), row.names=FALSE)
+cat("Exploratory silhouette-selected cut: k =",best_k,"\n"); print(diag)
 
 # Contested (low-alpha) characters are NOT discarded. Three views are reported side by side:
 #   A) all 16, equal weights  (primary D above)   B) reliable-9 subset   C) alpha-weighted
@@ -116,27 +125,20 @@ rel <- per_df$character[!is.na(per_df$alpha) & per_df$alpha >= .667]
 put("n_reliable_chars", length(rel))
 put("dropped_chars_low_alpha", paste(setdiff(CH, rel), collapse="; "))
 if(length(rel) >= 3){
-  clr <- cutree(hclust(cluster::daisy(W[,rel,drop=FALSE], metric="gower"),"ward.D2"), k)
-  put("ARI_vs_families_reliable_only", round(mclust::adjustedRandIndex(clr, as.integer(famf)),3))
+  hc_rel <- hclust(cluster::daisy(W[,rel,drop=FALSE], metric="gower"),"ward.D2")
+  put("cophenetic_r_all_vs_reliable", round(cor(cophenetic(hc),cophenetic(hc_rel)),3))
 }
 # (c) alpha-weighted Gower — nothing dropped; each character contributes in proportion to its
 #     inter-coder reliability (negative/NA alpha clamped to 0). The principled middle ground.
 wts <- pmax(0, per_df$alpha[match(CH, per_df$character)]); wts[is.na(wts)] <- 0
 Dw <- cluster::daisy(W, metric="gower", weights=wts)
-clw <- cutree(hclust(Dw, "ward.D2"), k)
-put("ARI_vs_families_alpha_weighted", round(mclust::adjustedRandIndex(clw, as.integer(famf)),3))
+hc_w <- hclust(Dw, "ward.D2")
+put("cophenetic_r_all_vs_alpha_weighted", round(cor(cophenetic(hc),cophenetic(hc_w)),3))
 # the contested characters are a finding, not noise: record them with their alpha
 contested <- per_df[!is.na(per_df$alpha) & per_df$alpha < .667, ]
 contested <- contested[order(contested$alpha), ]
 put("contested_characters", paste(sprintf("%s(%.2f)", contested$character, contested$alpha), collapse="; "))
 
-# which concepts sit outside their a priori family's dominant cluster?
-dom <- tapply(cl, famf, function(z) as.integer(names(sort(table(z),decreasing=TRUE))[1]))
-offliers <- rownames(wide)[cl != dom[as.character(fam)]]
-put("offliers_vs_families", paste(offliers, collapse="; "))
-write.csv(data.frame(taxon=rownames(wide), family=fam, ward_cluster=cl), file.path(TAB,"E5_cluster_membership.csv"), row.names=FALSE)
-cat("ARI vs families =", MAN[["ARI_vs_families"]], "| NMI =", round(nmi,3),
-    "\noff-family concepts:", MAN[["offliers_vs_families"]], "\n")
 ```
 
 ## Freeze manifest

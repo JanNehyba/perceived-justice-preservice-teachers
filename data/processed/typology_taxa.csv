@@ -1,25 +1,25 @@
-id,taxon,family,definition,source_hint
-t01,Equality,distributive,"Each recipient receives an identical share regardless of need, contribution, or status.",Deutsch 1975
-t02,Need,distributive,"Goods are distributed in proportion to recipients' needs; those who need more receive more.",Deutsch 1975
-t03,Merit/desert (equity),distributive,"Goods are distributed in proportion to contribution, effort, or desert; more input earns more.",Deutsch 1975; Adams 1965
-t04,Difference principle,distributive,"Inequalities are just only insofar as they maximally benefit the least-advantaged (maximin).",Rawls 1971
-t05,Sufficiency,distributive,"Justice requires that everyone reach a threshold of enough; distribution above it matters less.",Frankfurt 1987
-t06,Fair equality of opportunity,distributive,"Positions are open to all and people with equal talent and motivation have equal life-chances, correcting social contingencies.",Rawls 1971
-t07,Luck egalitarianism,distributive,"Inequalities from brute luck are unjust and to be neutralized; inequalities from genuine choice are acceptable.",Cohen 1989; Dworkin 1981
-t08,Capabilities approach,distributive,"Justice is the distribution of real freedoms (capabilities) to achieve valued functionings, not resources or welfare.",Sen 1980; Nussbaum 2000
-t09,Procedural justice,procedural,"Fairness of the decision-making process itself: consistency, voice, accuracy, correctability, absence of bias.",Thibaut & Walker 1975; Leventhal 1980
-t10,Interpersonal justice,interactional,"Fairness of the dignity and respect with which people are treated when procedures are enacted.",Bies & Moag 1986; Colquitt 2001
-t11,Informational justice,interactional,"Fairness of the explanations and information provided about procedures and outcomes.",Bies & Moag 1986; Colquitt 2001
-t12,Retributive justice,rectificatory,"Wrongdoing deserves punishment proportional to the offence; the backward-looking justice of deserved sanction.",Kant; standard retributivism
-t13,Restorative justice,rectificatory,"Response to harm centred on repairing relationships and reintegration through encounter, not proportional punishment.",Karp & Breslin 2001; Braithwaite
-t14,Corrective (rectificatory) justice,rectificatory,"Restoration of a balance disturbed by a wrongful transaction between parties (Aristotle's diorthotic justice).",Aristotle; Weinrib
-t15,Compensatory justice,rectificatory,"Victims are made whole for losses wrongfully imposed on them; the justice of compensation.",standard usage
-t16,Social justice,macro,"The fair distribution of advantages and burdens across society's institutions and structures.",Miller; Sabbagh & Schmitt 2016
-t17,Commutative justice,macro,"Fairness in voluntary exchanges and transactions between parties (as distinct from distribution).",Aristotle
-t18,Justice as fairness,macro,"Rawls' overall conception: principles of justice are those that would be chosen behind a veil of ignorance.",Rawls 1971
-t19,Complex equality (spheres),macro,"Different social goods belong to distinct spheres, each with its own just distributive criterion; domination is injustice.",Walzer 1983
-t20,Recognition justice,macro,"Justice as the recognition of identity and status, addressing misrecognition rather than (only) maldistribution.",Fraser; Honneth
-t21,Relational equality,macro,"Justice consists in people relating to one another as equals, not in any distributive pattern as such.",Anderson 1999; Scheffler
-t22,Entitlement (libertarian) justice,macro,"Holdings are just if acquired and transferred by just steps; justice is historical, not patterned or end-state.",Nozick 1974
-t23,Utilitarian justice,macro,"A distribution is just if it maximizes aggregate welfare; justice is the greatest good summed over persons.",Bentham; Mill
-t24,Formal justice (impartiality),macro,"Like cases must be treated alike and unlike cases differently; the formal principle of impartial consistency.",Aristotle; Hart
+id,taxon,definition,source_hint
+t01,Equality,"Each recipient receives an identical share regardless of need, contribution, or status.",Deutsch 1975
+t02,Need,"Goods are distributed in proportion to recipients' needs; those who need more receive more.",Deutsch 1975
+t03,Merit/desert (equity),"Goods are distributed in proportion to contribution, effort, or desert; more input earns more.",Deutsch 1975; Adams 1965
+t04,Difference principle,"Inequalities are just only insofar as they maximally benefit the least-advantaged (maximin).",Rawls 1971
+t05,Sufficiency,"Justice requires that everyone reach a threshold of enough; distribution above it matters less.",Frankfurt 1987
+t06,Fair equality of opportunity,"Positions are open to all and people with equal talent and motivation have equal life-chances, correcting social contingencies.",Rawls 1971
+t07,Luck egalitarianism,"Inequalities from brute luck are unjust and to be neutralized; inequalities from genuine choice are acceptable.",Cohen 1989; Dworkin 1981
+t08,Capabilities approach,"Justice is the distribution of real freedoms (capabilities) to achieve valued functionings, not resources or welfare.",Sen 1980; Nussbaum 2000
+t09,Procedural justice,"Fairness of the decision-making process itself: consistency, voice, accuracy, correctability, absence of bias.",Thibaut & Walker 1975; Leventhal 1980
+t10,Interpersonal justice,"Fairness of the dignity and respect with which people are treated when procedures are enacted.",Bies & Moag 1986; Colquitt 2001
+t11,Informational justice,"Fairness of the explanations and information provided about procedures and outcomes.",Bies & Moag 1986; Colquitt 2001
+t12,Retributive justice,"Wrongdoing deserves punishment proportional to the offence; the backward-looking justice of deserved sanction.",Kant; standard retributivism
+t13,Restorative justice,"Response to harm centred on repairing relationships and reintegration through encounter, not proportional punishment.",Karp & Breslin 2001; Braithwaite
+t14,Corrective (rectificatory) justice,"Restoration of a balance disturbed by a wrongful transaction between parties (Aristotle's diorthotic justice).",Aristotle; Weinrib
+t15,Compensatory justice,"Victims are made whole for losses wrongfully imposed on them; the justice of compensation.",standard usage
+t16,Social justice,"The fair distribution of advantages and burdens across society's institutions and structures.",Miller; Sabbagh & Schmitt 2016
+t17,Commutative justice,"Fairness in voluntary exchanges and transactions between parties (as distinct from distribution).",Aristotle
+t18,Justice as fairness,"Rawls' overall conception: principles of justice are those that would be chosen behind a veil of ignorance.",Rawls 1971
+t19,Complex equality (spheres),"Different social goods belong to distinct spheres, each with its own just distributive criterion; domination is injustice.",Walzer 1983
+t20,Recognition justice,"Justice as the recognition of identity and status, addressing misrecognition rather than (only) maldistribution.",Fraser; Honneth
+t21,Relational equality,"Justice consists in people relating to one another as equals, not in any distributive pattern as such.",Anderson 1999; Scheffler
+t22,Entitlement (libertarian) justice,"Holdings are just if acquired and transferred by just steps; justice is historical, not patterned or end-state.",Nozick 1974
+t23,Utilitarian justice,"A distribution is just if it maximizes aggregate welfare; justice is the greatest good summed over persons.",Bentham; Mill
+t24,Formal justice (impartiality),"Like cases must be treated alike and unlike cases differently; the formal principle of impartial consistency.",Aristotle; Hart

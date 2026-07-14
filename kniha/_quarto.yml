@@ -10,6 +10,9 @@ book:
 
 date-format: "YYYY"
 
+filters:
+  - partials/visible-external-links.lua
+
 format:
   docx:
     toc: true
@@ -46,20 +49,22 @@ format:
         \newunicodechar{≤}{\ensuremath{\leq}}
         \newunicodechar{≥}{\ensuremath{\geq}}
         \newunicodechar{≠}{\ensuremath{\neq}}
-        % JEDNOTNÝ STYL: MUNI modrá pro všechny nadpisy + odpovídající položky v obsahu
-        % (aby obsah ladil s modrými nadpisy v textu). Vzor MU barvu nepředepisuje — volitelné, vratné.
+        % JEDNOTNÝ STYL: MUNI modrá pro nadpisy. Vzor MU barvu nepředepisuje — volitelné, vratné.
         \usepackage{xcolor}
+        \usepackage[normalem]{ulem}
         \definecolor{MUNIblue}{HTML}{0000DC}
-        % Proklikávací odkazy na soubory v companion repu (P9.3): URL modře, ostatní černě.
+        % Externi odkazy: modre, podtrzene a s viditelnym symbolem; interni odkazy cerne.
+        % Vlastni sazbu externich kotev zajistuje visible-external-links.lua.
         % Odloženo na \AtBeginDocument — hyperref je do té doby načten (jinak Undefined control sequence).
         \AtBeginDocument{\hypersetup{colorlinks=true,urlcolor=MUNIblue,linkcolor=black,citecolor=black,filecolor=MUNIblue}}
         \addtokomafont{part}{\color{MUNIblue}}
         \addtokomafont{chapter}{\color{MUNIblue}}
         \addtokomafont{section}{\color{MUNIblue}}
         \addtokomafont{subsection}{\color{MUNIblue}}
-        % obsah (TOC): části a kapitoly modře jako jejich nadpisy v textu
-        \addtokomafont{partentry}{\color{MUNIblue}}
-        \addtokomafont{chapterentry}{\color{MUNIblue}}
+        % Obsah je interni navigace: polozky zustavaji cerne, aby modra
+        % v beznem textu jednoznacne oznacovala externi cil.
+        \addtokomafont{partentry}{\color{black}}
+        \addtokomafont{chapterentry}{\color{black}}
     toc: true
     # lof/lot vypnuto záměrně: figury/tabulky nesou ruční popisky s kapitolovým
     # číslováním (*Figure 4.1.*), takže auto-seznamy by byly prázdné.

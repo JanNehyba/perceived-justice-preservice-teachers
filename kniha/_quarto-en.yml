@@ -22,6 +22,7 @@ book:
         - 09-discussion.md
         - 10-conclusion.md
     - 99-references.md
+    - 98-abbreviations.md
   appendices:
     - appendix-A-instrument.md
     - appendix-B-vignettes.md
