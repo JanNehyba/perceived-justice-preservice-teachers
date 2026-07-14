@@ -1,0 +1,360 @@
+---
+title: "Study 2/3 — Psychometrics of the Four-Principle Instrument"
+subtitle: "E2 analysis — habilitace-1, stream #1 (n=744; + 2021 replication n=346)"
+author: "Jan Nehyba"
+date: "2026-07-11"
+format:
+  html: { toc: true, code-fold: true, df-print: paged }
+execute: { warning: false, message: false }
+---
+
+<!--
+  P3 / E2 per analyzy/PLAN-analyz.md. Reproducible source for chapter 7.3 (+ completing 6.4).
+  Freezes numbers to ../vystupy/tabulky/ : 06_cisla.csv (E2.0 = 2021 replication),
+  07_cisla.csv (E2.2-2.7 = final n=744). Data read-only; writes only ../vystupy/.
+  Run standalone (no quarto), from analyzy/:
+    Rscript -e 'knitr::purl("notebooks/20_psychometrie.qmd","/tmp/20.R",quiet=TRUE); source("/tmp/20.R")'
+-->
+
+```{r setup}
+suppressPackageStartupMessages({
+  library(dplyr); library(psych); library(lavaan); library(semTools)
+  library(EGAnet); library(BifactorIndicesCalculator)
+})
+set.seed(744)
+
+find_root <- function() {
+  for (p in c(".","..","../..","../../..")) if (dir.exists(file.path(p,"data/processed"))) return(normalizePath(p))
+  stop("root not found")
+}
+ROOT <- find_root()
+PROC <- file.path(ROOT,"data","processed")
+TAB  <- file.path(ROOT,"vystupy","tabulky"); dir.create(TAB, showWarnings=FALSE, recursive=TRUE)
+
+ITEMS <- sprintf("item_%02d", 1:26)
+# FINAL 4-principle mapping (from codebook code_2324; note 16<->17 swap vs the 2021 file)
+MAP <- list(
+  procedural = sprintf("item_%02d", c(1,2,6,7,8,23,24,26)),
+  equality   = sprintf("item_%02d", c(3,10,14,15,16,22)),
+  needs      = sprintf("item_%02d", c(4,5,9,11,17,18)),
+  merit      = sprintf("item_%02d", c(12,13,19,20,21,25))
+)
+stopifnot(length(unlist(MAP))==26, !any(duplicated(unlist(MAP))))
+
+MAN6 <- list(); MAN7 <- list()
+p6 <- function(k,v){ MAN6[[k]] <<- v; invisible(v) }
+p7 <- function(k,v){ MAN7[[k]] <<- v; invisible(v) }
+
+# helper: robust fit indices for WLSMV
+fitrow <- function(fit){
+  want <- c("chisq.scaled","df.scaled","pvalue.scaled","cfi.robust","tli.robust",
+            "rmsea.robust","rmsea.ci.lower.robust","rmsea.ci.upper.robust","srmr")
+  fm <- tryCatch(fitMeasures(fit, want), error=function(e) setNames(rep(NA_real_,length(want)),want))
+  # fall back to .scaled if .robust missing
+  for(b in c("cfi","tli","rmsea")) if(is.na(fm[[paste0(b,".robust")]]))
+    fm[[paste0(b,".robust")]] <- tryCatch(fitMeasures(fit,paste0(b,".scaled")), error=function(e) NA_real_)
+  round(fm,3)
+}
+```
+
+## E2.0 — Replication of the published 2021 EFA (completes ch. 6.4)
+
+```{r efa2021}
+d21 <- read.csv(file.path(PROC,"justice_2021_clean.csv"), check.names=FALSE)
+# columns are named like "1Procedurální"... derive a-priori principle from the name
+cn <- names(d21)
+pr21 <- gsub("^[0-9]+","", cn)                       # principle label per column
+X21 <- as.data.frame(lapply(d21, function(x) suppressWarnings(as.numeric(x))))
+names(X21) <- paste0("i", sprintf("%02d", seq_along(cn)))
+X21 <- X21[complete.cases(X21), , drop=FALSE]
+n_pool36 <- nrow(read.csv(file.path(PROC,"justice_2021_pool36.csv"), check.names=FALSE))
+p6("n_2021_pool36_raw", n_pool36)     # raw 36-item Forms pool (justice_2021_pool36.csv)
+p6("n_2021_clean", nrow(d21))         # cleaned published-EFA file (justice_2021_clean.csv)
+p6("n_2021_complete", nrow(X21)); p6("k_items_2021", ncol(X21))
+
+# polychoric-based KMO + Bartlett; parallel analysis; 4-factor EFA (minres, oblimin)
+poly21 <- psych::polychoric(X21)$rho
+kmo21  <- psych::KMO(poly21)
+bart21 <- psych::cortest.bartlett(poly21, n=nrow(X21))
+p6("kmo_2021_overall", round(kmo21$MSA,3))
+p6("bartlett_2021_chisq", round(bart21$chisq,1)); p6("bartlett_2021_p", signif(bart21$p.value,3))
+
+pa21 <- tryCatch(psych::fa.parallel(X21, cor="poly", fa="fa", plot=FALSE, fm="minres"),
+                 error=function(e) NULL)
+if(!is.null(pa21)) p6("parallel_2021_nfact", pa21$nfact)
+
+fa21 <- psych::fa(X21, nfactors=4, fm="minres", rotate="oblimin", cor="poly")
+p6("var_2021_4f_pct", round(sum(fa21$Vaccounted["Proportion Var",])*100,1))
+
+# a-priori subscale alphas (2021 labels) — legacy, as published
+al21 <- sapply(unique(pr21), function(pp){
+  cols <- which(pr21==pp)
+  suppressWarnings(psych::alpha(X21[,cols,drop=FALSE], check.keys=FALSE)$total$raw_alpha)
+})
+for(pp in names(al21)) p6(paste0("alpha_2021_",pp), round(al21[[pp]],3))
+write.csv(data.frame(principle=names(al21), alpha=round(as.numeric(al21),3)),
+          file.path(TAB,"06_alpha2021.csv"), row.names=FALSE)
+write.csv(round(unclass(fa21$loadings),3), file.path(TAB,"06_efa2021_loadings.csv"))
+cat("2021 replication: KMO=",round(kmo21$MSA,2)," var(4F)=",round(sum(fa21$Vaccounted['Proportion Var',])*100,1),
+    "% alphas=",paste(round(as.numeric(al21),2),collapse="/"),"\n",sep="")
+cat("R psych version:", as.character(utils::packageVersion("psych")), "\n")
+p6("psych_version", as.character(utils::packageVersion("psych")))
+```
+
+## Load final data (n=744) and split by wave
+
+```{r loadfinal}
+d <- read.csv(file.path(PROC,"justice_final.csv"))
+stopifnot(all(ITEMS %in% names(d)))
+X <- d[, ITEMS]
+stopifnot(sum(complete.cases(X))==nrow(d))                 # 0 missing
+stopifnot(all(as.matrix(X)>=1 & as.matrix(X)<=7))
+w <- split(seq_len(nrow(d)), d$wave)
+n23 <- length(w[["2023"]]); n24 <- length(w[["2024"]]); n26 <- length(w[["2026"]])
+p7("n_total",nrow(d)); p7("n_2023",n23); p7("n_2024",n24); p7("n_2026",n26)
+cat("n =",nrow(d)," 2023/2024/2026 =",n23,"/",n24,"/",n26,"\n")
+X23 <- X[w[["2023"]],]; X24 <- X[w[["2024"]],]; X26 <- X[w[["2026"]],]
+```
+
+## E2.6 — Item descriptives (ceiling, category use)
+
+```{r desc}
+desc <- psych::describe(X)[,c("mean","sd","median","skew","kurtosis")]
+desc$pct_ceiling <- sapply(X, function(x) round(mean(x==7)*100,1))
+desc$principle <- rep(NA,26); for(f in names(MAP)) desc$principle[match(MAP[[f]],rownames(desc))] <- f
+write.csv(round(desc[,1:6],3) |> (\(z){z$principle<-desc$principle;z})(), file.path(TAB,"07_item_descriptives.csv"))
+p7("mean_ceiling_pct", round(mean(desc$pct_ceiling),1))
+p7("max_ceiling_pct", max(desc$pct_ceiling))
+cat("mean ceiling (%at7) =",round(mean(desc$pct_ceiling),1)," max =",max(desc$pct_ceiling),"\n")
+```
+
+## E2.2 — Exploration on 2023 (n=247)
+
+```{r efa2023}
+poly23 <- psych::polychoric(X23)$rho
+kmo23 <- psych::KMO(poly23); bart23 <- psych::cortest.bartlett(poly23, n=nrow(X23))
+p7("kmo_2023", round(kmo23$MSA,3)); p7("bartlett_2023_p", signif(bart23$p.value,3))
+
+pa23 <- tryCatch(psych::fa.parallel(X23, cor="poly", fa="fa", plot=FALSE, fm="minres"),
+                 error=function(e) NULL)
+if(!is.null(pa23)) p7("parallel_2023_nfact", pa23$nfact)
+ega23 <- tryCatch(EGAnet::EGA(X23, model="glasso", plot.EGA=FALSE), error=function(e) NULL)
+if(!is.null(ega23)) p7("ega_2023_ndim", ega23$n.dim)
+
+fa23_4 <- psych::fa(X23, nfactors=4, fm="minres", rotate="oblimin", cor="poly")
+p7("var_2023_4f_pct", round(sum(fa23_4$Vaccounted["Proportion Var",])*100,1))
+L <- unclass(fa23_4$loadings)
+# how many items have a salient (>=.40) loading on their a-priori factor's best-matching column?
+p7("efa2023_items_salient", sum(apply(abs(L),1,max) >= .40))
+p7("efa2023_items_below40", sum(apply(abs(L),1,max) < .40))
+write.csv(round(L,3), file.path(TAB,"07_efa2023_loadings.csv"))
+cat("2023 EFA: KMO=",round(kmo23$MSA,2)," parallel=",if(!is.null(pa23))pa23$nfact else NA,
+    " EGA dim=",if(!is.null(ega23))ega23$n.dim else NA," var(4F)=",round(sum(fa23_4$Vaccounted['Proportion Var',])*100,1),"%\n",sep="")
+```
+
+## E2.3 — Confirmation on 2024 (n=333): competing ordinal CFA models
+
+```{r cfa-models}
+syn <- function(map) paste(sapply(names(map), function(f)
+  paste0(f," =~ ", paste(map[[f]], collapse=" + "))), collapse="\n")
+
+m1F  <- paste0("g =~ ", paste(ITEMS, collapse=" + "))
+m4F  <- syn(MAP)
+mHO  <- paste0(m4F, "\n g =~ ", paste(names(MAP), collapse=" + "))
+mBI  <- paste0("g =~ ", paste(ITEMS, collapse=" + "), "\n", syn(MAP))
+
+cfa_ord <- function(model, data, ortho=FALSE)
+  lavaan::cfa(model, data=data, ordered=ITEMS, estimator="WLSMV",
+              parameterization="theta", orthogonal=ortho, std.lv=TRUE)
+
+fits <- list()
+fits$oneF <- tryCatch(cfa_ord(m1F,X24), error=function(e){message("1F: ",conditionMessage(e));NULL})
+fits$fourF<- tryCatch(cfa_ord(m4F,X24), error=function(e){message("4F: ",conditionMessage(e));NULL})
+fits$HO   <- tryCatch(cfa_ord(mHO,X24), error=function(e){message("HO: ",conditionMessage(e));NULL})
+fits$bifac<- tryCatch(cfa_ord(mBI,X24, ortho=TRUE), error=function(e){message("BIF: ",conditionMessage(e));NULL})
+
+# ESEM: single 4-factor EFA block over all items, geomin-rotated, ordinal WLSMV
+# (correct lavaan syntax: efa() modifier goes on the FACTOR, not each item)
+esem_model <- paste(sapply(paste0("F",1:4), function(f)
+  paste0('efa("e1")*', f, ' =~ ', paste(ITEMS, collapse=" + "))), collapse="\n")
+fits$esem <- tryCatch(
+  lavaan::cfa(esem_model, data=X24, ordered=ITEMS, estimator="WLSMV",
+              parameterization="theta", rotation="geomin", std.lv=TRUE),
+  error=function(e){message("ESEM: ",conditionMessage(e));NULL})
+
+fittab <- do.call(rbind, lapply(names(fits), function(nm){
+  f <- fits[[nm]]; if(is.null(f)) return(NULL)
+  fr <- fitrow(f); data.frame(model=nm, chisq=fr[["chisq.scaled"]], df=fr[["df.scaled"]],
+    cfi=fr[["cfi.robust"]], tli=fr[["tli.robust"]], rmsea=fr[["rmsea.robust"]],
+    rmsea_lo=fr[["rmsea.ci.lower.robust"]], rmsea_hi=fr[["rmsea.ci.upper.robust"]], srmr=fr[["srmr"]])
+}))
+write.csv(fittab, file.path(TAB,"07_cfa_modelfit.csv"), row.names=FALSE)
+print(fittab)
+for(nm in fittab$model){ r<-fittab[fittab$model==nm,]
+  p7(paste0("cfi_",nm),r$cfi); p7(paste0("rmsea_",nm),r$rmsea); p7(paste0("srmr_",nm),r$srmr) }
+
+# nested comparison 4F vs 1F and 4F vs HO (scaled)
+if(!is.null(fits$fourF) && !is.null(fits$oneF)){
+  lr <- tryCatch(lavaan::lavTestLRT(fits$oneF, fits$fourF), error=function(e) NULL)
+  if(!is.null(lr)) p7("lrt_1F_vs_4F_p", signif(lr$`Pr(>Chisq)`[2],3)) }
+
+# bifactor tandem indices (ECV, PUC, omegaH) — the verdict criterion, not fit alone
+if(!is.null(fits$bifac)){
+  bi <- tryCatch(BifactorIndicesCalculator::bifactorIndices(fits$bifac), error=function(e) NULL)
+  if(!is.null(bi)){
+    mli <- bi$ModelLevelIndices
+    p7("bifactor_ECV", round(mli[["ECV.g"]],3))
+    p7("bifactor_PUC", round(mli[["PUC"]],3))
+    p7("bifactor_omega_general", round(mli[["Omega.g"]],3))
+    p7("bifactor_omegaH_general", round(mli[["OmegaH.g"]],3))
+    write.csv(round(as.data.frame(bi$FactorLevelIndices),3), file.path(TAB,"07_bifactor_indices.csv"))
+    cat("bifactor: ECV.g=",round(mli[["ECV.g"]],3)," PUC=",round(mli[["PUC"]],3),
+        " omegaH.g=",round(mli[["OmegaH.g"]],3),"\n",sep="")
+  }
+}
+# factor correlations from 4F (evidence for whether 4 factors are distinct)
+if(!is.null(fits$fourF)){
+  psi <- lavaan::lavInspect(fits$fourF,"cor.lv")
+  write.csv(round(psi,3), file.path(TAB,"07_factor_correlations_4F.csv"))
+  p7("max_factor_cor_4F", round(max(psi[lower.tri(psi)]),3))
+  p7("mean_abs_factor_cor_4F", round(mean(abs(psi[lower.tri(psi)])),3))
+}
+# ESEM factor correlations — pre-registered CFA-vs-ESEM inflation check (E2.3f):
+# if ESEM factor correlations are NOT lower than CFA's, the ICM-CFA misfit was not
+# driven by inflated factor correlations, and ESEM's gain is the freed cross-loadings.
+if(!is.null(fits$esem)){
+  psi_e <- tryCatch(lavaan::lavInspect(fits$esem,"cor.lv"), error=function(e) NULL)
+  if(!is.null(psi_e)){
+    write.csv(round(psi_e,3), file.path(TAB,"07_factor_correlations_ESEM.csv"))
+    p7("max_factor_cor_ESEM", round(max(abs(psi_e[lower.tri(psi_e)])),3))
+    p7("mean_abs_factor_cor_ESEM", round(mean(abs(psi_e[lower.tri(psi_e)])),3))
+    cat("factor cor mean|abs|: 4F=",round(mean(abs(psi[lower.tri(psi)])),3),
+        " ESEM=",round(mean(abs(psi_e[lower.tri(psi_e)])),3),"\n",sep="")
+  }
+}
+```
+
+## E2.4 — Reliability: categorical omega (2024 four-factor model)
+
+```{r omega}
+# categorical omega on the latent-response scale from standardized loadings
+# (compRelSEM is buggy in this semTools build); omega_j = (Σλ)² / [(Σλ)² + Σ(1−λ²)]
+omega_cat <- function(fit, map){
+  ss <- lavaan::standardizedSolution(fit); ld <- ss[ss$op=="=~",]
+  sapply(names(map), function(f){
+    lam <- ld$est.std[ld$lhs==f & ld$rhs %in% map[[f]]]
+    (sum(lam)^2)/(sum(lam)^2 + sum(1-lam^2))
+  })
+}
+if(!is.null(fits$fourF)){
+  om <- omega_cat(fits$fourF, MAP)
+  write.csv(data.frame(factor=names(om), omega=round(as.numeric(om),3)),
+            file.path(TAB,"07_omega_2024.csv"), row.names=FALSE)
+  for(f in names(om)) p7(paste0("omega_2024_",f), round(om[[f]],3))
+  p7("omega_2024_min", round(min(om),3)); p7("omega_2024_max", round(max(om),3))
+  cat("categorical omega 2024 (latent-response):", paste(sprintf("%s=%.2f",names(om),om), collapse="  "),"\n")
+}
+```
+
+## E2.3b — Holdout replication on 2026 (n=164; confirmatory only, no modifications)
+
+```{r holdout}
+# Pre-registered: the untouched 2026 wave validates the focal 4F and the winning ESEM.
+# Judged on fit replication + parameter congruence with 2024 (not strict cutoffs; n=164).
+if(!is.null(fits$fourF)){
+  f26 <- tryCatch(cfa_ord(m4F, X26), error=function(e){message("4F/2026: ",conditionMessage(e));NULL})
+  if(!is.null(f26)){
+    fr <- fitrow(f26)
+    p7("cfi_fourF_2026", fr[["cfi.robust"]]); p7("rmsea_fourF_2026", fr[["rmsea.robust"]])
+    p7("srmr_fourF_2026", fr[["srmr"]])
+    # loading congruence 2024 vs 2026 (same parameter order by construction)
+    g24 <- lavaan::standardizedSolution(fits$fourF); g24 <- g24[g24$op=="=~","est.std"]
+    g26 <- lavaan::standardizedSolution(f26);        g26 <- g26[g26$op=="=~","est.std"]
+    p7("holdout_loading_r", round(cor(g24,g26),3))
+    p7("holdout_loading_tucker", round(sum(g24*g26)/sqrt(sum(g24^2)*sum(g26^2)),3))
+    om26 <- omega_cat(f26, MAP)
+    for(f in names(om26)) p7(paste0("omega_2026_",f), round(om26[[f]],3))
+    cat("HOLDOUT 2026 4F: CFI=",fr[["cfi.robust"]]," RMSEA=",fr[["rmsea.robust"]],
+        " loading r(2024,2026)=",round(cor(g24,g26),3),"\n",sep="")
+  }
+}
+fits$esem26 <- tryCatch(
+  lavaan::cfa(esem_model, data=X26, ordered=ITEMS, estimator="WLSMV",
+              parameterization="theta", rotation="geomin", std.lv=TRUE),
+  error=function(e){message("ESEM/2026: ",conditionMessage(e));NULL})
+if(!is.null(fits$esem26)){
+  fr <- fitrow(fits$esem26)
+  p7("cfi_esem_2026", fr[["cfi.robust"]]); p7("rmsea_esem_2026", fr[["rmsea.robust"]]); p7("srmr_esem_2026", fr[["srmr"]])
+  cat("HOLDOUT 2026 ESEM: CFI=",fr[["cfi.robust"]]," RMSEA=",fr[["rmsea.robust"]]," SRMR=",fr[["srmr"]],"\n",sep="")
+} else p7("cfi_esem_2026", NA)
+```
+
+## E2.5 — Duplicate-pattern sensitivity (n=742)
+
+```{r duplicates}
+dup <- duplicated(X)                      # second occurrence of an identical 26-item pattern
+p7("n_duplicate_patterns", sum(dup))
+Xnd <- X[!dup,]
+p7("n_sensitivity", nrow(Xnd))
+f_nd <- tryCatch(cfa_ord(m4F, Xnd), error=function(e) NULL)
+if(!is.null(f_nd)){
+  fr <- fitrow(f_nd)
+  p7("cfi_fourF_nodup", fr[["cfi.robust"]]); p7("rmsea_fourF_nodup", fr[["rmsea.robust"]])
+  cat("SENSITIVITY n=",nrow(Xnd),": 4F CFI=",fr[["cfi.robust"]]," RMSEA=",fr[["rmsea.robust"]],"\n",sep="")
+}
+```
+
+## E2.7 — Invariance gate (configural → thresholds → +loadings), 2023/2024/2026
+
+```{r invariance-gate}
+dg <- d[, c("wave", ITEMS)]; dg$wave <- as.character(dg$wave)
+# Full ordinal (Wu-Estabrook) multigroup invariance is NOT run here: some response
+# categories are empty within a wave (ceiling effect; e.g. item_01 has no "7" in 2023),
+# which makes per-group thresholds inestimable under WLSMV. The P3 gate is therefore a
+# CONTINUOUS (MLR) approximation used ONLY to screen whether pooled n=744 reporting is
+# defensible. Full ordinal measurement invariance + latent means is done in E4/P5 (ch. 8).
+p7("inv_gate_method","MLR continuous approx (ordinal empty-cell within wave); full ordinal in E4")
+gate <- tryCatch({
+  cfg <- lavaan::cfa(m4F, data=dg, group="wave", estimator="MLR", std.lv=TRUE)
+  ldg <- lavaan::cfa(m4F, data=dg, group="wave", estimator="MLR", std.lv=TRUE, group.equal="loadings")
+  list(cfg=cfg, ldg=ldg)
+}, error=function(e){ message("GATE failed: ",conditionMessage(e)); NULL })
+
+if(!is.null(gate)){
+  cfi_cfg <- as.numeric(fitMeasures(gate$cfg,"cfi.robust"))
+  cfi_ldg <- as.numeric(fitMeasures(gate$ldg,"cfi.robust"))
+  p7("inv_cfi_configural", round(cfi_cfg,3)); p7("inv_cfi_metric", round(cfi_ldg,3))
+  dcfi_metric <- cfi_cfg - cfi_ldg
+  p7("inv_dCFI_configural_to_metric", round(dcfi_metric,3))
+  pooled_ok <- is.finite(dcfi_metric) && dcfi_metric <= 0.01
+  p7("pooled_reporting_allowed", pooled_ok)
+  cat("GATE(MLR): CFI configural=",round(cfi_cfg,3)," +loadings=",round(cfi_ldg,3),
+      " => dCFI=",round(dcfi_metric,3)," pooled_ok=",pooled_ok,"\n",sep="")
+} else { p7("pooled_reporting_allowed", NA) }
+```
+
+## Pooled reporting (only if gate passed)
+
+```{r pooled}
+if(isTRUE(MAN7[["pooled_reporting_allowed"]])){
+  fit_pool <- tryCatch(cfa_ord(m4F, X), error=function(e) NULL)
+  if(!is.null(fit_pool)){
+    fr <- fitrow(fit_pool)
+    p7("pooled_cfi_4F", fr[["cfi.robust"]]); p7("pooled_rmsea_4F", fr[["rmsea.robust"]]); p7("pooled_srmr_4F", fr[["srmr"]])
+    omp <- omega_cat(fit_pool, MAP)
+    for(f in names(omp)) p7(paste0("omega_pooled_",f), round(omp[[f]],3))
+    p7("omega_pooled_min", round(min(omp),3)); p7("omega_pooled_max", round(max(omp),3))
+    cat("POOLED 4F (n=744): CFI=",fr[["cfi.robust"]]," RMSEA=",fr[["rmsea.robust"]]," SRMR=",fr[["srmr"]],"\n",sep="")
+  }
+} else cat("Pooled reporting NOT run (gate not passed / not evaluated).\n")
+```
+
+## Freeze manifests
+
+```{r manifest}
+w6 <- data.frame(metric=names(MAN6), value=vapply(MAN6,function(x)as.character(x),character(1)))
+w7 <- data.frame(metric=names(MAN7), value=vapply(MAN7,function(x)as.character(x),character(1)))
+write.csv(w6, file.path(TAB,"06_cisla.csv"), row.names=FALSE)
+write.csv(w7, file.path(TAB,"07_cisla.csv"), row.names=FALSE)
+cat("Wrote 06_cisla.csv (",nrow(w6),") and 07_cisla.csv (",nrow(w7),")\n",sep="")
+```

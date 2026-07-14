@@ -1,0 +1,22 @@
+// Figure 6.1 — Evolution of the self-report instrument (five versions).
+// Styl dle kniha/GRAFICKY-MANUAL.md: tier-2 (souhlasová škála) světle oranžová,
+// finální spravedlnostní verze MUNI modrá, 2019 wording-only šedá čárkovaná,
+// hranice škály červená. n's / item counts from DATA_README.
+digraph evolution {
+  rankdir=LR;
+  bgcolor="white";
+  node [fontname="Arial", fontsize=10, shape=box, style="rounded,filled", penwidth=1.2, margin="0.16,0.10"];
+  edge [fontname="Arial", fontsize=9, color="#6E6E6E", fontcolor="#6E6E6E", arrowsize=0.8];
+  graph [ranksep=0.75, nodesep=0.3];
+
+  V2019 [label="2019 · v1\n21 items\n3rd-person descriptive\n(wording only)", fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8", style="rounded,filled,dashed"];
+  V2020 [label="2020 · v2\nn = 375 · 23 items\n3rd-person normative\nagreement scale", fillcolor="#FFD9B8", color="#FF7300"];
+  V2021 [label="2021 · v3\nn = 433 · 36→26 items\n1st-person\nagreement scale", fillcolor="#FFD9B8", color="#FF7300"];
+  V2022 [label="2022 · v4\nn = 263 · 26 items\n1st-person\nagreement scale", fillcolor="#FFD9B8", color="#FF7300"];
+  V2023 [label="2023–26 · v5 (final)\nn = 744 · 26 items\n1st-person\nfairness scale", fillcolor="#0000DC", fontcolor="white", color="#0000DC", penwidth=2];
+
+  V2019 -> V2020 [label="  PERSPECTIVE\n  descriptive → normative", fontcolor="black"];
+  V2020 -> V2021 [label="  PERSON\n  3rd → 1st;  pool 36 → EFA 26", fontcolor="black"];
+  V2021 -> V2022 [label="  consolidation\n  (+ BIDR)"];
+  V2022 -> V2023 [label="  SCALE\n  agreement → fairness\n  reword items 16, 22", penwidth=2, color="#F01928", fontcolor="#F01928"];
+}

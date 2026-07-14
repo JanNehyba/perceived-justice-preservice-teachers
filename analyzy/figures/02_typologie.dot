@@ -1,0 +1,50 @@
+// Figure 2.1 — Typologie spravedlnosti (E5.0), ZJEDNODUŠENÁ verze dle GRAFICKY-MANUAL.md.
+// Syté uzly = 4 měřené principy (fixní barvy: procedurální modrá, rovnost oranžová,
+// potřeby zelená, zásluhy fialová); světlé = organizační rodiny; šedé čárkované = mimo
+// záběr knihy. Bez vnitřní legendy a poznámek — vše říká popisek pod figurou.
+digraph typology {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Arial", fontsize=11, shape=box, style="rounded,filled",
+        penwidth=1.1, margin="0.16,0.09"];
+  edge [color="#B8B8B8", arrowsize=0.6];
+  graph [ranksep=0.55, nodesep=0.3];
+
+  ROOT [label="JUSTICE", fillcolor="white", color="black", fontsize=14, penwidth=1.6];
+
+  // rodiny
+  DIST  [label="Distributive\n(what is shared)",          fillcolor="#FFD9B8", color="#FF7300"];
+  PROC  [label="Procedural justice\n(how decisions are made)", fillcolor="#0000DC", fontcolor="white", color="#0000DC"];
+  INTER [label="Interactional\n(how people are treated)", fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8", style="rounded,filled,dashed"];
+  RECT  [label="Rectificatory\n(response to wrongdoing)", fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8", style="rounded,filled,dashed"];
+
+  // měřené distribuční principy (syté, fixní barvy)
+  EQ [label="Equality",       fillcolor="#FF7300", fontcolor="white", color="#FF7300"];
+  NE [label="Need",           fillcolor="#00AF3F", fontcolor="white", color="#00AF3F"];
+  ME [label="Merit / desert", fillcolor="#9100DC", fontcolor="white", color="#9100DC"];
+
+  // mimo záběr (šedé čárkované, menší)
+  node [fontsize=10, fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8",
+        style="rounded,filled,dashed", margin="0.10,0.06"];
+  IP  [label="Interpersonal"];
+  IN  [label="Informational"];
+  RET [label="Retributive"];
+  RES [label="Restorative"];
+  COR [label="Corrective /\ncompensatory"];
+
+  ROOT -> DIST;
+  ROOT -> PROC;
+  ROOT -> INTER;
+  ROOT -> RECT;
+
+  DIST -> EQ;
+  DIST -> NE;
+  DIST -> ME;
+
+  INTER -> IP;
+  INTER -> IN;
+
+  RECT -> RET;
+  RECT -> RES;
+  RECT -> COR;
+}

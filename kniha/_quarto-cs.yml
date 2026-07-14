@@ -1,0 +1,40 @@
+# Czech rendering profile. The build script stages kapitoly/cs under the same
+# filenames before invoking this profile.
+book:
+  title: "Subjektivně vnímaná spravedlnost a její měření"
+  subtitle: "u studentů učitelství"
+  author: "Jan Nehyba"
+  date: "2026"
+  output-file: "habilitace-CZ"
+  chapters:
+    - index.md
+    - 01-introduction.md
+    - part: "Východiska"
+      chapters:
+        - 02-theoretical-foundations.md
+        - 03-czech-context.md
+        - 04-methodology.md
+    - part: "Empirické doklady"
+      chapters:
+        - 05-study1-six-villages.md
+        - 06-study2-instrument.md
+        - 07-study3-structure.md
+        - 08-study4-stability.md
+    - part: "Integrace"
+      chapters:
+        - 09-discussion.md
+        - 10-conclusion.md
+    - 99-references.md
+  appendices:
+    - appendix-A-typology-method.md
+    - appendix-B-vignettes.md
+    - appendix-C-instrument.md
+    - appendix-D-supplementary-tables.md
+    - appendix-E-ethics.md
+
+format:
+  pdf:
+    include-in-header:
+      - partials/muni-titlepage-cs.tex   # česká titulka dle Vzoru MU
+
+lang: cs

@@ -1,0 +1,5 @@
+"","procedural","equality","needs","merit"
+"procedural",1,0.603,0.426,0.551
+"equality",0.603,1,0.112,0.321
+"needs",0.426,0.112,1,0.584
+"merit",0.551,0.321,0.584,1

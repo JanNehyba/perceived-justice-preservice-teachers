@@ -1,0 +1,14 @@
+# nikdy nepublikovat (PII / cizí autorská díla / interní)
+.DS_Store
+**/.DS_Store
+data/raw/
+data/externi/
+zdrojove-texty/
+rizeni/
+pozadavky/
+kniha/fonts/
+OTEVRENE-BODY-PRO-JANA.md
+PRUBEH.md
+analyzy/cache/
+**/.Rproj.user/
+**/.quarto/

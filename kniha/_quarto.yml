@@ -1,0 +1,66 @@
+# P8 — common Quarto book configuration. Language-specific book structure lives
+# in _quarto-en.yml and _quarto-cs.yml. build.sh stages the corresponding sources.
+project:
+  type: book
+  output-dir: ../vystupy/export
+
+book:
+  author: "Jan Nehyba"
+  date: "2026"
+
+date-format: "YYYY"
+
+format:
+  docx:
+    toc: true
+    toc-depth: 2
+    number-sections: false   # kapitoly nesou čísla v nadpisech samy
+  pdf:
+    documentclass: scrbook
+    pdf-engine: tectonic
+    papersize: a4
+    linestretch: 1.5   # SD PdF 2/2021 Čl. 6(2): řádkování 1,5–2
+    number-sections: false
+    mainfont: "STIX Two Text"
+    mathfont: "STIX Two Math"
+    sansfont: "Arial"
+    monofont: "Menlo"
+    # Titulka (nahrazuje \maketitle) je jazykově specifická → přesunuta do profilů
+    # _quarto-en.yml / _quarto-cs.yml (include-in-header), aby CZ dostal českou titulku
+    # a EN anglickou. Zde smí zůstat jen jazykově neutrální header-includes.
+    header-includes:
+      - |-
+        \setlength{\emergencystretch}{3em}
+        % Velke figury: neroztahovat stranu vertikalne, kdyz LaTeX odsune float
+        % (symptom: obri mezery za nadpisem/mezi odstavci, Underfull \vbox).
+        \raggedbottom
+        % a povolit floatum sedet vedle textu ochotneji (mene odsouvani):
+        \renewcommand{\topfraction}{0.85}
+        \renewcommand{\bottomfraction}{0.6}
+        \renewcommand{\textfraction}{0.1}
+        \renewcommand{\floatpagefraction}{0.75}
+        \usepackage{newunicodechar}
+        \newunicodechar{→}{\ensuremath{\rightarrow}}
+        \newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+        \newunicodechar{≈}{\ensuremath{\approx}}
+        \newunicodechar{≤}{\ensuremath{\leq}}
+        \newunicodechar{≥}{\ensuremath{\geq}}
+        \newunicodechar{≠}{\ensuremath{\neq}}
+        % JEDNOTNÝ STYL: MUNI modrá pro všechny nadpisy + odpovídající položky v obsahu
+        % (aby obsah ladil s modrými nadpisy v textu). Vzor MU barvu nepředepisuje — volitelné, vratné.
+        \usepackage{xcolor}
+        \definecolor{MUNIblue}{HTML}{0000DC}
+        % Proklikávací odkazy na soubory v companion repu (P9.3): URL modře, ostatní černě.
+        % Odloženo na \AtBeginDocument — hyperref je do té doby načten (jinak Undefined control sequence).
+        \AtBeginDocument{\hypersetup{colorlinks=true,urlcolor=MUNIblue,linkcolor=black,citecolor=black,filecolor=MUNIblue}}
+        \addtokomafont{part}{\color{MUNIblue}}
+        \addtokomafont{chapter}{\color{MUNIblue}}
+        \addtokomafont{section}{\color{MUNIblue}}
+        \addtokomafont{subsection}{\color{MUNIblue}}
+        % obsah (TOC): části a kapitoly modře jako jejich nadpisy v textu
+        \addtokomafont{partentry}{\color{MUNIblue}}
+        \addtokomafont{chapterentry}{\color{MUNIblue}}
+    toc: true
+    # lof/lot vypnuto záměrně: figury/tabulky nesou ruční popisky s kapitolovým
+    # číslováním (*Figure 4.1.*), takže auto-seznamy by byly prázdné.
+    keep-tex: false

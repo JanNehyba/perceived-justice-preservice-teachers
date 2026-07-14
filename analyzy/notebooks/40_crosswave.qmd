@@ -1,0 +1,285 @@
+---
+title: "Study 4 — Stability Across Cohorts and Instrument Versions"
+subtitle: "E4 analysis — habilitace-1; chapter 8"
+author: "Jan Nehyba"
+date: "2026-07-11"
+format:
+  html: { toc: true, code-fold: true, df-print: paged }
+execute: { warning: false, message: false }
+---
+
+<!--
+  P5 / E4 per analyzy/PLAN-analyz.md. Three-tier comparability framework.
+  Freezes numbers to ../vystupy/tabulky/08_cisla.csv.
+  Tier 1 {2023,2024,2026}: invariance + latent means.
+  Tier 2 {2021,2022}: structural replication only (scale boundary; no mean/threshold comparison).
+  Tier 3 {2020}: configural EFA+EGA on 12 aligned items (pairings author-confirmed 2026-07-11;
+                 standalone runner: ../scripts/tier3_2020.R appends the same keys to the manifest).
+  Run from analyzy/: Rscript -e 'knitr::purl("notebooks/40_crosswave.qmd","/tmp/40.R",quiet=TRUE); source("/tmp/40.R")'
+-->
+
+```{r setup}
+suppressPackageStartupMessages({
+  library(dplyr); library(psych); library(lavaan); library(semTools)
+  library(EGAnet); library(bootnet); library(qgraph); library(mclust); library(igraph)
+})
+set.seed(744)
+
+find_root <- function() {
+  for (p in c(".","..","../..","../../..")) if (dir.exists(file.path(p,"data/processed"))) return(normalizePath(p))
+  stop("root not found")
+}
+ROOT <- find_root(); PROC <- file.path(ROOT,"data","processed"); TAB <- file.path(ROOT,"vystupy","tabulky")
+FIG <- file.path(ROOT,"vystupy","obrazky"); CACHE <- file.path(ROOT,"analyzy","cache")
+dir.create(CACHE, showWarnings=FALSE, recursive=TRUE)
+
+ITEMS <- sprintf("item_%02d", 1:26)
+MAP <- list(
+  procedural = sprintf("item_%02d", c(1,2,6,7,8,23,24,26)),
+  equality   = sprintf("item_%02d", c(3,10,14,15,16,22)),
+  needs      = sprintf("item_%02d", c(4,5,9,11,17,18)),
+  merit      = sprintf("item_%02d", c(12,13,19,20,21,25)))
+apriori <- rep(NA_integer_,26); names(apriori) <- ITEMS
+for(i in seq_along(MAP)) apriori[MAP[[i]]] <- i
+m4F <- paste(sapply(names(MAP), function(f) paste0(f," =~ ",paste(MAP[[f]],collapse=" + "))), collapse="\n")
+
+d <- read.csv(file.path(PROC,"justice_final.csv"))
+Xw <- split(d[,ITEMS], d$wave)
+MAN <- list(); put <- function(k,v){ MAN[[k]] <<- v; invisible(v) }
+put("framework","three-tier: T1{2023,2024,2026} invariance+means; T2{2021,2022} structure only; T3{2020} configural EFA+EGA on author-confirmed links")
+
+fitrow <- function(fit){
+  w <- c("cfi.robust","rmsea.robust","srmr")
+  fm <- tryCatch(fitMeasures(fit,w), error=function(e) setNames(rep(NA,3),w))
+  for(b in c("cfi","rmsea")) if(is.na(fm[[paste0(b,".robust")]])) fm[[paste0(b,".robust")]]<-tryCatch(fitMeasures(fit,paste0(b,".scaled")),error=function(e) NA)
+  fm
+}
+```
+
+## Tier 1 — Measurement invariance and latent means {2023, 2024, 2026}
+
+```{r tier1-note}
+# Full ORDINAL (Wu-Estabrook) multigroup invariance is infeasible here: 18/26 items have >=1
+# empty response category within a wave (all at the bottom, cats 1-3; extreme ceiling, worst in
+# n=164 2026 wave). Per-group thresholds are therefore not jointly estimable under WLSMV.
+# PRIMARY invariance ladder is thus MLR (items treated as continuous, robust SE) -> the legitimate
+# (interval-approximation) route to latent-mean comparison. ORDINAL evidence is supplied at the
+# CONFIGURAL level: a per-wave ordinal 4F CFA (estimable within a single wave) shows the structure
+# holds in each cohort. The network-side counterpart is the null NCT of E3.7 (chapter 7.4.4).
+dg <- d[,c("wave",ITEMS)]; dg$wave <- as.character(dg$wave)
+put("tier1_ordinal_note","full ordinal multigroup infeasible (empty low categories); MLR primary + per-wave ordinal configural + NCT")
+# freeze the empty-category diagnostic that justifies MLR (traceability)
+ec_per_wave <- sapply(names(Xw), function(w) sum(sapply(Xw[[w]], function(x) sum(tabulate(factor(x,levels=1:7))==0))))
+ec_items <- sum(sapply(ITEMS, function(it) any(sapply(Xw, function(w) any(tabulate(factor(w[[it]],levels=1:7))==0)))))
+ec_where <- if(all(sapply(names(Xw), function(w) all(sapply(Xw[[w]], function(x){ tb<-tabulate(factor(x,levels=1:7)); all(which(tb==0) <= 3) }))))) "bottom (categories 1-3)" else "mixed"
+put("empty_cat_items_affected", ec_items)                 # e.g. 18 of 26
+put("empty_cat_location", ec_where)                       # ceiling: empties at bottom
+put("empty_cells_per_wave", paste(names(ec_per_wave), ec_per_wave, sep="=", collapse="; "))
+```
+
+```{r tier1-mlr-ladder}
+steps <- list(
+  configural = c(),
+  metric     = c("loadings"),
+  scalar     = c("loadings","intercepts"),
+  strict     = c("loadings","intercepts","residuals"))
+fits <- lapply(steps, function(ge)
+  tryCatch(lavaan::cfa(m4F, data=dg, group="wave", estimator="MLR", meanstructure=TRUE,
+                       std.lv=TRUE, group.equal=ge), error=function(e){message(conditionMessage(e));NULL}))
+inv <- do.call(rbind, lapply(names(fits), function(nm){
+  f<-fits[[nm]]; if(is.null(f)) return(NULL)
+  fm<-fitrow(f); data.frame(model=nm, cfi=round(fm[["cfi.robust"]],3), rmsea=round(fm[["rmsea.robust"]],3), srmr=round(fm[["srmr"]],3))
+}))
+inv$dCFI <- c(NA, round(-diff(inv$cfi),3))
+write.csv(inv, file.path(TAB,"08_tier1_invariance.csv"), row.names=FALSE)
+print(inv)
+put("inv_cfi_configural", inv$cfi[inv$model=="configural"])
+put("inv_dCFI_metric", inv$dCFI[inv$model=="metric"])
+put("inv_dCFI_scalar", inv$dCFI[inv$model=="scalar"])
+put("inv_dCFI_strict", inv$dCFI[inv$model=="strict"])
+put("metric_holds", isTRUE(inv$dCFI[inv$model=="metric"] <= 0.01))
+put("scalar_holds", isTRUE(inv$dCFI[inv$model=="scalar"] <= 0.01))
+# numerical diagnostic for the latent-mean SEs: min eigenvalue of the scalar-model vcov
+# (a machine-precision negative value = benign rounding, not rank deficiency)
+if(!is.null(fits$scalar)){
+  mineig <- tryCatch(min(eigen(lavInspect(fits$scalar,"vcov"), only.values=TRUE, symmetric=TRUE)$values), error=function(e) NA)
+  put("scalar_vcov_min_eigenvalue", signif(mineig,3))
+}
+```
+
+```{r tier1-perwave-ordinal}
+# configural-level ordinal evidence: single-wave ordinal 4F CFA fit per wave
+perwave <- do.call(rbind, lapply(names(Xw), function(w){
+  f <- tryCatch(lavaan::cfa(m4F, data=Xw[[w]], ordered=ITEMS, estimator="WLSMV",
+                            parameterization="theta", std.lv=TRUE), error=function(e) NULL)
+  if(is.null(f)) return(NULL)
+  fm<-fitrow(f); data.frame(wave=w, n=nrow(Xw[[w]]), cfi=round(fm[["cfi.robust"]],3), rmsea=round(fm[["rmsea.robust"]],3))
+}))
+write.csv(perwave, file.path(TAB,"08_tier1_perwave_ordinal.csv"), row.names=FALSE)
+print(perwave)
+put("perwave_ordinal_cfi_min", min(perwave$cfi, na.rm=TRUE))
+```
+
+```{r tier1-latent-means}
+# Latent means legitimate only if scalar invariance holds (MLR interval approximation).
+if(isTRUE(MAN[["scalar_holds"]]) && !is.null(fits$scalar)){
+  pe <- parameterEstimates(fits$scalar, standardized=TRUE)
+  lm <- pe[pe$op=="~1" & pe$lhs %in% names(MAP) & pe$group %in% c(2,3), c("lhs","group","est","se","pvalue","std.all")]
+  lm$wave <- ifelse(lm$group==2, "2024_vs_2023", "2026_vs_2023")  # group order = sort(unique wave)
+  write.csv(lm, file.path(TAB,"08_tier1_latent_means.csv"), row.names=FALSE)
+  print(lm)
+  put("latent_mean_max_abs_std", round(max(abs(lm$std.all)),3))
+  put("latent_mean_n_sig", sum(lm$pvalue < .05, na.rm=TRUE))
+  cat("Latent-mean differences vs 2023 (std): max |d| =", round(max(abs(lm$std.all)),3),
+      "; significant:", sum(lm$pvalue<.05, na.rm=TRUE), "of", nrow(lm), "\n")
+} else {
+  put("latent_mean_note","scalar invariance not established -> latent means not reported")
+  cat("Scalar invariance not established; latent means withheld.\n")
+}
+```
+
+## Tier 2 — Structural replication {2021, 2022} (scale boundary: structure only)
+
+```{r tier2-align}
+imf <- read.csv(file.path(PROC,"item_map_full.csv"), stringsAsFactors=FALSE)
+imf <- imf[match(ITEMS, sprintf("item_%02d", as.integer(imf$item_id_final))), ]  # ensure final order
+# --- 2021: pool36 reordered to final by pool2021_id (wording-faithful; 16<->17 swap handled) ---
+pool <- read.csv(file.path(PROC,"justice_2021_pool36.csv"), check.names=FALSE)
+pcols <- sprintf("pool_%02d", as.integer(imf$pool2021_id))
+stopifnot(all(pcols %in% names(pool)), length(pcols)==26)
+X21 <- pool[, pcols]; names(X21) <- ITEMS; X21 <- X21[complete.cases(X21), ]
+put("n_2021_aligned", nrow(X21))
+# --- 2022: already final numbering; item_16 is OLD reverse wording -> recode 8-x for structure ---
+d22 <- read.csv(file.path(PROC,"justice_2022_clean.csv"))
+X22 <- d22[, ITEMS]; X22 <- X22[complete.cases(X22), ]
+X22$item_16 <- 8 - X22$item_16                 # reverse -> positive direction (documented)
+put("n_2022", nrow(X22)); put("tier2_recode","2022 item_16 reverse-recoded 8-x; item_16/22 old wording")
+# reference EFA loadings (2023) from P3
+Lref <- as.matrix(read.csv(file.path(TAB,"07_efa2023_loadings.csv"), row.names=1))[ITEMS,]
+```
+
+```{r tier2-efa-congruence}
+efa4 <- function(X) psych::fa(X, nfactors=4, fm="minres", rotate="oblimin", cor="poly")$loadings |> unclass()
+L21 <- tryCatch(efa4(X21), error=function(e){message("EFA21: ",conditionMessage(e));NULL})
+L22 <- tryCatch(efa4(X22), error=function(e){message("EFA22: ",conditionMessage(e));NULL})
+
+congr <- function(L, Lr){
+  if(is.null(L)) return(NA)
+  cc <- psych::factor.congruence(L, Lr)          # 4x4
+  # best assignment: for each ref factor take max |congruence| over cohort factors
+  diag_best <- sapply(1:ncol(Lr), function(j) max(abs(cc[,j])))
+  diag_best
+}
+cg21 <- congr(L21, Lref); cg22 <- congr(L22, Lref)
+tab <- data.frame(reference_factor=colnames(Lref),
+                  congruence_2021=round(cg21,3), congruence_2022=round(cg22,3))
+write.csv(tab, file.path(TAB,"08_tier2_congruence.csv"), row.names=FALSE)
+print(tab)
+put("congruence_2021_min", round(min(cg21),3)); put("congruence_2021_mean", round(mean(cg21),3))
+put("congruence_2022_min", round(min(cg22),3)); put("congruence_2022_mean", round(mean(cg22),3))
+put("congruence_all_above_.85", all(c(cg21,cg22) >= .85, na.rm=TRUE))
+put("congruence_all_above_.95", all(c(cg21,cg22) >= .95, na.rm=TRUE))
+```
+
+```{r tier2-ega-ari}
+ega_ari <- function(X){
+  e <- tryCatch(EGA(X, model="glasso", algorithm="walktrap", plot.EGA=FALSE), error=function(e) NULL)
+  if(is.null(e)) return(c(ndim=NA, ari=NA))
+  mem <- e$wc; names(mem)<-colnames(X)
+  c(ndim=e$n.dim, ari=round(mclust::adjustedRandIndex(mem[ITEMS], apriori),3))
+}
+e21 <- ega_ari(X21); e22 <- ega_ari(X22)
+put("ega_2021_ndim", e21["ndim"]); put("ari_2021_apriori", e21["ari"])
+put("ega_2022_ndim", e22["ndim"]); put("ari_2022_apriori", e22["ari"])
+cat("EGA 2021: dim",e21["ndim"]," ARI",e21["ari"]," | 2022: dim",e22["ndim"]," ARI",e22["ari"],"\n")
+```
+
+```{r tier2-network-descriptive}
+# descriptive network similarity across scale boundary: Spearman correlation of edge weights, NO p-values
+net <- function(X) tryCatch(estimateNetwork(X, default="EBICglasso", corMethod="cor_auto")$graph, error=function(e) NULL)
+W23 <- net(Xw[["2023"]]); W21 <- net(X21); W22 <- net(X22)
+ut <- upper.tri(matrix(0,26,26))
+if(!is.null(W21)) put("edge_spearman_2021_vs_2023", round(cor(W21[ut], W23[ut], method="spearman"),3))
+if(!is.null(W22)) put("edge_spearman_2022_vs_2023", round(cor(W22[ut], W23[ut], method="spearman"),3))
+# sensitivity without old-wording items 16 & 22
+drop2 <- setdiff(ITEMS, c("item_16","item_22"))
+cg22_s <- tryCatch({ L<-efa4(X22[,drop2]); Lr<-Lref[drop2,]; sapply(1:4,function(j) max(abs(psych::factor.congruence(L,Lr)[,j]))) }, error=function(e) NA)
+put("congruence_2022_min_no1622", round(min(cg22_s),3))
+cat("edge Spearman vs 2023: 2021=",MAN[["edge_spearman_2021_vs_2023"]]," 2022=",MAN[["edge_spearman_2022_vs_2023"]],"\n")
+```
+
+## Reliability trajectory (categorical omega, aligned subscales)
+
+```{r omega-traj}
+omega_cat <- function(fit, map){
+  ss<-lavaan::standardizedSolution(fit); ld<-ss[ss$op=="=~",]
+  sapply(names(map), function(f){ lam<-ld$est.std[ld$lhs==f & ld$rhs %in% map[[f]]]; (sum(lam)^2)/(sum(lam)^2+sum(1-lam^2)) })
+}
+om_wave <- function(X){
+  f<-tryCatch(lavaan::cfa(m4F, data=X, ordered=ITEMS, estimator="WLSMV", parameterization="theta", std.lv=TRUE), error=function(e) NULL)
+  if(is.null(f)) return(setNames(rep(NA,4),names(MAP))); round(omega_cat(f,MAP),3)
+}
+traj <- rbind(
+  "2021"=om_wave(X21), "2022"=om_wave(X22),
+  "2023"=om_wave(Xw[["2023"]]), "2024"=om_wave(Xw[["2024"]]), "2026"=om_wave(Xw[["2026"]]))
+write.csv(data.frame(wave=rownames(traj), traj, check.names=FALSE), file.path(TAB,"08_omega_trajectory.csv"), row.names=FALSE)
+print(traj)
+put("omega_traj_min", round(min(traj,na.rm=TRUE),3)); put("omega_traj_max", round(max(traj,na.rm=TRUE),3))
+```
+
+## Drift table (from item_map_full) + Tier 3 stub
+
+```{r drift-tier3}
+drift <- data.frame(
+  version=c("2019 (A)","2020 (B)","2021 (C-pool)","2022 (C)","2023-2026 (C-final)"),
+  style=c("3rd-person descriptive","3rd-person normative","1st-person","1st-person","1st-person"),
+  scale=c("—","agreement","agreement","agreement","fairness"),
+  n_items=c(21,23,"36->26",26,26),
+  data=c("wording only","n=375","n=433/346","n=263","n=744"))
+write.csv(drift, file.path(TAB,"08_drift_table.csv"), row.names=FALSE)
+print(drift)
+
+d20 <- read.csv(file.path(PROC,"justice_2020_clean.csv"))
+put("n_2020", nrow(d20))
+```
+
+## Tier 3 — Configural check {2020} (different frame; author-confirmed pairings)
+
+```{r tier3-2020}
+# Pairings confirmed by the author 2026-07-11 (6 former REVIEW flags -> confirmed-author).
+stopifnot(!any(grepl("REVIEW", c(imf$match_2020B, imf$match_2019A))))
+map20 <- imf[!is.na(imf$id_2020B) & imf$id_2020B != "", c("item_id_final","principle","id_2020B")]
+map20$final_col <- sprintf("item_%02d", as.integer(map20$item_id_final))
+map20$b_col     <- sprintf("b%02d",     as.integer(map20$id_2020B))
+X20 <- d20[, map20$b_col]; names(X20) <- map20$final_col; X20 <- X20[complete.cases(X20), ]
+ap20 <- setNames(map20$principle, map20$final_col)
+put("n_2020_complete", nrow(X20)); put("tier3_n_items", nrow(map20))
+put("tier3_items_per_principle", paste(names(table(map20$principle)), table(map20$principle), sep="=", collapse=", "))
+
+Lr20 <- Lref[map20$final_col, ]                       # 2023 reference restricted to aligned items
+L20  <- tryCatch(efa4(X20), error=function(e){message("EFA20: ",conditionMessage(e)); NULL})
+cg20 <- if(is.null(L20)) rep(NA_real_,4) else sapply(1:ncol(Lr20), function(j)
+          max(abs(psych::factor.congruence(L20, Lr20)[,j])))
+names(cg20) <- colnames(Lr20)
+write.csv(data.frame(reference_factor=colnames(Lr20), congruence_2020=round(cg20,3)),
+          file.path(TAB,"08_tier3_congruence.csv"), row.names=FALSE)
+put("congruence_2020_min", round(min(cg20),3)); put("congruence_2020_mean", round(mean(cg20),3))
+put("congruence_2020_by_factor", paste(sprintf("%s=%.3f", names(cg20), cg20), collapse="; "))
+
+e20 <- tryCatch(EGA(X20, model="glasso", algorithm="walktrap", plot.EGA=FALSE), error=function(e) NULL)
+put("ega_2020_ndim", if(is.null(e20)) NA else e20$n.dim)
+put("ari_2020_apriori", if(is.null(e20)) NA else {
+  mem <- e20$wc; names(mem) <- colnames(X20)
+  round(mclust::adjustedRandIndex(mem[map20$final_col], ap20), 3)})
+put("tier3_status","DONE: 6 pairings author-confirmed 2026-07-11; configural EFA+EGA on 12 aligned items")
+cat("Tier 3 (2020, n=",nrow(X20),"): congruence ", paste(round(cg20,2),collapse="/"),
+    "; EGA dims ", MAN[["ega_2020_ndim"]], "; ARI ", MAN[["ari_2020_apriori"]], "\n", sep="")
+```
+
+## Freeze manifest
+
+```{r manifest}
+w <- data.frame(metric=names(MAN), value=vapply(MAN, function(x) as.character(x[1]), character(1)))
+write.csv(w, file.path(TAB,"08_cisla.csv"), row.names=FALSE)
+cat("Wrote 08_cisla.csv (",nrow(w)," numbers)\n", sep="")
+```

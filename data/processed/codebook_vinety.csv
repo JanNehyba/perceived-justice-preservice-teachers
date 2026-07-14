@@ -1,0 +1,7 @@
+var,barva,princip_cz,principle_en,gloss_cz,scale
+v_rovnost,Modrá,rovnost,equality,Každý občan dostane stejný díl bez ohledu na cokoli.,1-7 (1 = Naprosto NEspravedlivě — 7 = Naprosto spravedlivě)
+v_nahoda,Bílá,náhoda,chance/lottery,"Losování — každý má stejnou šanci, ceny rozděluje náhoda.",1-7 (1 = Naprosto NEspravedlivě — 7 = Naprosto spravedlivě)
+v_potreby,Zelená,potřeby,need,Rozděleno podle potřeb jednotlivých občanů.,1-7 (1 = Naprosto NEspravedlivě — 7 = Naprosto spravedlivě)
+v_zasluhy,Oranžová,zásluhy,merit/desert,"Více dostanou ti, kdo pracovali, přispěli nebo dlouho sloužili.",1-7 (1 = Naprosto NEspravedlivě — 7 = Naprosto spravedlivě)
+v_rovne_prilezitosti,Červená,rovné příležitosti,equal opportunity,"Stejná startovní čára, každý si urve, co stihne.",1-7 (1 = Naprosto NEspravedlivě — 7 = Naprosto spravedlivě)
+v_kasty,Žlutá,kasty/sociální skupiny,caste/social groups,Rozděleno mezi tři kasty; rovnost jen uvnitř kasty.,1-7 (1 = Naprosto NEspravedlivě — 7 = Naprosto spravedlivě)

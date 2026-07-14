@@ -1,0 +1,24 @@
+# Jádro pro empirické analýzy
+pandas
+numpy
+scipy
+statsmodels
+scikit-learn
+
+# Vizualizace
+matplotlib
+seaborn
+
+# Notebooky
+jupyterlab
+ipykernel
+
+# Kvalitativní / textová analýza (pokud budou i kvalitativní data)
+nltk
+openpyxl        # čtení/zápis Excelu
+pyreadstat      # čtení SPSS/.sav a Stata souborů
+tabulate        # hezké tabulky do textu
+
+# Externí datové zdroje (habilitace-2: snapshot HF datasetu Edustories)
+huggingface_hub
+pyarrow         # čtení parquet (HF dataset, cache velkých CSV)

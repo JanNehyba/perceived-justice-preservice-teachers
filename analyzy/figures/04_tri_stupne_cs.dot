@@ -1,0 +1,49 @@
+// Figure 4.1 (CZ) — Třístupňový rámec srovnatelnosti, česká verze 04_tri_stupne.dot.
+// Stejná struktura/barvy; přeloženy jen popisky. n dle DATA_README.
+digraph tiers {
+  rankdir=LR;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", penwidth=1.2];
+  edge [style=invis];
+  graph [ranksep=0.5, nodesep=0.22];
+
+  // předchůdce (jen znění)
+  C2019 [label="2019\njen znění\n(bez dat)", fillcolor="#F4F4F4", fontcolor="#9A9A9A", color="#CCCCCC", style="rounded,filled,dashed"];
+
+  // Stupeň 3 — normativní rámec (souhlasová škála)
+  subgraph cluster_t3 {
+    label="STUPEŇ 3  ·  normativní rámec  →  jen konfigurální srovnání";
+    fontsize=10; fontcolor="#7A5C00"; color="#E0C060"; style="rounded"; bgcolor="#FCF6E3";
+    C2020 [label="2020\nn = 375\n3. osoba, normativní", fillcolor="#F2D9A0", fontcolor="black", color="#C9A24B"];
+  }
+
+  // Stupeň 2 — shodné položky, souhlasová škála
+  subgraph cluster_t2 {
+    label="STUPEŇ 2  ·  shodné položky, souhlasová škála  →  jen struktura (kongruence, EGA)";
+    fontsize=10; fontcolor="#7A5C00"; color="#E0C060"; style="rounded"; bgcolor="#FCF6E3";
+    C2021 [label="2021\nn = 433\n1. osoba", fillcolor="#F2D9A0", fontcolor="black", color="#C9A24B"];
+    C2022 [label="2022\nn = 263\n1. osoba", fillcolor="#F2D9A0", fontcolor="black", color="#C9A24B"];
+  }
+
+  // Stupeň 1 — identický nástroj, škála spravedlnosti
+  subgraph cluster_t1 {
+    label="STUPEŇ 1  ·  identický nástroj, škála spravedlnosti  →  plná invariance + latentní průměry + NCT";
+    fontsize=10; fontcolor="#1F3E6E"; color="#2E5A9C"; style="rounded"; bgcolor="#E7EEF9";
+    C2023 [label="2023\nn = 247", fillcolor="#2E5A9C", fontcolor="white", color="#1F3E6E"];
+    C2024 [label="2024\nn = 333", fillcolor="#2E5A9C", fontcolor="white", color="#1F3E6E"];
+    C2026 [label="2026\nn = 164", fillcolor="#2E5A9C", fontcolor="white", color="#1F3E6E"];
+  }
+
+  // řazení v čase
+  C2019 -> C2020 -> C2021 -> C2022 -> C2023 -> C2024 -> C2026;
+
+  // hranice škály
+  BND [label="⟵ souhlasová škála   |   škála spravedlnosti ⟶\nHRANICE ŠKÁLY (nejhlubší mez srovnatelnosti)",
+       shape=plaintext, fillcolor="white", style="", fontcolor="#B00000", fontsize=10];
+  C2022 -> BND [style=invis];
+  { rank=same; C2022; C2023; BND }
+
+  // poznámka ke sloučení stupně 1
+  POOL [label="sloučené n = 744\n(Studie 3)", shape=note, fillcolor="#E7EEF9", color="#2E5A9C", fontcolor="#1F3E6E", fontsize=9, style="filled"];
+  C2024 -> POOL [style=invis];
+}

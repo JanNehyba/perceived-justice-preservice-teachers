@@ -1,0 +1,326 @@
+---
+title: "Study 3 — The Network View + Social Desirability"
+subtitle: "E3 analysis — habilitace-1 (n=744); chapters 7.4–7.6"
+author: "Jan Nehyba"
+date: "2026-07-11"
+format:
+  html: { toc: true, code-fold: true, df-print: paged }
+execute: { warning: false, message: false }
+---
+
+<!--
+  P4 / E3 per analyzy/PLAN-analyz.md. Freezes numbers to ../vystupy/tabulky/07_network_cisla.csv
+  (separate manifest from 07_cisla.csv, which is owned by 20_psychometrie.qmd).
+  Heavy bootstraps/NCT cached to analyzy/cache/*.rds (delete cache to force re-run).
+  Run standalone from analyzy/:
+    Rscript -e 'knitr::purl("notebooks/30_network.qmd","/tmp/30.R",quiet=TRUE); source("/tmp/30.R")'
+-->
+
+```{r setup}
+suppressPackageStartupMessages({
+  library(dplyr); library(bootnet); library(qgraph); library(EGAnet)
+  library(networktools); library(mgm); library(NetworkComparisonTest)
+  library(mclust); library(igraph); library(lavaan)
+})
+set.seed(744)
+NCORES <- max(2, parallel::detectCores() - 2)
+
+find_root <- function() {
+  for (p in c(".","..","../..","../../..")) if (dir.exists(file.path(p,"data/processed"))) return(normalizePath(p))
+  stop("root not found")
+}
+ROOT <- find_root()
+PROC <- file.path(ROOT,"data","processed")
+TAB  <- file.path(ROOT,"vystupy","tabulky")
+FIG  <- file.path(ROOT,"vystupy","obrazky")
+CACHE<- file.path(ROOT,"analyzy","cache"); dir.create(CACHE, showWarnings=FALSE, recursive=TRUE)
+
+cache_rds <- function(name, expr){
+  f <- file.path(CACHE, paste0(name,".rds"))
+  if (file.exists(f)) return(readRDS(f))
+  v <- expr; saveRDS(v, f); v
+}
+
+ITEMS <- sprintf("item_%02d", 1:26)
+MAP <- list(
+  procedural = sprintf("item_%02d", c(1,2,6,7,8,23,24,26)),
+  equality   = sprintf("item_%02d", c(3,10,14,15,16,22)),
+  needs      = sprintf("item_%02d", c(4,5,9,11,17,18)),
+  merit      = sprintf("item_%02d", c(12,13,19,20,21,25))
+)
+apriori <- rep(NA_integer_, 26); names(apriori) <- ITEMS
+for(i in seq_along(MAP)) apriori[MAP[[i]]] <- i
+
+d <- read.csv(file.path(PROC,"justice_final.csv"))
+X <- d[, ITEMS]; stopifnot(nrow(X)==744, sum(complete.cases(X))==744)
+Xw <- split(d[, ITEMS], d$wave)
+
+MAN <- list(); put <- function(k,v){ MAN[[k]] <<- v; invisible(v) }
+put("n_total", nrow(X)); put("n_nodes", 26)
+```
+
+## E3.1 — Redundancy screening (UVA)
+
+```{r uva}
+uva <- tryCatch(EGAnet::UVA(data=X, key=ITEMS), error=function(e){message("UVA: ",conditionMessage(e)); NULL})
+n_red <- tryCatch({
+  kr <- uva$keep_remove; if(is.null(kr)) 0L else length(stats::na.omit(kr$remove))
+}, error=function(e) NA_integer_)
+put("uva_n_redundant", ifelse(is.na(n_red), "see printed output", n_red))
+# Pre-registered: redundant pairs are DISCUSSED, never silently removed. All 26 items stay.
+print(uva)
+# freeze the wTO pair table (traceability of the .25+ redundancy values cited in prose)
+uva_txt <- capture.output(print(uva))
+pl <- grep("item_[0-9]+ +item_[0-9]+ +0\\.", uva_txt, value=TRUE)
+if(length(pl)){
+  uva_tab <- do.call(rbind, lapply(strsplit(trimws(pl), " +"), function(z)
+    data.frame(node_i=z[1], node_j=z[2], wto=as.numeric(z[3]))))
+  write.csv(uva_tab, file.path(TAB,"07_network_uva.csv"), row.names=FALSE)
+  top <- uva_tab[uva_tab$wto >= .25, , drop=FALSE]
+  for(i in seq_len(nrow(top)))
+    put(paste0("wto_", sub("item_","",top$node_i[i]), "_", sub("item_","",top$node_j[i])), top$wto[i])
+}
+```
+
+## E3.2 — Network estimation (EBICglasso) + gamma sensitivity
+
+```{r estimate}
+nets <- lapply(c(g0=0, g025=0.25, g05=0.5), function(g)
+  cache_rds(paste0("net_pooled_g", g*100),
+    estimateNetwork(X, default="EBICglasso", corMethod="cor_auto", tuning=g)))
+W <- nets$g05$graph
+n_edges <- function(net) sum(abs(net$graph[upper.tri(net$graph)]) > 0)
+for(nm in names(nets)) put(paste0("edges_",nm), n_edges(nets[[nm]]))
+put("density_g05", round(n_edges(nets$g05)/choose(26,2),3))
+# gamma robustness: correlation of edge weights across gamma values (upper triangles)
+ut <- upper.tri(W)
+put("edge_cor_g05_g0",   round(cor(W[ut], nets$g0$graph[ut]),3))
+put("edge_cor_g05_g025", round(cor(W[ut], nets$g025$graph[ut]),3))
+cat("edges g0/g025/g05:", n_edges(nets$g0), n_edges(nets$g025), n_edges(nets$g05), "\n")
+```
+
+## E3.3 — Stability (mandatory): edge bootstrap + case-drop
+
+```{r stability}
+boot_np <- cache_rds("boot_nonparam_1000",
+  bootnet(nets$g05, nBoots=1000, nCores=NCORES, type="nonparametric",
+          statistics=c("edge","strength","expectedInfluence")))
+boot_cd <- cache_rds("boot_casedrop_1000",
+  bootnet(nets$g05, nBoots=1000, nCores=NCORES, type="case",
+          statistics=c("strength","expectedInfluence")))
+cs <- corStability(boot_cd, verbose=FALSE)
+for(nm in names(cs)) put(paste0("CS_",nm), round(cs[[nm]],3))
+cat("CS-coefficients:\n"); print(round(cs,3))
+```
+
+## E3.4 — Centrality (strength + EI only) and predictability (mgm)
+
+```{r centrality}
+cent <- centralityTable(nets$g05, standardized=FALSE)
+cent_w <- cent %>% filter(measure %in% c("Strength","ExpectedInfluence")) %>%
+  select(node, measure, value) %>% tidyr::pivot_wider(names_from=measure, values_from=value)
+write.csv(cent_w, file.path(TAB,"07_network_centrality.csv"), row.names=FALSE)
+put("strength_top_item", cent_w$node[which.max(cent_w$Strength)])
+put("strength_min_item", cent_w$node[which.min(cent_w$Strength)])
+
+mgm_fit <- cache_rds("mgm_pooled", {
+  mgm(data=as.matrix(X), type=rep("g",26), level=rep(1,26), lambdaSel="EBIC",
+      lambdaGam=0.25, verbatim=TRUE, pbar=FALSE)
+})
+pred <- tryCatch({
+  pr <- predict(mgm_fit, data=as.matrix(X), errorCon="R2")
+  as.numeric(pr$errors$R2)
+}, error=function(e){message("predictability: ",conditionMessage(e)); rep(NA_real_,26)})
+put("predictability_mean", round(mean(pred, na.rm=TRUE),3))
+put("predictability_max",  round(max(pred, na.rm=TRUE),3))
+write.csv(data.frame(node=ITEMS, R2=round(pred,3)), file.path(TAB,"07_network_predictability.csv"), row.names=FALSE)
+cat("mean predictability R2 =", round(mean(pred,na.rm=TRUE),3), "\n")
+```
+
+## E3.5 — EGA communities, bootEGA, hierarchical EGA
+
+```{r ega}
+ega <- cache_rds("ega_pooled", EGA(X, model="glasso", algorithm="walktrap", plot.EGA=FALSE))
+put("ega_ndim_pooled", ega$n.dim)
+ega_lv <- tryCatch(EGA(X, model="glasso", algorithm="louvain", plot.EGA=FALSE), error=function(e) NULL)
+put("ega_ndim_louvain", ifelse(is.null(ega_lv), NA, ega_lv$n.dim))
+
+bega <- cache_rds("bootEGA_1000",
+  bootEGA(X, iter=1000, type="resampling", model="glasso", algorithm="walktrap",
+          ncores=NCORES, plot.typicalStructure=FALSE, seed=744))
+ndraw <- bega$boot.ndim
+ndv <- tryCatch({
+  if (is.matrix(ndraw)) as.numeric(ndraw[, ncol(ndraw)])
+  else if (is.data.frame(ndraw)) as.numeric(ndraw[[ncol(ndraw)]])
+  else as.numeric(ndraw)
+}, error=function(e) NA_real_)
+put("bootEGA_median_ndim", stats::median(ndv, na.rm=TRUE))
+put("bootEGA_pct_4dim", round(mean(ndv==4, na.rm=TRUE)*100,1))
+istab <- tryCatch({
+  it <- bega$stability$item.stability$item.stability$empirical.dimensions
+  if(is.null(it)) it <- dimensionStability(bega)$item.stability$item.stability$empirical.dimensions
+  it
+}, error=function(e) tryCatch(dimensionStability(bega)$item.stability$item.stability$empirical.dimensions,
+                              error=function(e2) NULL))
+if(!is.null(istab)){
+  put("itemStability_min", round(min(istab),3)); put("itemStability_mean", round(mean(istab),3))
+  put("itemStability_n_below_.70", sum(istab < .70))
+  write.csv(data.frame(node=names(istab), stability=round(as.numeric(istab),3)),
+            file.path(TAB,"07_network_itemstability.csv"), row.names=FALSE)
+}
+struct_cons <- tryCatch(dimensionStability(bega)$dimension.stability$structural.consistency,
+                        error=function(e) NULL)
+if(!is.null(struct_cons)){
+  put("structural_consistency_min", round(min(struct_cons),3))
+  put("structural_consistency", paste(round(struct_cons,2), collapse="/"))
+}
+
+hega <- tryCatch(cache_rds("hierEGA", hierEGA(X, scores="network", plot.EGA=FALSE)),
+                 error=function(e){message("hierEGA: ",conditionMessage(e)); NULL})
+put("hierEGA_lower_ndim", tryCatch(hega$lower_order$n.dim, error=function(e) NA))
+put("hierEGA_higher_ndim", tryCatch(hega$higher_order$n.dim, error=function(e) NA))
+cat("EGA pooled:", ega$n.dim, "dims; louvain:", ifelse(is.null(ega_lv),NA,ega_lv$n.dim),
+    "; bootEGA median:", MAN[["bootEGA_median_ndim"]], "\n")
+```
+
+## E3.6 — Three-way partition agreement: EGA × a priori × EFA
+
+```{r agreement}
+ega_mem <- ega$wc; names(ega_mem) <- colnames(X)
+# EFA-2023 assignment: item -> max |loading| factor (from frozen 07_efa2023_loadings.csv)
+L23 <- read.csv(file.path(TAB,"07_efa2023_loadings.csv"), row.names=1)
+efa_mem <- apply(abs(L23), 1, which.max); names(efa_mem) <- rownames(L23)
+efa_mem <- efa_mem[ITEMS]
+stopifnot(names(ega_mem)==ITEMS, names(efa_mem)==ITEMS)
+
+put("ARI_ega_apriori", round(mclust::adjustedRandIndex(ega_mem, apriori),3))
+put("ARI_ega_efa",     round(mclust::adjustedRandIndex(ega_mem, efa_mem),3))
+put("ARI_efa_apriori", round(mclust::adjustedRandIndex(efa_mem, apriori),3))
+nmi <- function(a,b) igraph::compare(as.integer(factor(a)), as.integer(factor(b)), method="nmi")
+put("NMI_ega_apriori", round(nmi(ega_mem, apriori),3))
+put("NMI_ega_efa",     round(nmi(ega_mem, efa_mem),3))
+put("NMI_efa_apriori", round(nmi(efa_mem, apriori),3))
+xt <- table(apriori=names(MAP)[apriori], ega=ega_mem)
+write.csv(as.data.frame.matrix(xt), file.path(TAB,"07_network_crosstab_apriori_ega.csv"))
+print(xt)
+# which items land outside their a-priori block under EGA?
+mism <- ITEMS[apply(xt[names(MAP)[apriori], , drop=FALSE], 1, function(z) FALSE)] # placeholder
+maj <- tapply(ega_mem, apriori, function(z) as.integer(names(sort(table(z),decreasing=TRUE))[1]))
+migr <- ITEMS[ega_mem != maj[apriori]]
+put("items_offblock_ega", paste(migr, collapse=";"))
+cat("ARI EGA×apriori =", MAN[["ARI_ega_apriori"]], "| off-block items:", paste(migr, collapse=", "), "\n")
+```
+
+## E3.7 — NCT pairwise across waves (tier 1 only; identical estimation)
+
+```{r nct}
+pairs <- list(c("2023","2024"), c("2023","2026"), c("2024","2026"))
+for(pp in pairs){
+  key <- paste0("nct_", pp[1], "_", pp[2])
+  nct <- cache_rds(key, {
+    set.seed(744)
+    NCT(as.data.frame(Xw[[pp[1]]]), as.data.frame(Xw[[pp[2]]]), it=1000,
+        test.edges=TRUE, p.adjust.methods="holm", test.centrality=TRUE,
+        centrality=c("strength","expectedInfluence"), progressbar=FALSE)
+  })
+  put(paste0(key,"_p_structure"), signif(nct$nwinv.pval,3))
+  put(paste0(key,"_p_globalstrength"), signif(nct$glstrinv.pval,3))
+  put(paste0(key,"_n_sig_edges_holm"),
+      tryCatch(sum(nct$einv.pvals[,"p-value"] < .05), error=function(e) NA))
+  cat(key, ": p(structure)=", signif(nct$nwinv.pval,3),
+      " p(global strength)=", signif(nct$glstrinv.pval,3), "\n", sep="")
+}
+```
+
+## E3.8 — Visualizations (two-panel, MDS, bridge)
+
+```{r figures}
+groups_ap <- factor(names(MAP)[apriori], levels=names(MAP))
+groups_ega<- factor(paste0("EGA-",ega_mem))
+pal <- c("#4472C4","#ED7D31","#70AD47","#FFC000","#7030A0","#C00000")
+avg_layout <- qgraph::averageLayout(nets$g05$graph)
+
+png(file.path(FIG,"07_network_dvoupanel.png"), width=3200, height=1600, res=300)
+par(mfrow=c(1,2))
+qgraph(W, layout=avg_layout, groups=groups_ap, color=pal[1:4], labels=1:26,
+       title="A: a priori principles", legend.cex=.35, vsize=6, border.width=1.5)
+qgraph(W, layout=avg_layout, groups=groups_ega, color=pal[1:nlevels(groups_ega)], labels=1:26,
+       title="B: EGA communities", legend.cex=.35, vsize=6, border.width=1.5)
+dev.off()
+
+qobj <- qgraph(W, DoNotPlot=TRUE)
+tryCatch({
+  png(file.path(FIG,"07_network_mds.png"), width=2000, height=1600, res=300)
+  networktools::MDSnet(qobj, groups=groups_ap, color=pal[1:4], labels=1:26, vsize=6)
+  dev.off()
+}, error=function(e){ message("MDSnet: ",conditionMessage(e))
+  while(!is.null(grDevices::dev.list())) grDevices::dev.off() })
+
+br <- tryCatch(networktools::bridge(qgraph(W, DoNotPlot=TRUE), communities=as.numeric(apriori)),
+               error=function(e) NULL)
+if(!is.null(br)){
+  bs <- br$`Bridge Strength`
+  put("bridge_top_item", ITEMS[which.max(bs)])
+  put("bridge_top_value", round(max(bs),3))
+  write.csv(data.frame(node=ITEMS, bridge_strength=round(bs,3),
+                       bridge_EI=round(br$`Bridge Expected Influence (1-step)`,3)),
+            file.path(TAB,"07_network_bridge.csv"), row.names=FALSE)
+}
+cat("figures written\n")
+```
+
+## E3.9 — BIDR: social desirability (chapter 7.6)
+
+```{r bidr}
+# BIDR = Paulhus (1991) BIDR-40 self-deceptive enhancement (SDE) subscale, items 1-20
+# WITHOUT original item 18 ("doubted ability as a lover") => 19 items, local numbering 01-19.
+# Keying inferred by matching CZ wordings to canonical BIDR: local reversed set =
+# {02,04,06,08,10,12,14,16,19} (original even-numbered items; local 19 = original 20).
+# TO CONFIRM BY AUTHOR (administered the scale). Scoring: continuous mean (primary),
+# Paulhus dichotomized count of extreme (6-7 after reversal) as sensitivity.
+b <- read.csv(file.path(PROC,"bidr_2023_2026.csv"))
+stopifnot(nrow(b)==744, all(b$resp_id==d$resp_id))
+BI <- sprintf("bidr_%02d", 1:19)
+REV <- sprintf("bidr_%02d", c(2,4,6,8,10,12,14,16,19))
+Br <- b[, BI]; Br[, REV] <- 8 - Br[, REV]
+put("n_bidr_items", length(BI)); put("n_bidr_reversed", length(REV))
+bidr_mean <- rowMeans(Br)
+bidr_dich <- rowSums(Br >= 6)
+put("bidr_n", sum(complete.cases(Br)))
+put("bidr_mean_M", round(mean(bidr_mean, na.rm=TRUE),2))
+put("bidr_mean_SD", round(sd(bidr_mean, na.rm=TRUE),2))
+put("bidr_alpha", round(suppressWarnings(psych::alpha(Br, check.keys=FALSE)$total$raw_alpha),3))
+
+# factor scores from the pooled 4F ordinal model (same spec as 20_psychometrie)
+m4F <- paste(sapply(names(MAP), function(f) paste0(f," =~ ",paste(MAP[[f]],collapse=" + "))), collapse="\n")
+fit_pool <- cache_rds("fit_pooled_4F",
+  lavaan::cfa(m4F, data=X, ordered=ITEMS, estimator="WLSMV", parameterization="theta", std.lv=TRUE))
+fs <- as.data.frame(lavaan::lavPredict(fit_pool))
+
+ok <- complete.cases(Br)
+for(f in names(MAP)){
+  r_p <- cor(fs[ok,f], bidr_mean[ok], method="pearson")
+  r_s <- cor(fs[ok,f], bidr_mean[ok], method="spearman")
+  put(paste0("r_bidr_",f), round(r_p,3))
+  put(paste0("rs_bidr_",f), round(r_s,3))
+}
+put("max_abs_r_bidr_factor", round(max(abs(sapply(names(MAP), function(f) cor(fs[ok,f], bidr_mean[ok])))),3))
+# dichotomized sensitivity
+put("max_abs_r_bidr_factor_dich", round(max(abs(sapply(names(MAP), function(f) cor(fs[ok,f], bidr_dich[ok])))),3))
+
+# item-level: are more central items more SD-saturated?
+r_items <- sapply(ITEMS, function(it) cor(X[ok,it], bidr_mean[ok], method="spearman"))
+put("max_abs_r_bidr_item", round(max(abs(r_items)),3))
+put("cor_strength_vs_absrbidr", round(cor(cent_w$Strength[match(ITEMS,cent_w$node)], abs(r_items), method="spearman"),3))
+write.csv(data.frame(node=ITEMS, r_bidr=round(r_items,3)), file.path(TAB,"07_network_bidr_items.csv"), row.names=FALSE)
+cat("BIDR x factors (Pearson):", paste(sprintf("%s=%.2f", names(MAP),
+    sapply(names(MAP), function(f) cor(fs[ok,f], bidr_mean[ok]))), collapse="  "), "\n")
+```
+
+## Freeze manifest
+
+```{r manifest}
+w <- data.frame(metric=names(MAN), value=vapply(MAN, function(x) as.character(x[1]), character(1)))
+write.csv(w, file.path(TAB,"07_network_cisla.csv"), row.names=FALSE)
+cat("Wrote 07_network_cisla.csv (", nrow(w), " numbers)\n", sep="")
+```

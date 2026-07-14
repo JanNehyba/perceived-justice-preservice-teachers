@@ -1,0 +1,48 @@
+// Figure 2.1 (CZ) — Typologie spravedlnosti (E5.0), česká verze 02_typologie.dot.
+// Stejná struktura/barvy dle GRAFICKY-MANUAL.md; přeloženy jen popisky.
+digraph typology {
+  rankdir=TB;
+  bgcolor="white";
+  node [fontname="Arial", fontsize=11, shape=box, style="rounded,filled",
+        penwidth=1.1, margin="0.16,0.09"];
+  edge [color="#B8B8B8", arrowsize=0.6];
+  graph [ranksep=0.55, nodesep=0.3];
+
+  ROOT [label="SPRAVEDLNOST", fillcolor="white", color="black", fontsize=14, penwidth=1.6];
+
+  // rodiny
+  DIST  [label="Distribuční\n(co se rozděluje)",          fillcolor="#FFD9B8", color="#FF7300"];
+  PROC  [label="Procedurální spravedlnost\n(jak se rozhoduje)", fillcolor="#0000DC", fontcolor="white", color="#0000DC"];
+  INTER [label="Interakční\n(jak se s lidmi jedná)", fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8", style="rounded,filled,dashed"];
+  RECT  [label="Rektifikační\n(odpověď na křivdu)", fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8", style="rounded,filled,dashed"];
+
+  // měřené distribuční principy (syté, fixní barvy)
+  EQ [label="Rovnost",  fillcolor="#FF7300", fontcolor="white", color="#FF7300"];
+  NE [label="Potřeby",  fillcolor="#00AF3F", fontcolor="white", color="#00AF3F"];
+  ME [label="Zásluhy",  fillcolor="#9100DC", fontcolor="white", color="#9100DC"];
+
+  // mimo záběr (šedé čárkované, menší)
+  node [fontsize=10, fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8",
+        style="rounded,filled,dashed", margin="0.10,0.06"];
+  IP  [label="Interpersonální"];
+  IN  [label="Informativní"];
+  RET [label="Retributivní"];
+  RES [label="Restorativní"];
+  COR [label="Korektivní /\nkompenzační"];
+
+  ROOT -> DIST;
+  ROOT -> PROC;
+  ROOT -> INTER;
+  ROOT -> RECT;
+
+  DIST -> EQ;
+  DIST -> NE;
+  DIST -> ME;
+
+  INTER -> IP;
+  INTER -> IN;
+
+  RECT -> RET;
+  RECT -> RES;
+  RECT -> COR;
+}

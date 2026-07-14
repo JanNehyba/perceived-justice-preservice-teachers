@@ -1,0 +1,10 @@
+This repository uses two licenses.
+
+CODE (scripts, notebooks, build files): MIT License.
+Copyright (c) 2026 Jan Nehyba.
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction... [standardní text MIT — doplnit před publikací].
+
+DATA, TEXT, FIGURES (data/, vystupy/, rendered book): Creative Commons
+Attribution 4.0 International (CC BY 4.0). https://creativecommons.org/licenses/by/4.0/

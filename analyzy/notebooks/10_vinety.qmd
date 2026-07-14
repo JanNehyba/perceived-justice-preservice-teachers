@@ -1,0 +1,335 @@
+---
+title: "Study 1 — The Six Villages (vignette task, spring 2019)"
+subtitle: "E1 analysis — habilitace-1, stream #2 (n = 315)"
+author: "Jan Nehyba"
+date: "2026-07-10"
+format:
+  html:
+    toc: true
+    code-fold: true
+    df-print: paged
+execute:
+  warning: false
+  message: false
+---
+
+<!--
+  P2 / E1 per analyzy/PLAN-analyz.md. Reproducible source of truth for chapter 5.
+  Freezes all cited numbers to ../vystupy/tabulky/ (manifest 05_cisla.csv).
+  Run standalone (no quarto):  from analyzy/  ->  Rscript -e 'knitr::purl("notebooks/10_vinety.qmd","/tmp/10_vinety.R"); source("/tmp/10_vinety.R", chdir=TRUE)'
+  Data are read-only; this notebook only WRITES to ../vystupy/.
+-->
+
+```{r setup}
+suppressPackageStartupMessages({
+  library(dplyr); library(tidyr); library(ggplot2)
+  library(rstatix); library(effectsize); library(ordinal)
+  library(tidyLPA); library(cluster); library(fpc)
+})
+set.seed(2019)  # collection year; fixed for clusterboot / LPA reproducibility
+
+# --- locate habilitace-1 root robustly (works from analyzy/ or notebooks/) ---
+find_root <- function() {
+  for (p in c(".", "..", "../..", "../../..")) if (dir.exists(file.path(p, "data/processed"))) return(normalizePath(p))
+  stop("Could not locate habilitace-1 root (data/processed not found).")
+}
+ROOT   <- find_root()
+DATA   <- file.path(ROOT, "data", "processed", "vinety_final.csv")
+TAB    <- file.path(ROOT, "vystupy", "tabulky")
+FIG    <- file.path(ROOT, "vystupy", "obrazky")
+dir.create(TAB, showWarnings = FALSE, recursive = TRUE)
+dir.create(FIG, showWarnings = FALSE, recursive = TRUE)
+
+# --- principles: variable -> EN label (codebook_vinety.md) ---
+V    <- c("v_rovnost","v_nahoda","v_potreby","v_zasluhy","v_rovne_prilezitosti","v_kasty")
+LAB  <- c(v_rovnost="Equality", v_nahoda="Chance", v_potreby="Need",
+          v_zasluhy="Merit", v_rovne_prilezitosti="Equal opportunity", v_kasty="Caste")
+
+# manifest accumulator: every scalar cited in chapter 5 lands here
+MAN <- list()
+put <- function(key, val) { MAN[[key]] <<- val; invisible(val) }
+```
+
+## Data and integrity check
+
+```{r load}
+d <- read.csv(DATA, stringsAsFactors = FALSE)
+# Rozšířený vzorek 13. 7. 2026: n=315 (dřív 146; prvních 146 řádků identických, čistá expanze).
+N_VIN <- 315
+stopifnot(nrow(d) == N_VIN, all(V %in% names(d)))
+stopifnot(sum(complete.cases(d[V])) == N_VIN)   # no missing across the six principles
+stopifnot(all(as.matrix(d[V]) >= 1 & as.matrix(d[V]) <= 7))
+
+# integrity: means must reproduce the frozen values documented in DATA_README
+known <- c(v_rovnost=5.50, v_nahoda=4.50, v_potreby=4.22,
+           v_zasluhy=3.93, v_rovne_prilezitosti=2.36, v_kasty=2.00)
+obs   <- round(colMeans(d[V]), 2)
+stopifnot(all(abs(obs[names(known)] - known) < 0.006))
+
+put("n_total", nrow(d))
+put("scale_min", 1); put("scale_max", 7)
+cat("n =", nrow(d), "| 0 missing | means match DATA_README\n")
+```
+
+## 1. Descriptives and the fairness hierarchy
+
+```{r descriptives}
+desc <- d %>%
+  select(all_of(V)) %>%
+  pivot_longer(everything(), names_to = "var", values_to = "score") %>%
+  group_by(var) %>%
+  summarise(
+    n        = dplyr::n(),
+    mean     = mean(score),
+    sd       = sd(score),
+    median   = median(score),
+    iqr      = IQR(score),
+    pct_fair   = mean(score >= 5) * 100,   # rated 5-7 (fair side)
+    pct_unfair = mean(score <= 3) * 100,   # rated 1-3 (unfair side)
+    .groups = "drop"
+  ) %>%
+  mutate(principle = LAB[var]) %>%
+  arrange(desc(mean)) %>%
+  select(principle, var, n, mean, sd, median, iqr, pct_fair, pct_unfair)
+
+desc_out <- desc %>% mutate(across(where(is.numeric), ~round(.x, 2)))
+write.csv(desc_out, file.path(TAB, "05_vinety_deskriptiva.csv"), row.names = FALSE)
+desc_out
+
+# freeze hierarchy endpoints + each principle mean/sd
+put("hierarchy_top",    desc$principle[1]);           put("hierarchy_top_mean",    round(desc$mean[1], 2))
+put("hierarchy_bottom", desc$principle[nrow(desc)]);  put("hierarchy_bottom_mean", round(desc$mean[nrow(desc)], 2))
+for (i in seq_len(nrow(desc))) {
+  put(paste0("mean_", desc$var[i]), round(desc$mean[i], 2))
+  put(paste0("sd_",   desc$var[i]), round(desc$sd[i], 2))
+}
+```
+
+## 2. Likert distribution figure
+
+```{r likert-figure}
+ord <- desc$var  # highest mean first
+likert_df <- d %>%
+  select(all_of(V)) %>%
+  pivot_longer(everything(), names_to = "var", values_to = "score") %>%
+  count(var, score) %>%
+  group_by(var) %>% mutate(pct = n / sum(n) * 100) %>% ungroup() %>%
+  mutate(principle = factor(LAB[var], levels = rev(LAB[ord])),
+         score = factor(score, levels = 1:7))
+
+p_likert <- ggplot(likert_df, aes(principle, pct, fill = score)) +
+  geom_col(width = 0.7) +
+  coord_flip() +
+  scale_fill_brewer(palette = "RdYlBu", name = "Rating\n(1 = very unfair,\n7 = very fair)") +
+  labs(x = NULL, y = "Percentage of respondents",
+       title = "Perceived fairness of six distributive principles",
+       subtitle = "Pre-service teachers, spring 2019 (n = 315)") +
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.major.y = element_blank(), legend.position = "right")
+
+# Book figure 05_vinety_likert.png is generated ONLY by analyzy/scripts/fig_05_vinety.R
+# (mandated theme_book style, CLAUDE.md). This notebook previews the plot inline; it must
+# NOT write the book PNG (previously the two generators clobbered each other, last-writer-wins).
+p_likert
+```
+
+## 3. Omnibus: Friedman test + Kendall's W
+
+```{r friedman}
+dl <- d %>%
+  mutate(id = factor(row_number())) %>%
+  select(id, all_of(V)) %>%
+  pivot_longer(-id, names_to = "var", values_to = "score") %>%
+  mutate(principle = factor(var, levels = V)) %>%
+  arrange(principle, id)   # aligned subject order for paired tests
+
+fr  <- dl %>% friedman_test(score ~ principle | id)
+kw  <- dl %>% friedman_effsize(score ~ principle | id)   # Kendall's W
+
+put("friedman_chisq", round(fr$statistic, 2))
+put("friedman_df",    fr$df)
+put("friedman_p",     signif(fr$p, 3))
+put("kendall_w",      round(kw$effsize, 3))
+put("kendall_w_mag",  as.character(kw$magnitude))
+
+fr; kw
+```
+
+## 4. Post-hoc: pairwise Wilcoxon signed-rank (Holm) + rank-biserial
+
+```{r posthoc}
+pw <- dl %>%
+  wilcox_test(score ~ principle, paired = TRUE, p.adjust.method = "holm") %>%
+  mutate(g1 = LAB[as.character(group1)], g2 = LAB[as.character(group2)])
+
+es <- dl %>%
+  wilcox_effsize(score ~ principle, paired = TRUE) %>%
+  select(group1, group2, effsize, magnitude)
+
+posthoc <- pw %>%
+  left_join(es, by = c("group1", "group2")) %>%
+  transmute(pair = paste(g1, "vs", g2),
+            n1, n2, statistic,
+            p = signif(p, 3), p.adj = signif(p.adj, 3), p.adj.signif,
+            rank_biserial = round(effsize, 3), magnitude)
+
+write.csv(posthoc, file.path(TAB, "05_vinety_posthoc.csv"), row.names = FALSE)
+posthoc
+
+put("posthoc_n_pairs",       nrow(posthoc))
+put("posthoc_n_sig_holm",    sum(posthoc$p.adj < 0.05))
+put("posthoc_n_nonsig_holm", sum(posthoc$p.adj >= 0.05))
+```
+
+## 5. Robustness: cumulative link mixed model (ordinal)
+
+```{r clmm}
+dclmm <- dl %>% mutate(score_o = ordered(score))
+# reference = Equality (top of hierarchy); other principles expected significantly lower
+m <- clmm(score_o ~ principle + (1 | id), data = dclmm, Hess = TRUE)
+sm <- summary(m)
+
+clmm_fx <- as.data.frame(sm$coefficients)
+clmm_fx <- clmm_fx[grepl("^principle", rownames(clmm_fx)), , drop = FALSE]
+clmm_fx$principle <- LAB[sub("^principle", "", rownames(clmm_fx))]
+clmm_out <- clmm_fx %>%
+  transmute(principle,
+            estimate = round(Estimate, 3),
+            se = round(`Std. Error`, 3),
+            z = round(`z value`, 2),
+            p = signif(`Pr(>|z|)`, 3))
+write.csv(clmm_out, file.path(TAB, "05_vinety_clmm.csv"), row.names = FALSE)
+clmm_out
+
+# all contrasts negative (lower than Equality) and their ORDER should match the mean hierarchy
+put("clmm_all_below_ref_neg", all(clmm_fx$Estimate < 0))
+put("clmm_all_sig",           all(clmm_fx$`Pr(>|z|)` < 0.05))
+# does clmm estimate ordering reproduce the descriptive mean ordering (excluding reference)?
+mean_ord  <- desc$var[desc$var != "v_rovnost"]
+clmm_ord  <- sub("^principle", "", rownames(clmm_fx)[order(clmm_fx$Estimate, decreasing = TRUE)])
+put("clmm_reproduces_mean_order", identical(mean_ord, clmm_ord))
+```
+
+## 6. Response profiles: clustering + stability
+
+```{r clusters}
+X <- scale(d[V])                       # z-scored -> cluster on profile shape
+dmat <- dist(X)
+hc <- hclust(dmat, method = "ward.D2")
+
+# choose k in 2:4 by average silhouette (Ward + PAM)
+ks <- 2:4
+sil_ward <- sapply(ks, function(k) mean(silhouette(cutree(hc, k), dmat)[, 3]))
+sil_pam  <- sapply(ks, function(k) pam(X, k)$silinfo$avg.width)
+sil_tab  <- data.frame(k = ks, sil_ward = round(sil_ward, 3), sil_pam = round(sil_pam, 3))
+sil_tab
+
+K <- ks[which.max(sil_ward)]
+put("cluster_k", K)
+put("cluster_sil_ward", round(max(sil_ward), 3))
+
+# bootstrap stability (Jaccard) for the chosen Ward solution
+cb <- clusterboot(X, B = 1000, clustermethod = hclustCBI,
+                  method = "ward.D2", k = K, seed = 2019, count = FALSE)
+put("cluster_jaccard_min",  round(min(cb$bootmean), 3))
+put("cluster_jaccard_mean", round(mean(cb$bootmean), 3))
+
+# cluster profiles on the ORIGINAL 1-7 scale
+cl <- cutree(hc, K)
+prof <- d %>% mutate(cluster = cl) %>%
+  group_by(cluster) %>%
+  summarise(across(all_of(V), ~round(mean(.x), 2)), n = dplyr::n(), .groups = "drop")
+names(prof) <- c("cluster", LAB[V], "n")
+write.csv(prof, file.path(TAB, "05_vinety_cluster_profiles.csv"), row.names = FALSE)
+prof
+
+# stability figure: profile lines per cluster
+prof_long <- prof %>%
+  pivot_longer(all_of(unname(LAB[V])), names_to = "principle", values_to = "mean") %>%
+  mutate(principle = factor(principle, levels = unname(LAB[ord])))
+p_clu <- ggplot(prof_long, aes(principle, mean, group = factor(cluster),
+                               color = factor(cluster))) +
+  geom_line(linewidth = 1) + geom_point(size = 2) +
+  labs(x = NULL, y = "Mean rating (1-7)", color = "Cluster",
+       title = paste0("Response-profile clusters (k = ", K, ")")) +
+  theme_minimal(base_size = 12) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
+# Book figure 05_vinety_clusters.png is generated ONLY by fig_05_vinety.R (reads the frozen
+# 05_vinety_cluster_profiles.csv in book style). Preview inline only here; do not write book PNG.
+p_clu
+```
+
+## 6b. Two kinds of judges, or one continuum cut in two?
+
+```{r continuum}
+# Is the k=2 split two KINDS of judges, or one CONTINUUM sliced through the middle?
+# Two simple, decisive checks (no new model): (a) how much of the split a single
+# need-rating threshold recovers; (b) whether the ratings form one hump or two.
+skept <- as.integer(names(which.min(tapply(d$v_potreby, cl, mean))))   # lower-need cluster
+y_skept <- as.integer(cl == skept)
+put("need_rule_accuracy", round(mean((d$v_potreby <= 3) == y_skept), 2))   # ~.86
+
+# Pearson bimodality coefficient: > .555 hints at two modes; <= that => one hump
+bimod <- function(x) { x <- x[is.finite(x)]; n <- length(x); m <- mean(x)
+  m2 <- mean((x - m)^2); g <- mean((x - m)^3) / m2^1.5; k <- mean((x - m)^4) / m2^2 - 3
+  (g^2 + 1) / (k + 3 * (n - 1)^2 / ((n - 2) * (n - 3))) }
+put("need_bimodality", round(bimod(d$v_potreby), 2))         # ~.47 (one hump)
+put("axis_bimodality", round(bimod(prcomp(X)$x[, 1]), 2))    # ~.36 (one hump, PC1)
+
+# freeze per-respondent membership for the need-axis figure (Figure 5.3)
+memb <- data.frame(resp_id = d$resp_id, cluster = cl, need = d$v_potreby,
+                   profile = ifelse(cl == skept, "equality-first / need-skeptical",
+                                                  "need-inclusive"))
+write.csv(memb, file.path(TAB, "05_vinety_cluster_membership.csv"), row.names = FALSE)
+cat("need-rule accuracy:", MAN$need_rule_accuracy,
+    "| bimodality need/axis:", MAN$need_bimodality, "/", MAN$axis_bimodality, "\n")
+```
+
+## 7. Exploratory triangulation: latent profile analysis
+
+```{r lpa}
+# EXPLORATORY only (demotion rule per PLAN-analyz.md): LPA triangulates the
+# clustering above; if the two disagree, the network/cluster result governs and
+# LPA is reported as tentative.
+lpa_ok <- TRUE
+lpa_fit <- tryCatch({
+  fits <- d %>% select(all_of(V)) %>%
+    estimate_profiles(1:4, models = 1)   # model 1: equal variances, no covariances
+  get_fit(fits)
+}, error = function(e) { lpa_ok <<- FALSE; message("LPA skipped: ", conditionMessage(e)); NULL })
+
+if (lpa_ok && !is.null(lpa_fit)) {
+  lpa_tab <- as.data.frame(lpa_fit)[, intersect(c("Classes","BIC","AIC","Entropy"), names(as.data.frame(lpa_fit)))]
+  lpa_tab <- lpa_tab %>% mutate(across(where(is.numeric), ~round(.x, 2)))
+  write.csv(lpa_tab, file.path(TAB, "05_vinety_lpa_fit.csv"), row.names = FALSE)
+  best_lpa <- lpa_tab$Classes[which.min(lpa_tab$BIC)]
+  put("lpa_best_classes_bic", best_lpa)
+  put("lpa_agrees_with_cluster_k", best_lpa == K)
+  print(lpa_tab)
+} else {
+  put("lpa_best_classes_bic", NA)
+}
+```
+
+## 8. Demographics (descriptive only)
+
+```{r demographics}
+# demographics available only for a subset; no inferential use (convenience, incomplete)
+has_sex <- sum(!is.na(d$pohlavi) & d$pohlavi != "")
+has_age <- sum(!is.na(d$vek) & d$vek != "")
+put("demo_n_with_sex", has_sex)
+put("demo_n_with_age", has_age)
+cat("Respondents with sex recorded:", has_sex, "/ 315\n")
+cat("Respondents with age recorded:", has_age, "/ 315\n")
+```
+
+## 9. Freeze manifest
+
+```{r manifest}
+manifest <- data.frame(metric = names(MAN),
+                       value  = vapply(MAN, function(x) as.character(x), character(1)),
+                       row.names = NULL)
+write.csv(manifest, file.path(TAB, "05_cisla.csv"), row.names = FALSE)
+cat("Wrote", nrow(manifest), "frozen numbers to 05_cisla.csv\n")
+manifest
+```

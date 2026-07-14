@@ -1,0 +1,25 @@
+"taxon","family","ward_cluster"
+"Equality","distributive",1
+"Need","distributive",1
+"Merit/desert (equity)","distributive",2
+"Difference principle","distributive",1
+"Sufficiency","distributive",1
+"Fair equality of opportunity","distributive",2
+"Luck egalitarianism","distributive",2
+"Capabilities approach","distributive",1
+"Procedural justice","procedural",3
+"Interpersonal justice","interactional",3
+"Informational justice","interactional",3
+"Retributive justice","rectificatory",4
+"Restorative justice","rectificatory",4
+"Corrective (rectificatory) justice","rectificatory",4
+"Compensatory justice","rectificatory",4
+"Social justice","macro",1
+"Commutative justice","macro",3
+"Justice as fairness","macro",1
+"Complex equality (spheres)","macro",1
+"Recognition justice","macro",5
+"Relational equality","macro",5
+"Entitlement (libertarian) justice","macro",3
+"Utilitarian justice","macro",2
+"Formal justice (impartiality)","macro",1

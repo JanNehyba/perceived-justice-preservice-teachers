@@ -1,0 +1,7 @@
+"principle","var","n","mean","sd","median","iqr","pct_fair","pct_unfair"
+"Equality","v_rovnost",315,5.5,1.38,6,2,79.37,10.48
+"Chance","v_nahoda",315,4.5,1.7,5,3,52.38,26.67
+"Need","v_potreby",315,4.22,1.65,4,3,46.98,33.33
+"Merit","v_zasluhy",315,3.93,1.52,4,2,37.78,37.14
+"Equal opportunity","v_rovne_prilezitosti",315,2.36,1.43,2,2,8.89,81.27
+"Caste","v_kasty",315,2,1.15,2,2,3.49,90.16

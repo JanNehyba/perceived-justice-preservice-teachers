@@ -1,0 +1,50 @@
+// Figure 4.1 — Three-tier comparability framework. Cohorts colored by response scale;
+// grouped into the three comparison tiers. Scale boundary between 2022 and 2023.
+// n's from DATA_README. Reproducible source; render via render_figures.sh
+digraph tiers {
+  rankdir=LR;
+  bgcolor="white";
+  node [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", penwidth=1.2];
+  edge [style=invis];
+  graph [ranksep=0.5, nodesep=0.22];
+
+  // precursor (wording only)
+  C2019 [label="2019\nwording only\n(no data)", fillcolor="#F4F4F4", fontcolor="#9A9A9A", color="#CCCCCC", style="rounded,filled,dashed"];
+
+  // Tier 3 — normative frame (agreement scale)
+  subgraph cluster_t3 {
+    label="TIER 3  ·  normative frame  →  configural comparison only";
+    fontsize=10; fontcolor="#7A5C00"; color="#E0C060"; style="rounded"; bgcolor="#FCF6E3";
+    C2020 [label="2020\nn = 375\n3rd-person normative", fillcolor="#F2D9A0", fontcolor="black", color="#C9A24B"];
+  }
+
+  // Tier 2 — same items, agreement scale
+  subgraph cluster_t2 {
+    label="TIER 2  ·  same items, agreement scale  →  structure only (congruence, EGA)";
+    fontsize=10; fontcolor="#7A5C00"; color="#E0C060"; style="rounded"; bgcolor="#FCF6E3";
+    C2021 [label="2021\nn = 433\n1st-person", fillcolor="#F2D9A0", fontcolor="black", color="#C9A24B"];
+    C2022 [label="2022\nn = 263\n1st-person", fillcolor="#F2D9A0", fontcolor="black", color="#C9A24B"];
+  }
+
+  // Tier 1 — identical instrument, fairness scale
+  subgraph cluster_t1 {
+    label="TIER 1  ·  identical instrument, fairness scale  →  full invariance + latent means + NCT";
+    fontsize=10; fontcolor="#1F3E6E"; color="#2E5A9C"; style="rounded"; bgcolor="#E7EEF9";
+    C2023 [label="2023\nn = 247", fillcolor="#2E5A9C", fontcolor="white", color="#1F3E6E"];
+    C2024 [label="2024\nn = 333", fillcolor="#2E5A9C", fontcolor="white", color="#1F3E6E"];
+    C2026 [label="2026\nn = 164", fillcolor="#2E5A9C", fontcolor="white", color="#1F3E6E"];
+  }
+
+  // ordering along time
+  C2019 -> C2020 -> C2021 -> C2022 -> C2023 -> C2024 -> C2026;
+
+  // scale boundary marker
+  BND [label="⟵ agreement scale   |   fairness scale ⟶\nSCALE BOUNDARY (deepest comparability limit)",
+       shape=plaintext, fillcolor="white", style="", fontcolor="#B00000", fontsize=10];
+  C2022 -> BND [style=invis];
+  { rank=same; C2022; C2023; BND }
+
+  // pooled note for tier 1
+  POOL [label="pooled n = 744\n(Study 3)", shape=note, fillcolor="#E7EEF9", color="#2E5A9C", fontcolor="#1F3E6E", fontsize=9, style="filled"];
+  C2024 -> POOL [style=invis];
+}

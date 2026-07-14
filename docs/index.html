@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subjektivně vnímaná spravedlnost a její měření — Jan Nehyba</title>
+<meta name="description" content="Doprovodné stránky k monografii o tom, co studenti učitelství považují za spravedlivé: data, kód a kniha ke stažení.">
+<style>
+  :root{
+    --blue:#0000DC; --orange:#FF7300; --ink:#1c1c22; --muted:#5b5b66;
+    --bg:#faf9f5; --card:#ffffff; --line:#e7e4da;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --blue:#7d7dff; --orange:#ff9a44; --ink:#ececf1; --muted:#a6a6b2;
+           --bg:#14141a; --card:#1d1d25; --line:#2c2c37; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  h1{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.12;margin:0 0 .3em;color:var(--blue);font-weight:800;letter-spacing:-.01em}
+  .sub{font-size:1.15rem;color:var(--muted);margin:0 0 22px}
+  .byline{font-size:.98rem;color:var(--muted)}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 4px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;
+       font-weight:600;font-size:.98rem;border:1px solid var(--line)}
+  .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .btn.primary:hover{text-decoration:none;opacity:.92}
+  .btn.ghost{background:var(--card);color:var(--ink)}
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:1.5rem;margin:0 0 .6em;letter-spacing:-.01em}
+  p{margin:0 0 1em}
+  .lead{font-size:1.12rem}
+  figure{margin:26px 0 8px;text-align:center}
+  figure img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+  figcaption{font-size:.9rem;color:var(--muted);margin-top:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card h3{margin:0 0 .35em;font-size:1.06rem}
+  .card p{margin:0;font-size:.95rem;color:var(--muted)}
+  .card a{font-weight:600}
+  .villages{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+  .v{border-radius:10px;padding:12px 14px;color:#fff;font-weight:600}
+  .v small{display:block;font-weight:400;opacity:.9;font-size:.82rem;margin-top:3px}
+  .cite{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;
+        font-size:.9rem;color:var(--muted);overflow-x:auto}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
+  footer{padding:34px 0 60px;color:var(--muted);font-size:.9rem}
+  .en{color:var(--muted);font-size:.95rem}
+  .en summary{cursor:pointer;color:var(--blue);font-weight:600}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <p class="kicker">Habilitační monografie · Pedagogická fakulta MU</p>
+  <h1>Subjektivně vnímaná spravedlnost a její měření</h1>
+  <p class="sub">Co považují budoucí učitelé za spravedlivé — a jak to spolehlivě změřit</p>
+  <p class="byline">Jan Nehyba · Katedra pedagogiky, Pedagogická fakulta, Masarykova univerzita · 2026</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/raw/main/vystupy/export/habilitace-CZ.pdf">📕 Stáhnout knihu (PDF, česky)</a>
+    <a class="btn ghost" href="https://github.com/JanNehyba/perceived-justice-preservice-teachers">💻 Data a kód na GitHubu</a>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>O čem to je</h2>
+  <p class="lead">Většina výzkumu spravedlnosti ve škole se ptá, jak spravedlivý je <em>systém</em> — kdo se kam dostane, čí původ předpovídá čí výsledky. Tato kniha se ptá jinak: co považuje za spravedlivé <strong>sám učitel</strong>, který každý den rozděluje čas, pozornost, známky a výjimky?</p>
+  <p>Odpovídá na to pomocí dvou nezávislých souborů dat od českých studentů učitelství (2019–2026): jednak úlohou se „šesti vesnicemi", jednak dotazníkem, jehož vývoj a ověřování kniha podrobně dokumentuje. Vše je postavené tak, aby si každý mohl čísla ověřit — data i výpočty jsou veřejně dostupné.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Šest vesnic, jeden překvapivě jasný výsledek</h2>
+  <p>Studenti hodnotili šest vesnic, z nichž každá rozdělila nečekaně nabyté zlato podle jiného principu. Které rozdělení je spravedlivé?</p>
+  <div class="villages">
+    <div class="v" style="background:#2a52be">Rovnost<small>všem stejně</small></div>
+    <div class="v" style="background:#6b8fd6">Náhoda<small>losování</small></div>
+    <div class="v" style="background:#00893e">Potřeby<small>podle nouze</small></div>
+    <div class="v" style="background:#8a52c9">Zásluhy<small>podle přínosu</small></div>
+    <div class="v" style="background:#d64545">Rovné příležitosti<small>stejný start</small></div>
+    <div class="v" style="background:#c99a00">Kasty<small>podle postavení</small></div>
+  </div>
+  <p>Výsledek byl jednoznačný: na vrcholu stála <strong>rovnost</strong> (za spravedlivou ji označilo 79 % studentů), úplně dole <strong>kasty</strong> (90 % je odmítlo jako nespravedlivé). Uprostřed a napínavěji se ukázalo, že studenty nejvíc rozděluje jediná otázka — zda <em>potřeby</em> ospravedlňují odchylku od „všem stejně".</p>
+  <figure>
+    <img src="https://raw.githubusercontent.com/JanNehyba/perceived-justice-preservice-teachers/main/vystupy/obrazky/05_vinety_likert-cs.png" alt="Graf: rozdělení hodnocení šesti vesnic od rovnosti (nejspravedlivější) po kasty (nejméně spravedlivé)">
+    <figcaption>Jak studenti učitelství hodnotili spravedlnost šesti vesnic (n = 315). Modrá = spravedlivé, oranžová = nespravedlivé.</figcaption>
+  </figure>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Co tu najdete</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>📕 Kniha</h3>
+      <p>Celá monografie ke stažení: <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/raw/main/vystupy/export/habilitace-CZ.pdf">česky (PDF)</a>. V PDF jsou navíc přímé odkazy na data a výpočty za každým grafem.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Data</h3>
+      <p>Anonymizované datové sady všech studií a kohort, s popisem proměnných. <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/data/processed">Prohlédnout data</a>.</p>
+    </div>
+    <div class="card">
+      <h3>🔬 Výpočty</h3>
+      <p>Reprodukovatelné analytické „notebooky" — každé číslo v knize je dohledatelné k jednomu z nich. <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/analyzy/notebooks">Prohlédnout analýzy</a>.</p>
+    </div>
+    <div class="card">
+      <h3>📐 Nástroj</h3>
+      <p>Hotový 26položkový dotazník subjektivně vnímané spravedlnosti — k použití i pro další výzkum. Znění je v příloze knihy.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Jak to citovat</h2>
+  <div class="cite">
+    Nehyba, J. (2026). <em>Subjektivně vnímaná spravedlnost a její měření u studentů učitelství</em> [habilitační monografie]. Masarykova univerzita.<br><br>
+    Data a kód: Nehyba, J. (2026). <em>… — doprovodný repozitář</em> [Data set and code]. GitHub. <code>github.com/JanNehyba/perceived-justice-preservice-teachers</code>
+  </div>
+  <p style="margin-top:16px" class="en"><small>Archivní DOI bude doplněn po vydání. Kód: licence MIT; data, text a obrázky: CC BY 4.0.</small></p>
+
+  <details class="en" style="margin-top:20px">
+    <summary>In English</summary>
+    <p style="margin-top:12px">This is the companion site for the habilitation monograph <em>Perceived Justice and Its Measurement Among Czech Pre-Service Teachers</em> (Jan Nehyba, Faculty of Education, Masaryk University). It asks what future teachers consider just when they allocate time, attention and grades — and whether their self-perceived justice can be measured reliably. Anonymized data, analysis code, and the book are openly available. The primary book edition is Czech; an <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/raw/main/vystupy/export/habilitace-EN.pdf">English PDF</a> is also included but may lag the Czech version.</p>
+  </details>
+</div></section>
+
+<footer><div class="wrap">
+  Jan Nehyba · ORCID <a href="https://orcid.org/0000-0003-4159-5576">0000-0003-4159-5576</a> · Pedagogická fakulta, Masarykova univerzita · 2026
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+---
+title: "E5.1 — Conceptual-similarity dendrogram of justice concepts"
+subtitle: "habilitace-1; result for chapter 2.7 (method in Appendix E)"
+date: "2026-07-11"
+format: { html: { toc: true } }
+execute: { warning: false, message: false }
+---
+
+<!--
+  E5.1 per Appendix E. Inputs: three cross-provider coder matrices
+  (typology_matrix_{opus,openai,glm}.csv). Reliability across providers -> consensus ->
+  Gower distance -> NeighborNet (emergent typology) + Ward; ARI/NMI vs a priori families.
+  Human-validation and the character-free convergence check are appended by the
+  dedicated scripts after the core manifest is written, so a full run ends with
+  all three evidence blocks in one frozen manifest.
+  Run from analyzy/: Rscript -e 'knitr::purl("notebooks/50_typology.qmd","/tmp/50.R",quiet=TRUE); source("/tmp/50.R")'
+-->
+
+```{r setup}
+suppressPackageStartupMessages({
+  library(dplyr); library(tidyr); library(cluster); library(phangorn)
+  library(ape); library(irr); library(mclust); library(igraph)
+})
+set.seed(744)
+find_root <- function(){ for(p in c(".","..","../..")) if(dir.exists(file.path(p,"data/processed"))) return(normalizePath(p)); stop("root") }
+ROOT<-find_root(); PROC<-file.path(ROOT,"data","processed"); TAB<-file.path(ROOT,"vystupy","tabulky"); FIG<-file.path(ROOT,"vystupy","obrazky")
+MAN<-list(); put<-function(k,v){ MAN[[k]]<<-v; invisible(v) }
+
+coders <- c(opus="opus", openai="openai", glm="glm")
+mats <- lapply(coders, function(c) read.csv(file.path(PROC, paste0("typology_matrix_",c,".csv")), stringsAsFactors=FALSE))
+taxa <- read.csv(file.path(PROC,"typology_taxa.csv"), stringsAsFactors=FALSE)
+CH <- unique(mats[[1]]$character)                       # 16 chars in order
+stopifnot(length(CH)==16)
+put("n_taxa", nrow(taxa)); put("n_characters", 16); put("n_coders", 3)
+put("coders", "opus (Anthropic) / gpt-5.5 (OpenAI) / glm-5.2 (Zhipu@e-INFRA)")
+```
+
+## Reliability across providers (Krippendorff's alpha)
+
+```{r alpha}
+# unit = taxon_id + char_id; build a 3 x 384 matrix of codes (rows=coders)
+key <- function(m) paste(m$taxon_id, m$char_id, sep="_")
+units <- key(mats[[1]])
+codemat <- sapply(mats, function(m){ m<-m[match(units, key(m)),]; m$code })
+codemat <- t(codemat)                                   # 3 coders x 384 units
+rownames(codemat) <- names(coders)
+# Legacy pooled diagnostic across all feature cells. Because the 16 features have different
+# permitted state spaces, this value is retained for audit continuity but is NOT interpreted
+# in the book; feature-specific alphas below are the reporting basis.
+lev <- unique(as.vector(codemat)); intmat <- matrix(match(codemat, lev), nrow=3, dimnames=dimnames(codemat))
+a_overall <- irr::kripp.alpha(intmat, method="nominal")$value
+put("kripp_alpha_overall", round(a_overall,3))
+put("kripp_alpha_overall_note", "legacy pooled diagnostic across heterogeneous feature state spaces; not interpreted; use E5_alpha_per_character.csv")
+
+# per-character alpha
+char_of <- mats[[1]]$character[match(units, key(mats[[1]]))]
+per <- sapply(CH, function(cc){
+  sub <- intmat[, char_of==cc, drop=FALSE]
+  tryCatch(round(irr::kripp.alpha(sub, method="nominal")$value,3), error=function(e) NA)
+})
+per_df <- data.frame(character=CH, alpha=as.numeric(per))
+write.csv(per_df, file.path(TAB,"E5_alpha_per_character.csv"), row.names=FALSE)
+put("kripp_alpha_char_min", round(min(per,na.rm=TRUE),3))
+put("kripp_alpha_char_below_.667", sum(per < .667, na.rm=TRUE))
+cat("Krippendorff alpha overall =", round(a_overall,3), "\n"); print(per_df)
+```
+
+## Consensus matrix (majority of the three coders)
+
+```{r consensus}
+# per unit: majority token; if all three differ, tie-break to opus (documented)
+consensus <- sapply(seq_along(units), function(j){
+  v <- codemat[,j]; tb <- sort(table(v), decreasing=TRUE)
+  if(length(tb)>=1 && tb[1] >= 2) names(tb)[1] else v["opus"]
+})
+cons <- data.frame(taxon_id=mats[[1]]$taxon_id, character=char_of, code=consensus, stringsAsFactors=FALSE)
+wide <- cons |> pivot_wider(names_from=character, values_from=code) |> as.data.frame()
+rownames(wide) <- taxa$taxon[match(wide$taxon_id, taxa$id)]
+W <- wide[, CH]; W[] <- lapply(W, factor)
+put("consensus_ties_allthree_differ", sum(apply(codemat,2,function(v) length(unique(v))==3)))
+write.csv(cbind(taxon=rownames(wide), wide[,CH]), file.path(TAB,"E5_consensus_matrix.csv"), row.names=FALSE)
+```
+
+## Emergent typology: Gower distance -> NeighborNet + Ward
+
+```{r trees}
+D <- cluster::daisy(W, metric="gower")
+fam <- taxa$family[match(rownames(wide), taxa$taxon)]
+famf <- factor(fam)
+pal <- c(distributive="#2E5A9C", procedural="#ED7D31", interactional="#70AD47",
+         rectificatory="#C00000", macro="#7030A0")
+
+# NeighborNet (reticulate network) — the emergent map
+nn <- tryCatch(phangorn::neighborNet(D), error=function(e){message("nnet: ",conditionMessage(e)); NULL})
+if(!is.null(nn)){
+  # colour tips in the NETWORK's own tip order (not the data-frame row order)
+  tipcol <- pal[as.character(taxa$family[match(nn$tip.label, taxa$taxon)])]
+  draw <- function() tryCatch(plot(nn, type="2D", tip.color=tipcol, cex=0.7),
+                              error=function(e) plot(nn, tip.color=tipcol, cex=0.7))
+  png(file.path(FIG,"E5_dendrogram.png"), width=3000, height=2200, res=230); draw(); dev.off()
+  pdf(file.path(FIG,"E5_dendrogram.pdf"), width=12, height=9); draw(); dev.off()
+}
+
+# Ward dendrogram + cut at k = number of a priori families (5) for ARI/NMI
+hc <- hclust(D, method="ward.D2")
+k <- nlevels(famf); put("k_families", k)
+cl <- cutree(hc, k)
+put("ARI_vs_families", round(mclust::adjustedRandIndex(cl, as.integer(famf)),3))
+nmi <- igraph::compare(cl, as.integer(famf), method="nmi")
+put("NMI_vs_families", round(nmi,3))
+
+# Contested (low-alpha) characters are NOT discarded. Three views are reported side by side:
+#   A) all 16, equal weights  (primary D above)   B) reliable-9 subset   C) alpha-weighted
+# (b) reliable-9 subset — binary drop, sensitivity only
+rel <- per_df$character[!is.na(per_df$alpha) & per_df$alpha >= .667]
+put("n_reliable_chars", length(rel))
+put("dropped_chars_low_alpha", paste(setdiff(CH, rel), collapse="; "))
+if(length(rel) >= 3){
+  clr <- cutree(hclust(cluster::daisy(W[,rel,drop=FALSE], metric="gower"),"ward.D2"), k)
+  put("ARI_vs_families_reliable_only", round(mclust::adjustedRandIndex(clr, as.integer(famf)),3))
+}
+# (c) alpha-weighted Gower — nothing dropped; each character contributes in proportion to its
+#     inter-coder reliability (negative/NA alpha clamped to 0). The principled middle ground.
+wts <- pmax(0, per_df$alpha[match(CH, per_df$character)]); wts[is.na(wts)] <- 0
+Dw <- cluster::daisy(W, metric="gower", weights=wts)
+clw <- cutree(hclust(Dw, "ward.D2"), k)
+put("ARI_vs_families_alpha_weighted", round(mclust::adjustedRandIndex(clw, as.integer(famf)),3))
+# the contested characters are a finding, not noise: record them with their alpha
+contested <- per_df[!is.na(per_df$alpha) & per_df$alpha < .667, ]
+contested <- contested[order(contested$alpha), ]
+put("contested_characters", paste(sprintf("%s(%.2f)", contested$character, contested$alpha), collapse="; "))
+
+# which concepts sit outside their a priori family's dominant cluster?
+dom <- tapply(cl, famf, function(z) as.integer(names(sort(table(z),decreasing=TRUE))[1]))
+offliers <- rownames(wide)[cl != dom[as.character(fam)]]
+put("offliers_vs_families", paste(offliers, collapse="; "))
+write.csv(data.frame(taxon=rownames(wide), family=fam, ward_cluster=cl), file.path(TAB,"E5_cluster_membership.csv"), row.names=FALSE)
+cat("ARI vs families =", MAN[["ARI_vs_families"]], "| NMI =", round(nmi,3),
+    "\noff-family concepts:", MAN[["offliers_vs_families"]], "\n")
+```
+
+## Freeze manifest
+
+```{r manifest}
+put("human_validation", "PENDING (kill-switch not yet evaluated; LLM-LLM reliability only so far)")
+put("second_lens_embedding", "PENDING (character-free cross-check)")
+w <- data.frame(metric=names(MAN), value=vapply(MAN, function(x) as.character(x[1]), character(1)))
+write.csv(w, file.path(TAB,"E5_typologie_cisla.csv"), row.names=FALSE)
+cat("Wrote E5_typologie_cisla.csv (",nrow(w),")\n",sep="")
+
+# Complete the frozen manifest whenever the already-collected validation and
+# embedding inputs are present. These scripts replace the two PENDING keys and
+# append their metrics without clobbering the core coding results above.
+if (file.exists(file.path(PROC, "validation_pilot_FILLED.csv")))
+  source(file.path(ROOT, "analyzy", "scripts", "validate_pilot.R"), chdir=TRUE)
+if (file.exists(file.path(PROC, "typology_embed_dist.csv")))
+  source(file.path(ROOT, "analyzy", "scripts", "converge_typology.R"), chdir=TRUE)
+```

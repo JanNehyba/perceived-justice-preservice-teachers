@@ -1,0 +1,81 @@
+taxon_id,taxon,char_id,character,code_coder_A,code_coder_B
+t01,Equality,1,focus,outcome,outcome
+t01,Equality,2,comparative,comparative,comparative
+t01,Equality,3,temporal,atemporal,atemporal
+t01,Equality,4,structure,patterned,endstate
+t01,Equality,5,currency,resources,resources
+t01,Equality,6,need_sensitive,partial,no
+t01,Equality,7,desert_sensitive,no,no
+t01,Equality,8,equal_shares_default,yes,yes
+t01,Equality,9,remedial,nonremedial,nonremedial
+t01,Equality,10,punishment,no,no
+t01,Equality,11,repair,no,no
+t01,Equality,12,voice,absent,absent
+t01,Equality,13,interpersonal_treatment,no,no
+t01,Equality,14,transparency_info,no,no
+t01,Equality,15,level,both,macro
+t01,Equality,16,scope,domaingeneral,domaingeneral
+t09,Procedural justice,1,focus,process,process
+t09,Procedural justice,2,comparative,noncomparative,comparative
+t09,Procedural justice,3,temporal,atemporal,atemporal
+t09,Procedural justice,4,structure,historical,historical
+t09,Procedural justice,5,currency,na,na
+t09,Procedural justice,6,need_sensitive,no,no
+t09,Procedural justice,7,desert_sensitive,no,partial
+t09,Procedural justice,8,equal_shares_default,no,no
+t09,Procedural justice,9,remedial,nonremedial,nonremedial
+t09,Procedural justice,10,punishment,no,no
+t09,Procedural justice,11,repair,no,no
+t09,Procedural justice,12,voice,central,central
+t09,Procedural justice,13,interpersonal_treatment,yes,yes
+t09,Procedural justice,14,transparency_info,yes,yes
+t09,Procedural justice,15,level,micro,both
+t09,Procedural justice,16,scope,domaingeneral,domaingeneral
+t12,Retributive justice,1,focus,outcome,outcome
+t12,Retributive justice,2,comparative,comparative,noncomparative
+t12,Retributive justice,3,temporal,backward,backward
+t12,Retributive justice,4,structure,historical,historical
+t12,Retributive justice,5,currency,na,na
+t12,Retributive justice,6,need_sensitive,no,no
+t12,Retributive justice,7,desert_sensitive,yes,yes
+t12,Retributive justice,8,equal_shares_default,no,no
+t12,Retributive justice,9,remedial,remedial,remedial
+t12,Retributive justice,10,punishment,yes,yes
+t12,Retributive justice,11,repair,no,no
+t12,Retributive justice,12,voice,absent,peripheral
+t12,Retributive justice,13,interpersonal_treatment,no,no
+t12,Retributive justice,14,transparency_info,no,yes
+t12,Retributive justice,15,level,both,both
+t12,Retributive justice,16,scope,domaingeneral,spherespecific
+t13,Restorative justice,1,focus,relationship,relationship
+t13,Restorative justice,2,comparative,noncomparative,noncomparative
+t13,Restorative justice,3,temporal,backward,backward
+t13,Restorative justice,4,structure,historical,historical
+t13,Restorative justice,5,currency,na,na
+t13,Restorative justice,6,need_sensitive,yes,partial
+t13,Restorative justice,7,desert_sensitive,partial,partial
+t13,Restorative justice,8,equal_shares_default,no,no
+t13,Restorative justice,9,remedial,remedial,remedial
+t13,Restorative justice,10,punishment,no,no
+t13,Restorative justice,11,repair,yes,yes
+t13,Restorative justice,12,voice,central,central
+t13,Restorative justice,13,interpersonal_treatment,yes,yes
+t13,Restorative justice,14,transparency_info,yes,yes
+t13,Restorative justice,15,level,micro,micro
+t13,Restorative justice,16,scope,domaingeneral,spherespecific
+t08,Capabilities approach,1,focus,outcome,outcome
+t08,Capabilities approach,2,comparative,comparative,comparative
+t08,Capabilities approach,3,temporal,forward,atemporal
+t08,Capabilities approach,4,structure,patterned,endstate
+t08,Capabilities approach,5,currency,capability,capability
+t08,Capabilities approach,6,need_sensitive,yes,yes
+t08,Capabilities approach,7,desert_sensitive,no,no
+t08,Capabilities approach,8,equal_shares_default,no,no
+t08,Capabilities approach,9,remedial,nonremedial,nonremedial
+t08,Capabilities approach,10,punishment,no,no
+t08,Capabilities approach,11,repair,no,no
+t08,Capabilities approach,12,voice,peripheral,peripheral
+t08,Capabilities approach,13,interpersonal_treatment,no,no
+t08,Capabilities approach,14,transparency_info,yes,no
+t08,Capabilities approach,15,level,both,macro
+t08,Capabilities approach,16,scope,domaingeneral,domaingeneral

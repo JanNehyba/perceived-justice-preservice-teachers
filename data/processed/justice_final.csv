@@ -1,0 +1,745 @@
+resp_id,wave,datum,pohlavi,rok_narozeni,obor1,obor2,zkusenost,item_01,item_02,item_03,item_04,item_05,item_06,item_07,item_08,item_09,item_10,item_11,item_12,item_13,item_14,item_15,item_16,item_17,item_18,item_19,item_20,item_21,item_22,item_23,item_24,item_25,item_26
+w2023_001,2023,2023-02-14,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,7,7,7,5,7,6,5,7,5,5,5,5,5,6,7,5,5,6,6,5,7,6,7,7
+w2023_002,2023,2023-02-14,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,4,5,7,7,7,4,7,3,4,6,4,5,6,7,5,7,6,6,7,7,7,6,7
+w2023_003,2023,2023-02-14,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika,False,5,5,2,4,4,4,5,6,4,4,4,4,4,4,4,4,5,5,5,5,6,4,6,7,4,4
+w2023_004,2023,2023-02-14,Muž,2001,Matematika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,6,4,3,5,4,7,7,2,4,3,5,6,4,5,3,6,5,7,7,6,7,4,5,7,5
+w2023_005,2023,2023-02-14,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,5,6,3,3,4,7,7,7,5,5,1,5,6,7,5,6,5,5,6,6,7,4,5,5,7,7
+w2023_006,2023,2023-02-14,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,6,5,7,6,6,7,7,5,7,4,5,6,5,6,3,7,7,7,7,7,3,6,6,7,4
+w2023_007,2023,2023-02-14,Žena,2002,Výtvarná výchova se zaměřením na vzdělávání,,True,6,7,4,5,5,6,7,7,3,5,2,3,7,6,5,5,7,7,7,7,7,7,5,6,6,7
+w2023_008,2023,2023-02-14,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,5,5,4,1,6,6,7,3,7,5,4,7,7,7,7,4,4,7,5,7,7,7,7,7,7
+w2023_009,2023,2023-02-14,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,5,7,6,5,7,5,7,5,3,6,7,5,5,5,7,5,7,7,6,6,6,7,7,3
+w2023_010,2023,2023-02-14,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,6,5,7,4,4,7,7,7,1,7,1,5,6,7,7,7,7,4,7,7,7,7,7,6,7,7
+w2023_011,2023,2023-02-14,Muž,2002,Zeměpis se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,5,6,6,7,7,4,7,5,5,5,7,6,7,6,5,6,6,6,7,7,7,6,6
+w2023_012,2023,2023-02-14,Žena,1998,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,6,6,6,7,6,6,7,7,6,6,6,6,5,5,4,6,7,7,5,5,6,5,7,7,7,6
+w2023_013,2023,2023-02-14,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,7,7,7,7,7,7,7,7,6,6,7,4,5,3,5,6,7,7,7,7,7,7,7,7
+w2023_014,2023,2023-02-14,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,7,6,5,6,7,7,5,5,4,6,5,5,7,7,3,5,6,6,6,7,7,7,6,5
+w2023_015,2023,2023-02-14,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,5,2,4,5,6,6,7,5,6,2,6,7,6,7,5,5,6,7,2,7,6,5,7,7,7
+w2023_016,2023,2023-02-14,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,4,6,5,7,7,7,5,7,4,6,7,5,6,7,3,4,7,6,7,6,7,7,7,7
+w2023_017,2023,2023-02-14,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,3,5,6,7,7,7,6,6,6,6,6,6,4,2,7,6,6,6,5,3,7,7,6,6
+w2023_018,2023,2023-02-14,Žena,2002,Dějepis se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,6,5,6,7,7,7,3,5,4,7,7,4,6,4,4,2,7,7,7,7,7,7,7,4
+w2023_019,2023,2023-02-14,Muž,2001,Dějepis se zaměřením na vzdělávání,,False,7,7,4,5,6,7,7,7,5,4,3,3,7,4,7,7,6,5,7,6,5,3,7,4,5,7
+w2023_020,2023,2023-02-14,Žena,1998,Fyzika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,7,4,3,6,5,6,7,5,4,4,6,5,3,3,3,5,5,6,5,6,7,6,7,5,7
+w2023_021,2023,2023-02-14,Žena,2001,Přírodopis se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,False,7,7,7,6,5,6,7,7,3,7,3,7,6,7,7,7,6,3,7,7,6,7,7,6,6,7
+w2023_022,2023,2023-02-14,Žena,1999,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,4,3,6,7,7,4,6,3,6,6,6,2,2,7,5,6,5,5,4,5,5,5,5
+w2023_023,2023,2023-02-14,Žena,1999,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,4,5,5,6,7,6,6,7,5,5,6,6,4,3,5,4,6,7,6,6,7,7,7,5
+w2023_024,2023,2023-02-14,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,7,5,2,7,4,5,7,7,2,6,5,5,6,4,4,6,5,5,6,5,7,5,6,7,7,6
+w2023_025,2023,2023-02-14,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,5,6,5,6,5,7,7,2,2,2,2,6,2,5,6,6,5,5,7,7,7,6,4,6,7
+w2023_026,2023,2023-02-14,Žena,1997,Hudební výchova se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,4,5,4,7,7,7,4,7,3,5,7,5,7,7,6,6,6,7,6,7,6,7,6,6
+w2023_027,2023,2023-02-14,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,3,5,2,6,7,7,5,6,2,6,7,7,7,2,5,4,6,6,7,7,7,6,7,7
+w2023_028,2023,2023-02-14,Muž,2001,Anglický jazyk se zaměřením na vzdělávání,,False,6,5,6,5,4,6,5,6,4,5,3,5,6,5,7,6,6,3,5,6,6,7,5,4,5,7
+w2023_029,2023,2023-02-14,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,7,6,5,5,5,6,7,3,7,4,7,7,6,6,7,5,6,6,7,6,7,6,6,6,6
+w2023_030,2023,2023-02-14,Žena,2001,Matematika se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,6,6,4,4,5,6,6,4,5,5,6,6,4,5,6,6,4,6,6,6,6,5,6,5,6
+w2023_031,2023,2023-02-14,Žena,2002,Ruský jazyk se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,7,7,5,6,5,7,7,7,4,5,4,4,7,5,7,7,7,7,6,6,5,5,7,7,7,6
+w2023_032,2023,2023-02-14,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,3,4,7,7,7,4,7,4,4,6,7,7,4,6,4,5,2,6,7,7,7,5,7
+w2023_033,2023,2023-02-14,Žena,2000,Matematika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,7,6,4,6,7,7,3,7,4,6,5,5,6,7,6,5,6,6,6,7,7,7,7,7
+w2023_034,2023,2023-02-14,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,4,5,6,7,7,7,3,7,5,5,6,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2023_035,2023,2023-02-14,Muž,2000,Zeměpis se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,False,7,7,6,7,7,7,7,7,6,7,5,7,7,5,2,3,7,7,7,7,7,6,7,7,7,6
+w2023_036,2023,2023-02-14,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,5,6,5,5,5,6,7,7,4,6,3,5,5,6,2,6,6,4,5,4,4,6,6,5,4,6
+w2023_037,2023,2023-02-14,Muž,1998,Matematika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,6,2,7,6,6,6,6,6,2,6,7,7,2,2,2,6,4,7,7,7,2,4,7,7,4
+w2023_038,2023,2023-02-14,Muž,2001,Matematika se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,7,7,2,6,3,7,7,7,2,2,4,7,7,2,5,2,6,6,7,7,6,6,4,6,6,6
+w2023_039,2023,2023-02-14,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,4,5,6,6,6,6,6,6,5,4,4,3,3,5,5,7,6,7,4,7,7,6,6
+w2023_040,2023,2023-02-14,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,4,5,6,7,7,7,6,6,7,7,7,4,5,5,7,7,7,7,7,6,7,7,7,6
+w2023_041,2023,2023-02-14,Žena,1999,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,3,6,4,7,7,7,4,5,5,2,2,5,4,6,5,3,6,4,5,7,7,7,6,7
+w2023_042,2023,2023-02-14,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,False,7,7,7,5,5,4,4,7,7,7,4,7,7,7,7,7,7,5,7,4,5,6,7,5,5,7
+w2023_043,2023,2023-02-14,Muž,2002,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,5,4,3,4,6,5,7,3,6,5,7,6,5,4,3,4,5,6,6,6,5,7,7,7,5
+w2023_044,2023,2023-02-14,Muž,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,5,7,7,6,5,6,6,7,4,5,6,6,5,6,7,5,7,3,6,6,5,6,7,6,6,7
+w2023_045,2023,2023-02-14,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,6,5,5,4,3,6,7,7,2,4,4,5,4,5,5,5,4,4,5,7,6,6,7,7,4,7
+w2023_046,2023,2023-02-14,Žena,2001,Matematika se zaměřením na vzdělávání,,False,7,6,5,5,5,7,6,5,4,4,4,5,5,3,3,4,6,5,5,6,5,7,6,5,7,4
+w2023_047,2023,2023-02-14,Muž,1997,Matematika se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,6,5,4,6,7,7,7,4,4,6,4,5,4,6,6,7,5,6,5,6,4,7,7,7,7
+w2023_048,2023,2023-02-14,Muž,2001,Zeměpis se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,6,5,5,4,5,4,6,5,4,5,3,6,5,6,7,6,6,5,5,6,5,6,5,5,6,6
+w2023_049,2023,2023-02-14,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,6,6,6,5,7,5,5,7,3,7,3,3,7,7,7,5,7,6,7,6,6,7,7,6,7,7
+w2023_050,2023,2023-02-14,Muž,2000,Technická a informační výchova se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,6,4,7,5,6,7,7,5,7,4,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2023_051,2023,2023-02-14,Muž,2000,Chemie se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,6,5,4,5,5,7,7,3,4,5,5,4,7,7,7,7,5,5,4,5,7,7,6,3,7
+w2023_052,2023,2023-02-14,Muž,2000,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,2,4,3,3,4,7,5,1,7,2,7,7,7,7,7,7,1,7,7,7,7,4,5,7,7
+w2023_053,2023,2023-02-14,Žena,2001,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,3,6,7,7,7,2,7,5,7,5,7,1,5,7,1,7,5,7,7,7,7,7,6
+w2023_054,2023,2023-02-14,Žena,1998,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,6,4,4,7,7,7,4,7,6,7,6,6,5,7,6,6,5,7,6,7,7,7,7,7
+w2023_055,2023,2023-02-14,Žena,2002,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,6,6,6,3,3,5,6,7,5,7,1,5,6,6,6,6,6,3,5,6,6,6,6,6,6,6
+w2023_056,2023,2023-02-14,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,5,4,6,7,7,3,3,1,5,7,5,2,6,6,6,7,6,7,7,7,7,7,6
+w2023_057,2023,2023-02-14,Žena,1985,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,4,4,7,7,7,3,7,3,5,6,7,7,6,7,5,7,6,6,7,7,7,7,7
+w2023_058,2023,2023-02-14,Žena,2002,Přírodopis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,6,5,5,7,7,7,5,7,3,6,6,5,7,7,6,6,5,4,6,7,7,7,5,7
+w2023_059,2023,2023-02-14,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,4,6,7,5,5,6,7,7,4,7,6,7,4,6,4,4,6,6,4,5,5,5,4,5,4,5
+w2023_060,2023,2023-02-14,Žena,2001,Německý jazyk se zaměřením na vzdělávání,,False,5,7,6,6,7,6,6,7,5,6,5,4,4,6,3,5,6,7,5,4,5,6,7,5,7,7
+w2023_061,2023,2023-02-14,Žena,2001,Dějepis se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,7,6,5,6,6,5,6,4,4,6,6,4,5,2,5,5,5,5,5,5,6,6,6,7
+w2023_062,2023,2023-02-14,Žena,2002,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,5,7,7,4,5,6,7,7,4,7,5,7,7,7,6,7,7,7,7,7,7,7,7,7,7,7
+w2023_063,2023,2023-02-14,Muž,2001,Technická a informační výchova se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,7,6,7,7,7,6,6,6,6,7,6,6,7,7,6,7,6,7,7,7,7,7,7
+w2023_064,2023,2023-02-14,Muž,2000,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,3,4,7,7,7,1,5,2,7,7,5,7,7,6,2,7,7,7,7,7,3,7,7
+w2023_065,2023,2023-02-14,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2023_066,2023,2023-02-14,Žena,1998,Německý jazyk se zaměřením na vzdělávání,,True,7,5,4,4,6,6,5,5,2,4,3,5,6,5,5,5,5,5,5,3,6,6,5,6,6,6
+w2023_067,2023,2023-02-14,Žena,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika,True,6,6,6,3,4,6,7,7,2,6,3,4,5,6,5,5,7,5,6,6,6,6,7,6,6,6
+w2023_068,2023,2023-02-14,Muž,2001,Anglický jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,4,6,5,6,6,6,3,7,5,6,6,5,5,5,6,5,6,4,5,6,6,6,4,5
+w2023_069,2023,2023-02-14,Žena,2001,Výtvarná výchova se zaměřením na vzdělávání,,True,7,5,5,4,3,4,6,6,2,5,2,4,5,6,5,6,6,5,6,5,5,6,6,6,6,5
+w2023_070,2023,2023-02-14,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,6,6,6,7,7,7,4,6,6,3,4,5,6,6,6,6,6,5,5,7,7,7,6,7
+w2023_071,2023,2023-02-14,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,4,4,5,4,7,7,6,4,7,7,7,2,5,4,7,7,7,4,7,7,7,7,5,7
+w2023_072,2023,2023-02-14,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,7,6,5,5,6,7,7,4,7,5,5,4,6,5,5,5,6,5,6,6,6,7,7,6,6
+w2023_073,2023,2023-02-14,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,6,6,6,5,5,5,6,6,6,5,5,5,5,6,5,7,6,4,5,5,5,6,5,6,4,6
+w2023_074,2023,2023-02-14,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,6,6,6,7,6,7,7,6,3,4,7,7,5,6,7,7,6,7,6,7,7,7,7,7,7
+w2023_075,2023,2023-02-14,Žena,2000,Přírodopis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,6,6,5,6,6,6,7,6,5,7,3,7,7,7,6,7,7,7,7,7,7,7,7,7,7,7
+w2023_076,2023,2023-02-14,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,False,6,7,3,7,5,6,7,7,5,5,4,4,5,4,5,5,5,6,6,6,6,7,6,7,6,6
+w2023_077,2023,2023-02-14,Muž,2002,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,5,5,5,6,7,7,5,6,3,4,4,6,7,7,4,6,5,5,7,7,7,6,6,7
+w2023_078,2023,2023-02-14,Žena,2002,Matematika se zaměřením na vzdělávání,,False,7,6,7,4,4,6,6,7,4,4,1,7,5,5,6,6,5,5,5,5,4,5,6,6,6,5
+w2023_079,2023,2023-02-14,Žena,2002,Ruský jazyk se zaměřením na vzdělávání,,False,7,7,6,7,7,7,7,7,5,6,4,4,7,6,5,7,7,7,7,7,6,6,7,6,7,7
+w2023_080,2023,2023-02-14,Muž,2002,Matematika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,6,6,6,7,7,4,6,5,7,7,6,6,7,7,6,7,7,7,7,7,6,7,7
+w2023_081,2023,2023-02-14,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,7,7,7,5,3,7,7,7,3,7,2,7,6,7,7,7,6,6,6,7,6,7,7,7,7,7
+w2023_082,2023,2023-02-14,Muž,2000,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,1,4,4,7,7,7,6,2,7,2,2,3,2,2,6,7,7,7,7,7,7,7,7,2
+w2023_083,2023,2023-02-14,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,6,4,7,7,7,6,5,6,5,7,5,4,5,7,6,6,6,6,7,6,7,7,7
+w2023_084,2023,2023-02-14,Žena,1999,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,6,3,4,5,7,7,7,5,6,5,5,7,5,4,5,6,6,6,7,6,6,7,7,6,6
+w2023_085,2023,2023-02-14,Žena,2001,Německý jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,6,7,5,6,6,7,5,5,3,4,5,6,6,4,3,3,6,6,6,6,6,6,7,7,7,6
+w2023_086,2023,2023-02-15,Žena,1998,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,5,6,7,6,6,6,7,7,5,6,5,7,7,4,3,6,6,7,5,7,7,7,7,7,6,6
+w2023_087,2023,2023-02-15,Žena,2001,Německý jazyk se zaměřením na vzdělávání,,True,4,4,4,4,5,6,7,7,4,7,5,3,4,4,4,6,5,5,6,5,5,6,7,6,6,6
+w2023_088,2023,2023-02-15,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,5,3,5,6,7,5,5,6,6,4,3,3,3,5,6,6,6,2,4,6,6,7,4,7
+w2023_089,2023,2023-02-15,Žena,2002,Hudební výchova se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,5,3,5,6,6,2,6,4,5,6,6,3,7,7,6,5,5,5,7,7,7,5,5
+w2023_090,2023,2023-02-15,Žena,2000,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,5,4,4,7,6,5,4,5,4,1,4,5,4,7,5,7,5,5,4,5,7,7,7,6
+w2023_091,2023,2023-02-15,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,6,7,5,7,7,7,2,7,6,7,7,6,6,2,6,6,7,6,7,7,7,7,7,6
+w2023_092,2023,2023-02-15,Žena,2001,Německý jazyk se zaměřením na vzdělávání,,False,7,7,4,7,6,7,7,7,7,7,3,4,7,4,4,6,7,5,7,7,7,7,7,7,7,7
+w2023_093,2023,2023-02-15,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,5,4,5,7,7,7,5,7,5,4,6,7,7,7,6,7,6,6,7,7,7,6,7,6
+w2023_094,2023,2023-02-15,Žena,2000,Matematika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,5,5,5,4,7,7,5,7,4,7,7,5,3,7,7,7,7,7,7,7,7,7,6,7
+w2023_095,2023,2023-02-15,Žena,1999,Výchova ke zdraví se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,7,6,1,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4
+w2023_096,2023,2023-02-15,Muž,2000,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,6,5,4,6,5,7,7,7,1,5,2,6,6,7,5,6,4,6,7,7,7,6,7,3,6,7
+w2023_097,2023,2023-02-15,Žena,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,5,6,6,4,5,7,5,5,5,6,6,5,7,7,6,5,5,7,7,7,6,5,7,7
+w2023_098,2023,2023-02-15,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,False,7,7,7,6,4,6,6,7,3,5,5,5,6,6,4,7,5,6,6,5,7,6,7,6,6,6
+w2023_099,2023,2023-02-15,Muž,2001,Technická a informační výchova se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,5,5,4,3,5,5,7,6,3,6,5,6,5,5,7,7,6,5,6,6,7,7,6,5,6,5
+w2023_100,2023,2023-02-15,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,5,7,4,4,5,7,5,6,3,5,5,4,5,5,5,6,6,5,6,5,6,5,6,7
+w2023_101,2023,2023-02-15,Muž,2000,Matematika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,7,7,6,7,7,7,5,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2023_102,2023,2023-02-15,Muž,2000,Chemie se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,6,7,6,7,6,4,6,6,2,2,4,7,6,6,3,3,5,6,6,6,6,6,6,6,7,7
+w2023_103,2023,2023-02-15,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,5,6,6,7,7,5,7,5,5,7,7,7,7,7,6,6,6,7,7,7,7,7,7
+w2023_104,2023,2023-02-16,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,4,5,7,6,7,5,6,4,7,7,5,5,5,5,4,7,7,7,7,7,7,7,6
+w2023_105,2023,2023-02-16,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,4,6,5,4,7,7,5,4,6,6,6,4,6,6,5,6,7,6,5,4,7,4,6,7
+w2023_106,2023,2023-02-16,Žena,2001,Matematika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,6,5,5,4,6,6,7,4,5,3,5,6,5,4,5,6,6,5,6,6,5,6,7,6,5
+w2023_107,2023,2023-02-16,Žena,2001,Výtvarná výchova se zaměřením na vzdělávání,,True,7,7,5,5,4,5,7,7,6,6,4,5,5,5,5,5,6,5,5,6,5,5,6,7,7,7
+w2023_108,2023,2023-02-16,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,7,7,5,4,6,7,7,3,5,3,5,6,6,5,5,7,7,7,6,4,7,7,7,7,6
+w2023_109,2023,2023-02-16,Muž,1999,Technická a informační výchova se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,5,6,5,6,7,7,5,3,4,5,5,6,6,5,5,4,5,5,5,7,5,6,4,5
+w2023_110,2023,2023-02-16,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,False,6,6,3,5,3,6,6,6,2,7,3,5,6,5,5,3,5,3,6,6,6,5,4,6,6,6
+w2023_111,2023,2023-02-16,Muž,1998,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,4,6,5,7,7,7,5,5,3,6,5,4,6,7,7,4,4,6,4,7,5,7,4,7
+w2023_112,2023,2023-02-16,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,3,4,5,5,7,7,3,5,5,5,5,5,4,5,5,3,6,6,6,6,6,5,6,5
+w2023_113,2023,2023-02-16,Muž,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,6,4,4,5,3,7,5,4,5,2,7,7,2,5,6,6,6,5,5,5,3,6,5,6,5
+w2023_114,2023,2023-02-17,Žena,2001,Zeměpis se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,7,7,4,3,4,5,6,7,2,4,2,5,4,7,3,7,5,7,6,6,5,6,6,6,7,6
+w2023_115,2023,2023-02-17,Muž,2001,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,5,4,3,5,5,6,6,3,5,2,6,6,4,4,5,5,5,5,6,6,7,7,4,5,6
+w2023_116,2023,2023-02-17,Žena,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,5,4,6,7,7,7,5,7,4,5,7,7,4,4,6,5,6,7,7,6,7,7,7,7
+w2023_117,2023,2023-02-17,Žena,2000,Chemie se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,5,7,5,7,4,5,7,7,5,6,2,3,3,6,5,7,5,3,6,7,5,7,6,7,6,7
+w2023_118,2023,2023-02-17,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,6,6,6,5,6,6,4,6,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6
+w2023_119,2023,2023-02-17,Žena,2001,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,7,6,4,5,7,7,4,6,3,5,6,5,6,7,7,6,6,5,5,5,6,6,4,3
+w2023_120,2023,2023-02-17,Žena,2001,Ruský jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,6,7,5,5,5,5,7,5,6,7,5,6,6,7,5,5,6,7,7,6,7,6,7,7,7,6
+w2023_121,2023,2023-02-17,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,7,7,3,5,6,7,7,7,5,6,6,2,4,6,4,3,5,5,6,4,4,7,7,7,5,7
+w2023_122,2023,2023-02-17,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,6,5,3,5,5,7,7,6,4,4,4,6,5,5,4,6,5,6,6,6,6,7,7,6,7
+w2023_123,2023,2023-02-17,Žena,2000,Český jazyk a literatura se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,True,7,7,4,4,3,7,7,7,4,7,4,4,4,7,7,7,7,7,7,5,7,7,7,7,4,7
+w2023_124,2023,2023-02-17,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,5,5,5,5,6,4,2,4,2,5,6,4,4,5,5,5,6,6,6,5,6,5,6,2
+w2023_125,2023,2023-02-17,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,5,4,7,6,7,3,6,4,4,5,7,6,7,6,5,5,4,4,6,7,7,5,6
+w2023_126,2023,2023-02-18,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,7,7,6,7,6,6,7,7,7,7,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2023_127,2023,2023-02-18,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,6,4,6,6,7,7,7,3,5,5,5,4,5,5,5,6,2,5,6,6,7,7,7,6,7
+w2023_128,2023,2023-02-19,Žena,2001,Německý jazyk se zaměřením na vzdělávání,,False,6,5,4,4,4,5,5,5,4,4,5,3,6,4,5,5,5,5,5,5,5,5,5,5,5,5
+w2023_129,2023,2023-02-19,Muž,2000,Fyzika se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,4,5,4,4,7,7,4,4,5,7,5,4,4,7,6,7,7,7,7,7,7,7,7,7
+w2023_130,2023,2023-02-19,Žena,2000,Hudební výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,6,7,7,5,5,6,5,7,4,7,3,4,4,7,7,7,5,1,2,3,3,4,4,4,4,6
+w2023_131,2023,2023-02-21,Žena,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,6,4,5,5,6,7,7,5,7,6,7,7,7,5,6,7,5,7,7,7,7,7,7,7,4
+w2023_132,2023,2023-02-22,Muž,1997,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,5,7,5,6,7,7,7,7,6,4,6,7,6,7,6,6,6,6,7,6,6,6,6,6
+w2023_133,2023,2023-02-23,Muž,2001,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,5,5,4,6,7,7,2,4,5,6,6,6,4,4,5,5,7,6,5,6,6,4,6,7
+w2023_134,2023,2023-02-25,Muž,2001,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,6,4,5,6,5,5,6,4,5,2,7,6,6,5,7,5,4,7,7,7,6,5,5,7,7
+w2023_135,2023,2023-02-26,Muž,2000,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,5,6,6,5,5,6,6,7,6,5,6,6,6,5,5,4,6,5,6,7,7,5,5,7,7,6
+w2023_136,2023,2023-02-28,Žena,2000,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,5,4,6,7,7,4,7,5,6,4,5,7,7,6,6,4,4,7,7,7,7,5,7
+w2023_137,2023,2023-03-01,Žena,2001,Německý jazyk se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,True,7,7,6,5,5,7,7,7,5,7,4,5,4,7,5,3,6,5,5,6,5,5,7,7,6,6
+w2023_138,2023,2023-03-02,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,6,3,3,3,6,7,3,5,3,4,4,6,5,6,5,4,5,6,6,6,6,6,6,6
+w2023_139,2023,2023-03-02,Žena,2000,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,7,4,6,7,7,7,4,7,5,6,5,7,7,7,5,6,6,6,5,7,7,7,7,7
+w2023_140,2023,2023-03-03,Muž,2000,Chemie se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,6,6,3,4,6,7,7,1,6,3,6,7,5,5,5,6,4,7,5,7,7,6,6,6,7
+w2023_141,2023,2023-03-03,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,6,4,7,7,7,4,7,4,5,3,7,5,7,5,5,5,6,7,7,7,7,6,7
+w2023_142,2023,2023-03-03,Žena,1999,Německý jazyk se zaměřením na vzdělávání,,True,5,6,5,4,5,6,6,5,2,5,4,6,5,5,6,5,5,3,4,4,4,6,5,5,4,6
+w2023_143,2023,2023-03-03,Žena,2001,Německý jazyk se zaměřením na vzdělávání,,True,5,6,3,7,5,5,7,5,5,7,5,6,5,6,3,5,7,7,6,4,5,3,7,4,5,5
+w2023_144,2023,2023-03-03,Žena,2000,Přírodopis se zaměřením na vzdělávání,,True,5,6,4,5,5,5,6,5,4,4,3,6,6,5,4,6,5,5,6,6,6,6,6,5,6,5
+w2023_145,2023,2023-03-03,Žena,2002,Německý jazyk se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,True,7,7,4,6,6,7,7,7,6,7,6,4,7,3,2,6,6,7,7,4,7,7,7,7,7,7
+w2023_146,2023,2023-03-03,Žena,2000,Anglický jazyk se zaměřením na vzdělávání,,True,6,6,6,4,3,6,6,6,5,7,5,5,5,5,5,3,4,5,4,5,4,6,6,7,5,5
+w2023_147,2023,2023-03-06,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,6,7,4,5,5,6,6,7,4,4,3,5,5,3,3,3,7,5,5,5,5,7,6,5,5,5
+w2023_148,2023,2023-03-06,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,5,7,7,7,7,7,7,7,7,7,7,5,5,6,7,7,7,7,7,6,7,7,7,7
+w2023_149,2023,2023-03-06,Muž,1996,Matematika se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,6,6,1,1,6,7,6,3,7,3,7,6,7,7,6,5,6,6,5,6,7,6,5,5,5
+w2023_150,2023,2023-03-06,Muž,1998,Dějepis se zaměřením na vzdělávání,,True,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2023_151,2023,2023-03-06,Žena,1998,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,5,5,7,6,6,7,7,6,6,7,6,5,7,4,7,7,6,6,5,7,7,6,7,6,6
+w2023_152,2023,2023-03-06,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,7,1,4,7,4,1,7,1,4,5,7,7,7,7,3,4,1,7,7,7,7,7,7
+w2023_153,2023,2023-03-06,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,7,3,3,7,7,7,3,5,2,6,7,6,6,7,6,6,7,5,7,7,7,6,7,7
+w2023_154,2023,2023-03-06,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,False,6,6,5,6,5,6,6,6,6,6,5,5,6,6,5,6,7,6,7,6,6,7,7,6,7,7
+w2023_155,2023,2023-03-06,Žena,2001,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,6,4,5,4,5,7,7,5,5,4,6,7,6,4,5,7,7,7,7,7,7,7,7,7,7
+w2023_156,2023,2023-03-06,Žena,2001,Přírodopis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,5,4,4,5,4,7,3,3,5,3,4,6,6,7,7,6,2,5,7,4,7,7,7,7,7
+w2023_157,2023,2023-03-06,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,7,7,7,7,7,4,7,7,7,7,7,5,6,7,7,7,5,7,7,7,7,5,7
+w2023_158,2023,2023-03-06,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,7,7,7,7,7,7,6,4,6,5,5,4,4,5,6,5,5,5,5,6,6,7,5,5
+w2023_159,2023,2023-03-06,Žena,2001,Matematika se zaměřením na vzdělávání,,False,6,6,4,5,4,6,7,7,4,3,5,6,5,4,4,4,6,5,6,7,6,6,7,5,6,7
+w2023_160,2023,2023-03-06,Žena,2001,Základy společenských věd se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,5,7,4,7,3,7,5,3,6,7,6,3,2,7,6,6,7,7,7,6,7,7,6,7
+w2023_161,2023,2023-03-06,Muž,2001,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,7,5,7,7,7,3,7,6,7,7,4,2,7,6,6,7,6,7,7,7,7,6,7
+w2023_162,2023,2023-03-06,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,6,5,6,5,6,7,7,4,2,5,6,7,4,2,4,6,7,7,7,7,5,7,7,7,7
+w2023_163,2023,2023-03-06,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,6,7,4,5,3,6,6,6,4,4,5,6,6,3,7,7,5,6,5,5,6,7,7,5,6,6
+w2023_164,2023,2023-03-06,Žena,1999,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,2,7,6,6,7,7,6,6,7,5,6,5,5,6,6,6,6,5,5,5,7,6,6,5
+w2023_165,2023,2023-03-06,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,6,4,6,6,6,7,7,6,5,5,6,6,5,5,5,6,4,6,6,6,6,6,7,7,7
+w2023_166,2023,2023-03-06,Muž,2002,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,6,6,7,4,5,6,6,7,7,7,1,4,4,5,7,7,5,5,5,6,5,7,6,6,6,6
+w2023_167,2023,2023-03-06,Žena,2001,Německý jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,6,5,3,6,6,4,6,5,4,2,6,5,5,2,2,2,6,6,6,6,7,6,7,7,7,5
+w2023_168,2023,2023-03-06,Žena,1998,Přírodopis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,6,6,6,6,7,7,5,4,5,4,5,4,3,7,6,7,6,6,5,7,5,7,6,7
+w2023_169,2023,2023-03-06,Žena,1999,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,6,5,6,5,6,7,7,5,5,5,4,5,5,4,4,6,6,5,6,6,6,6,7,6,5
+w2023_170,2023,2023-03-06,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,4,7,6,7,7,6,5,6,5,6,5,6,4,4,6,4,4,6,6,6,7,6,5,7
+w2023_171,2023,2023-03-06,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,6,6,4,7,7,7,3,6,6,7,7,6,6,7,7,7,7,7,7,7,7,7,7,7
+w2023_172,2023,2023-03-06,Žena,2002,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,6,6,6,5,6,6,6,6,6,4,5,6,7,7,7,6,6,6,6,6,6,6,6,6,6
+w2023_173,2023,2023-03-06,Žena,2002,Hudební výchova se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,6,7,5,6,7,6,7,5,6,4,4,5,6,3,7,6,5,6,6,6,7,6,7,7,7
+w2023_174,2023,2023-03-06,Muž,2001,Zeměpis se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,False,7,7,5,4,4,6,7,7,4,4,4,6,6,4,4,4,4,3,5,6,6,6,4,4,6,7
+w2023_175,2023,2023-03-06,Žena,2002,Hudební výchova se zaměřením na vzdělávání,,True,7,7,6,4,3,7,7,7,2,7,3,3,4,7,4,7,5,4,6,5,6,7,7,7,5,7
+w2023_176,2023,2023-03-06,Žena,1999,Německý jazyk se zaměřením na vzdělávání,,True,5,5,5,4,5,5,5,5,4,5,4,5,4,5,5,5,5,5,5,5,5,6,5,6,4,5
+w2023_177,2023,2023-03-06,Muž,2002,Zeměpis se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,7,5,4,5,5,6,6,2,5,5,5,5,6,5,6,5,5,6,6,6,6,7,7,6,6
+w2023_178,2023,2023-03-06,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,3,7,4,5,7,6,3,6,3,7,2,6,2,7,4,5,6,6,6,7,7,5,7,6
+w2023_179,2023,2023-03-06,Žena,2022,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,4,6,6,7,5,6,7,7,5,5,5,6,6,5,2,3,6,6,6,7,6,5,7,6,5,3
+w2023_180,2023,2023-03-06,Muž,1997,Matematika se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,7,3,5,2,4,7,6,2,6,3,6,5,6,5,5,4,6,7,7,5,7,5,6,6,6
+w2023_181,2023,2023-03-06,Muž,2002,Dějepis se zaměřením na vzdělávání,,True,6,5,4,6,3,6,6,6,4,4,5,6,6,4,5,6,7,5,5,5,6,6,5,6,5,6
+w2023_182,2023,2023-03-06,Muž,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,6,7,3,6,6,7,7,7,5,6,6,6,5,6,6,7,7,7,7,5,7,7,7,6,7,7
+w2023_183,2023,2023-03-06,Žena,2002,Přírodopis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,7,5,3,4,3,7,6,1,6,3,4,6,5,6,7,7,6,6,7,7,7,6,4,7,7
+w2023_184,2023,2023-03-06,Žena,2002,Ruský jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,6,4,6,5,5,6,6,3,5,4,4,4,5,3,3,6,6,4,5,5,4,6,7,5,6
+w2023_185,2023,2023-03-06,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,7,7,4,5,6,6,6,7,5,7,5,5,5,5,3,5,5,5,5,6,5,6,7,7,6,6
+w2023_186,2023,2023-03-06,Muž,2000,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,1,7,7,7,7,7,7,6,7,1,7,1,1,7,7,7,7,7,7,7,7,7,7,7
+w2023_187,2023,2023-03-06,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,5,6,6,7,5,7,4,6,6,6,7,6,6,6,6,6,6,6,6,6,5,6,6,6
+w2023_188,2023,2023-03-06,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,4,6,5,7,7,7,3,6,6,6,6,4,3,3,6,5,6,6,7,6,7,7,7,5
+w2023_189,2023,2023-03-06,Žena,1985,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,6,5,5,5,7,7,7,2,7,5,6,6,7,6,7,7,5,7,6,6,6,7,7,7,7
+w2023_190,2023,2023-03-06,Žena,2001,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,6,6,5,6,7,7,6,3,7,5,7,7,6,6,7,5,5,6,6,7,7,7,7,7,7
+w2023_191,2023,2023-03-06,Žena,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,3,6,6,5,6,4,3,3,7,4,6,6,5,7,7,7,6,6
+w2023_192,2023,2023-03-06,Žena,2002,Přírodopis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,5,5,3,7,7,7,3,7,5,5,4,5,5,4,5,5,5,5,4,7,7,7,5,5
+w2023_193,2023,2023-03-06,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,5,6,5,7,7,7,6,5,6,6,7,4,2,2,7,6,7,6,6,6,6,7,6,6
+w2023_194,2023,2023-03-06,Muž,2000,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,7,7,7,5,5,7,7,7,1,7,5,5,6,7,6,7,5,2,7,7,7,7,7,7,7,7
+w2023_195,2023,2023-03-06,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,5,7,5,7,6,7,6,4,5,6,6,5,4,5,7,5,6,6,6,6,7,7,7,7
+w2023_196,2023,2023-03-06,Žena,2000,Anglický jazyk se zaměřením na vzdělávání,,True,6,7,7,6,5,6,7,7,2,6,1,4,6,6,7,6,5,3,6,4,4,6,6,6,4,6
+w2023_197,2023,2023-03-07,Žena,1999,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,3,5,5,7,7,7,5,7,2,7,5,5,7,5,5,5,7,7,5,7,7,7,6,7
+w2023_198,2023,2023-03-07,Žena,2001,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,5,5,2,4,4,4,7,5,4,4,2,5,4,4,3,5,6,6,6,6,4,7,5,6,6,4
+w2023_199,2023,2023-03-07,Muž,2001,Matematika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,6,3,6,4,5,7,7,2,6,3,6,6,6,6,6,6,4,6,6,6,6,4,6,6,6
+w2023_200,2023,2023-03-07,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,4,3,5,6,7,7,3,4,4,7,7,7,7,7,5,5,7,7,7,7,7,7,7,7
+w2023_201,2023,2023-03-07,Žena,2002,Matematika se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,7,6,4,5,5,7,3,4,4,4,4,4,4,7,7,7,4,7,4,7,7,7,7,7
+w2023_202,2023,2023-03-07,Žena,2001,Přírodopis se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,6,7,5,5,6,7,7,7,5,6,5,5,6,7,7,7,7,6,6,5,6,6,4,6,4,7
+w2023_203,2023,2023-03-07,Žena,2000,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,6,5,7,6,6,7,7,7,5,5,6,6,5,3,5,6,6,5,6,6,5,7,7,7,5
+w2023_204,2023,2023-03-07,Muž,2001,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,6,6,6,6,4,6,6,4,6,2,6,6,6,3,7,7,5,6,6,6,7,5,6,6,7
+w2023_205,2023,2023-03-07,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,7,7,4,5,6,7,7,3,6,6,5,4,5,5,3,6,4,6,6,6,6,7,5,5,4
+w2023_206,2023,2023-03-07,Žena,2002,Jiný obor,,True,7,7,5,5,5,4,7,7,5,6,5,6,5,5,6,6,6,5,6,5,5,6,6,5,5,6
+w2023_207,2023,2023-03-07,Žena,2002,Hudební výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,5,6,6,6,6,5,2,4,5,4,4,2,2,2,5,6,7,7,7,7,6,7,7,7
+w2023_208,2023,2023-03-07,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,5,7,4,5,6,7,6,2,6,6,4,6,6,3,5,6,4,5,5,6,7,7,7,6,4
+w2023_209,2023,2023-03-07,Muž,2001,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,5,6,6,6,6,6,6,4,6,5,6,3,4,3,6,5,6,6,6,4,6,5,6,7
+w2023_210,2023,2023-03-07,Muž,1999,Hudební výchova se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,5,3,6,6,5,7,6,4,5,5,5,6,4,6,6,5,5,6,4,5,6,4,5,5,5
+w2023_211,2023,2023-03-07,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,6,6,3,7,7,7,4,7,1,7,6,7,7,4,6,4,6,6,6,7,7,5,6,7
+w2023_212,2023,2023-03-07,Žena,2002,Přírodopis se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,6,6,5,6,4,5,6,6,3,6,3,5,5,6,7,7,6,6,5,5,5,6,6,6,6,5
+w2023_213,2023,2023-03-07,Žena,2001,Pedagogické asistentství přírodopisu pro základní školy,Pedagogické asistentství zeměpisu pro základní školy,False,7,7,4,5,3,4,7,7,1,7,1,6,7,7,7,5,7,5,6,6,6,7,7,7,7,3
+w2023_214,2023,2023-03-08,Žena,2001,Ruský jazyk se zaměřením na vzdělávání,,True,7,7,7,4,2,7,7,7,5,7,3,5,6,7,7,7,7,4,7,7,7,7,6,7,7,7
+w2023_215,2023,2023-03-08,Muž,2000,Německý jazyk se zaměřením na vzdělávání,,False,6,5,5,7,5,4,7,7,5,7,5,3,4,5,3,3,7,7,7,2,6,5,7,7,4,5
+w2023_216,2023,2023-03-08,Muž,1998,Jiný obor,,False,7,7,7,3,5,5,7,7,1,7,3,7,7,7,5,7,5,5,7,7,7,7,7,5,7,7
+w2023_217,2023,2023-03-08,Žena,1985,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,4,4,5,7,7,2,7,5,7,7,4,6,6,7,7,7,7,7,7,7,6,7,7
+w2023_218,2023,2023-03-08,Žena,1980,Německý jazyk se zaměřením na vzdělávání,,True,6,6,6,6,6,6,7,7,6,6,5,6,6,5,6,7,6,5,6,7,6,5,7,7,7,6
+w2023_219,2023,2023-03-09,Žena,2001,Ruský jazyk se zaměřením na vzdělávání,,False,6,7,7,3,4,7,7,7,2,7,4,4,7,7,7,7,6,4,7,7,7,7,7,7,7,7
+w2023_220,2023,2023-03-09,Žena,1983,Ruský jazyk se zaměřením na vzdělávání,,True,7,7,7,7,5,7,7,7,4,7,5,6,6,7,7,7,4,4,5,5,5,7,7,5,5,7
+w2023_221,2023,2023-03-10,Žena,2000,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,5,6,4,6,7,3,4,5,7,7,5,4,6,6,5,6,6,7,7,7,6,6,7
+w2023_222,2023,2023-03-12,Žena,2000,Zeměpis se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,7,7,7,4,5,7,7,7,3,6,4,6,6,7,6,7,6,6,6,6,6,7,6,6,6,6
+w2023_223,2023,2023-03-13,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,4,7,5,6,7,7,6,6,6,7,7,4,3,1,7,5,7,7,7,5,6,7,7,6
+w2023_224,2023,2023-03-13,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,6,5,4,7,7,7,4,7,4,7,6,7,4,6,6,6,6,6,6,5,7,7,6,7
+w2023_225,2023,2023-03-13,Žena,2000,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,4,5,7,7,7,5,7,6,4,4,6,5,6,6,7,5,4,4,6,7,7,5,7
+w2023_226,2023,2023-03-14,Žena,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,7,4,5,5,5,7,7,4,5,4,5,5,6,4,5,5,5,5,5,5,5,6,6,5,6
+w2023_227,2023,2023-03-14,Žena,1973,Německý jazyk se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,7,6,4,5,7,5,4,6,2,4,5,7,7,7,7,5,5,5,6,7,6,6,6,7
+w2023_228,2023,2023-03-16,Žena,2002,Německý jazyk se zaměřením na vzdělávání,,True,5,5,7,5,5,4,7,7,3,7,6,2,4,7,3,6,6,3,5,6,5,7,6,6,6,5
+w2023_229,2023,2023-03-17,Žena,2001,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,5,6,4,2,6,6,7,6,2,6,3,6,6,6,4,6,6,6,6,6,5,6,6,6,6,7
+w2023_230,2023,2023-03-17,Muž,1999,Anglický jazyk se zaměřením na vzdělávání,,True,6,6,5,7,5,5,7,7,2,5,4,5,4,5,6,5,5,5,5,3,5,6,6,5,5,6
+w2023_231,2023,2023-03-17,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,4,2,7,7,7,2,5,6,4,5,5,1,4,7,6,6,7,7,4,7,7,7,7
+w2023_232,2023,2023-03-17,Muž,2001,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,7,6,7,5,5,7,7,4,5,4,7,7,3,7,7,7,4,7,7,7,7,7,7,7,6
+w2023_233,2023,2023-03-17,Muž,2002,Matematika se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,False,6,7,7,4,5,6,6,7,3,4,5,6,6,5,5,5,4,4,7,7,6,5,6,6,7,5
+w2023_234,2023,2023-03-17,Žena,2001,Přírodopis se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,7,7,4,3,4,6,6,7,6,5,4,7,7,5,5,4,6,6,5,7,7,6,7,6,5,6
+w2023_235,2023,2023-03-20,Žena,1995,Anglický jazyk se zaměřením na vzdělávání,,True,7,5,4,6,4,4,4,3,3,5,4,5,4,6,5,5,6,6,5,5,5,6,6,4,5,7
+w2023_236,2023,2023-03-20,Muž,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,7,5,6,7,7,1,7,6,5,5,4,5,4,5,6,6,6,5,7,7,7,6,7
+w2023_237,2023,2023-03-22,Žena,2001,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,5,5,7,7,7,1,5,3,6,7,3,5,6,5,3,5,4,5,6,7,7,7,6
+w2023_238,2023,2023-03-22,Muž,2002,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,6,7,5,5,3,7,7,7,3,3,6,7,7,4,3,5,7,7,7,7,7,7,7,7,7,7
+w2023_239,2023,2023-03-27,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,5,4,1,7,7,7,1,6,4,5,5,7,6,7,7,1,5,4,4,7,7,7,7,7
+w2023_240,2023,2023-03-27,Muž,2000,Fyzika se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,5,5,5,6,6,6,5,6,5,7,6,6,6,6,6,6,6,4,6,6,6,6,6,6,6,6
+w2023_241,2023,2023-03-27,Muž,2001,Fyzika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,6,5,5,4,6,5,4,6,3,4,3,7,7,5,7,7,5,6,6,7,7,7,1,3,7,5
+w2023_242,2023,2023-04-10,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,5,7,7,4,5,7,7,7,4,7,3,4,7,7,7,7,6,6,6,6,7,7,7,7,7,7
+w2023_243,2023,2023-04-12,Muž,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,4,6,7,4,5,7,7,4,7,4,6,4,7,7,6,6,6,7,7,7,4,7,7,7,7
+w2023_244,2023,2023-04-13,Žena,2020,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,4,6,7,6,5,4,5,6,7,6,7,6,7,5,7,4,5,6,7,7,5,6,6,5,6
+w2023_245,2023,2023-04-13,Žena,2000,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,6,6,3,7,7,7,3,6,4,5,5,6,6,6,7,5,6,6,6,7,6,7,6,7
+w2023_246,2023,2023-04-13,Žena,2000,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,5,7,4,5,5,4,5,7,5,5,4,3,4,5,4,2,5,4,4,5,3,5,4,5,5,5
+w2023_247,2023,2023-04-14,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,6,6,5,5,6,7,6,5,6,4,6,6,7,6,6,7,6,6,5,5,7,6,7,5,6
+w2024_001,2024,2024-02-22,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,4,4,2,7,7,7,2,6,5,5,6,6,7,7,5,5,6,7,7,7,7,7,7,7
+w2024_002,2024,2024-02-22,Žena,2003,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,5,5,4,7,6,3,5,3,5,6,5,4,6,3,3,5,5,5,6,6,6,6,5
+w2024_003,2024,2024-02-22,Muž,2000,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,5,6,7,7,7,7,7,7,5,7,4,7,5,7,6,5,7,7,7,7,7,7,7,6,7,7
+w2024_004,2024,2024-02-22,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,4,6,4,3,5,6,6,1,7,1,4,6,5,7,7,5,3,7,5,6,7,6,5,4,7
+w2024_005,2024,2024-02-22,Žena,2001,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,False,4,4,4,7,4,4,7,7,5,7,4,6,5,7,4,7,6,4,6,6,5,7,7,7,6,6
+w2024_006,2024,2024-02-22,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,7,5,5,6,7,7,3,6,4,6,5,6,6,6,6,6,4,7,6,7,6,7,4,7
+w2024_007,2024,2024-02-22,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,6,4,4,4,7,6,7,1,5,3,4,7,4,4,3,3,5,5,5,5,5,6,7,5,7
+w2024_008,2024,2024-02-22,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,5,5,4,7,7,7,6,7,3,7,7,7,3,5,4,5,7,7,7,7,7,7,7,7
+w2024_009,2024,2024-02-22,Žena,2002,Zeměpis se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,7,7,7,5,5,4,7,7,3,7,3,5,6,6,7,7,6,4,5,4,4,7,7,7,4,7
+w2024_010,2024,2024-02-22,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,6,4,3,7,7,7,5,5,5,6,5,7,5,7,6,5,6,5,6,7,7,7,7,6
+w2024_011,2024,2024-02-22,Muž,2003,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,4,1,7,7,4,7,7,1,1,1,7,7,4,7,7,7,7,7,7,7,7,7,4,7,4
+w2024_012,2024,2024-02-22,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,True,7,7,5,6,5,6,7,7,5,7,3,6,7,7,3,5,7,7,5,3,5,6,7,7,5,6
+w2024_013,2024,2024-02-22,Žena,2002,Dějepis se zaměřením na vzdělávání,Francouzský jazyk se zaměřením na vzdělávání,False,7,7,7,4,4,7,7,7,4,7,5,6,5,7,4,7,4,4,5,7,7,7,7,7,7,6
+w2024_014,2024,2024-02-22,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,6,6,4,4,5,7,7,2,6,3,5,6,5,6,5,5,4,5,5,6,5,6,5,4,6
+w2024_015,2024,2024-02-22,Žena,2002,Francouzský jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,5,4,4,5,7,7,2,7,1,4,5,6,4,6,6,2,5,5,4,7,6,7,6,7
+w2024_016,2024,2024-02-22,Žena,2003,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,5,4,5,6,7,7,2,6,3,5,5,4,4,1,6,6,5,5,6,7,7,7,6,7
+w2024_017,2024,2024-02-22,Žena,2003,Matematika se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,True,7,7,7,3,5,5,7,7,4,7,5,6,5,6,7,7,5,4,5,5,3,5,6,4,6,6
+w2024_018,2024,2024-02-22,Žena,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,5,5,6,6,7,4,5,4,4,4,5,3,6,6,5,6,6,6,7,5,5,6,7
+w2024_019,2024,2024-02-22,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,False,7,7,5,6,6,6,7,7,4,7,3,5,5,6,7,7,7,6,6,4,4,7,6,6,5,6
+w2024_020,2024,2024-02-22,Žena,2002,Matematika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,4,7,4,6,7,7,6,7,7,7,7,7,7,7,7,7,7,7
+w2024_021,2024,2024-02-22,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,5,2,6,6,7,2,6,4,6,7,7,7,7,5,6,6,5,5,6,4,3,5,7
+w2024_022,2024,2024-02-22,Žena,2003,Německý jazyk se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,6,7,3,3,6,5,7,6,4,6,5,6,6,5,6,7,5,3,6,6,5,6,6,5,6,5
+w2024_023,2024,2024-02-22,Muž,2002,Přírodopis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2024_024,2024,2024-02-22,Muž,2003,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,7,6,5,6,5,4,6,4,6,6,4,4,5,6,5,6,5,5,7,7,7,6,6
+w2024_025,2024,2024-02-22,Žena,2001,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,3,4,5,6,6,7,5,4,5,6,5,5,6,3,5,6,5,5,5,4,6,7,5,6
+w2024_026,2024,2024-02-22,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,5,6,7,5,4,5,4,6,5,4,5,3,5,5,4,5,5,5,5,5,5,5,4,4,5,5
+w2024_027,2024,2024-02-22,Žena,2003,Výchova ke zdraví se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,5,7,4,4,3,5,7,5,3,6,3,6,7,7,7,6,5,4,5,5,5,7,5,6,6,6
+w2024_028,2024,2024-02-22,Muž,2001,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,6,5,7,5,4,5,7,7,6,3,3,6,5,4,6,6,4,5,5,6,7,7,6,5,6
+w2024_029,2024,2024-02-22,Žena,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,7,7,5,7,7,7,4,5,5,6,6,7,4,5,6,7,6,7,5,5,5,7,5,6
+w2024_030,2024,2024-02-22,Žena,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,6,6,5,4,7,6,5,4,6,5,6,6,6,5,4,6,5,5,5,6,5,5,6,6,5
+w2024_031,2024,2024-02-22,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,4,7,6,7,7,7,7,6,4,6,7,7,7,4,7,7,7,7,7,4,7,7,7,6
+w2024_032,2024,2024-02-22,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,6,6,4,4,4,6,6,6,4,6,3,2,4,5,4,3,4,3,4,5,5,6,6,6,5,5
+w2024_033,2024,2024-02-22,Žena,0,Technická a informační výchova se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,7,6,6,7,7,7,1,4,5,7,7,5,4,4,7,6,7,6,7,7,7,7,7,7
+w2024_034,2024,2024-02-22,Žena,2000,Německý jazyk se zaměřením na vzdělávání,,False,7,7,7,5,6,7,7,7,4,7,4,6,7,7,7,7,7,6,7,7,7,7,7,7,7,7
+w2024_035,2024,2024-02-22,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,6,5,5,7,7,7,4,5,3,5,5,6,6,6,5,5,5,5,6,6,7,6,6,6
+w2024_036,2024,2024-02-22,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,True,5,6,5,6,4,4,7,6,4,6,4,6,6,4,4,6,4,6,6,6,7,7,6,6,6,6
+w2024_037,2024,2024-02-22,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,6,5,3,7,7,7,6,7,3,6,5,6,7,4,7,5,6,7,7,7,7,7,6,7
+w2024_038,2024,2024-02-22,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,4,5,5,7,7,4,3,5,6,6,7,6,6,7,4,5,5,3
+w2024_039,2024,2024-02-22,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,7,3,5,7,7,7,3,6,4,5,5,7,7,7,6,5,7,7,6,7,7,7,6,7
+w2024_040,2024,2024-02-22,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,7,3,5,7,7,7,3,6,3,5,5,7,7,7,6,5,7,6,6,7,7,7,6,7
+w2024_041,2024,2024-02-22,Žena,2003,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,5,6,5,7,7,7,6,7,4,7,7,6,5,6,7,6,7,7,7,6,7,7,7,5
+w2024_042,2024,2024-02-22,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,4,2,6,6,7,2,7,2,4,5,7,7,7,5,4,6,7,5,7,7,6,5,7
+w2024_043,2024,2024-02-22,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,3,6,5,4,6,7,3,3,4,6,5,7,7,1,3,2,5,6,3,7,7,5,6,6
+w2024_044,2024,2024-02-22,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,6,7,2,7,5,6,7,7,7,5,7,7,4,1,4,1,7,7,6,5,5,4,7,7,7,7
+w2024_045,2024,2024-02-22,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,5,5,5,7,6,7,3,6,3,5,6,6,6,5,5,6,6,6,5,6,6,4,6,7
+w2024_046,2024,2024-02-22,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,6,7,6,5,6,7,7,5,6,6,6,5,4,5,6,5,4,6,6,4,4,7,7,6,6
+w2024_047,2024,2024-02-22,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,6,6,4,4,6,6,6,3,6,4,5,5,5,6,6,5,5,6,6,6,6,6,6,5,5
+w2024_048,2024,2024-02-22,Muž,2002,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,5,5,6,2,5,5,6,3,5,4,6,6,5,5,6,5,6,7,6,7,6,5,6,7,6
+w2024_049,2024,2024-02-22,Žena,2003,Fyzika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,3,6,6,7,7,3,7,3,7,7,7,1,1,6,5,6,6,7,2,7,7,7,7
+w2024_050,2024,2024-02-22,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,7,4,5,5,6,3,7,3,5,4,5,7,7,7,2,5,4,4,4,3,4,4,7
+w2024_051,2024,2024-02-22,Žena,2001,Matematika se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,6,6,5,5,6,7,6,6,4,6,5,6,3,6,5,5,5,5,5,6,6,6,6,5
+w2024_052,2024,2024-02-22,Žena,2000,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,6,4,6,4,6,7,6,4,6,4,4,6,6,5,4,4,6,6,6,6,4,6,7,6,5
+w2024_053,2024,2024-02-22,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,4,5,6,7,7,4,7,5,6,5,6,7,7,5,4,7,6,6,7,6,7,6,7
+w2024_054,2024,2024-02-22,Muž,2002,Zeměpis se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,4,4,5,7,7,5,7,5,5,7,7,7,7,7,5,7,6,7,7,7,7,7,7
+w2024_055,2024,2024-02-22,Žena,2002,Matematika se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,6,7,6,7,5,7,7,7,6,7,6,7,6,6,5,6,7,7,6,6,6,7,6,5,6,7
+w2024_056,2024,2024-02-22,Žena,2002,Ruský jazyk se zaměřením na vzdělávání,,True,7,7,7,5,5,7,7,7,7,7,6,5,7,5,7,7,7,6,7,7,7,7,7,5,4,7
+w2024_057,2024,2024-02-22,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,6,5,6,5,7,6,7,2,6,4,7,7,5,6,5,7,7,6,7,7,7,6,6,6,7
+w2024_058,2024,2024-02-22,Žena,2002,Chemie se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,7,4,5,3,5,7,7,1,4,1,7,7,5,7,7,6,7,7,7,7,7,7,7,4,7
+w2024_059,2024,2024-02-22,Žena,2003,Hudební výchova se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,6,5,4,5,6,6,6,3,5,2,5,6,6,7,7,6,5,5,5,5,6,6,6,5,6
+w2024_060,2024,2024-02-22,Žena,2002,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,7,5,5,7,7,7,3,4,5,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2024_061,2024,2024-02-22,Žena,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,1,4,2,7,7,7,4,7,7,7,7,2,1,3,7,7,7,7,7,7,7,7,7,5
+w2024_062,2024,2024-02-22,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,2,6,5,5,6,7,4,2,5,5,5,3,3,3,5,5,5,5,5,5,6,7,5,6
+w2024_063,2024,2024-02-22,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,6,4,5,3,7,7,6,4,6,5,4,5,5,2,2,6,5,5,4,5,5,6,6,6,5
+w2024_064,2024,2024-02-22,Žena,2002,Francouzský jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,5,6,5,5,6,6,6,5,2,5,5,5,2,4,6,6,6,6,6,6,6,7,6,5
+w2024_065,2024,2024-02-22,Muž,2003,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,4,5,6,4,6,7,4,3,5,7,7,3,7,6,6,6,7,7,7,3,5,7,7,7
+w2024_066,2024,2024-02-22,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,False,5,7,6,7,7,6,4,6,4,6,2,7,7,6,4,5,7,6,7,7,4,6,6,5,6,7
+w2024_067,2024,2024-02-22,Muž,2002,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,6,7,5,2,2,6,6,7,2,6,2,6,4,5,7,6,3,3,5,5,5,5,5,5,5,7
+w2024_068,2024,2024-02-22,Muž,2002,Technická a informační výchova se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,4,5,3,7,7,7,4,7,7,3,7,7,4,7,7,7,7,7,7,7,7,7,7,4
+w2024_069,2024,2024-02-22,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,5,4,6,7,7,2,7,2,1,3,4,7,7,5,5,6,6,6,7,5,6,5,7
+w2024_070,2024,2024-02-22,Žena,2003,Matematika se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,7,1,1,7,7,7,1,7,1,5,5,7,7,7,3,5,5,6,5,7,5,7,5,7
+w2024_071,2024,2024-02-22,Muž,2001,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,6,2,6,6,6,7,3,4,3,7,5,6,2,3,3,5,5,5,6,5,3,5,6,6,4
+w2024_072,2024,2024-02-22,Žena,2001,Ruský jazyk se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,6,7,3,5,4,1,7,7,3,4,5,7,7,2,5,5,5,6,7,7,7,7,7,7,7,7
+w2024_073,2024,2024-02-22,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,6,6,7,4,5,6,6,7,3,5,5,5,5,5,6,6,4,5,5,7,5,7,6,5,5,7
+w2024_074,2024,2024-02-22,Muž,2002,Dějepis se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,True,7,7,5,6,7,6,7,7,7,6,5,7,5,6,6,6,6,5,6,6,6,7,7,7,6,7
+w2024_075,2024,2024-02-22,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,6,5,6,7,7,7,5,6,5,5,6,5,4,7,5,5,6,6,6,7,7,7,7,5
+w2024_076,2024,2024-02-22,Žena,2002,Ruský jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,4,6,5,7,7,3,7,4,7,7,7,7,7,5,5,7,6,7,7,5,5,7,7
+w2024_077,2024,2024-02-22,Žena,2000,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,6,4,5,6,7,7,3,6,4,5,5,6,6,6,6,4,5,4,5,6,6,6,5,6
+w2024_078,2024,2024-02-22,Muž,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,6,5,7,7,7,1,4,5,3,7,1,7,5,7,7,7,7,7,7,7,4,7,7
+w2024_079,2024,2024-02-22,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,6,3,5,7,7,7,3,7,3,6,4,7,5,6,6,3,5,6,4,7,6,6,6,7
+w2024_080,2024,2024-02-22,Žena,1999,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,7,6,3,7,6,7,6,7,5,7,7,6,5,4,7,7,7,7,7,7,7,7,7,7
+w2024_081,2024,2024-02-22,Žena,2002,Jiný obor,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,6,4,6,6,7,2,6,5,4,4,6,6,6,6,5,6,6,6,6,4,7,4,7
+w2024_082,2024,2024-02-23,Žena,2000,Zeměpis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,6,4,4,4,4,7,5,3,4,2,6,7,2,2,4,5,5,7,5,7,7,7,7,7,6
+w2024_083,2024,2024-02-23,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,6,4,4,1,7,6,7,3,7,4,4,6,7,7,4,3,5,5,6,5,3,7,5,7,7
+w2024_084,2024,2024-02-23,Žena,2002,Zeměpis se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,6,6,6,4,7,7,7,4,6,2,4,6,7,4,6,6,7,6,6,6,7,7,7,7,6
+w2024_085,2024,2024-02-23,Muž,2001,Technická a informační výchova se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,5,5,5,5,6,4,7,7,4,4,4,4,6,4,5,7,6,6,6,5,7,7,4,5,5,5
+w2024_086,2024,2024-02-23,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,6,7,7,2,4,7,7,5,6,1,7,6,6,7,7,7,2,6,7,6,7,5,6,7,7
+w2024_087,2024,2024-02-23,Muž,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,5,6,5,5,6,5,5,5,5,3,5,6,6,4,3,3,5,5,5,6,6,5,5,5,5,6
+w2024_088,2024,2024-02-23,Žena,2002,Chemie se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,5,4,3,6,7,7,4,6,3,4,5,5,5,5,7,6,2,5,5,6,7,7,6,7
+w2024_089,2024,2024-02-23,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,6,4,6,5,7,7,7,4,4,7,6,6,7,4,7,6,6,6,6,6,7,7,7,7,7
+w2024_090,2024,2024-02-23,Žena,2003,Chemie se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,6,6,5,6,6,7,3,6,4,6,6,7,6,7,5,6,7,7,7,7,7,5,6,7
+w2024_091,2024,2024-02-23,Muž,2002,Základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,5,6,2,6,5,5,7,6,5,5,4,5,5,2,2,3,6,5,5,6,5,6,5,6,5,5
+w2024_092,2024,2024-02-23,Žena,2002,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,5,5,4,3,4,7,5,2,5,1,6,6,5,3,3,4,5,7,6,6,4,5,6,6,6
+w2024_093,2024,2024-02-23,Žena,2002,Pedagogické asistentství přírodopisu pro základní školy,Chemie se zaměřením na vzdělávání,False,7,6,6,5,5,7,6,7,5,7,4,6,6,5,7,7,7,6,6,6,6,7,6,5,6,7
+w2024_094,2024,2024-02-23,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,6,7,7,5,6,6,7,7,5,6,5,6,6,6,7,6,6,6,6,6,6,6,6,7,6,7
+w2024_095,2024,2024-02-23,Žena,2002,Přírodopis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,5,7,6,3,5,6,7,7,2,7,4,6,6,6,5,6,6,5,6,6,5,6,6,6,6,7
+w2024_096,2024,2024-02-23,Žena,2003,Chemie se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,7,7,7,7,7,7,5,7,6,7,7,7,7,7,7,6,7,7,7,7,7,7,7,7
+w2024_097,2024,2024-02-23,Žena,2002,Chemie se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,6,6,4,5,3,5,5,5,2,4,3,5,5,6,2,7,3,5,3,4,4,4,6,4,4,5
+w2024_098,2024,2024-02-23,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,5,5,7,7,7,5,7,6,6,6,6,2,6,7,5,7,7,7,5,7,7,7,7
+w2024_099,2024,2024-02-23,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,False,7,7,3,5,5,6,7,7,3,3,5,7,7,3,3,5,6,4,6,6,6,5,7,7,7,6
+w2024_100,2024,2024-02-23,Žena,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Výtvarná výchova se zaměřením na vzdělávání,True,7,7,7,7,5,7,7,7,7,7,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2024_101,2024,2024-02-23,Muž,2001,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,6,6,6,5,6,4,7,7,3,6,3,6,7,5,7,6,6,3,6,7,7,6,5,4,6,6
+w2024_102,2024,2024-02-23,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,5,6,4,5,7,7,5,4,5,4,4,5,3,6,6,6,6,7,6,7,7,6,6,6
+w2024_103,2024,2024-02-23,Muž,2000,Technická a informační výchova se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,6,3,5,4,4,5,6,3,5,4,6,5,6,5,5,4,4,5,6,6,7,6,5,6,6
+w2024_104,2024,2024-02-23,Muž,1978,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,6,4,6,4,5,6,7,2,4,4,4,5,4,6,6,6,6,5,6,6,5,5,4,6,6
+w2024_105,2024,2024-02-23,Muž,2002,Chemie se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,4,6,6,5,3,4,6,6,3,6,3,5,6,5,6,6,5,5,5,6,5,6,4,6,5,5
+w2024_106,2024,2024-02-23,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,4,7,7,6,7,7,6,6,6,6,7,5,2,4,7,7,7,7,7,5,7,7,7,5
+w2024_107,2024,2024-02-23,Muž,2001,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,4,6,4,5,3,6,6,7,2,5,4,6,7,7,7,7,5,5,7,7,7,7,6,6,5,3
+w2024_108,2024,2024-02-23,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,4,4,4,5,4,4,2,4,4,6,4,5,5,6,4,6,6,6,6,6,5,6,4
+w2024_109,2024,2024-02-23,Muž,2003,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,6,3,5,4,4,7,7,4,7,4,5,7,7,5,3,5,4,5,4,6,6,6,7,4,5
+w2024_110,2024,2024-02-23,Žena,2002,Přírodopis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,2,2,7,7,7,6,7,3,1,5,7,7,7,7,7,7,5,4,7,7,7,5,7
+w2024_111,2024,2024-02-23,Žena,1999,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,5,7,6,4,7,7,7,6,6,7,7,5,5,5,7,6,7,7,7,5,7,7,7,6
+w2024_112,2024,2024-02-23,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,5,7,6,7,7,7,5,5,5,5,7,4,2,3,7,6,7,7,7,7,6,6,7,7
+w2024_113,2024,2024-02-23,Žena,1998,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,7,2,6,6,7,4,6,7,6,6,7,4,7,6,7,5,6,6,5,7,7,6,6
+w2024_114,2024,2024-02-23,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,7,1,7,7,7,4,7,4,7,5,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2024_115,2024,2024-02-23,Žena,2003,Matematika se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,False,7,7,4,6,4,5,6,7,6,6,4,5,5,5,4,5,6,5,5,5,5,4,5,4,5,3
+w2024_116,2024,2024-02-23,Žena,1998,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,5,5,7,2,2,7,7,7,4,7,5,4,5,5,5,5,5,5,7,6,6,5,7,7,5,7
+w2024_117,2024,2024-02-23,Žena,1973,Francouzský jazyk se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,4,3,3,6,7,7,4,3,2,5,6,3,5,6,5,5,6,5,6,6,7,7,5,6
+w2024_118,2024,2024-02-23,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,5,4,7,7,7,2,7,4,4,6,7,7,7,7,4,6,7,5,7,7,6,7,7
+w2024_119,2024,2024-02-23,Muž,2003,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,4,6,6,6,7,7,4,6,5,4,5,7,1,6,6,4,5,5,6,7,7,7,6,6
+w2024_120,2024,2024-02-23,Muž,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,7,7,4,6,7,7,7,2,7,5,7,7,7,7,7,7,5,7,6,7,7,7,7,6,6
+w2024_121,2024,2024-02-23,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,7,7,7,5,6,7,7,7,6,6,7,7,6,7,7,7,7,7,7,7,7,7,7,7,7
+w2024_122,2024,2024-02-23,Žena,2000,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,7,7,7,7,7,6,7,5,6,7,5,5,6,6,5,7,4,6,7,7,6,7,6
+w2024_123,2024,2024-02-23,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,7,3,6,7,7,5,7,2,4,7,7,7,7,7,6,7,7,7,7,7,7,7,7
+w2024_124,2024,2024-02-23,Muž,2002,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,6,7,6,5,6,6,6,6,3,3,5,7,7,5,5,5,6,5,6,4,6,6,6,7,6,6
+w2024_125,2024,2024-02-24,Muž,2002,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,6,6,6,5,6,6,6,6,6,5,4,5,5,6,5,5,6,5,5,5,5,6,6,5,6,5
+w2024_126,2024,2024-02-24,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,7,7,7,5,5,7,6,7,3,7,5,5,6,7,7,7,6,6,6,5,5,7,7,7,5,7
+w2024_127,2024,2024-02-24,Žena,2003,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,3,5,3,7,5,7,5,7,7,7,7,7,7,7,7,7,7,6
+w2024_128,2024,2024-02-24,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,7,6,6,7,7,7,6,6,6,6,6,6,4,5,5,4,6,7,5,6,5,7,7,6
+w2024_129,2024,2024-02-24,Žena,2000,Matematika se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,3,5,5,7,4,7,5,7,6,6,3,3,1,4,5,6,6,4,4,6,6,7,5,4
+w2024_130,2024,2024-02-24,Muž,2001,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,6,3,6,2,7,6,7,5,6,5,4,6,6,4,7,6,6,6,6,5,7,6,7,5,6
+w2024_131,2024,2024-02-24,Muž,2003,Matematika se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,6,5,4,3,3,5,6,6,4,5,5,6,6,5,4,6,5,4,6,5,4,6,5,5,5,5
+w2024_132,2024,2024-02-24,Muž,2001,Český jazyk a literatura se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,6,4,3,6,6,6,2,5,4,5,6,5,5,6,6,5,5,5,5,6,6,4,6,6
+w2024_133,2024,2024-02-24,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,3,6,5,6,7,7,4,3,5,5,4,3,2,4,3,6,5,5,5,6,7,7,5,6
+w2024_134,2024,2024-02-24,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,5,4,3,3,5,7,6,3,5,2,6,5,5,3,2,5,5,6,5,6,6,7,7,5,5
+w2024_135,2024,2024-02-24,Muž,2003,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,5,5,3,5,6,7,5,2,4,2,7,7,5,6,6,5,5,7,7,7,7,5,6,6,5
+w2024_136,2024,2024-02-25,Žena,2003,Německý jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,6,5,7,7,7,5,6,6,4,7,7,3,3,5,6,6,7,7,7,7,7,7,7
+w2024_137,2024,2024-02-25,Žena,2002,Hudební výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,5,7,6,6,6,7,4,7,2,6,6,7,6,5,5,2,6,7,7,5,7,6,6,6
+w2024_138,2024,2024-02-25,Muž,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,7,7,4,4,4,6,3,5,3,7,7,4,4,6,5,5,7,7,5,7,3,6,7,7
+w2024_139,2024,2024-02-25,Muž,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,6,3,4,3,6,6,7,5,4,3,4,7,3,6,5,5,5,7,6,6,6,7,7,6,6
+w2024_140,2024,2024-02-25,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,6,4,5,4,6,7,7,2,6,6,5,6,6,6,7,7,5,5,4,5,7,6,6,6,7
+w2024_141,2024,2024-02-25,Žena,2002,Matematika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,4,6,5,6,7,7,6,6,5,5,5,4,3,3,6,4,6,6,7,6,6,6,5,4
+w2024_142,2024,2024-02-25,Muž,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,7,7,5,6,6,7,5,5,5,7,6,6,5,5,6,5,6,7,5,6,6,4,6,6
+w2024_143,2024,2024-02-25,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,6,7,2,5,7,7,5,4,5,6,5,5,1,2,6,6,7,3,6,6,6,7,6,5
+w2024_144,2024,2024-02-25,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,5,3,5,7,7,5,7,3,4,7,7,7,7,4,5,5,4,5,7,7,7,5,7
+w2024_145,2024,2024-02-25,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,7,3,6,7,7,7,7,5,7,3,7,7,4,5,7,5,6,7,7,7,5,4,7,6,7
+w2024_146,2024,2024-02-25,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,6,4,5,7,7,7,3,6,4,6,7,7,4,6,6,4,6,6,6,7,7,7,7,7
+w2024_147,2024,2024-02-26,Muž,2000,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,5,5,5,6,5,5,7,7,2,5,2,5,6,6,5,6,6,2,5,5,6,6,5,6,6,5
+w2024_148,2024,2024-02-26,Muž,2000,Anglický jazyk se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,7,7,7,7,3,7,7,7,3,7,5,6,6,7,7,7,7,2,5,6,4,7,7,6,5,7
+w2024_149,2024,2024-02-26,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,,True,6,7,7,7,5,5,7,7,4,6,4,6,5,7,7,7,7,7,7,7,7,7,5,7,6,7
+w2024_150,2024,2024-02-26,Muž,2000,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,4,6,3,6,7,7,2,7,3,6,7,7,6,7,7,5,4,5,4,6,5,6,6,7
+w2024_151,2024,2024-02-26,Žena,2003,Německý jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,7,5,6,6,7,6,7,7,6,7,6,4,6,7,7,6,6,6,6,7,7,6,7
+w2024_152,2024,2024-02-26,Žena,1999,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,6,6,4,4,6,5,6,3,4,4,6,6,4,3,4,4,4,5,3,7,4,7,4,6,7
+w2024_153,2024,2024-02-26,Muž,2001,Technická a informační výchova se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,4,4,5,6,7,7,2,6,5,6,6,4,7,5,7,4,7,7,7,7,6,6,6,7
+w2024_154,2024,2024-02-26,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,5,4,3,6,4,5,7,6,4,6,4,6,6,6,3,4,6,4,6,5,6,5,6,5,6,4
+w2024_155,2024,2024-02-26,Žena,2003,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,6,7,5,5,7,7,2,7,2,3,7,7,7,7,7,7,7,7,7,7,7,6,7,7
+w2024_156,2024,2024-02-26,Žena,2002,Hudební výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,3,4,5,7,7,7,3,3,5,5,5,3,2,6,6,5,7,5,4,3,7,7,6,7
+w2024_157,2024,2024-02-26,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,7,7,5,7,7,7,3,7,3,7,7,5,7,7,7,6,7,7,7,7,7,7,7,7
+w2024_158,2024,2024-02-26,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,5,6,6,7,7,7,6,5,5,6,3,5,4,7,7,4,6,4,5,5,7,5,5,5
+w2024_159,2024,2024-02-27,Žena,2003,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,6,7,6,7,7,7,7,7,6,7,7,6,5,4,7,7,7,7,7,7,7,7,7,7
+w2024_160,2024,2024-02-27,Muž,2001,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,7,5,6,5,7,7,2,4,4,6,6,5,7,7,7,6,6,7,7,7,7,4,6,7
+w2024_161,2024,2024-02-27,Muž,2003,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,7,4,6,7,7,7,4,7,3,7,7,7,7,7,6,5,7,7,7,7,6,7,7,7
+w2024_162,2024,2024-02-27,Muž,2001,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,7,7,4,4,7,5,7,3,7,3,4,6,7,6,7,6,5,5,6,6,7,6,6,6,7
+w2024_163,2024,2024-02-27,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,7,7,7,7,7,7,7,4,5,6,7,7,7,7,7,7,7,7,7,7,7,6,7
+w2024_164,2024,2024-02-27,Žena,2003,Německý jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,5,3,6,7,7,7,2,3,5,6,5,6,5,5,6,6,6,5,5,5,7,7,5,5
+w2024_165,2024,2024-02-27,Muž,2001,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,False,7,7,6,5,6,7,7,7,6,7,4,6,7,5,3,3,5,6,7,7,7,7,7,7,7,7
+w2024_166,2024,2024-02-28,Žena,2000,Hudební výchova se zaměřením na vzdělávání,,False,6,6,5,6,3,4,5,6,6,3,5,6,6,5,5,6,6,6,6,6,6,6,6,6,5,5
+w2024_167,2024,2024-02-29,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,7,7,3,7,7,7,7,5,5,3,7,7,5,6,7,7,7,6,7,7,7,5,7,7
+w2024_168,2024,2024-02-29,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,5,6,7,5,5,4,6,5,4,5,5,3,4,5,5,5,6,4,4,7,6,7,4,4,5,6
+w2024_169,2024,2024-02-29,Žena,2003,Hudební výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,5,7,5,4,4,6,5,4,7,6,5,4,6,7,7,7,6,6
+w2024_170,2024,2024-02-29,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,5,7,6,5,1,4,7,7,5,5,6,7,7,5,5,5,7,6,5,6,6,6,7,7,4,7
+w2024_171,2024,2024-02-29,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,False,5,5,7,4,6,6,4,6,4,6,4,4,4,7,6,7,5,4,4,4,6,4,7,5,5,6
+w2024_172,2024,2024-02-29,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,7,5,7,7,7,7,7,7,7,7,7,4,5,7,5,7,7,7,7,7,7,7,7
+w2024_173,2024,2024-03-01,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,6,5,5,7,7,6,7,6,6,7,7,3,6,7,7,7,5,5,7,7,7,6,7
+w2024_174,2024,2024-03-01,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,5,6,4,7,5,5,6,3,3,2,5,5,5,3,3,5,6,6,7,5,7,5,6,3,5,3
+w2024_175,2024,2024-03-01,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,6,6,6,7,7,7,6,7,4,4,5,4,4,7,7,6,5,6,6,7,7,7,7,7
+w2024_176,2024,2024-03-01,Žena,2002,Zeměpis se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,6,5,6,5,6,6,6,5,6,5,6,6,5,5,5,6,6,6,7,7,7,6,6,6,6
+w2024_177,2024,2024-03-04,Žena,2002,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,5,4,7,3,7,5,5,4,5,5,7,6,7,6,5,7,4,5,7,5,7,5,7
+w2024_178,2024,2024-03-05,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,6,4,6,6,5,7,7,5,7,5,5,5,4,6,6,5,5,5,6,6,7,7,6,7,7
+w2024_179,2024,2024-03-07,Muž,2000,Matematika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,6,6,5,7,7,7,5,4,5,4,6,6,7,6,5,4,7,7,7,7,7,7,7,6
+w2024_180,2024,2024-03-09,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,7,6,4,6,7,7,7,4,6,5,5,6,4,5,6,4,6,6,4,5,4,7,6,6,7
+w2024_181,2024,2024-03-10,Žena,2003,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,6,6,5,4,6,6,7,4,7,2,5,6,6,6,6,6,6,6,7,5,6,6,7,5,6
+w2024_182,2024,2024-03-12,Žena,2000,Český jazyk a literatura se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,6,4,5,5,5,5,6,5,6,4,4,4,4,6,3,3,5,5,6,5,6,6,6,6,6,4
+w2024_183,2024,2024-03-15,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,6,5,4,5,4,7,7,4,7,4,6,7,5,7,5,6,7,6,5,6,7,7,6,6,7
+w2024_184,2024,2024-03-15,Žena,2000,Matematika se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,True,7,7,7,1,5,7,7,7,1,7,7,7,7,7,7,7,7,1,7,7,7,7,7,7,7,7
+w2024_185,2024,2024-04-16,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,4,5,7,7,7,2,7,5,1,3,4,4,7,5,1,3,3,3,4,4,4,4,7
+w2024_186,2024,2024-04-16,Žena,2003,Ruský jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,3,7,2,4,6,4,6,6,7,5,6,6,6,6,7,7,7,6
+w2024_187,2024,2024-04-16,Muž,2002,Chemie se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,5,7,5,4,4,2,7,6,3,6,2,5,5,6,6,6,7,4,5,5,6,6,6,6,5,7
+w2024_188,2024,2024-04-16,Žena,2003,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,4,4,6,7,7,3,7,3,4,5,7,6,7,4,5,6,7,7,7,7,7,6,7
+w2024_189,2024,2024-04-16,Žena,2001,Dějepis se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,6,5,4,5,6,6,7,7,5,4,4,5,4,3,1,4,7,7,5,5,4,5,4,5,4,4
+w2024_190,2024,2024-04-16,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,6,5,6,7,7,2,3,3,6,6,6,3,3,6,5,6,6,6,6,6,6,6,5
+w2024_191,2024,2024-04-16,Žena,2002,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,6,6,7,7,7,5,6,4,6,6,7,7,7,6,5,7,5,7,7,7,6,7,7
+w2024_192,2024,2024-04-16,Muž,1998,Fyzika se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,5,7,6,6,4,6,7,7,3,6,1,6,5,6,7,6,4,5,5,5,5,5,6,6,6,6
+w2024_193,2024,2024-04-16,Žena,2002,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,4,4,4,7,7,7,3,4,3,4,5,4,4,4,3,4,5,5,5,7,7,7,6,5
+w2024_194,2024,2024-04-16,Žena,2001,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,7,5,4,7,7,7,5,7,6,5,6,7,5,5,6,6,5,5,5,6,6,5,6,5
+w2024_195,2024,2024-04-16,Muž,2001,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,6,4,5,5,6,6,4,3,4,3,3,4,4,4,4,5,3,3,2,5,4,4,3,4,5
+w2024_196,2024,2024-04-16,Žena,2001,Ruský jazyk se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,6,7,5,6,6,3,7,7,3,3,5,6,6,5,6,6,5,5,7,7,7,6,3,6,7,7
+w2024_197,2024,2024-04-16,Muž,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,6,7,7,7,7,4,7,1,2,7,7,7,3,7,5,7,7,7,7,7,7,7,7
+w2024_198,2024,2024-04-16,Muž,2002,Technická a informační výchova se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,6,5,7,7,7,1,7,1,4,3,7,7,7,6,1,4,7,7,7,5,7,7,7
+w2024_199,2024,2024-04-16,Žena,1987,Německý jazyk se zaměřením na vzdělávání,,False,7,7,7,6,4,6,7,7,6,7,5,4,6,7,7,7,6,6,6,7,6,7,7,7,7,7
+w2024_200,2024,2024-04-16,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,7,5,4,4,5,6,6,3,4,2,5,6,4,4,4,5,5,5,5,5,5,7,5,5,5
+w2024_201,2024,2024-04-16,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,5,4,6,6,6,3,4,5,6,6,3,4,4,3,6,7,7,7,6,6,6,7,7
+w2024_202,2024,2024-04-16,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,6,5,1,3,5,7,7,3,6,4,5,7,5,7,7,6,5,7,6,7,5,7,5,5,7
+w2024_203,2024,2024-04-16,Žena,2000,Chemie se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,6,7,6,5,4,6,7,7,2,4,3,6,5,6,6,7,5,4,6,6,6,7,7,7,6,7
+w2024_204,2024,2024-04-16,Žena,2002,Matematika se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,6,5,6,6,6,7,2,5,3,4,5,4,5,6,7,7,6,7,6,7,6,7,7,6
+w2024_205,2024,2024-04-16,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,7,7,3,5,4,7,7,7,5,5,5,5,6,5,4,4,5,5,7,5,7,6,7,7,4,5
+w2024_206,2024,2024-04-16,Žena,2003,Dějepis se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,7,7,7,5,6,7,7,7,3,7,4,5,5,5,5,5,6,7,6,5,5,7,7,7,5,7
+w2024_207,2024,2024-04-16,Muž,2001,Český jazyk a literatura se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,6,4,5,4,5,6,7,2,6,5,5,4,5,6,6,5,5,5,5,5,6,6,6,5,6
+w2024_208,2024,2024-04-16,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,6,6,6,4,3,7,7,7,3,5,5,4,5,5,4,4,6,5,5,5,5,5,5,5,5,5
+w2024_209,2024,2024-04-16,Žena,1995,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,5,6,6,4,4,5,4,4,4,4,4,5,5,4,4,5,4,3,4,5,4,5,4,4,4,4
+w2024_210,2024,2024-04-16,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,4,5,2,7,7,7,4,1,3,5,3,4,5,5,5,5,5,5,5,6,7,6,7
+w2024_211,2024,2024-04-16,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,4,5,4,6,6,7,4,5,5,6,6,6,5,5,7,6,6,6,6,5,5,6,6,6
+w2024_212,2024,2024-04-16,Žena,2002,Výtvarná výchova se zaměřením na vzdělávání,,True,7,7,5,3,5,7,6,7,4,7,4,5,5,7,5,7,6,6,6,6,6,7,7,7,6,7
+w2024_213,2024,2024-04-16,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,5,6,5,6,6,7,6,6,2,5,5,6,6,7,5,5,6,7,7,7,6,5,6,7
+w2024_214,2024,2024-04-16,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,6,6,5,7,7,7,5,7,5,6,5,6,5,6,5,2,5,5,5,7,7,7,7,7
+w2024_215,2024,2024-04-16,Žena,2003,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,6,5,7,6,7,5,7,4,7,7,5,4,6,7,6,7,7,7,7,7,7,7,7
+w2024_216,2024,2024-04-16,Žena,2002,Německý jazyk se zaměřením na vzdělávání,Jiný obor,False,7,7,6,1,5,7,7,7,4,4,6,3,7,5,3,4,7,7,7,7,7,6,7,7,7,7
+w2024_217,2024,2024-04-16,Žena,1985,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,4,4,6,7,7,4,7,3,5,5,7,7,7,6,5,7,7,5,7,7,5,7,7
+w2024_218,2024,2024-04-16,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,5,7,2,5,3,6,7,6,3,4,2,5,7,4,3,3,4,3,7,6,5,6,5,5,4,7
+w2024_219,2024,2024-04-16,Žena,1999,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,6,5,5,5,5,7,7,5,5,5,5,6,5,4,5,7,7,7,7,7,5,6,7,7,5
+w2024_220,2024,2024-04-16,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,7,6,3,4,7,7,7,4,7,4,5,6,6,6,7,6,4,6,6,6,6,7,7,7,7
+w2024_221,2024,2024-04-16,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,6,6,4,7,7,7,2,4,6,5,5,7,6,6,7,6,6,7,7,7,7,7,7,7
+w2024_222,2024,2024-04-16,Muž,1985,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,4,5,5,5,6,6,3,5,5,6,5,5,5,6,6,5,6,6,6,6,5,5,6,6
+w2024_223,2024,2024-04-16,Žena,2003,Německý jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,7,3,5,5,7,6,4,5,5,5,6,7,3,3,6,4,5,4,5,6,6,6,6,6
+w2024_224,2024,2024-04-16,Žena,1979,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,5,1,4,7,7,2,4,4,6,7,6,5,6,7,6,7,7,7,7,7,5,7,7
+w2024_225,2024,2024-04-16,Muž,2003,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,6,7,5,6,5,7,6,3,7,4,4,5,7,7,7,7,6,6,6,6,5,6,7,6,6
+w2024_226,2024,2024-04-16,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Francouzský jazyk se zaměřením na vzdělávání,True,6,7,5,7,5,7,7,7,4,5,6,7,5,4,3,3,6,5,6,6,6,5,7,7,6,6
+w2024_227,2024,2024-04-16,Žena,2002,Speciální pedagogika se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,7,7,5,3,4,7,7,7,3,7,4,5,6,7,7,7,4,1,6,6,6,7,7,7,6,7
+w2024_228,2024,2024-04-16,Muž,2003,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,6,6,6,6,7,6,6,6,5,7,6,5,6,7,7,7,6,6,6,7,7,7,6
+w2024_229,2024,2024-04-16,Žena,1979,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,7,7,7,7,7,5,5,7,7,7,4,1,1,7,7,7,7,7,4,7,7,7,7
+w2024_230,2024,2024-04-16,Žena,1998,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,7,2,6,7,7,6,7,7,6,4,7,7,7,7,7,6,6,7,7,7,7,6,7
+w2024_231,2024,2024-04-16,Žena,2002,Matematika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,6,5,5,6,5,7,3,7,1,5,5,6,7,7,6,6,6,6,5,7,7,6,5,7
+w2024_232,2024,2024-04-16,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,7,4,7,7,7,4,7,3,5,7,6,6,4,7,6,7,7,7,7,7,7,7,7
+w2024_233,2024,2024-04-16,Žena,2002,Matematika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,6,5,5,3,5,6,6,6,2,7,4,5,4,7,6,7,5,4,5,5,5,7,7,7,5,7
+w2024_234,2024,2024-04-16,Žena,2002,Francouzský jazyk se zaměřením na vzdělávání,,True,7,6,5,4,3,4,7,7,3,7,2,6,5,7,7,7,5,5,5,6,6,7,7,7,7,6
+w2024_235,2024,2024-04-16,Žena,2003,Francouzský jazyk se zaměřením na vzdělávání,,True,7,7,5,5,5,7,7,7,2,7,6,7,4,5,7,7,5,6,5,7,7,7,7,7,7,7
+w2024_236,2024,2024-04-16,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,7,5,7,4,7,7,5,3,7,5,5,3,3,7,7,7,7,7,5,7,7,7,7
+w2024_237,2024,2024-04-16,Žena,1988,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,6,6,7,7,7,6,7,7,6,5,7,5,5,7,7,7,7,7,7,7,7,7,7
+w2024_238,2024,2024-04-16,Muž,2001,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,5,7,6,5,4,5,6,7,5,7,4,4,4,3,6,6,5,4,4,4,6,7,6,6,7,7
+w2024_239,2024,2024-04-16,Muž,2003,Zeměpis se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,False,6,6,2,7,3,5,7,5,3,7,5,5,5,6,6,7,6,6,6,6,5,5,6,5,6,5
+w2024_240,2024,2024-04-16,Muž,2001,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,7,7,5,6,7,7,7,3,4,6,2,4,2,2,4,7,7,5,5,5,4,7,7,6,6
+w2024_241,2024,2024-04-16,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,5,4,7,7,7,3,7,4,4,3,7,6,7,6,6,5,6,5,7,7,7,5,7
+w2024_242,2024,2024-04-16,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,6,7,7,5,6,6,7,7,4,6,5,5,6,6,6,6,4,5,5,5,5,5,5,7,5,7
+w2024_243,2024,2024-04-16,Žena,1976,Německý jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,6,4,6,5,6,6,6,3,7,5,6,5,5,2,1,5,5,5,5,6,4,5,6,5,6
+w2024_244,2024,2024-04-16,Muž,2003,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,6,4,5,7,7,7,5,7,3,7,7,7,7,7,6,5,7,7,7,7,7,7,7,7
+w2024_245,2024,2024-04-16,Žena,2002,Ruský jazyk se zaměřením na vzdělávání,,True,7,7,4,3,6,6,7,7,6,3,5,6,5,4,6,6,6,6,6,6,6,6,6,6,6,6
+w2024_246,2024,2024-04-16,Žena,1999,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,6,7,6,7,4,6,6,7,4,7,4,4,7,7,7,7,4,7,7,7,7,7,7,6,7,7
+w2024_247,2024,2024-04-16,Muž,2005,Anglický jazyk se zaměřením na vzdělávání,,True,5,6,3,4,5,5,6,6,3,4,6,5,6,2,6,5,5,5,5,6,5,5,6,5,5,6
+w2024_248,2024,2024-04-16,Žena,2002,Hudební výchova se zaměřením na vzdělávání,Německý jazyk se zaměřením na vzdělávání,True,7,7,7,4,5,7,7,7,1,7,2,5,6,4,7,7,6,5,5,5,6,7,7,7,7,7
+w2024_249,2024,2024-04-16,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,,True,5,6,6,5,6,5,5,5,3,5,4,5,5,6,6,6,5,6,5,4,4,6,6,6,5,6
+w2024_250,2024,2024-04-16,Žena,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,6,5,6,6,5,5,4,4,4,3,3,5,6,5,6,4,5,2,6,6,6,6,6,5,5,3
+w2024_251,2024,2024-04-16,Muž,2001,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,3,2,4,5,5,7,3,2,6,5,6,6,6,7,7,6,5,7,7,7,7,5,7,7,7
+w2024_252,2024,2024-04-16,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,6,7,4,4,6,6,6,3,7,5,5,6,7,7,7,6,6,4,4,4,7,7,7,4,7
+w2024_253,2024,2024-04-16,Žena,2001,Německý jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,6,4,5,6,7,7,1,3,4,6,6,7,6,7,6,4,6,6,6,6,6,7,5,7
+w2024_254,2024,2024-04-16,Žena,1998,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,5,3,4,7,7,7,4,7,4,5,7,5,3,4,5,4,6,6,6,7,7,7,7,4
+w2024_255,2024,2024-04-16,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,,True,6,6,5,6,6,6,7,6,4,6,4,6,6,6,6,6,6,6,6,5,6,7,6,6,6,6
+w2024_256,2024,2024-04-17,Žena,1979,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,6,4,6,6,6,6,6,6,6,6,6,4,6,4,4,6,6,6,6,6,6,6,6,6,6
+w2024_257,2024,2024-04-17,Žena,1999,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,6,5,4,5,6,7,7,7,5,4,5,5,6,4,3,4,4,6,5,5,6,6,5,6,6,5
+w2024_258,2024,2024-04-17,Žena,2003,Hudební výchova se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,True,7,7,6,5,5,7,7,7,5,6,4,5,5,6,6,7,6,6,7,6,7,7,7,7,6,6
+w2024_259,2024,2024-04-17,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,6,1,7,7,7,3,7,6,7,3,7,7,7,7,7,5,5,5,7,7,7,5,7
+w2024_260,2024,2024-04-17,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,6,6,6,7,7,7,5,6,6,6,6,6,6,7,5,5,6,6,6,7,5,7,6,7
+w2024_261,2024,2024-04-17,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,6,3,4,6,7,7,2,7,3,7,7,7,7,7,6,4,6,7,7,7,4,7,6,7
+w2024_262,2024,2024-04-17,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,7,3,5,7,5,7,2,5,5,7,5,7,5,5,7,6,6,5,5,7,7,5,6,7
+w2024_263,2024,2024-04-17,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,5,4,4,7,7,7,2,4,6,6,6,6,7,7,6,6,6,6,6,7,7,7,6,7
+w2024_264,2024,2024-04-17,Žena,2002,Matematika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,7,7,7,7,7,6,7,6,7,6,7,5,5,7,6,6,7,7,7,7,7,5,6
+w2024_265,2024,2024-04-17,Žena,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,4,5,3,4,6,5,6,4,4,5,6,6,4,4,4,5,4,5,5,5,5,6,6,6,5
+w2024_266,2024,2024-04-17,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,6,3,6,7,7,1,5,4,2,3,7,5,5,6,5,6,7,6,7,7,6,5,7
+w2024_267,2024,2024-04-17,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,5,4,7,4,7,3,4,5,5,5,5,5,6,5,5,5,6,5,6,7,7,6,7
+w2024_268,2024,2024-04-17,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,5,5,7,6,7,5,6,3,6,5,7,7,7,6,4,5,5,6,7,6,4,5,7
+w2024_269,2024,2024-04-17,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,7,3,6,7,7,6,7,6,5,7,7,5,7,7,6,7,7,7,5,7,7,7,7
+w2024_270,2024,2024-04-17,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,7,5,5,4,4,5,6,4,6,3,6,6,6,6,6,6,5,6,6,6,7,6,5,6,6
+w2024_271,2024,2024-04-17,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,3,4,5,7,7,7,3,7,5,6,7,6,6,7,6,5,7,6,7,7,7,7,7,6
+w2024_272,2024,2024-04-17,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,3,5,7,7,7,2,7,2,5,4,6,6,7,5,3,5,6,4,7,7,6,5,7
+w2024_273,2024,2024-04-17,Žena,1994,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,7,5,5,7,7,7,5,4,2,1,7,5,7,7,6,7,6,7,7,7,1,6,7,6
+w2024_274,2024,2024-04-17,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,6,6,5,6,6,4,7,7,4,5,6,3,5,4,4,6,6,6,7,5,5,5,7,7,5,6
+w2024_275,2024,2024-04-17,Muž,1985,Francouzský jazyk se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,6,6,5,7,7,7,5,7,4,7,6,7,7,7,7,7,7,5,7,7,7,5,7,7
+w2024_276,2024,2024-04-17,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,5,6,5,6,5,4,5,3,7,5,3,6,5,3,2,5,5,6,6,6,6,3,6,5,6,3
+w2024_277,2024,2024-04-17,Muž,2002,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,6,7,7,6,6,6,6,7,5,6,4,7,7,4,7,6,6,5,7,7,7,6,6,4,6,6
+w2024_278,2024,2024-04-17,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,5,5,6,5,5,6,6,6,4,5,4,5,5,6,5,5,5,5,4,5,5,5,5,5,5,6
+w2024_279,2024,2024-04-17,Žena,1995,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,6,6,7,7,7,6,7,4,5,5,6,5,5,6,5,6,6,6,6,7,7,6,6
+w2024_280,2024,2024-04-17,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,5,4,5,7,7,7,3,4,6,5,4,6,7,7,7,5,7,6,7,7,7,7,7,7
+w2024_281,2024,2024-04-17,Muž,2002,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,7,7,5,4,5,7,7,7,3,5,4,6,6,6,5,6,6,6,7,6,6,6,6,7,7,6
+w2024_282,2024,2024-04-17,Muž,2003,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,7,4,4,6,6,6,6,4,3,5,4,4,3,4,4,6,6,4,4,6,4,6,6,5,2
+w2024_283,2024,2024-04-17,Muž,2002,Anglický jazyk se zaměřením na vzdělávání,,True,4,5,3,5,4,6,6,5,3,4,3,6,6,5,6,4,5,5,7,6,5,4,4,5,6,5
+w2024_284,2024,2024-04-17,Muž,2001,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,5,5,6,4,4,5,6,5,5,5,4,5,5,4,5,5,5,6,6,5,6,6,6,6,5,7
+w2024_285,2024,2024-04-18,Žena,1990,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,7,6,7,6,7,7,7,4,7,2,3,4,7,4,6,7,7,7,7,7,7,7,7,7,7
+w2024_286,2024,2024-04-18,Žena,1998,Hudební výchova se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,3,5,3,5,7,7,4,6,4,4,6,4,5,6,7,5,5,5,6,6,5,7,6,6
+w2024_287,2024,2024-04-18,Žena,2000,Německý jazyk se zaměřením na vzdělávání,,False,7,7,4,4,5,7,7,7,4,6,4,6,7,5,4,5,7,5,5,7,7,7,7,6,7,7
+w2024_288,2024,2024-04-18,Muž,2002,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,6,5,7,5,6,7,6,7,7,4,4,5,5,3,5,7,7,7,5,6,6,7,7,6,5
+w2024_289,2024,2024-04-18,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,7,7,5,2,4,6,7,7,3,5,3,7,7,5,6,6,6,3,5,6,4,7,7,6,6,7
+w2024_290,2024,2024-04-18,Muž,2001,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,6,6,2,7,7,5,6,3,5,2,6,5,4,2,2,2,5,6,5,5,5,5,5,5,5,4
+w2024_291,2024,2024-04-18,Žena,1998,Ruský jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,4,5,4,6,6,7,2,5,4,3,4,7,7,7,4,4,4,4,4,7,4,7,5,7
+w2024_292,2024,2024-04-18,Žena,1990,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,4,4,5,7,5,7,4,4,6,3,5,4,3,7,5,7,7,7,7,5,5,5,6,7
+w2024_293,2024,2024-04-18,Žena,1979,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,5,5,4,7,7,7,5,6,4,4,4,7,5,6,5,7,4,4,4,7,7,7,6,7
+w2024_294,2024,2024-04-18,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,3,5,4,4,3,5,1,7,1,1,4,7,7,7,7,6,5,7,6,7,6,7,6,7
+w2024_295,2024,2024-04-18,Žena,2001,Francouzský jazyk se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,4,4,4,4,7,7,4,6,6,4,4,6,4,4,7,7,7,7,7,7,7,7,7,5
+w2024_296,2024,2024-04-18,Žena,2003,Speciální pedagogika se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,False,7,7,7,6,7,7,7,7,5,7,6,7,7,7,7,7,7,6,7,7,7,6,7,7,7,7
+w2024_297,2024,2024-04-18,Žena,2000,Anglický jazyk se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,7,6,5,5,5,6,7,7,4,4,5,6,6,5,4,5,5,6,6,6,6,6,7,7,7,7
+w2024_298,2024,2024-04-19,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,5,5,6,7,7,3,7,3,7,7,7,3,3,7,7,6,6,5,7,7,7,5,7
+w2024_299,2024,2024-04-19,Žena,1984,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,2,6,5,7,7,7,3,2,5,4,6,3,2,5,7,7,7,4,6,3,4,6,5,6
+w2024_300,2024,2024-04-19,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,4,4,6,7,7,5,5,4,5,5,6,5,6,5,4,5,6,5,5,6,7,6,6
+w2024_301,2024,2024-04-19,Žena,1986,Německý jazyk se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,7,7,7,5,5,6,7,7,5,7,1,5,7,7,7,7,7,4,7,7,7,7,7,7,7,7
+w2024_302,2024,2024-04-19,Žena,1985,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,7,4,7,5,7,5,5,5,7,7,5,5,5,7,7,7,7,7,7,7,7,7,5
+w2024_303,2024,2024-04-19,Žena,1980,Anglický jazyk se zaměřením na vzdělávání,,True,6,6,5,6,5,4,7,7,6,6,4,6,6,4,6,6,7,6,7,7,7,6,7,6,7,6
+w2024_304,2024,2024-04-19,Žena,1999,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,6,6,5,5,5,7,4,5,5,5,5,4,5,5,6,6,5,6,5,6,7,6,6,6
+w2024_305,2024,2024-04-19,Muž,1999,Anglický jazyk se zaměřením na vzdělávání,,True,5,5,5,6,6,4,7,4,5,6,4,5,5,6,5,5,4,4,5,3,5,6,5,4,4,5
+w2024_306,2024,2024-04-20,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,,True,7,6,7,7,7,7,7,7,6,7,6,1,7,7,7,7,7,4,7,7,7,7,7,5,7,6
+w2024_307,2024,2024-04-20,Žena,1999,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,5,3,7,7,7,3,5,5,6,6,5,5,3,6,5,5,5,5,5,6,5,5,7
+w2024_308,2024,2024-04-20,Žena,1999,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,6,6,6,5,5,5,6,5,6,5,5,5,5,6,6,5,5,5,5,6,6,5,4,6,6
+w2024_309,2024,2024-04-20,Žena,1998,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,7,5,5,3,5,7,6,3,7,3,4,5,6,5,6,4,4,5,6,5,6,6,6,6,5
+w2024_310,2024,2024-04-20,Žena,1994,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,6,6,5,7,7,7,5,7,2,2,6,6,7,7,4,6,7,5,6,7,7,7,6,7
+w2024_311,2024,2024-04-20,Žena,1998,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,5,3,5,4,7,6,6,4,3,5,3,5,3,2,2,5,6,6,5,5,3,6,7,6,7
+w2024_312,2024,2024-04-21,Žena,1987,Ruský jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,6,4,5,4,4,6,2,1,5,4,5,5,6,5,5,6,6,6,6,6,4,4,4,5,6
+w2024_313,2024,2024-04-22,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,5,7,5,4,4,5,6,7,6,5,5,7,4,5,6,5,6,6,6,6,6,6,6,6
+w2024_314,2024,2024-04-22,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,7,3,4,7,7,7,3,7,3,4,5,5,4,7,6,6,5,7,6,7,7,7,6,7
+w2024_315,2024,2024-04-22,Žena,2002,Hudební výchova se zaměřením na vzdělávání,,True,7,7,7,7,5,6,7,7,6,7,6,6,6,6,5,6,6,7,7,6,6,7,7,7,7,7
+w2024_316,2024,2024-04-22,Muž,2001,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,4,2,4,6,6,7,2,2,2,6,6,4,4,4,2,2,6,6,6,4,6,6,6,6
+w2024_317,2024,2024-04-23,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,5,4,4,6,4,6,6,4,4,4,5,5,5,6,3,6,5,5,6,6,6,6,5,6,6
+w2024_318,2024,2024-04-25,Žena,2003,Hudební výchova se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,6,2,5,4,3,7,6,3,4,5,6,6,5,1,3,6,3,5,6,5,6,7,6,6,7
+w2024_319,2024,2024-04-25,Žena,2002,Chemie se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,6,7,4,5,5,6,6,6,5,3,3,5,6,5,6,6,5,5,5,5,5,6,6,6,5,5
+w2024_320,2024,,Žena,1991,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,5,4,4,7,6,7,4,7,6,7,7,6,3,4,7,4,7,7,7,7,7,6,7,7
+w2024_321,2024,,Žena,1999,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,6,5,7,7,7,3,7,7,7,7,7,2,4,7,6,6,7,7,7,7,7,7,7
+w2024_322,2024,,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,4,5,5,7,5,6,4,4,4,5,5,3,5,7,5,5,7,5,7,7,7,7,7,5
+w2024_323,2024,,Žena,2001,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,4,5,7,7,7,5,6,5,6,5,7,7,6,6,6,6,6,6,5,6,6,6,6
+w2024_324,2024,,Žena,2001,Německý jazyk se zaměřením na vzdělávání,,False,7,7,5,5,5,7,7,7,5,7,4,4,4,3,1,1,6,4,4,4,6,7,7,7,7,7
+w2024_325,2024,,Žena,2003,Německý jazyk se zaměřením na vzdělávání,,True,6,7,7,7,4,5,6,7,3,7,4,4,4,7,7,7,4,4,4,5,5,6,5,6,5,6
+w2024_326,2024,,Muž,1986,Německý jazyk se zaměřením na vzdělávání,,False,3,3,3,3,3,4,4,4,4,4,4,4,3,4,3,4,4,4,3,3,4,3,4,4,4,4
+w2024_327,2024,,Žena,2001,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,4,5,4,7,7,7,5,7,5,6,5,5,6,5,5,5,6,6,6,7,6,6,6,6
+w2024_328,2024,,Žena,2002,Přírodopis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,5,5,5,7,7,7,4,7,6,5,6,4,7,7,6,6,7,7,7,7,7,7,7,7
+w2024_329,2024,,Žena,2002,Anglický jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,4,5,3,6,6,7,4,6,5,5,6,6,5,6,6,5,7,6,6,6,6,6,7,6
+w2024_330,2024,,Žena,1994,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,6,3,5,3,6,6,6,2,4,3,5,6,4,3,4,4,2,5,3,5,6,6,7,4,4
+w2024_331,2024,,Muž,1972,Německý jazyk se zaměřením na vzdělávání,,False,7,7,2,5,5,7,7,7,3,5,3,4,5,3,5,3,5,5,5,5,5,5,5,5,5,5
+w2024_332,2024,,Muž,1985,Anglický jazyk se zaměřením na vzdělávání,,True,7,5,4,5,5,4,4,6,3,4,6,6,6,4,6,6,7,5,6,6,6,6,6,5,6,6
+w2024_333,2024,,Žena,1997,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,5,7,4,7,7,7,4,7,7,6,5,6,3,6,7,7,6,4,5,7,7,7,7,6
+w2026_001,2026,2026-02-11,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,5,4,6,7,7,4,3,4,6,5,3,2,1,4,2,6,4,7,6,7,7,7,6
+w2026_002,2026,2026-02-11,Žena,2005,Německý jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,5,5,7,7,7,4,6,4,6,6,5,4,3,7,5,5,7,6,7,7,7,6,7
+w2026_003,2026,2026-02-11,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,,False,7,7,5,6,4,7,7,7,4,6,3,3,5,7,5,5,6,4,6,7,7,6,7,7,7,7
+w2026_004,2026,2026-02-11,Žena,2005,Německý jazyk se zaměřením na vzdělávání,Jiný obor,True,6,5,6,5,5,4,5,6,4,5,3,4,4,5,4,6,6,4,4,5,5,5,6,6,5,5
+w2026_005,2026,2026-02-11,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Ruský jazyk se zaměřením na vzdělávání,True,7,7,7,7,5,7,7,7,4,7,5,6,6,7,5,7,5,6,7,5,7,7,7,7,7,7
+w2026_006,2026,2026-02-11,Muž,2004,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,5,6,5,7,4,7,4,5,6,7,6,7,3,7,5,5,5,7,6,4,7,6,5,7
+w2026_007,2026,2026-02-11,Žena,2004,Speciální pedagogika se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,6,4,4,5,5,7,7,3,5,5,6,5,5,6,5,5,5,5,7,6,7,7,7,6,6
+w2026_008,2026,2026-02-11,Žena,2000,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,5,7,7,4,5,5,6,6,6,7,4,6,5,7,5,5,6,5,6,5,5,7,6,7,7,7
+w2026_009,2026,2026-02-11,Žena,2003,Výchova ke zdraví se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,6,1,1,5,7,7,1,1,4,3,3,7,7,7,7,6,6,5,5,7,7,6,7,7
+w2026_010,2026,2026-02-11,Muž,2004,Dějepis se zaměřením na vzdělávání,Základy společenských věd se zaměřením na vzdělávání,True,6,7,7,3,4,6,7,7,5,7,4,7,5,7,7,7,6,5,6,7,7,7,4,5,5,7
+w2026_011,2026,2026-02-11,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,5,4,7,7,7,4,7,4,7,7,7,7,7,6,6,6,7,7,7,7,7,7,7
+w2026_012,2026,2026-02-11,Žena,2005,Speciální pedagogika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,6,6,5,6,7,7,4,6,5,5,5,6,5,6,7,7,5,5,6,7,7,6,7,5
+w2026_013,2026,2026-02-11,Žena,2004,Chemie se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,6,6,6,5,7,7,7,6,7,5,7,7,7,7,7,7,7,7,7,7,7,7,5,6,7
+w2026_014,2026,2026-02-11,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,2,3,7,7,7,1,7,1,7,5,7,7,7,4,4,5,6,5,7,7,7,6,7
+w2026_015,2026,2026-02-11,Žena,1995,Český jazyk a literatura se zaměřením na vzdělávání,,False,5,6,4,4,4,5,6,6,4,4,3,4,4,4,5,5,3,4,4,4,4,4,4,4,4,5
+w2026_016,2026,2026-02-11,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,7,4,7,7,7,7,6,7,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2026_017,2026,2026-02-11,Žena,2005,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,4,5,6,7,7,4,6,5,6,6,7,6,7,7,6,7,7,7,7,7,7,7,7
+w2026_018,2026,2026-02-11,Muž,2000,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,6,5,6,6,5,6,5,5,5,5,6,5,3,5,5,3,6,7,7,5,5,6,7,6
+w2026_019,2026,2026-02-11,Žena,2003,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,7,7,5,4,3,7,7,7,4,4,1,5,5,2,7,7,6,6,5,7,4,6,7,7,7,7
+w2026_020,2026,2026-02-12,Žena,2005,Český jazyk a literatura se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,7,7,5,6,7,7,2,6,5,7,7,6,6,7,7,7,7,6,7,7,7,7,7,6
+w2026_021,2026,2026-02-12,Muž,2005,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,4,7,5,5,7,7,7,5,4,5,5,3,3,3,5,5,6,4,5,3,7,5,5,7
+w2026_022,2026,2026-02-12,Žena,2004,Speciální pedagogika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,3,4,4,7,6,7,2,4,3,5,6,5,5,5,6,4,6,7,6,6,7,7,6,5
+w2026_023,2026,2026-02-12,Žena,2005,Francouzský jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,6,7,4,6,6,7,3,7,4,6,6,7,5,7,7,7,6,7,6,5,6,7,5,7
+w2026_024,2026,2026-02-12,Žena,1999,Hudební výchova se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,1,7,7,7,7,7,7,5,6,5,7,6,3,1,7,7,7,7,7,7,7,7,7,7
+w2026_025,2026,2026-02-12,Žena,2004,Německý jazyk se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,4,5,6,7,7,7,2,3,3,7,7,4,5,6,5,5,7,7,7,6,7,7,7,7
+w2026_026,2026,2026-02-12,Žena,2002,Chemie se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,7,6,4,7,7,7,5,7,3,6,6,7,7,7,7,6,6,6,6,6,7,7,7,7
+w2026_027,2026,2026-02-12,Žena,2003,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,6,4,4,4,7,7,5,5,7,4,5,5,3,7,5,5,5,6,4,7,4,5,5,7
+w2026_028,2026,2026-02-12,Muž,2003,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,6,7,4,7,7,5,7,3,3,6,7,7,7,7,6,7,7,7,5,6,7,7,6
+w2026_029,2026,2026-02-12,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,4,2,4,7,7,7,1,5,2,7,7,4,2,4,7,6,7,7,7,5,7,6,7,7
+w2026_030,2026,2026-02-12,Žena,2005,Matematika se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,7,6,6,7,7,7,4,7,4,5,5,7,7,7,7,6,6,6,5,7,7,7,7,7
+w2026_031,2026,2026-02-12,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,5,5,7,6,5,4,7,7,4,7,4,4,4,6,6,7,7,7,6,6,4,6,7,7,5,4
+w2026_032,2026,2026-02-12,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,6,5,6,5,5,6,4,3,4,6,5,6,6,5,7,5,6,6,6,4,5,6,6,6
+w2026_033,2026,2026-02-12,Muž,1999,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,4,6,5,6,7,7,4,4,4,6,7,4,7,5,4,2,7,7,7,7,2,5,7,7
+w2026_034,2026,2026-02-12,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,5,5,7,6,7,7,5,6,6,7,7,7,7,6,7,4,7,7,7,6,7,7,7,7
+w2026_035,2026,2026-02-12,Žena,2005,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,7,7,7,7,7,7,6,7,5,6,6,6,7,6,7,4,5,5,6,7,5,6,6,7
+w2026_036,2026,2026-02-12,Muž,2004,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,4,3,5,6,6,7,5,4,3,5,2,3,4,4,4,6,6,5,5,6,5,7,6,6,6,5
+w2026_037,2026,2026-02-12,Žena,2004,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,7,5,3,7,7,7,2,7,5,6,7,7,7,7,7,6,7,7,7,7,7,7,7,7
+w2026_038,2026,2026-02-12,Muž,2004,Matematika se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,True,7,7,7,7,6,4,7,7,1,7,1,4,7,7,7,7,5,7,7,7,7,7,7,7,7,7
+w2026_039,2026,2026-02-12,Žena,2003,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,7,4,6,5,5,6,7,5,4,4,5,5,5,5,6,5,6,6,7,6,5,6,7,7,6
+w2026_040,2026,2026-02-12,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,6,5,5,4,6,6,7,3,3,3,6,6,3,5,6,5,4,6,6,6,7,7,6,5,7
+w2026_041,2026,2026-02-12,Žena,2005,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,6,3,4,5,5,6,5,4,4,5,6,5,4,4,3,5,4,5,5,5,6,6,5,5,6
+w2026_042,2026,2026-02-12,Žena,2004,Chemie se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,5,6,4,6,6,7,4,5,4,5,6,6,6,7,6,5,6,7,7,7,7,7,7,7
+w2026_043,2026,2026-02-12,Žena,2004,Výchova ke zdraví se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,7,7,3,7,7,7,2,7,5,7,7,7,7,7,6,6,7,7,7,7,7,7,7,7
+w2026_044,2026,2026-02-12,Žena,2002,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,5,5,4,7,7,7,5,5,5,2,6,5,3,5,6,6,6,6,7,6,7,7,7,7
+w2026_045,2026,2026-02-12,Žena,2003,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,6,4,5,5,7,4,2,6,3,5,4,6,6,6,5,3,4,4,4,6,7,7,4,6
+w2026_046,2026,2026-02-12,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,6,7,6,5,4,6,7,7,4,6,4,6,5,5,6,6,5,5,5,6,5,6,6,7,6,6
+w2026_047,2026,2026-02-12,Žena,2004,Výtvarná výchova se zaměřením na vzdělávání,,True,6,7,6,5,5,5,7,6,5,7,5,5,5,7,5,5,7,5,6,6,6,7,6,6,7,6
+w2026_048,2026,2026-02-12,Žena,2004,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,5,5,7,7,7,5,7,5,3,5,6,6,6,5,3,6,5,5,6,6,7,5,6
+w2026_049,2026,2026-02-12,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,7,4,6,7,7,7,4,7,6,6,3,7,7,7,7,4,7,5,6,7,7,7,7,7
+w2026_050,2026,2026-02-12,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,3,3,6,6,7,7,2,3,6,6,6,3,5,3,6,6,6,6,6,3,7,7,7,7
+w2026_051,2026,2026-02-12,Žena,2004,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,6,6,4,4,4,5,6,7,4,5,4,7,7,5,4,5,5,6,5,6,5,5,5,6,7,6
+w2026_052,2026,2026-02-12,Žena,2004,Matematika se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,7,6,4,5,7,6,6,3,4,3,5,6,5,6,6,6,6,6,6,7,6,7,7,6,7
+w2026_053,2026,2026-02-12,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,6,5,7,5,6,7,6,5,5,4,7,7,6,3,7,7,7,7,7,7,7,7,7,7,7
+w2026_054,2026,2026-02-12,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,5,5,5,7,5,2,6,4,6,5,6,4,7,5,2,6,6,7,7,5,4,5,6
+w2026_055,2026,2026-02-12,Muž,2000,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,6,4,4,3,5,6,6,2,4,5,5,6,4,4,6,5,7,6,5,5,6,5,5,5,6
+w2026_056,2026,2026-02-12,Žena,2005,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,7,3,4,5,6,6,4,7,5,4,5,7,6,7,5,4,6,7,6,7,7,7,7,7
+w2026_057,2026,2026-02-12,Žena,2005,Výchova ke zdraví se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,4,5,4,6,7,7,3,5,4,6,7,4,6,6,5,5,6,6,7,7,7,5,7,6
+w2026_058,2026,2026-02-12,Žena,2003,Přírodopis se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,5,7,6,4,4,6,6,7,3,5,4,6,6,6,4,6,5,4,5,6,5,7,5,5,5,7
+w2026_059,2026,2026-02-12,Muž,2003,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,6,6,5,4,4,6,7,7,2,4,3,3,5,4,5,6,4,4,5,6,6,7,7,7,6,6
+w2026_060,2026,2026-02-12,Muž,2003,Dějepis se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,7,7,2,4,4,7,7,7,1,7,4,7,7,5,7,7,6,2,6,7,7,7,7,6,6,7
+w2026_061,2026,2026-02-12,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,5,4,4,7,7,7,3,4,5,6,7,5,5,5,6,5,7,6,7,7,7,7,6,7
+w2026_062,2026,2026-02-12,Žena,2004,Přírodopis se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,True,7,7,4,6,5,7,7,7,3,5,6,7,7,4,4,5,6,7,7,7,7,7,7,7,7,6
+w2026_063,2026,2026-02-12,Žena,2004,Zeměpis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,3,4,7,7,7,1,6,2,5,6,6,6,4,6,4,7,7,6,5,6,7,7,7
+w2026_064,2026,2026-02-12,Muž,2004,Výtvarná výchova se zaměřením na vzdělávání,,True,7,7,7,4,5,6,6,6,6,7,3,3,5,4,7,7,7,7,6,5,6,7,6,7,6,7
+w2026_065,2026,2026-02-12,Žena,2005,Přírodopis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,False,7,6,3,2,5,4,5,7,2,7,2,2,4,7,5,3,6,2,5,2,5,3,6,6,4,7
+w2026_066,2026,2026-02-12,Žena,2005,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,5,4,5,2,6,7,5,7,1,2,6,7,7,7,5,4,6,6,5,6,7,7,6,7
+w2026_067,2026,2026-02-12,Muž,2003,Český jazyk a literatura se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,False,6,5,6,4,4,6,5,5,4,4,2,4,5,7,4,4,6,5,5,6,5,7,5,6,6,5
+w2026_068,2026,2026-02-12,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,6,5,4,5,6,7,7,3,6,3,6,6,4,5,3,4,4,7,7,7,5,5,6,6,7
+w2026_069,2026,2026-02-12,Žena,2005,Speciální pedagogika,,False,7,7,6,5,5,7,7,7,4,7,3,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2026_070,2026,2026-02-12,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,7,3,5,7,7,7,1,7,4,5,6,7,7,7,6,3,6,7,6,7,7,7,7,7
+w2026_071,2026,2026-02-12,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,6,6,7,6,7,7,2,7,7,6,7,7,5,3,7,7,7,7,7,7,7,7,7,7
+w2026_072,2026,2026-02-12,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,6,7,5,5,6,6,7,7,5,5,5,6,6,3,4,3,6,5,6,5,6,5,6,7,6,5
+w2026_073,2026,2026-02-12,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,,False,5,6,5,5,3,7,7,7,3,5,3,4,4,5,4,5,5,3,5,5,5,6,6,7,4,6
+w2026_074,2026,2026-02-12,Žena,2003,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,7,7,6,7,7,7,4,7,5,6,6,7,7,7,7,5,7,6,6,7,7,7,7,6
+w2026_075,2026,2026-02-12,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,3,7,5,7,7,7,2,4,4,6,7,3,4,5,7,6,7,7,7,4,7,7,7,7
+w2026_076,2026,2026-02-12,Žena,2004,Francouzský jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,5,5,6,7,7,3,5,4,5,6,4,4,5,6,7,6,7,7,6,6,7,6,7
+w2026_077,2026,2026-02-12,Žena,2002,Německý jazyk se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,7,7,5,5,5,6,6,6,2,3,5,6,5,3,2,3,6,2,6,6,6,6,4,7,6,6
+w2026_078,2026,2026-02-13,Muž,2003,Hudební výchova se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,4,4,4,7,7,7,4,7,4,4,4,4,4,4,7,4,4,4,7,7,7,7,4,7
+w2026_079,2026,2026-02-13,Žena,2004,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,,True,7,7,7,6,2,6,7,7,5,6,3,5,7,7,7,7,3,5,7,7,7,7,7,7,7,7
+w2026_080,2026,2026-02-13,Muž,2004,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,7,6,4,4,7,6,7,3,7,6,6,7,7,7,7,7,6,6,4,6,7,7,7,6,5
+w2026_081,2026,2026-02-13,Muž,2004,Matematika se zaměřením na vzdělávání,Chemie se zaměřením na vzdělávání,True,7,7,3,1,7,7,7,7,1,5,4,4,5,2,7,7,7,4,4,7,6,2,7,5,7,7
+w2026_082,2026,2026-02-13,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,6,5,7,6,6,7,6,5,7,5,6,6,7,5,7,7,6,5,5,5,7,6,6,6,7
+w2026_083,2026,2026-02-13,Muž,2004,Technická a informační výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,6,7,5,6,7,6,5,3,5,4,6,6,5,3,5,6,7,7,7,7,4,4,5,6,5
+w2026_084,2026,2026-02-13,Muž,2004,Výchova ke zdraví se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,7,7,5,6,7,7,5,6,2,7,6,6,5,6,5,2,6,6,6,7,7,6,6,6
+w2026_085,2026,2026-02-13,Žena,2001,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,6,6,4,4,4,4,6,6,4,6,4,5,5,4,4,4,5,4,5,5,5,4,6,6,6,6
+w2026_086,2026,2026-02-13,Žena,2004,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,6,7,5,7,6,5,7,7,7,4,5,6,5,4,4,7,7,7,6,7,6,7,7,7,7,7
+w2026_087,2026,2026-02-13,Žena,2002,Matematika se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,7,7,7,5,6,6,7,7,6,7,6,6,6,6,3,6,7,7,7,6,6,7,7,7,7,7
+w2026_088,2026,2026-02-13,Žena,2005,Hudební výchova se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,7,1,5,7,7,7,1,3,6,7,7,6,7,7,7,5,7,7,7,7,7,7,7,7
+w2026_089,2026,2026-02-14,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,6,7,5,5,5,6,7,7,7,7,5,6,6,7,7,4,7,7,7,7,7,7,7,7,7,7
+w2026_090,2026,2026-02-14,Žena,2001,Ruský jazyk se zaměřením na vzdělávání,,False,7,7,7,4,4,7,7,7,3,4,4,6,6,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2026_091,2026,2026-02-14,Žena,2005,Německý jazyk se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,3,7,5,7,7,7,5,6,2,6,4,3,3,3,5,5,7,7,7,6,6,7,7,7
+w2026_092,2026,2026-02-14,Žena,2003,Český jazyk a literatura se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,False,6,6,6,3,4,6,5,6,3,5,4,5,6,5,4,5,6,5,5,5,5,5,5,4,5,6
+w2026_093,2026,2026-02-14,Žena,2004,Fyzika se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,7,6,5,7,7,7,5,7,5,7,7,7,7,7,6,6,7,7,6,7,7,7,7,7
+w2026_094,2026,2026-02-14,Muž,2005,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,6,6,7,3,5,6,6,2,6,4,3,7,7,7,7,7,6,7,7,7,7,7,7,7,5
+w2026_095,2026,2026-02-15,Žena,2003,Hudební výchova se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,4,6,6,5,4,4,6,6,4,6,2,3,4,6,5,6,5,3,5,5,4,5,5,5,5,5
+w2026_096,2026,2026-02-15,Muž,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,6,6,5,4,3,7,6,7,4,6,5,5,5,6,3,7,6,6,6,6,5,7,6,7,6,5
+w2026_097,2026,2026-02-15,Žena,2005,Výchova ke zdraví se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,7,5,6,4,2,7,6,4,5,3,2,7,6,3,5,6,6,7,7,7,6,6,6,5,5
+w2026_098,2026,2026-02-15,Žena,2005,Matematika se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,4,6,6,5,5,6,5,7,3,5,4,5,5,6,7,6,6,6,5,5,5,7,6,6,6,7
+w2026_099,2026,2026-02-15,Žena,2002,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,5,4,4,3,4,7,7,2,7,4,6,6,7,5,6,6,4,6,4,4,7,7,5,5,6
+w2026_100,2026,2026-02-15,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,5,6,7,7,7,6,5,7,5,6,3,5,2,7,7,6,6,7,7,7,6,7,7
+w2026_101,2026,2026-02-15,Muž,2004,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,6,2,4,5,6,6,2,5,2,6,6,5,5,6,6,5,6,5,6,6,6,5,5,6
+w2026_102,2026,2026-02-15,Žena,2002,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,6,7,5,6,5,7,7,7,5,6,5,6,6,5,6,5,6,6,6,6,6,6,7,7,6,7
+w2026_103,2026,2026-02-15,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,4,7,5,6,7,7,3,4,3,5,6,4,4,3,7,7,6,7,7,7,7,6,7,7
+w2026_104,2026,2026-02-15,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,6,7,7,7,5,7,7,7,6,7,5,6,7,7,7,7,7,7,6,7,6,7,7,6,6,7
+w2026_105,2026,2026-02-15,Žena,2005,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,5,7,3,1,1,7,7,7,1,7,1,1,2,7,7,7,4,7,4,1,1,7,4,5,5,7
+w2026_106,2026,2026-02-15,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,2,4,7,7,6,2,6,5,6,6,5,7,7,4,7,6,7,7,7,7,6,7,7
+w2026_107,2026,2026-02-15,Muž,2000,Technická a informační výchova se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,5,6,7,7,7,7,7,4,6,6,7,7,4,4,6,6,7,7,7,7,5,4,7
+w2026_108,2026,2026-02-15,Žena,2004,Německý jazyk se zaměřením na vzdělávání,,False,7,7,5,3,5,7,7,7,3,5,1,4,7,7,7,7,7,7,7,7,7,7,7,7,7,7
+w2026_109,2026,2026-02-15,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,5,6,5,7,7,7,4,6,5,5,5,5,4,6,7,7,7,7,7,7,7,7,7,7
+w2026_110,2026,2026-02-15,Muž,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,4,7,6,7,7,7,5,5,4,6,7,5,4,7,7,6,7,7,7,7,7,7,7,7
+w2026_111,2026,2026-02-15,Žena,2005,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,6,7,5,2,4,5,7,7,1,7,2,5,5,7,5,5,7,6,6,7,7,7,5,6,7,7
+w2026_112,2026,2026-02-15,Muž,2005,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Technická a informační výchova se zaměřením na vzdělávání,True,6,6,4,6,5,4,7,6,4,4,3,6,6,5,5,5,6,6,7,7,6,6,3,6,6,6
+w2026_113,2026,2026-02-15,Žena,2002,Přírodopis se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,7,6,4,3,3,6,7,7,5,5,6,5,6,5,3,4,5,3,6,4,6,6,7,7,6,5
+w2026_114,2026,2026-02-16,Muž,2004,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,7,7,4,2,3,7,7,7,1,5,4,7,7,5,7,7,4,3,7,5,5,5,7,7,6,7
+w2026_115,2026,2026-02-16,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,7,6,2,7,7,7,5,7,5,7,7,7,6,7,7,7,7,7,7,7,7,7,7,5
+w2026_116,2026,2026-02-16,Žena,2003,Hudební výchova se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,6,6,5,4,5,6,6,6,4,4,4,7,7,5,3,2,6,4,6,6,6,4,6,6,6,5
+w2026_117,2026,2026-02-16,Žena,2005,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,7,2,4,7,7,7,4,7,7,5,6,6,7,7,6,6,6,6,6,7,7,7,6,7
+w2026_118,2026,2026-02-16,Žena,2005,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,True,6,7,3,6,6,7,6,7,6,3,6,7,7,3,3,3,7,4,7,7,7,6,7,7,7,7
+w2026_119,2026,2026-02-16,Muž,2004,Matematika se zaměřením na vzdělávání,Fyzika se zaměřením na vzdělávání,True,7,6,6,5,5,5,5,7,2,5,3,7,7,5,6,7,6,7,7,7,7,7,7,7,7,7
+w2026_120,2026,2026-02-16,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,4,4,6,7,6,4,6,5,6,7,7,7,6,7,5,5,6,6,7,7,5,6,7
+w2026_121,2026,2026-02-16,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,,True,7,7,6,4,3,7,7,7,2,7,3,6,6,7,7,7,6,5,6,6,6,7,7,7,7,7
+w2026_122,2026,2026-02-16,Žena,2004,Matematika se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,6,5,3,6,7,7,5,6,5,6,6,5,7,7,6,6,6,5,7,7,7,6,6,7
+w2026_123,2026,2026-02-16,Žena,2004,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,5,6,4,7,7,7,3,6,6,7,7,6,5,6,6,7,7,7,7,7,7,6,7,7
+w2026_124,2026,2026-02-16,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,2,6,6,7,7,7,1,6,5,5,6,7,1,3,7,7,6,6,7,5,7,7,6,7
+w2026_125,2026,2026-02-16,Žena,2004,Výchova ke zdraví se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,4,6,6,3,5,3,6,7,4,6,5,5,6,5,5,5,6,7,7,7,6,5,7,6,6,7
+w2026_126,2026,2026-02-16,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Výchova ke zdraví se zaměřením na vzdělávání,True,6,6,6,5,4,5,6,6,4,6,4,5,5,6,5,6,6,5,5,6,6,6,4,5,4,6
+w2026_127,2026,2026-02-16,Muž,1999,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,4,6,4,6,7,7,3,4,4,6,7,5,7,3,5,4,7,7,7,5,4,4,7,7
+w2026_128,2026,2026-02-16,Žena,2002,Český jazyk a literatura se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,False,7,6,3,5,2,6,7,7,4,6,5,4,6,4,6,6,3,5,6,6,6,6,7,7,5,7
+w2026_129,2026,2026-02-16,Žena,2004,Anglický jazyk se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,7,7,4,7,7,7,1,7,3,5,4,6,7,7,5,7,7,7,7,7,7,7,7,7
+w2026_130,2026,2026-02-17,Žena,2004,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,7,7,5,7,6,7,7,7,6,5,6,6,4,6,7,7,7,7,6,7,5,7,7,7,7,7
+w2026_131,2026,2026-02-17,Žena,2002,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,5,5,5,6,7,7,5,6,5,6,6,4,4,4,6,6,6,6,6,5,6,6,6,7
+w2026_132,2026,2026-02-17,Muž,2004,Dějepis se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,True,6,6,3,2,5,7,7,7,4,5,1,1,1,4,7,4,7,6,4,5,3,7,6,5,5,7
+w2026_133,2026,2026-02-17,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,Přírodopis se zaměřením na vzdělávání,True,7,7,2,6,3,7,7,7,3,2,6,6,7,7,6,4,5,5,7,7,7,7,7,7,7,7
+w2026_134,2026,2026-02-17,Žena,2004,Chemie se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,False,7,7,4,3,2,7,7,7,2,6,5,6,6,6,2,3,6,3,6,6,6,6,6,7,6,6
+w2026_135,2026,2026-02-17,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,7,7,7,7,7,7,6,7,6,6,6,6,5,7,6,7,7,5,6,7,7,7,7,6
+w2026_136,2026,2026-02-17,Muž,2002,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,Matematika se zaměřením na vzdělávání,False,6,7,6,5,4,5,5,6,3,5,5,7,7,6,6,6,5,5,6,6,6,5,4,5,5,5
+w2026_137,2026,2026-02-17,Muž,2005,Matematika se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,6,6,3,5,6,7,3,3,5,5,5,3,7,5,3,6,5,5,4,7,7,5,5,7
+w2026_138,2026,2026-02-17,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,5,5,7,7,7,2,7,5,6,7,7,6,7,7,4,6,6,6,6,7,7,6,6
+w2026_139,2026,2026-02-17,Muž,2005,Zeměpis se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,6,5,5,7,6,7,6,2,6,3,5,6,7,7,7,5,2,5,5,5,2,6,7,6,7
+w2026_140,2026,2026-02-17,Žena,2003,Anglický jazyk se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,False,7,6,6,6,6,7,7,6,3,6,4,5,6,6,6,7,5,6,6,6,5,7,7,6,7,7
+w2026_141,2026,2026-02-18,Muž,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,7,4,2,7,7,7,3,7,5,7,7,7,7,5,6,5,7,6,7,6,7,7,7,7
+w2026_142,2026,2026-02-18,Muž,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,False,6,4,5,4,2,5,7,7,4,6,5,5,4,7,7,7,4,4,5,5,5,7,6,7,6,7
+w2026_143,2026,2026-02-18,Muž,2005,Dějepis se zaměřením na vzdělávání,Český jazyk a literatura se zaměřením na vzdělávání,True,7,7,7,5,7,6,7,7,5,7,5,7,7,7,7,7,6,3,7,6,7,7,7,6,6,7
+w2026_144,2026,2026-02-18,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,,True,7,5,6,3,6,6,7,7,2,7,2,7,6,6,5,6,1,4,6,6,6,7,6,7,6,7
+w2026_145,2026,2026-02-19,Muž,2003,Matematika se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,7,6,5,3,5,5,6,7,3,5,6,6,6,5,6,7,6,2,7,6,7,6,7,7,6,6
+w2026_146,2026,2026-02-19,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,6,6,6,4,7,7,4,7,5,7,7,7,7,6,7,3,7,4,7,4,7,7,4,7
+w2026_147,2026,2026-02-19,Žena,2005,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,5,5,7,6,7,3,6,3,6,7,6,4,6,6,6,7,7,7,7,7,7,6,6
+w2026_148,2026,2026-02-19,Žena,2005,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,Speciální pedagogika,True,7,5,6,4,6,5,7,6,3,6,5,6,6,6,5,7,6,6,7,7,7,7,6,7,5,7
+w2026_149,2026,2026-02-20,Žena,2004,Dějepis se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,6,5,5,7,7,7,3,6,6,6,6,4,6,7,7,6,7,7,7,7,7,7,7,7
+w2026_150,2026,2026-02-20,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,5,6,6,5,6,6,4,2,4,5,6,3,3,4,6,5,6,6,5,4,5,6,5,5
+w2026_151,2026,2026-02-20,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,Dějepis se zaměřením na vzdělávání,True,7,7,7,3,3,7,7,7,3,7,5,7,5,7,1,5,5,3,5,3,6,7,7,7,7,7
+w2026_152,2026,2026-02-20,Žena,2005,Výchova ke zdraví se zaměřením na vzdělávání,Anglický jazyk se zaměřením na vzdělávání,False,6,7,6,6,5,5,7,7,5,5,3,3,6,4,4,5,6,6,6,6,6,6,6,5,6,6
+w2026_153,2026,2026-02-20,Žena,2004,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,True,7,7,5,7,6,6,7,7,7,6,6,6,7,5,4,3,7,7,7,7,7,5,7,7,7,4
+w2026_154,2026,2026-02-20,Žena,2005,Přírodopis se zaměřením na vzdělávání,Hudební výchova se zaměřením na vzdělávání,True,6,7,6,5,3,6,7,7,5,6,5,5,6,6,5,7,6,6,6,6,6,6,6,6,7,7
+w2026_155,2026,2026-02-20,Žena,2005,Anglický jazyk se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,4,5,6,4,5,5,6,6,4,5,5,5,5,5,5,4,5,4,5,5,5,6,5,5,6,5
+w2026_156,2026,2026-02-20,Žena,2005,Výtvarná výchova se zaměřením na vzdělávání,,False,7,7,7,4,4,7,7,7,3,5,4,4,5,7,6,6,5,5,5,4,5,7,7,7,5,5
+w2026_157,2026,2026-02-22,Žena,2005,Výchova ke zdraví se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,False,7,7,5,6,5,7,7,7,2,6,2,7,7,7,7,5,5,2,5,7,5,7,7,7,7,6
+w2026_158,2026,2026-02-23,Žena,2005,Český jazyk a literatura se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,6,5,5,4,6,7,7,3,4,5,5,5,4,3,4,7,6,5,5,5,6,7,7,5,5
+w2026_159,2026,2026-02-24,Žena,2003,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,True,7,7,7,7,7,7,7,7,7,7,6,7,7,7,7,7,7,7,7,7,7,5,7,7,7,7
+w2026_160,2026,2026-02-25,Žena,2005,Hudební výchova se zaměřením na vzdělávání,Speciální pedagogika se zaměřením na vzdělávání,True,7,7,7,7,7,7,7,7,4,6,6,5,6,6,5,7,7,6,6,7,6,6,6,7,7,7
+w2026_161,2026,2026-02-26,Muž,2005,Český jazyk a literatura se zaměřením na vzdělávání,Občanská výchova a základy společenských věd se zaměřením na vzdělávání,False,7,7,7,7,5,7,7,7,5,5,6,6,6,6,4,5,5,7,7,7,7,7,7,7,7,7
+w2026_162,2026,2026-03-02,Žena,1993,Speciální pedagogika,,True,7,7,6,7,7,6,7,7,7,6,7,6,7,6,6,6,7,7,7,7,7,6,7,7,7,7
+w2026_163,2026,2026-03-13,Žena,2004,Dějepis se zaměřením na vzdělávání,Zeměpis se zaměřením na vzdělávání,True,4,5,4,7,3,5,5,6,5,2,6,6,5,7,1,7,7,6,5,4,7,6,7,7,6,5
+w2026_164,2026,2026-04-22,Žena,2004,Výtvarná výchova a vizuální tvorba se zaměřením na vzdělávání,,False,7,7,7,7,4,7,7,7,4,7,7,7,7,7,3,5,6,6,6,7,5,6,7,7,6,7

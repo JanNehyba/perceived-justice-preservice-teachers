@@ -1,0 +1,385 @@
+taxon_id,taxon,char_id,character,code
+t01,Equality,1,focus,outcome
+t01,Equality,2,comparative,comparative
+t01,Equality,3,temporal,atemporal
+t01,Equality,4,structure,endstate
+t01,Equality,5,currency,resources
+t01,Equality,6,need_sensitive,no
+t01,Equality,7,desert_sensitive,no
+t01,Equality,8,equal_shares_default,yes
+t01,Equality,9,remedial,nonremedial
+t01,Equality,10,punishment,no
+t01,Equality,11,repair,no
+t01,Equality,12,voice,absent
+t01,Equality,13,interpersonal_treatment,no
+t01,Equality,14,transparency_info,no
+t01,Equality,15,level,macro
+t01,Equality,16,scope,domaingeneral
+t02,Need,1,focus,outcome
+t02,Need,2,comparative,comparative
+t02,Need,3,temporal,atemporal
+t02,Need,4,structure,patterned
+t02,Need,5,currency,resources
+t02,Need,6,need_sensitive,yes
+t02,Need,7,desert_sensitive,no
+t02,Need,8,equal_shares_default,no
+t02,Need,9,remedial,nonremedial
+t02,Need,10,punishment,no
+t02,Need,11,repair,no
+t02,Need,12,voice,absent
+t02,Need,13,interpersonal_treatment,no
+t02,Need,14,transparency_info,no
+t02,Need,15,level,macro
+t02,Need,16,scope,domaingeneral
+t03,Merit/desert (equity),1,focus,outcome
+t03,Merit/desert (equity),2,comparative,comparative
+t03,Merit/desert (equity),3,temporal,atemporal
+t03,Merit/desert (equity),4,structure,patterned
+t03,Merit/desert (equity),5,currency,resources
+t03,Merit/desert (equity),6,need_sensitive,no
+t03,Merit/desert (equity),7,desert_sensitive,yes
+t03,Merit/desert (equity),8,equal_shares_default,no
+t03,Merit/desert (equity),9,remedial,nonremedial
+t03,Merit/desert (equity),10,punishment,no
+t03,Merit/desert (equity),11,repair,no
+t03,Merit/desert (equity),12,voice,absent
+t03,Merit/desert (equity),13,interpersonal_treatment,no
+t03,Merit/desert (equity),14,transparency_info,no
+t03,Merit/desert (equity),15,level,both
+t03,Merit/desert (equity),16,scope,domaingeneral
+t04,Difference principle,1,focus,outcome
+t04,Difference principle,2,comparative,comparative
+t04,Difference principle,3,temporal,atemporal
+t04,Difference principle,4,structure,patterned
+t04,Difference principle,5,currency,resources
+t04,Difference principle,6,need_sensitive,partial
+t04,Difference principle,7,desert_sensitive,no
+t04,Difference principle,8,equal_shares_default,no
+t04,Difference principle,9,remedial,nonremedial
+t04,Difference principle,10,punishment,no
+t04,Difference principle,11,repair,no
+t04,Difference principle,12,voice,absent
+t04,Difference principle,13,interpersonal_treatment,no
+t04,Difference principle,14,transparency_info,no
+t04,Difference principle,15,level,macro
+t04,Difference principle,16,scope,domaingeneral
+t05,Sufficiency,1,focus,outcome
+t05,Sufficiency,2,comparative,noncomparative
+t05,Sufficiency,3,temporal,atemporal
+t05,Sufficiency,4,structure,endstate
+t05,Sufficiency,5,currency,resources
+t05,Sufficiency,6,need_sensitive,partial
+t05,Sufficiency,7,desert_sensitive,no
+t05,Sufficiency,8,equal_shares_default,no
+t05,Sufficiency,9,remedial,nonremedial
+t05,Sufficiency,10,punishment,no
+t05,Sufficiency,11,repair,no
+t05,Sufficiency,12,voice,absent
+t05,Sufficiency,13,interpersonal_treatment,no
+t05,Sufficiency,14,transparency_info,no
+t05,Sufficiency,15,level,macro
+t05,Sufficiency,16,scope,domaingeneral
+t06,Fair equality of opportunity,1,focus,process
+t06,Fair equality of opportunity,2,comparative,comparative
+t06,Fair equality of opportunity,3,temporal,forward
+t06,Fair equality of opportunity,4,structure,patterned
+t06,Fair equality of opportunity,5,currency,opportunity
+t06,Fair equality of opportunity,6,need_sensitive,no
+t06,Fair equality of opportunity,7,desert_sensitive,partial
+t06,Fair equality of opportunity,8,equal_shares_default,no
+t06,Fair equality of opportunity,9,remedial,nonremedial
+t06,Fair equality of opportunity,10,punishment,no
+t06,Fair equality of opportunity,11,repair,no
+t06,Fair equality of opportunity,12,voice,absent
+t06,Fair equality of opportunity,13,interpersonal_treatment,no
+t06,Fair equality of opportunity,14,transparency_info,no
+t06,Fair equality of opportunity,15,level,macro
+t06,Fair equality of opportunity,16,scope,domaingeneral
+t07,Luck egalitarianism,1,focus,outcome
+t07,Luck egalitarianism,2,comparative,comparative
+t07,Luck egalitarianism,3,temporal,atemporal
+t07,Luck egalitarianism,4,structure,patterned
+t07,Luck egalitarianism,5,currency,resources
+t07,Luck egalitarianism,6,need_sensitive,no
+t07,Luck egalitarianism,7,desert_sensitive,partial
+t07,Luck egalitarianism,8,equal_shares_default,no
+t07,Luck egalitarianism,9,remedial,nonremedial
+t07,Luck egalitarianism,10,punishment,no
+t07,Luck egalitarianism,11,repair,no
+t07,Luck egalitarianism,12,voice,absent
+t07,Luck egalitarianism,13,interpersonal_treatment,no
+t07,Luck egalitarianism,14,transparency_info,no
+t07,Luck egalitarianism,15,level,both
+t07,Luck egalitarianism,16,scope,domaingeneral
+t08,Capabilities approach,1,focus,outcome
+t08,Capabilities approach,2,comparative,comparative
+t08,Capabilities approach,3,temporal,atemporal
+t08,Capabilities approach,4,structure,endstate
+t08,Capabilities approach,5,currency,capability
+t08,Capabilities approach,6,need_sensitive,partial
+t08,Capabilities approach,7,desert_sensitive,no
+t08,Capabilities approach,8,equal_shares_default,no
+t08,Capabilities approach,9,remedial,nonremedial
+t08,Capabilities approach,10,punishment,no
+t08,Capabilities approach,11,repair,no
+t08,Capabilities approach,12,voice,absent
+t08,Capabilities approach,13,interpersonal_treatment,no
+t08,Capabilities approach,14,transparency_info,no
+t08,Capabilities approach,15,level,macro
+t08,Capabilities approach,16,scope,domaingeneral
+t09,Procedural justice,1,focus,process
+t09,Procedural justice,2,comparative,comparative
+t09,Procedural justice,3,temporal,atemporal
+t09,Procedural justice,4,structure,endstate
+t09,Procedural justice,5,currency,na
+t09,Procedural justice,6,need_sensitive,no
+t09,Procedural justice,7,desert_sensitive,no
+t09,Procedural justice,8,equal_shares_default,no
+t09,Procedural justice,9,remedial,nonremedial
+t09,Procedural justice,10,punishment,no
+t09,Procedural justice,11,repair,no
+t09,Procedural justice,12,voice,central
+t09,Procedural justice,13,interpersonal_treatment,no
+t09,Procedural justice,14,transparency_info,no
+t09,Procedural justice,15,level,both
+t09,Procedural justice,16,scope,domaingeneral
+t10,Interpersonal justice,1,focus,process
+t10,Interpersonal justice,2,comparative,noncomparative
+t10,Interpersonal justice,3,temporal,atemporal
+t10,Interpersonal justice,4,structure,endstate
+t10,Interpersonal justice,5,currency,na
+t10,Interpersonal justice,6,need_sensitive,no
+t10,Interpersonal justice,7,desert_sensitive,no
+t10,Interpersonal justice,8,equal_shares_default,no
+t10,Interpersonal justice,9,remedial,nonremedial
+t10,Interpersonal justice,10,punishment,no
+t10,Interpersonal justice,11,repair,no
+t10,Interpersonal justice,12,voice,peripheral
+t10,Interpersonal justice,13,interpersonal_treatment,yes
+t10,Interpersonal justice,14,transparency_info,no
+t10,Interpersonal justice,15,level,micro
+t10,Interpersonal justice,16,scope,domaingeneral
+t11,Informational justice,1,focus,process
+t11,Informational justice,2,comparative,noncomparative
+t11,Informational justice,3,temporal,atemporal
+t11,Informational justice,4,structure,endstate
+t11,Informational justice,5,currency,na
+t11,Informational justice,6,need_sensitive,no
+t11,Informational justice,7,desert_sensitive,no
+t11,Informational justice,8,equal_shares_default,no
+t11,Informational justice,9,remedial,nonremedial
+t11,Informational justice,10,punishment,no
+t11,Informational justice,11,repair,no
+t11,Informational justice,12,voice,peripheral
+t11,Informational justice,13,interpersonal_treatment,no
+t11,Informational justice,14,transparency_info,yes
+t11,Informational justice,15,level,both
+t11,Informational justice,16,scope,domaingeneral
+t12,Retributive justice,1,focus,outcome
+t12,Retributive justice,2,comparative,comparative
+t12,Retributive justice,3,temporal,backward
+t12,Retributive justice,4,structure,patterned
+t12,Retributive justice,5,currency,na
+t12,Retributive justice,6,need_sensitive,no
+t12,Retributive justice,7,desert_sensitive,yes
+t12,Retributive justice,8,equal_shares_default,no
+t12,Retributive justice,9,remedial,nonremedial
+t12,Retributive justice,10,punishment,yes
+t12,Retributive justice,11,repair,no
+t12,Retributive justice,12,voice,peripheral
+t12,Retributive justice,13,interpersonal_treatment,no
+t12,Retributive justice,14,transparency_info,no
+t12,Retributive justice,15,level,both
+t12,Retributive justice,16,scope,domaingeneral
+t13,Restorative justice,1,focus,relationship
+t13,Restorative justice,2,comparative,noncomparative
+t13,Restorative justice,3,temporal,forward
+t13,Restorative justice,4,structure,endstate
+t13,Restorative justice,5,currency,na
+t13,Restorative justice,6,need_sensitive,partial
+t13,Restorative justice,7,desert_sensitive,no
+t13,Restorative justice,8,equal_shares_default,no
+t13,Restorative justice,9,remedial,remedial
+t13,Restorative justice,10,punishment,no
+t13,Restorative justice,11,repair,yes
+t13,Restorative justice,12,voice,central
+t13,Restorative justice,13,interpersonal_treatment,yes
+t13,Restorative justice,14,transparency_info,no
+t13,Restorative justice,15,level,micro
+t13,Restorative justice,16,scope,domaingeneral
+t14,Corrective (rectificatory) justice,1,focus,outcome
+t14,Corrective (rectificatory) justice,2,comparative,noncomparative
+t14,Corrective (rectificatory) justice,3,temporal,backward
+t14,Corrective (rectificatory) justice,4,structure,endstate
+t14,Corrective (rectificatory) justice,5,currency,resources
+t14,Corrective (rectificatory) justice,6,need_sensitive,no
+t14,Corrective (rectificatory) justice,7,desert_sensitive,no
+t14,Corrective (rectificatory) justice,8,equal_shares_default,no
+t14,Corrective (rectificatory) justice,9,remedial,remedial
+t14,Corrective (rectificatory) justice,10,punishment,no
+t14,Corrective (rectificatory) justice,11,repair,yes
+t14,Corrective (rectificatory) justice,12,voice,peripheral
+t14,Corrective (rectificatory) justice,13,interpersonal_treatment,no
+t14,Corrective (rectificatory) justice,14,transparency_info,no
+t14,Corrective (rectificatory) justice,15,level,micro
+t14,Corrective (rectificatory) justice,16,scope,domaingeneral
+t15,Compensatory justice,1,focus,outcome
+t15,Compensatory justice,2,comparative,noncomparative
+t15,Compensatory justice,3,temporal,backward
+t15,Compensatory justice,4,structure,endstate
+t15,Compensatory justice,5,currency,resources
+t15,Compensatory justice,6,need_sensitive,no
+t15,Compensatory justice,7,desert_sensitive,no
+t15,Compensatory justice,8,equal_shares_default,no
+t15,Compensatory justice,9,remedial,remedial
+t15,Compensatory justice,10,punishment,no
+t15,Compensatory justice,11,repair,yes
+t15,Compensatory justice,12,voice,peripheral
+t15,Compensatory justice,13,interpersonal_treatment,no
+t15,Compensatory justice,14,transparency_info,no
+t15,Compensatory justice,15,level,micro
+t15,Compensatory justice,16,scope,domaingeneral
+t16,Social justice,1,focus,outcome
+t16,Social justice,2,comparative,comparative
+t16,Social justice,3,temporal,atemporal
+t16,Social justice,4,structure,patterned
+t16,Social justice,5,currency,resources
+t16,Social justice,6,need_sensitive,partial
+t16,Social justice,7,desert_sensitive,partial
+t16,Social justice,8,equal_shares_default,no
+t16,Social justice,9,remedial,nonremedial
+t16,Social justice,10,punishment,no
+t16,Social justice,11,repair,no
+t16,Social justice,12,voice,absent
+t16,Social justice,13,interpersonal_treatment,no
+t16,Social justice,14,transparency_info,no
+t16,Social justice,15,level,macro
+t16,Social justice,16,scope,domaingeneral
+t17,Commutative justice,1,focus,process
+t17,Commutative justice,2,comparative,comparative
+t17,Commutative justice,3,temporal,atemporal
+t17,Commutative justice,4,structure,endstate
+t17,Commutative justice,5,currency,resources
+t17,Commutative justice,6,need_sensitive,no
+t17,Commutative justice,7,desert_sensitive,no
+t17,Commutative justice,8,equal_shares_default,no
+t17,Commutative justice,9,remedial,nonremedial
+t17,Commutative justice,10,punishment,no
+t17,Commutative justice,11,repair,no
+t17,Commutative justice,12,voice,peripheral
+t17,Commutative justice,13,interpersonal_treatment,no
+t17,Commutative justice,14,transparency_info,no
+t17,Commutative justice,15,level,micro
+t17,Commutative justice,16,scope,domaingeneral
+t18,Justice as fairness,1,focus,process
+t18,Justice as fairness,2,comparative,comparative
+t18,Justice as fairness,3,temporal,atemporal
+t18,Justice as fairness,4,structure,endstate
+t18,Justice as fairness,5,currency,resources
+t18,Justice as fairness,6,need_sensitive,partial
+t18,Justice as fairness,7,desert_sensitive,no
+t18,Justice as fairness,8,equal_shares_default,no
+t18,Justice as fairness,9,remedial,nonremedial
+t18,Justice as fairness,10,punishment,no
+t18,Justice as fairness,11,repair,no
+t18,Justice as fairness,12,voice,absent
+t18,Justice as fairness,13,interpersonal_treatment,no
+t18,Justice as fairness,14,transparency_info,no
+t18,Justice as fairness,15,level,macro
+t18,Justice as fairness,16,scope,domaingeneral
+t19,Complex equality (spheres),1,focus,outcome
+t19,Complex equality (spheres),2,comparative,comparative
+t19,Complex equality (spheres),3,temporal,atemporal
+t19,Complex equality (spheres),4,structure,patterned
+t19,Complex equality (spheres),5,currency,resources
+t19,Complex equality (spheres),6,need_sensitive,partial
+t19,Complex equality (spheres),7,desert_sensitive,partial
+t19,Complex equality (spheres),8,equal_shares_default,no
+t19,Complex equality (spheres),9,remedial,nonremedial
+t19,Complex equality (spheres),10,punishment,no
+t19,Complex equality (spheres),11,repair,no
+t19,Complex equality (spheres),12,voice,absent
+t19,Complex equality (spheres),13,interpersonal_treatment,no
+t19,Complex equality (spheres),14,transparency_info,no
+t19,Complex equality (spheres),15,level,macro
+t19,Complex equality (spheres),16,scope,spherespecific
+t20,Recognition justice,1,focus,relationship
+t20,Recognition justice,2,comparative,noncomparative
+t20,Recognition justice,3,temporal,atemporal
+t20,Recognition justice,4,structure,endstate
+t20,Recognition justice,5,currency,na
+t20,Recognition justice,6,need_sensitive,no
+t20,Recognition justice,7,desert_sensitive,no
+t20,Recognition justice,8,equal_shares_default,no
+t20,Recognition justice,9,remedial,remedial
+t20,Recognition justice,10,punishment,no
+t20,Recognition justice,11,repair,yes
+t20,Recognition justice,12,voice,central
+t20,Recognition justice,13,interpersonal_treatment,yes
+t20,Recognition justice,14,transparency_info,no
+t20,Recognition justice,15,level,both
+t20,Recognition justice,16,scope,domaingeneral
+t21,Relational equality,1,focus,relationship
+t21,Relational equality,2,comparative,comparative
+t21,Relational equality,3,temporal,atemporal
+t21,Relational equality,4,structure,endstate
+t21,Relational equality,5,currency,na
+t21,Relational equality,6,need_sensitive,no
+t21,Relational equality,7,desert_sensitive,no
+t21,Relational equality,8,equal_shares_default,yes
+t21,Relational equality,9,remedial,nonremedial
+t21,Relational equality,10,punishment,no
+t21,Relational equality,11,repair,no
+t21,Relational equality,12,voice,central
+t21,Relational equality,13,interpersonal_treatment,yes
+t21,Relational equality,14,transparency_info,no
+t21,Relational equality,15,level,both
+t21,Relational equality,16,scope,domaingeneral
+t22,Entitlement (libertarian) justice,1,focus,process
+t22,Entitlement (libertarian) justice,2,comparative,noncomparative
+t22,Entitlement (libertarian) justice,3,temporal,backward
+t22,Entitlement (libertarian) justice,4,structure,historical
+t22,Entitlement (libertarian) justice,5,currency,resources
+t22,Entitlement (libertarian) justice,6,need_sensitive,no
+t22,Entitlement (libertarian) justice,7,desert_sensitive,no
+t22,Entitlement (libertarian) justice,8,equal_shares_default,no
+t22,Entitlement (libertarian) justice,9,remedial,nonremedial
+t22,Entitlement (libertarian) justice,10,punishment,no
+t22,Entitlement (libertarian) justice,11,repair,no
+t22,Entitlement (libertarian) justice,12,voice,absent
+t22,Entitlement (libertarian) justice,13,interpersonal_treatment,no
+t22,Entitlement (libertarian) justice,14,transparency_info,no
+t22,Entitlement (libertarian) justice,15,level,both
+t22,Entitlement (libertarian) justice,16,scope,domaingeneral
+t23,Utilitarian justice,1,focus,outcome
+t23,Utilitarian justice,2,comparative,noncomparative
+t23,Utilitarian justice,3,temporal,atemporal
+t23,Utilitarian justice,4,structure,endstate
+t23,Utilitarian justice,5,currency,welfare
+t23,Utilitarian justice,6,need_sensitive,no
+t23,Utilitarian justice,7,desert_sensitive,no
+t23,Utilitarian justice,8,equal_shares_default,no
+t23,Utilitarian justice,9,remedial,nonremedial
+t23,Utilitarian justice,10,punishment,no
+t23,Utilitarian justice,11,repair,no
+t23,Utilitarian justice,12,voice,absent
+t23,Utilitarian justice,13,interpersonal_treatment,no
+t23,Utilitarian justice,14,transparency_info,no
+t23,Utilitarian justice,15,level,macro
+t23,Utilitarian justice,16,scope,domaingeneral
+t24,Formal justice (impartiality),1,focus,process
+t24,Formal justice (impartiality),2,comparative,comparative
+t24,Formal justice (impartiality),3,temporal,atemporal
+t24,Formal justice (impartiality),4,structure,endstate
+t24,Formal justice (impartiality),5,currency,na
+t24,Formal justice (impartiality),6,need_sensitive,no
+t24,Formal justice (impartiality),7,desert_sensitive,no
+t24,Formal justice (impartiality),8,equal_shares_default,no
+t24,Formal justice (impartiality),9,remedial,nonremedial
+t24,Formal justice (impartiality),10,punishment,no
+t24,Formal justice (impartiality),11,repair,no
+t24,Formal justice (impartiality),12,voice,absent
+t24,Formal justice (impartiality),13,interpersonal_treatment,no
+t24,Formal justice (impartiality),14,transparency_info,no
+t24,Formal justice (impartiality),15,level,both
+t24,Formal justice (impartiality),16,scope,domaingeneral
