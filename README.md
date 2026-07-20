@@ -1,5 +1,7 @@
 # perceived-justice-preservice-teachers
 
+> ⚠️ **Draft, not an official submission.** This is a working draft of a habilitation monograph. It is **not** an officially submitted, filed, or defended habilitation thesis.
+
 Companion repository — data, analysis code, and reproducible outputs for the habilitation monograph *Perceived Justice and Its Measurement Among Czech Pre-Service Teachers* (Jan Nehyba, Faculty of Education, Masaryk University, 2026).
 
 Repository: <https://github.com/JanNehyba/perceived-justice-preservice-teachers>
