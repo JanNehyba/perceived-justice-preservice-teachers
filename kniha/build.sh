@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 # P8 build: synchronize the authoritative chapter sources into this staging
 # directory, remove editorial-only metadata/checklists and duplicate working
-# reference lists, then render a clean English and/or Czech book.
+# reference lists, then render a clean Czech (primary) and/or English book.
+#
+# Čeština je primární/autoritativní verze (rozhodnutí Jana 20. 7. 2026);
+# angličtina je zaostávající zrcadlo. Proto default = cs.
 #
 # Usage:
-#   ./build.sh                    # EN, DOCX (CZ je ZMRAZENA — jen na explicitní ./build.sh cs)
-#   ./build.sh en all             # EN, DOCX + PDF
-#   ./build.sh cs pdf             # CZ only, PDF (až po finálním rozhodnutí o překladu)
-#   ./build.sh both all           # EN + CZ, DOCX + PDF
+#   ./build.sh                    # CZ, DOCX
+#   ./build.sh cs all             # CZ, DOCX + PDF
+#   ./build.sh en pdf             # EN only, PDF (zrcadlo, může za CZ zaostávat)
+#   ./build.sh both all           # CZ + EN, DOCX + PDF
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -16,14 +19,14 @@ if [ -x "../../.venv/bin/python" ]; then
   PYTHON_PDF="../../.venv/bin/python"
 fi
 
-language="${1:-en}"
+language="${1:-cs}"
 format="${2:-docx}"
 
 # Also accept the former one-argument format form (for example ./build.sh pdf).
 case "$language" in
   docx|pdf|all)
     format="$language"
-    language="en"
+    language="cs"
     ;;
 esac
 
@@ -147,20 +150,36 @@ render_language() {
   local lang="$1"
   local formats=()
 
-  # Povinná brána: každá citace v textu musí mít záznam v 99-references.md
-  # (a naopak se hlásí osiřelé záznamy). Build spadne při chybějící citaci.
-  if [ "$lang" = "en" ] && [ -f ../analyzy/scripts/check_references.py ]; then
-    python3 ../analyzy/scripts/check_references.py || {
-      echo "check_references.py FAILED — oprav literaturu před renderem." >&2
+  # Povinná brána: každá citace v textu musí mít záznam v 99-references.md.
+  # Čeština je primární verze → build spadne při chybějící citaci v CZ.
+  # Používá česky uvědomělý 96_check_references.py (spojka „a", „a kol.",
+  # přivlastňovací a deklinační tvary příjmení), který zvládá českou morfologii.
+  if [ "$lang" = "cs" ] && [ -f ../analyzy/scripts/96_check_references.py ]; then
+    python3 ../analyzy/scripts/96_check_references.py \
+      --chapters ../kapitoly/cs --refs ../kapitoly/cs/99-references.md || {
+      echo "96_check_references.py (CZ) FAILED — oprav literaturu před renderem." >&2
       return 1
     }
   fi
-  # CZ: brána literatury jen informativně (warn) — česká in-text citace může znít
-  # „Colquitt a Rodell" místo „&"; nechceme kvůli tomu shodit build.
-  if [ "$lang" = "cs" ] && [ -f ../analyzy/scripts/check_references.py ]; then
+  # EN: zaostávající zrcadlo → brána literatury jen informativně (warn).
+  if [ "$lang" = "en" ] && [ -f ../analyzy/scripts/check_references.py ]; then
     python3 ../analyzy/scripts/check_references.py \
-      --chapters ../kapitoly/cs --refs ../kapitoly/cs/99-references.md \
-      || echo "check_references.py (CZ) hlásí neshody — zkontroluj, ale build pokračuje." >&2
+      || echo "check_references.py (EN) hlásí neshody — zkontroluj, ale build pokračuje." >&2
+  fi
+
+  # CZ (primární): TVRDÁ brána em-dash (pravidlo: 0 dlouhých pomlček v celé knize;
+  # en-dash '–' v rozsazích OK) + INFORMATIVNÍ brána čísel 95 (próza ↔ manifesty).
+  # Plné ukotvení všech čísel v knize je zatím backlog (tier C), proto 95 jen varuje.
+  if [ "$lang" = "cs" ]; then
+    if grep -l "—" ../kapitoly/cs/*.md >/dev/null 2>&1; then
+      echo "em-dash '—' nalezen v kapitoly/cs (pravidlo: 0 v celé knize) — nahraď en-dash '–':" >&2
+      grep -n "—" ../kapitoly/cs/*.md >&2
+      return 1
+    fi
+    if [ -f ../analyzy/scripts/95_check_cisla.py ]; then
+      python3 ../analyzy/scripts/95_check_cisla.py --warn 2>&1 \
+        | grep -E '^95_check_cisla|PROBLÉMY|✅' || true
+    fi
   fi
 
   sync_language "$lang"
@@ -216,15 +235,15 @@ PY
   fi
 }
 
-# Keep the staging directory in its documented EN state, even after a CZ build.
-restore_english_staging() {
+# Keep the staging directory in its documented CZ (primary) state after any build.
+restore_primary_staging() {
   local status=$?
   trap - EXIT
   set +e
-  sync_language en >/dev/null 2>&1
+  sync_language cs >/dev/null 2>&1
   exit "$status"
 }
-trap restore_english_staging EXIT
+trap restore_primary_staging EXIT
 
 case "$language" in
   en) render_language en ;;

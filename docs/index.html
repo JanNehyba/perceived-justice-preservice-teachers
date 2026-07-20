@@ -1,287 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Subjektivně vnímaná spravedlnost a její měření — Jan Nehyba</title>
-<meta name="description" content="Habilitační monografie Jana Nehyby o vnímané spravedlnosti a jejím měření u studentů učitelství. Kniha, anonymizovaná data a reprodukovatelné analýzy.">
+<meta name="description" content="Doprovodné materiály k habilitační monografii Jana Nehyby (Pedagogická fakulta MU) o subjektivně vnímané spravedlnosti a jejím měření u studentů učitelství: kniha, anonymizovaná data, reprodukovatelné analýzy a jejich ověření.">
 <style>
-  @font-face{
-    font-family:"Muni";
-    font-style:normal;
-    font-weight:700;
-    font-display:swap;
-    src:url("https://cdn.muni.cz/css/MuniWeb/fonts/_Shared/muni-bold-webfont.86c30c8e30c009d7e938.woff2") format("woff2");
-  }
   :root{
-    --muni-blue:#0000dc;
-    --muni-orange:#ff7300;
-    --navy:#12346e;
-    --ink:#191919;
-    --muted:#5d5d5d;
-    --cream:#f4f0e1;
-    --paper:#ffffff;
-    --line:#d8d8d8;
-    --display:"Muni",Arial,"Helvetica Neue",sans-serif;
-    --body:Arial,"Helvetica Neue",sans-serif;
+    --muni:#0000DC; --pdf:#FF7300;
+    --ink:#1b1b1b; --muted:#5c5c5c; --line:#e2e2e2; --bg:#ffffff;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
-  a{color:var(--muni-blue);text-decoration-thickness:1px;text-underline-offset:.18em}
-  a:hover{text-decoration-thickness:2px}
-  .wrap{width:min(1120px,calc(100% - 48px));margin:0 auto}
-
-  .hero{position:relative;isolation:isolate;min-height:650px;overflow:hidden;background:var(--cream);border-bottom:12px solid var(--muni-blue)}
-  .hero::after{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:7px;background:var(--muni-orange)}
-  .hero-inner{position:relative;z-index:2;min-height:638px;padding:42px 0 76px;display:flex;flex-direction:column;justify-content:space-between}
-  .brand{font-family:var(--display);font-size:1.15rem;line-height:1;letter-spacing:.035em;color:var(--muni-blue);text-transform:uppercase}
-  .faculty{margin-top:9px;font-size:.93rem;color:var(--ink)}
-  .hero-copy{width:100%;min-width:0;max-width:760px;margin-top:92px}
-  .eyebrow{margin:0 0 17px;font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--navy)}
-  h1,h2,h3{font-family:var(--display);text-transform:uppercase;color:var(--muni-blue);font-weight:700}
-  h1{max-width:800px;margin:0;font-size:clamp(2.45rem,6.2vw,5rem);line-height:.96;letter-spacing:.006em}
-  .subtitle{max-width:660px;margin:24px 0 0;font-size:clamp(1.08rem,2.2vw,1.42rem);line-height:1.45;color:var(--ink)}
-  .meta{margin:27px 0 0;color:var(--muted);font-size:.94rem}
-  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:31px}
-  .button{display:inline-block;min-width:150px;padding:12px 17px;border:2px solid var(--muni-blue);font-weight:700;text-align:center;text-decoration:none;color:var(--muni-blue);background:transparent}
-  .button.primary{color:#fff;background:var(--muni-blue)}
-  .button:hover{color:#fff;background:var(--navy);border-color:var(--navy);text-decoration:none}
-  .hero-network{position:absolute;z-index:1;right:-120px;bottom:-170px;width:min(780px,63vw);height:auto;opacity:.14;pointer-events:none}
-  .hero-network .faint{stroke:#5572a8;stroke-width:2;fill:none}
-  .hero-network .faint circle{fill:#5572a8}
-  .hero-network .strong{stroke:var(--navy);stroke-width:6;fill:none}
-  .hero-network .strong circle{fill:var(--navy)}
-  .hero-network .strong circle.accent{fill:var(--muni-orange);stroke:var(--muni-orange)}
-
-  main section{padding:82px 0;border-bottom:1px solid var(--line)}
-  .section-head{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);gap:64px;align-items:start;margin-bottom:40px}
-  h2{margin:0;font-size:clamp(1.72rem,3.4vw,2.65rem);line-height:1.02}
-  .section-intro{margin:0;max-width:690px;font-size:1.14rem;line-height:1.65}
-  .note{margin-top:18px;color:var(--muted);font-size:.92rem}
-
-  .reader{border:1px solid #bdbdbd;background:#efefef}
-  .reader-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 16px;background:#fff;border-bottom:1px solid #bdbdbd}
-  .reader-title{font-weight:700;font-size:.9rem;letter-spacing:.035em;text-transform:uppercase}
-  .reader-links{display:flex;flex-wrap:wrap;gap:18px;font-size:.9rem;font-weight:700}
-  .reader iframe{display:block;width:100%;height:min(82vh,940px);min-height:620px;border:0;background:#ddd}
-  .download-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;margin-top:23px}
-  .download-row p{margin:0;color:var(--muted);font-size:.92rem}
-
-  .programme{border-top:3px solid var(--muni-blue)}
-  .study{display:grid;grid-template-columns:82px minmax(220px,.62fr) minmax(0,1fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--line)}
-  .study:last-child{border-bottom:0}
-  .study-number{font-family:var(--display);font-size:1.55rem;color:var(--muni-orange)}
-  .study h3{margin:3px 0 0;font-size:1.2rem;line-height:1.15}
-  .study p{margin:0;color:#393939}
-
-  .resources{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--muni-blue);border-bottom:1px solid var(--line)}
-  .resource{padding:28px 28px 31px 0;border-right:1px solid var(--line)}
-  .resource + .resource{padding-left:28px}
-  .resource:last-child{border-right:0;padding-right:0}
-  .resource h3{margin:0 0 13px;font-size:1.05rem}
-  .resource p{margin:0 0 18px;color:var(--muted);font-size:.96rem}
-  .resource a{font-weight:700}
-
-  .citation{max-width:900px;padding:25px 0;border-top:3px solid var(--muni-blue);border-bottom:1px solid var(--line);color:#333}
-  .citation p{margin:0 0 13px}
-  .citation p:last-child{margin-bottom:0}
-  .working{display:inline-block;margin-bottom:24px;padding:8px 11px;border-left:4px solid var(--muni-orange);background:var(--cream);font-size:.9rem}
-  details{margin-top:28px;max-width:900px}
-  summary{cursor:pointer;font-weight:700;color:var(--muni-blue)}
-  details p{color:var(--muted)}
-
-  footer{padding:38px 0 64px;background:var(--muni-blue);color:#fff;font-size:.9rem}
-  footer .wrap{display:flex;justify-content:space-between;gap:28px}
-  footer a{color:#fff}
-
-  @media (max-width:760px){
-    .wrap{width:min(100% - 32px,1120px)}
-    .hero{min-height:690px}
-    .hero-inner{min-height:678px;padding-top:28px}
-    .hero-copy{margin-top:76px}
-    h1{font-size:1.82rem;line-height:1.02;overflow-wrap:anywhere}
-    .hero-network{width:760px;max-width:none;right:-330px;bottom:-120px;opacity:.08}
-    .section-head{grid-template-columns:1fr;gap:23px}
-    main section{padding:60px 0}
-    .study{grid-template-columns:54px 1fr;gap:18px}
-    .study p{grid-column:2}
-    .resources{grid-template-columns:1fr}
-    .resource,.resource + .resource{padding:24px 0;border-right:0;border-bottom:1px solid var(--line)}
-    .resource:last-child{border-bottom:0}
-    .reader-bar{align-items:flex-start;flex-direction:column}
-    .reader iframe{height:70vh;min-height:520px}
-    footer .wrap{flex-direction:column}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"STIX Two Text",Georgia,"Times New Roman",serif;
+    font-size:18px; line-height:1.62;
+    font-kerning:normal; text-rendering:optimizeLegibility;
   }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  /* ---- sticky hlavička ---- */
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:rgba(255,255,255,.96); backdrop-filter:blur(6px);
+    border-top:3px solid var(--muni); border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:44rem; margin:0 auto; padding:.5rem 1.35rem;
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:.6rem 1.4rem; flex-wrap:wrap;
+  }
+  .brand{font-weight:600; color:var(--muni); text-decoration:none; font-size:.98rem; white-space:nowrap}
+  .topbar nav{display:flex; flex-wrap:wrap; gap:.2rem 1.05rem;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; font-size:.82rem}
+  .topbar nav a{color:var(--ink); text-decoration:none}
+  .topbar nav a:hover{color:var(--muni); text-decoration:underline; text-underline-offset:2px}
+  /* ---- obsah ---- */
+  main{max-width:44rem;margin:0 auto;padding:2.4rem 1.35rem 4rem}
+  .inst{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 1.4rem}
+  h1{font-size:2.05rem;line-height:1.18;font-weight:600;color:var(--muni);margin:0 0 .35rem}
+  .sub{font-size:1.12rem;font-style:italic;color:var(--muted);margin:0 0 1.1rem}
+  .byline{font-size:.95rem;color:var(--ink);margin:0 0 2rem}
+  .byline .sep{color:var(--line)}
+  h2{font-size:1.28rem;font-weight:600;color:var(--muni);
+    margin:2.9rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid var(--line);
+    scroll-margin-top:4rem}
+  p{margin:0 0 1rem}
+  a{color:var(--muni);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:.5px}
+  a:hover{text-decoration-thickness:1.5px}
+  .lead{font-size:1.06rem}
+  .ext{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:.9rem;color:var(--muted);margin:1.4rem 0 0}
+  .ext a{white-space:nowrap}
+  dl{margin:1rem 0}
+  dt{font-weight:600;margin-top:.9rem}
+  dd{margin:.15rem 0 0}
+  .pdfwrap{border:1px solid var(--line);margin:1.1rem 0 .5rem;background:#fafafa}
+  .pdfwrap iframe{display:block;width:100%;height:82vh;min-height:520px;border:0}
+  .pdfmeta{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:.85rem;color:var(--muted);margin:.2rem 0 0}
+  .note{font-size:.92rem;color:var(--muted)}
+  .doclink{border-left:3px solid var(--muni);background:#f6f6fb;
+    padding:.6rem .95rem;margin:1.3rem 0;font-size:.98rem}
+  details{margin:1.1rem 0 0}
+  summary{cursor:pointer;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:.9rem;color:var(--muni)}
+  details p{font-size:.95rem;color:var(--muted);margin-top:.7rem}
+  footer{max-width:44rem;margin:0 auto;padding:1.6rem 1.35rem 3rem;
+    border-top:1px solid var(--line);
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:.82rem;color:var(--muted);line-height:1.5}
+  footer a{color:var(--muted)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;
+    background:#f4f4f6;padding:.08em .35em;border-radius:2px}
+  @media (max-width:520px){ body{font-size:17px} h1{font-size:1.7rem} }
 </style>
 </head>
-<body>
-
-<header class="hero">
-  <svg class="hero-network" viewBox="0 0 1240 1050" aria-hidden="true">
-    <g class="faint" fill="none">
-      <path d="M205 80 L620 110 L1035 80 L1120 345 L1085 500 L1010 785 L868 955 L620 875 L372 955 L230 785 L155 500 L120 345 Z"/>
-      <path d="M205 80 L355 290 L155 500 L372 955 L620 875 L868 955 L1085 500 L885 290 L1035 80"/>
-      <path d="M120 345 L355 290 L620 110 L885 290 L1120 345"/>
-      <path d="M230 785 L355 290 L620 875 L885 290 L1010 785"/>
-      <path d="M155 500 L620 110 L1085 500 M205 80 L620 875 L1035 80 M230 785 L885 290 M1010 785 L355 290"/>
-    </g>
-    <g class="strong" fill="none">
-      <path d="M352 360 L486 360 L620 360 L754 360 L888 360"/>
-      <path d="M620 275 L486 360 M620 275 L620 360 M620 275 L754 360"/>
-      <path d="M620 360 L620 510 L620 660 L516 726 L724 726 Z"/>
-      <path d="M352 360 L352 482 M888 360 L888 482"/>
-      <path d="M352 482 L256 598 M352 482 L352 640 M352 482 L448 598"/>
-      <path d="M256 598 Q352 682 448 598"/>
-      <path d="M888 482 L792 598 M888 482 L888 640 M888 482 L984 598"/>
-      <path d="M792 598 Q888 682 984 598"/>
-    </g>
-    <g class="faint">
-      <circle cx="205" cy="80" r="14"/><circle cx="620" cy="110" r="14"/><circle cx="1035" cy="80" r="14"/>
-      <circle cx="120" cy="345" r="14"/><circle cx="355" cy="290" r="14"/><circle cx="885" cy="290" r="14"/><circle cx="1120" cy="345" r="14"/>
-      <circle cx="155" cy="500" r="14"/><circle cx="1085" cy="500" r="14"/><circle cx="230" cy="785" r="14"/><circle cx="1010" cy="785" r="14"/>
-      <circle cx="372" cy="955" r="14"/><circle cx="620" cy="875" r="14"/><circle cx="868" cy="955" r="14"/>
-    </g>
-    <g class="strong">
-      <circle cx="620" cy="275" r="14"/><circle cx="352" cy="360" r="14"/><circle cx="486" cy="360" r="14"/>
-      <circle cx="620" cy="360" r="14"/><circle cx="754" cy="360" r="14"/><circle cx="888" cy="360" r="14"/>
-      <circle cx="620" cy="510" r="14"/><circle cx="620" cy="660" r="14"/><circle cx="516" cy="726" r="14"/><circle cx="724" cy="726" r="14"/>
-      <circle cx="352" cy="482" r="14"/><circle cx="256" cy="598" r="14"/><circle cx="304" cy="628" r="14"/><circle cx="400" cy="628" r="14"/><circle cx="448" cy="598" r="14"/>
-      <circle cx="888" cy="482" r="14"/><circle cx="792" cy="598" r="14"/><circle cx="840" cy="628" r="14"/><circle cx="936" cy="628" r="14"/><circle cx="984" cy="598" r="14"/>
-      <circle class="accent" cx="352" cy="640" r="14"/><circle class="accent" cx="888" cy="640" r="14"/>
-    </g>
-  </svg>
-
-  <div class="wrap hero-inner">
-    <div>
-      <div class="brand">Masarykova univerzita</div>
-      <div class="faculty">Pedagogická fakulta</div>
-    </div>
-    <div class="hero-copy">
-      <p class="eyebrow">Pracovní habilitační monografie</p>
-      <h1>Subjektivně vnímaná spravedlnost<br>a její měření</h1>
-      <p class="subtitle">Výzkum toho, jak studenti učitelství rozumějí spravedlnosti, jak ji vztahují ke své budoucí praxi a jak lze toto vnímání spolehlivě měřit.</p>
-      <p class="meta">Jan Nehyba · 2026</p>
-      <nav class="actions" aria-label="Hlavní odkazy">
-        <a class="button primary" href="#kniha">Číst knihu</a>
-        <a class="button" href="assets/habilitace-CZ.pdf" download="Nehyba-habilitace-CZ.pdf">Stáhnout PDF</a>
-        <a class="button" href="https://github.com/JanNehyba/perceived-justice-preservice-teachers">Data a kód</a>
-      </nav>
-    </div>
+<body id="top">
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Vnímaná spravedlnost a její měření</a>
+    <nav>
+      <a href="#kniha">Kniha</a>
+      <a href="#vyzkum">Výzkum</a>
+      <a href="#data">Data a kód</a>
+      <a href="#recenzenti">Pro recenzenty</a>
+      <a href="#licence">Licence</a>
+    </nav>
   </div>
 </header>
 
 <main>
-  <section id="kniha">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Kniha</h2>
-        <div>
-          <p class="section-intro">Monografie propojuje teorii spravedlnosti, vývoj měřicího nástroje, psychometrické ověřování a srovnání několika kohort českých studentů učitelství v letech 2019–2026.</p>
-          <p class="note">Náhled používá vestavěný prohlížeč PDF vašeho prohlížeče. Knihu lze číst přímo zde nebo stáhnout.</p>
-        </div>
-      </div>
-      <div class="reader">
-        <div class="reader-bar">
-          <span class="reader-title">Česká verze · PDF</span>
-          <div class="reader-links">
-            <a href="assets/habilitace-CZ.pdf" download="Nehyba-habilitace-CZ.pdf">Stáhnout</a>
-            <a href="assets/habilitace-CZ.pdf" target="_blank" rel="noopener">Otevřít samostatně</a>
-          </div>
-        </div>
-        <iframe src="assets/habilitace-CZ.pdf#page=1&amp;view=FitH" title="Náhled české verze habilitační monografie" loading="lazy"></iframe>
-      </div>
-      <div class="download-row">
-        <p>Primární je česká pracovní verze. Anglická verze může za českou zaostávat.</p>
-        <a href="assets/habilitace-EN.pdf" download="Nehyba-habilitation-EN.pdf">Stáhnout anglické PDF</a>
-      </div>
-    </div>
-  </section>
+  <p class="inst">Masarykova univerzita · Pedagogická fakulta</p>
+  <h1>Subjektivně vnímaná spravedlnost a její měření</h1>
+  <p class="sub">Vnímání spravedlnosti u budoucích učitelů a jeho spolehlivé měření</p>
+  <p class="byline">Habilitační monografie &nbsp;<span class="sep">|</span>&nbsp; Jan Nehyba &nbsp;<span class="sep">|</span>&nbsp; pracovní verze 2026</p>
 
-  <section id="vyzkum">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Výzkumný program</h2>
-        <p class="section-intro">Šest vesnic je pouze vstupní vinětová studie. Těžiště práce leží ve vývoji a ověřování nástroje pro měření subjektivně vnímané spravedlnosti a v otázce, co lze mezi kohortami skutečně srovnávat.</p>
-      </div>
-      <div class="programme">
-        <article class="study">
-          <div class="study-number">01</div>
-          <h3>Hodnocení principů</h3>
-          <p>Vinětová studie ukazuje, jak 315 studentů učitelství hodnotilo šest způsobů rozdělování zdrojů. Slouží jako úvodní pohled na intuitivní soudy o distribuční spravedlnosti, nikoli jako hlavní téma celé knihy.</p>
-        </article>
-        <article class="study">
-          <div class="study-number">02</div>
-          <h3>Vývoj nástroje</h3>
-          <p>Kniha dokumentuje vývoj od prvních položek k finálnímu 26položkovému dotazníku. Sleduje změny znění, čtyři měřené principy a zásadní přechod od souhlasové škály ke škále spravedlnosti.</p>
-        </article>
-        <article class="study">
-          <div class="study-number">03</div>
-          <h3>Struktura a validita</h3>
-          <p>Faktorové a síťové analýzy nad finálním nástrojem zkoumají jeho strukturu, reliabilitu, vztahy mezi principy a citlivost vůči sociálně žádoucímu odpovídání.</p>
-        </article>
-        <article class="study">
-          <div class="study-number">04</div>
-          <h3>Stabilita mezi kohortami</h3>
-          <p>Srovnání let 2020–2026 rozlišuje, kdy lze porovnávat skóry, kdy pouze strukturu a kdy jen konfiguraci položek. Zabraňuje tak silnějším závěrům, než jaké data a proměny nástroje unesou.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+  <p class="lead">Tato stránka shromažďuje doprovodné materiály k habilitační
+  monografii: samotnou knihu, anonymizovaná data, analytický kód a nástroje,
+  jimiž si lze každé číslo v textu ověřit. Monografie zkoumá, jak studenti
+  učitelství rozumějí spravedlnosti, jak ji vztahují ke své budoucí praxi a jak
+  lze toto vnímání spolehlivě měřit. Propojuje teorii spravedlnosti, vývoj
+  měřicího nástroje, jeho psychometrické a síťové ověření a program mezikohortní
+  stability u českých studentů učitelství v letech 2019–2026. Knihu vedou dvě
+  zásady, původnost a dohledatelnost: každé analytické číslo je vázáno na
+  zveřejněná data a skripty.</p>
 
-  <section id="otevrenost">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Otevřený výzkum</h2>
-        <p class="section-intro">Anonymizovaná data, analytický kód a zmrazené výstupy umožňují dohledat čísla v knize až k jejich výpočtu. Repozitář je pracovní a bude se spolu s monografií dále upravovat.</p>
-      </div>
-      <div class="resources">
-        <article class="resource">
-          <h3>Data</h3>
-          <p>Anonymizované datové sady, převodní tabulky položek a popisy proměnných.</p>
-          <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/data/processed">Prohlédnout data</a>
-        </article>
-        <article class="resource">
-          <h3>Analýzy</h3>
-          <p>Reprodukovatelné notebooky a skripty pro viněty, psychometrii, sítě i mezikohortní srovnání.</p>
-          <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/analyzy">Prohlédnout analýzy</a>
-        </article>
-        <article class="resource">
-          <h3>Výstupy</h3>
-          <p>Tabulky, manifesty čísel, obrázky a obě aktuální jazykové verze knihy.</p>
-          <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/vystupy">Prohlédnout výstupy</a>
-        </article>
-      </div>
-    </div>
-  </section>
+  <p class="ext"><a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers" target="_blank" rel="noopener">repozitář na GitHubu ↗</a>
+  &nbsp;·&nbsp; <a href="https://www.muni.cz/lide/106930-jan-nehyba" target="_blank" rel="noopener">profil autora na MU ↗</a>
+  &nbsp;·&nbsp; <a href="https://orcid.org/0000-0003-4159-5576" target="_blank" rel="noopener">ORCID ↗</a></p>
 
-  <section id="citace">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Citace</h2>
-        <div>
-          <div class="working"><strong>Pracovní verze.</strong> Nejde o finální archivní vydání a zatím nemá DOI.</div>
-          <div class="citation">
-            <p>Nehyba, J. (2026). <em>Subjektivně vnímaná spravedlnost a její měření u studentů učitelství</em> [habilitační monografie]. Masarykova univerzita.</p>
-            <p>Data a kód: Nehyba, J. (2026). <em>Subjektivně vnímaná spravedlnost a její měření u studentů učitelství — doprovodný repozitář</em> [Data set and code]. GitHub.</p>
-          </div>
-          <details>
-            <summary>English summary</summary>
-            <p>This is the companion site for Jan Nehyba's habilitation monograph <em>Perceived Justice and Its Measurement Among Czech Pre-Service Teachers</em>. The monograph combines conceptual foundations, instrument development, psychometric validation, network analysis, and a cross-cohort stability programme. The primary edition is Czech; an English working PDF is also available.</p>
-          </details>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>Jan Nehyba · Pedagogická fakulta · Masarykova univerzita · 2026</span>
-    <span><a href="https://orcid.org/0000-0003-4159-5576">ORCID 0000-0003-4159-5576</a></span>
+  <h2 id="kniha">Kniha</h2>
+  <div class="pdfwrap">
+    <iframe src="assets/habilitace-CZ.pdf#view=FitH" title="Subjektivně vnímaná spravedlnost a její měření: PDF monografie" loading="lazy"></iframe>
   </div>
-</footer>
+  <p class="pdfmeta"><a href="assets/habilitace-CZ.pdf" target="_blank" rel="noopener">Otevřít knihu na celé stránce ↗</a> &nbsp;·&nbsp; <a href="assets/habilitace-CZ.pdf" download="Nehyba-habilitace-CZ.pdf" target="_blank" rel="noopener">stáhnout knihu (PDF)</a> &nbsp;·&nbsp; <a href="assets/habilitace-EN.pdf" download="Nehyba-habilitation-EN.pdf" target="_blank" rel="noopener">anglické zrcadlo (může za CZ zaostávat)</a></p>
 
+  <h2 id="vyzkum">Výzkumný program</h2>
+  <p>Šest vesnic je pouze vstupní vinětová studie. Těžiště práce leží ve vývoji
+  a ověřování nástroje pro měření subjektivně vnímané spravedlnosti a v otázce,
+  co lze mezi kohortami skutečně srovnávat.</p>
+  <dl>
+    <dt>Studie 1: Hodnocení principů</dt>
+    <dd>Vinětová studie ukazuje, jak studenti učitelství hodnotili šest způsobů rozdělování zdrojů. Slouží jako úvodní pohled na intuitivní soudy o distribuční spravedlnosti, nikoli jako hlavní téma celé knihy.</dd>
+    <dt>Studie 2: Vývoj nástroje</dt>
+    <dd>Kniha dokumentuje vývoj od prvních položek k finálnímu dotazníku. Sleduje změny znění, čtyři měřené principy a zásadní přechod od souhlasové škály ke škále spravedlnosti.</dd>
+    <dt>Studie 3: Struktura a validita</dt>
+    <dd>Faktorové a síťové analýzy nad finálním nástrojem zkoumají jeho strukturu, reliabilitu, vztahy mezi principy a citlivost vůči sociálně žádoucímu odpovídání.</dd>
+    <dt>Studie 4: Stabilita mezi kohortami</dt>
+    <dd>Srovnání let 2020–2026 rozlišuje, kdy lze porovnávat skóry, kdy pouze strukturu a kdy jen konfiguraci položek. Zabraňuje tak silnějším závěrům, než jaké data a proměny nástroje unesou.</dd>
+  </dl>
+
+  <h2 id="data">Data a kód</h2>
+  <p>Veřejně dostupné jsou <strong>anonymizované datové sady</strong>: očištěné
+  dotazníkové a vinětové soubory, kódovníky, převodní tabulky položek a popisy
+  proměnných. Leží ve složce
+  <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/data/processed" target="_blank" rel="noopener"><code>data/processed/</code></a>
+  a spolu se zmrazenými <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/vystupy/tabulky" target="_blank" rel="noopener">manifesty čísel</a>
+  (<code>*_cisla.csv</code>) umožňují dohledat každé číslo v knize až k jeho
+  výpočtu. V datech ani v textu nevystupují žádné přímé identifikátory osob.</p>
+  <p>Pět analytických notebooků v jazyce R přepočítává výsledky od zveřejněných
+  dat po tabulky a obrázky knihy: viněty, psychometrie a faktorová analýza,
+  síťové modely, mezikohortní srovnání a typologie. Můžete si je přečíst jako
+  zdrojový kód, nebo je spustit v prohlížeči přes Binder (sestaví se prostředí
+  RStudio, nic se neinstaluje do vašeho počítače):</p>
+  <p><a href="https://mybinder.org/v2/gh/JanNehyba/perceived-justice-preservice-teachers/HEAD?urlpath=rstudio" target="_blank" rel="noopener">Spustit analýzy v prohlížeči (Binder) ↗</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/tree/main/analyzy/notebooks" target="_blank" rel="noopener">zdrojové notebooky ↗</a></p>
+  <p class="note">Jak pracovat s daty a skripty a jak si i bez technických
+  znalostí sami ověříte kterékoli číslo z knihy, popisuje srozumitelný návod
+  <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/blob/main/JAK-OVERIT-CISLA.md" target="_blank" rel="noopener">Jak si ověřit čísla knihy</a>.</p>
+
+  <h2 id="recenzenti">Pro recenzenty</h2>
+  <p class="note">Formální dokumentaci habilitačního řízení přijímá fakulta
+  a posuzuje habilitační komise s oponenty; tato stránka ji zpřístupňuje
+  veřejně pro přehlednost, nenahrazuje oficiální podání.</p>
+  <p>Práce je <strong>empirická monografie</strong> podle
+  <a href="https://www.zakonyprolidi.cz/cs/1998-111#p72" target="_blank" rel="noopener">§ 72 zákona č. 111/1998 Sb.</a>
+  Požadavky konkretizují
+  <a href="https://www.muni.cz/o-univerzite/uredni-deska/rad-habilitacniho-rizeni-a-rizeni-ke-jmenovani-profesorem-na-mu" target="_blank" rel="noopener">Řád habilitačního řízení MU</a>
+  a <a href="https://www.ped.muni.cz/vyzkum/habilitace-a-jmenovani-profesorem" target="_blank" rel="noopener">Zásady habilitačního řízení na PdF MU</a>:
+  recenzovaná monografie v rozsahu nejméně sta tištěných stran. Pracovní verze
+  má bezmála dvě stě tištěných stran a je strukturně úplná: úvod, teoretická
+  východiska, český kontext, metodologie, čtyři empirické studie, diskuse
+  a závěr.</p>
+  <p>Formální náležitosti odpovídají
+  <a href="https://www.ped.muni.cz/vyzkum/habilitace-a-jmenovani-profesorem" target="_blank" rel="noopener">oficiálnímu Vzoru MU</a>:
+  formát A4, řádkování 1,5, jednotná titulní strana i prohlášení autora. Práce
+  je psána česky s povinným anglickým abstraktem; citační norma je
+  <a href="https://apastyle.apa.org/" target="_blank" rel="noopener">APA 7</a>. Výzkum stál na anonymním
+  dotazníkovém šetření s dospělými; podle zveřejněných pokynů Etické komise pro
+  výzkum Masarykovy univerzity takový výzkum předchozí schválení zpravidla
+  nevyžaduje. Každý respondent obdržel prohlášení s informacemi a souhlasem;
+  podrobnosti a odůvodnění dokládá příloha o etice.</p>
+  <p>Vedle samotné monografie stanoví Zásady PdF (čl. 5) i odborné předpoklady
+  uchazeče: vědecké studie, ohlasy, pedagogickou praxi, projekty a další. Jejich
+  přehled shrnují dokumenty níže; osobní kontaktní údaje uvádí jen dokumentace
+  předkládaná habilitační komisi.</p>
+  <p class="doclink"><a href="assets/soulad-s-pozadavky.pdf" target="_blank" rel="noopener">Přehled souladu s požadavky na habilitační práci (PDF ke stažení)</a>. Dokument kritérium po kritériu ukazuje, jak práce i uchazeč naplňují požadavky habilitačního řízení.</p>
+  <p class="doclink"><a href="assets/odborna-charakteristika.pdf" target="_blank" rel="noopener">Odborná charakteristika uchazeče (PDF ke stažení)</a> a <a href="assets/cv-nehyba.pdf" target="_blank" rel="noopener">odborný životopis (PDF ke stažení)</a>. Veřejné verze pro tuto stránku (bez osobních kontaktních údajů); úplné znění je součástí dokumentace předkládané komisi.</p>
+  <p>Výsledky práce jsou plně <strong>dohledatelné</strong>: anonymizovaná data,
+  kód i postupy jsou zveřejněné tak, aby šlo analýzy nezávisle přepočítat
+  (viz oddíl Data a kód výše).</p>
+
+  <h2 id="licence">Licence a citace</h2>
+  <p>Analytický kód a notebooky jsou pod licencí MIT; anonymizovaná data, text
+  a obrázky jsou pod
+  <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers/blob/main/LICENSE" target="_blank" rel="noopener">CC BY 4.0</a>.
+  Jde o pracovní verzi, nikoli finální archivní vydání; zatím nemá DOI.</p>
+  <p class="note">Nehyba, J. (2026). <em>Subjektivně vnímaná spravedlnost a její
+  měření u studentů učitelství</em> [habilitační monografie]. Masarykova
+  univerzita. — Data a kód: Nehyba, J. (2026). <em>… doprovodný repozitář</em>
+  [datová sada a kód]. GitHub.</p>
+  <details>
+    <summary>English summary</summary>
+    <p>This is the companion site for Jan Nehyba's habilitation monograph
+    <em>Perceived Justice and Its Measurement Among Czech Pre-Service Teachers</em>.
+    The monograph combines conceptual foundations, instrument development,
+    psychometric validation, network analysis, and a cross-cohort stability
+    programme. The primary edition is Czech; an English working PDF is also
+    available. Anonymized data and reproducible R analyses are published in the
+    linked repository.</p>
+  </details>
+</main>
+<footer>
+  <p>Jan Nehyba · Katedra pedagogiky, Pedagogická fakulta, Masarykova univerzita · 2026.
+  Doprovodný repozitář:
+  <a href="https://github.com/JanNehyba/perceived-justice-preservice-teachers" target="_blank" rel="noopener">github.com/JanNehyba/perceived-justice-preservice-teachers</a>
+  &nbsp;·&nbsp; ORCID <a href="https://orcid.org/0000-0003-4159-5576" target="_blank" rel="noopener">0000-0003-4159-5576</a>.</p>
+</footer>
 </body>
 </html>
