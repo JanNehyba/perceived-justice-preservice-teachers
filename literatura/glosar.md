@@ -4,6 +4,13 @@ Konzistentní překlad terminologie napříč kapitolami.
 > **ZAMČENO 11. 7. 2026** (EN freeze všech 10 kapitol). Toto je závazný slovník pro CZ zrcadlo (P7);
 > další změny jen s dokumentací. Pravidlo: typologii spravedlnosti nazývat **„fenetický / konceptuální
 > dendrogram"**, NIKDY „fylogenetika".
+>
+> **Aktualizace 20. 7. 2026 (sladění s hab-2, rozhodnutí Jana):** v próze NEpoužívat
+> „manifest" (→ **zdrojová tabulka čísel**), „companion" (→ **doprovodný repozitář**),
+> „dataset" (→ **datová sada**), „pipeline" (→ **zpracovatelská linka**), „zmrazený"
+> (→ **uzamčený**); výzkumné otázky vždy **VO1–VO4**, nikoli RQ. Odkazy na soubory
+> v textu = čitelné popisky (zdrojová čísla, analýza v R, kód obrázku, převodní
+> tabulka položek, výstupní tabulka), ne holé názvy.
 
 | EN | CZ | Poznámka |
 |----|----|----------|
@@ -28,6 +35,11 @@ Konzistentní překlad terminologie napříč kapitolami.
 | measurement invariance | měřicí invariance | configural/metric(thresholds)/scalar; jen tier 1 |
 | latent mean comparison | srovnání latentních průměrů | jen při skalární invarianci (2023/24/26) |
 | congruence coefficient (Tucker's φ) | koeficient kongruence | strukturní replikace tier 2 |
+| numbers manifest | zdrojová tabulka čísel | soubor `*_cisla.csv`; v próze NEpsat „manifest" |
+| companion repository | doprovodný repozitář | v próze NEpsat „companion" |
+| research question | výzkumná otázka (VO) | v knize VŽDY zkratka „VO", nikoli „RQ" |
+| frozen (analysis / chapter) | uzamčený (analýza / kapitola) | verzní uzamčení před sepsáním; NEpsat „zmrazený" |
+| data set | datová sada | v próze NEpsat „dataset"; „pipeline" → „zpracovatelská linka" |
 | community detection | detekce komunit (v síti) | EGA/walktrap; „síťové klastry" |
 | exploratory graph analysis (EGA) | explorativní grafová analýza | EGAnet |
 | ESEM (exploratory SEM) | explorativní strukturní modelování | mezi EFA a CFA |

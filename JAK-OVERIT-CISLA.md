@@ -1,6 +1,6 @@
 # Jak si ověřit čísla knihy (návod pro netechnické čtenáře)
 
-Každé analytické číslo v knize pochází z **manifestu čísel**: tabulky dvojic
+Každé číslo v knize pochází ze **zdrojové tabulky čísel**: tabulky dvojic
 „název metriky, hodnota" (soubory `*_cisla.csv`), kterou vygeneroval analytický
 notebook nad verzovaným řezem anonymizovaných dat. Tento repozitář obsahuje vše,
 co potřebujete k ověření, že čísla v knize odpovídají výstupům analýz. Nabízíme
@@ -8,15 +8,16 @@ tři cesty podle toho, kolik techniky chcete.
 
 ## Cesta 1: bez instalace čehokoli (2 minuty)
 
-1. Otevřete složku `vystupy/tabulky/` a v ní manifest kapitoly, která vás
-   zajímá: `05_cisla.csv` (viněty, kap. 5), `06_cisla.csv` (vývoj nástroje,
+1. Otevřete složku `vystupy/tabulky/` a v ní zdrojovou tabulku čísel kapitoly,
+   která vás zajímá: `05_cisla.csv` (viněty, kap. 5), `06_cisla.csv` (vývoj nástroje,
    kap. 6), `07_cisla.csv` a `07_network_cisla.csv` (struktura a sítě, kap. 7),
    `08_cisla.csv` (mezikohortní stabilita, kap. 8), `E5_typologie_cisla.csv`
    (typologie). Je to obyčejná tabulka „název metriky, hodnota"; otevře ji
    jakýkoli tabulkový editor nebo prohlížeč.
 2. Ve zdrojovém textu kapitoly stojí u každého tvrdého čísla komentář s klíčem
-   manifestu ve tvaru `<!-- manifest 07_cisla: klíč=hodnota -->`. Podle klíče
-   dohledáte tentýž řádek v příslušném `*_cisla.csv` a ověříte shodu.
+   ve tvaru `<!-- manifest 07_cisla: klíč=hodnota -->` (odkaz na řádek zdrojové
+   tabulky čísel). Podle klíče dohledáte tentýž řádek v příslušném `*_cisla.csv`
+   a ověříte shodu.
 
 ## Cesta 2: spustit analýzu v prohlížeči (Binder, ~15 minut poprvé)
 
@@ -43,11 +44,11 @@ ani render nemají vliv.
 ```
 
 Skript `analyzy/scripts/95_check_cisla.py` zkontroluje, že každé tvrdé číslo
-v próze knihy má kotvu na klíč manifestu a že se hodnoty shodují;
+v próze knihy má kotvu na klíč zdrojové tabulky čísel a že se hodnoty shodují;
 `analyzy/scripts/check_references.py` zkontroluje citace proti seznamu literatury.
 
 ## Co znamená, když se čísla neshodují
 
-Neshoda mezi prózou a manifestem je chyba a budeme rádi, když ji nahlásíte
+Neshoda mezi prózou a zdrojovou tabulkou čísel je chyba a budeme rádi, když ji nahlásíte
 (kontakt v README). Brány běží před každým sestavením knihy, takže publikovaná
 verze by měla být vždy konzistentní.
