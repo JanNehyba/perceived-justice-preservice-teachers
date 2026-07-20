@@ -1,12 +1,11 @@
-This repository uses two licenses.
-
-================================================================
-CODE (scripts, notebooks, build files): MIT License
-================================================================
-
 MIT License
 
 Copyright (c) 2026 Jan Nehyba
+
+Tato licence (MIT) se vztahuje POUZE na zdrojový kód v tomto repozitáři
+(skripty a notebooky ve složce analyzy/, build a konfigurace knihy v kniha/).
+Anonymizovaná data, text a obrázky mají vlastní licenci (viz DATA-LICENSE.md,
+CC BY 4.0).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,15 +24,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-================================================================
-DATA, TEXT, FIGURES (data/, vystupy/, rendered book): CC BY 4.0
-================================================================
-
-Anonymized data sets, tables, figures, and the text of the monograph are
-licensed under the Creative Commons Attribution 4.0 International License
-(CC BY 4.0). https://creativecommons.org/licenses/by/4.0/
-
-You are free to share and adapt this material for any purpose, provided you
-give appropriate credit (cite the monograph and this repository), provide a
-link to the license, and indicate if changes were made.
