@@ -1,26 +1,16 @@
-MIT License
+Licence: CC BY-NC 4.0
 
 Copyright (c) 2026 Jan Nehyba
 
-Tato licence (MIT) se vztahuje POUZE na zdrojový kód v tomto repozitáři
-(skripty a notebooky ve složce analyzy/, build a konfigurace knihy v kniha/).
-Anonymizovaná data, text a obrázky mají vlastní licenci (viz DATA-LICENSE.md,
-CC BY 4.0).
+Celý obsah tohoto repozitáře (zdrojový kód a notebooky ve složkách analyzy/
+a kniha/, anonymizovaná data, tabulky a obrázky ve složkách data/ a vystupy/
+i text a sazba monografie) je licencován pod licencí
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+  Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+  https://creativecommons.org/licenses/by-nc/4.0/
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Dílo smíte sdílet a upravovat pro NEKOMERČNÍ účely za podmínky, že uvedete
+autora (citujte monografii a tento repozitář), uvedete odkaz na licenci
+a vyznačíte případné změny. Komerční užití není touto licencí povoleno.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Surová data s přímými identifikátory nejsou součástí tohoto repozitáře.

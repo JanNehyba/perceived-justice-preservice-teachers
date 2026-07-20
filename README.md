@@ -43,4 +43,4 @@ Participation was voluntary and anonymous; informed consent covered anonymous ac
 See `CITATION.cff`. Please cite the monograph and the GitHub repository URL shown there.
 
 ## License
-Code: MIT (see `LICENSE`). Data, text, and figures: CC BY 4.0 (see `DATA-LICENSE.md`).
+The whole repository (code, data, text, and figures) is licensed under **CC BY-NC 4.0** (non-commercial, with attribution). See `LICENSE`.
