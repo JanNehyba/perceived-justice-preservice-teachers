@@ -12,3 +12,5 @@ PRUBEH.md
 analyzy/cache/
 **/.Rproj.user/
 **/.quarto/
+__pycache__/
+*.pyc

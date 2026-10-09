@@ -14,7 +14,7 @@ book:
         - 02-theoretical-foundations.md
         - 03-czech-context.md
         - 04-methodology.md
-    - part: "Empirické doklady"
+    - part: "Empirické studie"
       chapters:
         - 05-study1-six-villages.md
         - 06-study2-instrument.md

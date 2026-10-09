@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # E5.1 human validation: reliability among 2 human coders + 3 LLM coders on the 5-concept pilot.
 suppressPackageStartupMessages(library(irr))
-PROC <- Filter(dir.exists, c("../data/processed","data/processed"))[1]
+PROC <- Filter(dir.exists, c("../data/processed","../../data/processed","data/processed"))[1]
 rd <- function(p) read.csv(file.path(PROC,p), stringsAsFactors=FALSE)
 
 h <- rd("validation_pilot_FILLED.csv"); h$key <- paste(h$taxon_id, h$char_id, sep="_")

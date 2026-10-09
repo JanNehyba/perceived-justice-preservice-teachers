@@ -8,5 +8,5 @@ Jednotka: respondent (n=315). Škála: 1-7 (1 = Naprosto NEspravedlivě — 7 = 
 | v_nahoda | Bílá | náhoda | chance/lottery | Losování — každý má stejnou šanci, ceny rozděluje náhoda. |
 | v_potreby | Zelená | potřeby | need | Rozděleno podle potřeb jednotlivých občanů. |
 | v_zasluhy | Oranžová | zásluhy | merit/desert | Více dostanou ti, kdo pracovali, přispěli nebo dlouho sloužili. |
-| v_rovne_prilezitosti | Červená | rovné příležitosti | equal opportunity | Stejná startovní čára, každý si urve, co stihne. |
-| v_kasty | Žlutá | kasty/sociální skupiny | caste/social groups | Rozděleno mezi tři kasty; rovnost jen uvnitř kasty. |
+| v_rovne_prilezitosti | Červená | rovné příležitosti | equal opportunity | Všichni vybíhají ve stejnou chvíli, každý s jedním libovolným nástrojem; kdo si co nabral, to mu patřilo. |
+| v_kasty | Žlutá | společenské skupiny | social groups | Tři pevně dané skupiny, každá dostane třetinu; uvnitř skupiny rovným dílem. |

@@ -4,7 +4,7 @@
 # similarity inputs: embedding distances versus theory-defined feature scores. Partial
 # agreement is a sensitivity check, not independent validation.
 suppressPackageStartupMessages({library(cluster); library(phangorn); library(ape); library(mclust)})
-PROC <- Filter(dir.exists, c("../data/processed","data/processed"))[1]
+PROC <- Filter(dir.exists, c("../data/processed","../../data/processed","data/processed"))[1]
 TAB  <- file.path(PROC,"..","..","vystupy","tabulky")
 FIG  <- file.path(PROC,"..","..","vystupy","obrazky")
 rd  <- function(p) read.csv(file.path(PROC,p), stringsAsFactors=FALSE, check.names=FALSE)

@@ -23,6 +23,6 @@ echo "── figury knihy (z manifestů)"
 
 echo "── kontrolní brány (čísla ↔ manifesty, reference)"
 python3 analyzy/scripts/95_check_cisla.py || true
-python3 analyzy/scripts/check_references.py || true
+python3 analyzy/scripts/96_check_references.py || true
 
 echo "HOTOVO. Manifesty: vystupy/tabulky/ | figury: vystupy/obrazky/"

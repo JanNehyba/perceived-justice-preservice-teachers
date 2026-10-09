@@ -155,7 +155,7 @@ put("kendall_w_mag",  as.character(kw$magnitude))
 fr; kw
 ```
 
-## 4. Post-hoc: pairwise Wilcoxon signed-rank (Holm) + rank-biserial
+## 4. Post-hoc: pairwise Wilcoxon signed-rank (Holm) + effect size r = Z/sqrt(N)
 
 ```{r posthoc}
 pw <- dl %>%
@@ -171,6 +171,8 @@ posthoc <- pw %>%
   transmute(pair = paste(g1, "vs", g2),
             n1, n2, statistic,
             p = signif(p, 3), p.adj = signif(p.adj, 3), p.adj.signif,
+            # NB: rstatix::wilcox_effsize returns r = Z/sqrt(N), not a rank-biserial correlation;
+            # the column name is kept for output compatibility (revision 8 Oct 2026).
             rank_biserial = round(effsize, 3), magnitude)
 
 write.csv(posthoc, file.path(TAB, "05_vinety_posthoc.csv"), row.names = FALSE)
@@ -210,9 +212,15 @@ clmm_ord  <- sub("^principle", "", rownames(clmm_fx)[order(clmm_fx$Estimate, dec
 put("clmm_reproduces_mean_order", identical(mean_ord, clmm_ord))
 ```
 
-## 6. Response profiles: clustering + stability
+## 6. Response profiles: exploratory clustering and its stability
 
 ```{r clusters}
+# Revision 9 Oct 2026: Ward clustering of 7-point ratings has many tied distances, so its
+# result depends on the order of rows. The analysis therefore runs in a fixed order
+# (sorted by resp_id) and its sensitivity to row order is checked on 200 random permutations.
+# (The earlier frozen two-cluster solution, n = 218/97, could not be reproduced from these
+# data and this code in any of the permutations; it is superseded by the outputs below.)
+d <- d[order(d$resp_id), ]
 X <- scale(d[V])                       # z-scored -> cluster on profile shape
 dmat <- dist(X)
 hc <- hclust(dmat, method = "ward.D2")
@@ -227,14 +235,31 @@ sil_tab
 K <- ks[which.max(sil_ward)]
 put("cluster_k", K)
 put("cluster_sil_ward", round(max(sil_ward), 3))
+for (i in seq_along(ks)) put(paste0("cluster_sil_ward_k", ks[i]), round(sil_ward[i], 3))
+put("cluster_sil_pam_max", round(max(sil_pam), 3))
 
-# bootstrap stability (Jaccard) for the chosen Ward solution
+# sensitivity to row order: 200 random permutations of the same data
+set.seed(2019)
+perm <- t(replicate(200, {
+  o <- sample(nrow(X)); Xo <- X[o, ]; dmo <- dist(Xo); hco <- hclust(dmo, "ward.D2")
+  s <- sapply(ks, function(k) mean(silhouette(cutree(hco, k), dmo)[, 3]))
+  cl2 <- cutree(hco, 2)
+  dif <- abs(colMeans(Xo[cl2 == 1, , drop = FALSE]) - colMeans(Xo[cl2 == 2, , drop = FALSE]))
+  c(k = ks[which.max(s)], top = unname(which.max(dif)))
+}))
+put("order_perm_n", nrow(perm))
+for (k in ks) put(paste0("order_k", k, "_count"), sum(perm[, "k"] == k))
+top_tab <- table(factor(V[perm[, "top"]], levels = V))
+for (v in V) put(paste0("order_top_sep_", v), as.integer(top_tab[v]))
+top_tab
+
+# bootstrap stability (Jaccard) for the solution chosen in the fixed order
 cb <- clusterboot(X, B = 1000, clustermethod = hclustCBI,
                   method = "ward.D2", k = K, seed = 2019, count = FALSE)
 put("cluster_jaccard_min",  round(min(cb$bootmean), 3))
 put("cluster_jaccard_mean", round(mean(cb$bootmean), 3))
 
-# cluster profiles on the ORIGINAL 1-7 scale
+# cluster profiles on the ORIGINAL 1-7 scale (fixed order); descriptive only
 cl <- cutree(hc, K)
 prof <- d %>% mutate(cluster = cl) %>%
   group_by(cluster) %>%
@@ -242,55 +267,28 @@ prof <- d %>% mutate(cluster = cl) %>%
 names(prof) <- c("cluster", LAB[V], "n")
 write.csv(prof, file.path(TAB, "05_vinety_cluster_profiles.csv"), row.names = FALSE)
 prof
-
-# stability figure: profile lines per cluster
-prof_long <- prof %>%
-  pivot_longer(all_of(unname(LAB[V])), names_to = "principle", values_to = "mean") %>%
-  mutate(principle = factor(principle, levels = unname(LAB[ord])))
-p_clu <- ggplot(prof_long, aes(principle, mean, group = factor(cluster),
-                               color = factor(cluster))) +
-  geom_line(linewidth = 1) + geom_point(size = 2) +
-  labs(x = NULL, y = "Mean rating (1-7)", color = "Cluster",
-       title = paste0("Response-profile clusters (k = ", K, ")")) +
-  theme_minimal(base_size = 12) +
-  theme(axis.text.x = element_text(angle = 30, hjust = 1))
-# Book figure 05_vinety_clusters.png is generated ONLY by fig_05_vinety.R (reads the frozen
-# 05_vinety_cluster_profiles.csv in book style). Preview inline only here; do not write book PNG.
-p_clu
 ```
 
-## 6b. Two kinds of judges, or one continuum cut in two?
+## 6b. One hump or two?
 
 ```{r continuum}
-# Is the k=2 split two KINDS of judges, or one CONTINUUM sliced through the middle?
-# Two simple, decisive checks (no new model): (a) how much of the split a single
-# need-rating threshold recovers; (b) whether the ratings form one hump or two.
-skept <- as.integer(names(which.min(tapply(d$v_potreby, cl, mean))))   # lower-need cluster
-y_skept <- as.integer(cl == skept)
-put("need_rule_accuracy", round(mean((d$v_potreby <= 3) == y_skept), 2))   # ~.86
-
 # Pearson bimodality coefficient: > .555 hints at two modes; <= that => one hump
 bimod <- function(x) { x <- x[is.finite(x)]; n <- length(x); m <- mean(x)
   m2 <- mean((x - m)^2); g <- mean((x - m)^3) / m2^1.5; k <- mean((x - m)^4) / m2^2 - 3
   (g^2 + 1) / (k + 3 * (n - 1)^2 / ((n - 2) * (n - 3))) }
-put("need_bimodality", round(bimod(d$v_potreby), 2))         # ~.47 (one hump)
-put("axis_bimodality", round(bimod(prcomp(X)$x[, 1]), 2))    # ~.36 (one hump, PC1)
+put("need_bimodality", round(bimod(d$v_potreby), 2))
+put("axis_bimodality", round(bimod(prcomp(X)$x[, 1]), 2))    # first principal component
 
-# freeze per-respondent membership for the need-axis figure (Figure 5.3)
-memb <- data.frame(resp_id = d$resp_id, cluster = cl, need = d$v_potreby,
-                   profile = ifelse(cl == skept, "equality-first / need-skeptical",
-                                                  "need-inclusive"))
+memb <- data.frame(resp_id = d$resp_id, cluster = cl)
 write.csv(memb, file.path(TAB, "05_vinety_cluster_membership.csv"), row.names = FALSE)
-cat("need-rule accuracy:", MAN$need_rule_accuracy,
-    "| bimodality need/axis:", MAN$need_bimodality, "/", MAN$axis_bimodality, "\n")
+cat("bimodality need/axis:", MAN$need_bimodality, "/", MAN$axis_bimodality, "\n")
 ```
 
 ## 7. Exploratory triangulation: latent profile analysis
 
 ```{r lpa}
-# EXPLORATORY only (demotion rule per PLAN-analyz.md): LPA triangulates the
-# clustering above; if the two disagree, the network/cluster result governs and
-# LPA is reported as tentative.
+# EXPLORATORY only: LPA triangulates the clustering above. Revision 9 Oct 2026: besides the
+# number of classes, the two-class partition itself is compared with the Ward partition.
 lpa_ok <- TRUE
 lpa_fit <- tryCatch({
   fits <- d %>% select(all_of(V)) %>%
@@ -306,6 +304,19 @@ if (lpa_ok && !is.null(lpa_fit)) {
   put("lpa_best_classes_bic", best_lpa)
   put("lpa_agrees_with_cluster_k", best_lpa == K)
   print(lpa_tab)
+
+  # the two-class partition: sizes, separating variable, agreement with Ward k = 2
+  fit2 <- d %>% select(all_of(V)) %>% estimate_profiles(2, models = 1)
+  cl_lpa <- get_data(fit2)$Class
+  nl <- table(cl_lpa)
+  small <- as.integer(names(which.min(nl)))
+  put("lpa2_n_small", as.integer(min(nl)))
+  put("lpa2_n_large", as.integer(max(nl)))
+  difl <- abs(colMeans(X[cl_lpa == 1, , drop = FALSE]) - colMeans(X[cl_lpa == 2, , drop = FALSE]))
+  put("lpa2_top_sep", names(which.max(difl)))
+  put("lpa2_small_mean_rovne_prilezitosti", round(mean(d$v_rovne_prilezitosti[cl_lpa == small]), 2))
+  put("lpa2_large_mean_rovne_prilezitosti", round(mean(d$v_rovne_prilezitosti[cl_lpa != small]), 2))
+  put("lpa2_ward2_ari", round(mclust::adjustedRandIndex(cl_lpa, cutree(hc, 2)), 2))
 } else {
   put("lpa_best_classes_bic", NA)
 }

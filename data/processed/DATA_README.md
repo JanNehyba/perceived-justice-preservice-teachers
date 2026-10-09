@@ -22,6 +22,8 @@ dohledatelné ze skriptu + verze dat** (pravidlo CLAUDE.md).
 | 2024 | 333 | 26 finální | 1. os. | spravedlnost | BIDR 19 | 02–04/2024 |
 | 2026 | 164 | 26 finální | 1. os. | spravedlnost | BIDR 19 | 02–04/2026 |
 
+**Celkem dotazníkových odpovědí 2020–2026: 1 815** (375 + 433 + 263 + 247 + 333 + 164; vlna 2021 započtena surovým počtem 433). Jde o počty odpovědí, nikoli unikátních osob.
+
 Škály (potvrzeno autorem 10. 7. 2026): 2020–2022 souhlasová („Silně NEsouhlasím … Silně
 souhlasím"), 2023+ spravedlnostní („Zcela NEspravedlivé … Zcela spravedlivé").
 **Hranice srovnatelnosti škál = mezi 2022 a 2023.** Vlna 2025 neexistuje (sběr nebyl).

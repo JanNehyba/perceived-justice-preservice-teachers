@@ -1,7 +1,8 @@
 -- Make every external web link unmistakable in PDF output. Bare URLs are first
 -- converted to real links (important for DOI/URL entries in the bibliography),
--- then the visible anchor is set in MUNI blue, underlined and followed by a
--- north-east arrow. Internal links and non-PDF output are left unchanged.
+-- then the visible anchor is set in MUNI blue and underlined (the north-east
+-- arrow was removed by decision D28, 9 Oct 2026). Internal links and non-PDF
+-- output are left unchanged.
 
 local function is_web_target(target)
   return target:match("^https?://") ~= nil
@@ -84,17 +85,11 @@ local function style_web_link(el)
     -- as an ordinary Str inside \uline would create an unbreakable overfull line
     -- and could push the PDF annotation beyond the page boundary.
     content:insert(pandoc.RawInline("latex", breakable_underlined_url(el.target)))
-    content:insert(pandoc.RawInline(
-      "latex",
-      "\\,\\textcolor{MUNIblue}{\\textsuperscript{\\ensuremath{\\nearrow}}}"
-    ))
   else
+    -- Bez šipky ↗ (rozhodnutí D28, 9. 10. 2026): odkaz označuje barva a podtržení.
     content:insert(pandoc.RawInline("latex", "\\textcolor{MUNIblue}{\\uline{"))
     content:extend(el.content)
-    content:insert(pandoc.RawInline(
-      "latex",
-      "\\,\\textsuperscript{\\ensuremath{\\nearrow}}}}"
-    ))
+    content:insert(pandoc.RawInline("latex", "}}"))
   end
   el.content = content
   return el

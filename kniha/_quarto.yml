@@ -1,5 +1,6 @@
-# P8 — common Quarto book configuration. Language-specific book structure lives
-# in _quarto-en.yml and _quarto-cs.yml. build.sh stages the corresponding sources.
+# P8 — common Quarto book configuration. Book structure lives in the Czech
+# profile _quarto-cs.yml (the book is Czech only since 8. 10. 2026).
+# build.sh stages kapitoly/cs before rendering.
 project:
   type: book
   output-dir: ../vystupy/export
@@ -27,10 +28,9 @@ format:
     mainfont: "STIX Two Text"
     mathfont: "STIX Two Math"
     sansfont: "Arial"
-    monofont: "Menlo"
-    # Titulka (nahrazuje \maketitle) je jazykově specifická → přesunuta do profilů
-    # _quarto-en.yml / _quarto-cs.yml (include-in-header), aby CZ dostal českou titulku
-    # a EN anglickou. Zde smí zůstat jen jazykově neutrální header-includes.
+    monofont: "Consolas"   # Windows; na macOS bylo "Menlo"
+    # Titulka (nahrazuje \maketitle) je v profilu _quarto-cs.yml (include-in-header,
+    # partials/muni-titlepage-cs.tex). Zde jen jazykově neutrální header-includes.
     header-includes:
       - |-
         \setlength{\emergencystretch}{3em}

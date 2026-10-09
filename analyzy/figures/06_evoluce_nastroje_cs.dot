@@ -1,20 +1,22 @@
-// Figure 6.1 (CZ) — Evoluce sebehodnoticího nástroje (pět verzí), česká verze
-// 06_evoluce_nastroje.dot. Stejná struktura/barvy; přeloženy jen popisky.
+// Figure 6.1 (CZ) — vývoj sebehodnoticího nástroje (dvě pilotní verze a tři další verze).
+// Revize 8. 10. 2026 (B6-293 „nečitelný, moc informací v buňkách"; D3 pilotní verze 1–2):
+// svislé uspořádání, větší písmo, v rámečcích jen počet položek, osoba a škála.
+// Velikosti vzorků jsou v tab. 4.1 a v textu (manifesty), do obrázku se nepíšou.
 digraph evolution {
-  rankdir=LR;
+  rankdir=TB;
   bgcolor="white";
-  node [fontname="Arial", fontsize=10, shape=box, style="rounded,filled", penwidth=1.2, margin="0.16,0.10"];
-  edge [fontname="Arial", fontsize=9, color="#6E6E6E", fontcolor="#6E6E6E", arrowsize=0.8];
-  graph [ranksep=0.75, nodesep=0.3];
+  node [fontname="Arial", fontsize=15, shape=box, style="rounded,filled", penwidth=1.4, margin="0.30,0.14", width=4.6];
+  edge [fontname="Arial", fontsize=13, color="#6E6E6E", fontcolor="black", arrowsize=0.9, penwidth=1.3];
+  graph [ranksep=0.42, nodesep=0.3];
 
-  V2019 [label="2019 · v1\n21 položek\n3. osoba, deskriptivní\n(jen znění)", fillcolor="#EFEFEF", fontcolor="#6E6E6E", color="#B8B8B8", style="rounded,filled,dashed"];
-  V2020 [label="2020 · v2\nn = 375 · 23 položek\n3. osoba, normativní\nsouhlasová škála", fillcolor="#FFD9B8", color="#FF7300"];
-  V2021 [label="2021 · v3\nn = 433 · 36→26 položek\n1. osoba\nsouhlasová škála", fillcolor="#FFD9B8", color="#FF7300"];
-  V2022 [label="2022 · v4\nn = 263 · 26 položek\n1. osoba\nsouhlasová škála", fillcolor="#FFD9B8", color="#FF7300"];
-  V2023 [label="2023–26 · v5 (finální)\nn = 744 · 26 položek\n1. osoba\nškála spravedlnosti", fillcolor="#0000DC", fontcolor="white", color="#0000DC", penwidth=2];
+  V1 [label="Pilotní verze 1 (2019)\n21 položek · 3. osoba · popis jednání", fillcolor="#F4F4F4", fontcolor="#555555", color="#B8B8B8", style="rounded,filled,dashed"];
+  V2 [label="Pilotní verze 2 (2020)\n23 položek · 3. osoba · normy „učitel by měl“", fillcolor="#F4F4F4", fontcolor="#333333", color="#9A9A9A", style="rounded,filled,dashed"];
+  V3 [label="Verze 3 (2021)\nzásobník 36 položek · 1. osoba · škála souhlasu", fillcolor="#FFD9B8", color="#FF7300"];
+  V4 [label="Verze 4 (2022)\n26 položek · 1. osoba · škála souhlasu", fillcolor="#FFD9B8", color="#FF7300"];
+  V5 [label="Verze 5 (2023–2026) · finální nástroj\n26 položek · 1. osoba · škála spravedlnosti", fillcolor="#0000DC", fontcolor="white", color="#0000DC", penwidth=2.2];
 
-  V2019 -> V2020 [label="  PERSPEKTIVA\n  deskriptivní → normativní", fontcolor="black"];
-  V2020 -> V2021 [label="  OSOBA\n  3. → 1.;  zásobník 36 → EFA 26", fontcolor="black"];
-  V2021 -> V2022 [label="  konsolidace\n  (+ BIDR)"];
-  V2022 -> V2023 [label="  ŠKÁLA\n  souhlas → spravedlnost\n  přeformulace položek 16, 22", penwidth=2, color="#F01928", fontcolor="#F01928"];
+  V1 -> V2 [label="  popis → normy"];
+  V2 -> V3 [label="  3. osoba → 1. osoba, širší zásobník"];
+  V3 -> V4 [label="  výběr 26 položek"];
+  V4 -> V5 [label="  nová škála; 2 položky přeformulovány", color="#F01928", fontcolor="#F01928", penwidth=2];
 }

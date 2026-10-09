@@ -8,7 +8,8 @@ OUT="$HERE/../../vystupy/obrazky"
 SCR="$HERE/../scripts"
 mkdir -p "$OUT"
 
-for base in 02_typologie 04_tri_stupne 06_evoluce_nastroje; do
+# 04_tri_stupne (obr. 4.1) už není z .dot: kreslí ho fig_04_timeline.R (CZ i EN, n z manifestů; revize 8. 10. 2026).
+for base in 02_typologie 06_evoluce_nastroje; do
   dot -Tpng -Gdpi=200 "$HERE/$base.dot" -o "$OUT/$base.png"
   dot -Tpdf            "$HERE/$base.dot" -o "$OUT/$base.pdf"
   echo "rendered $base -> $OUT/$base.{png,pdf}"

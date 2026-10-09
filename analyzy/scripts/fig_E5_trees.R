@@ -28,7 +28,7 @@ SUF <- if (FIG_LANG == "cs") "-cs" else ""
 # ceske nazvy 24 konceptu = doslova dle kapitoly/cs/appendix-E (E.1), kapitalizovane
 TAXON_CS <- c(
   "Equality" = "Rovnost", "Need" = "Potřeby",
-  "Merit/desert (equity)" = "Zásluhy (ekvita)",
+  "Merit/desert (equity)" = "Zásluhy",
   "Difference principle" = "Princip diference", "Sufficiency" = "Dostatečnost",
   "Fair equality of opportunity" = "Spravedlivá rovnost příležitostí",
   "Luck egalitarianism" = "Egalitarismus štěstí",

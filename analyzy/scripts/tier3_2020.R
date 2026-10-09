@@ -5,7 +5,7 @@
 # 2023 reference loadings + EGA community recovery vs a-priori principles.
 # Appends results to vystupy/tabulky/08_cisla.csv (does not clobber other keys).
 suppressPackageStartupMessages({library(psych); library(EGAnet); library(mclust)})
-PROC <- Filter(dir.exists, c("../data/processed","data/processed"))[1]
+PROC <- Filter(dir.exists, c("../data/processed","../../data/processed","data/processed"))[1]
 TAB  <- file.path(PROC,"..","..","vystupy","tabulky")
 set.seed(2020)
 

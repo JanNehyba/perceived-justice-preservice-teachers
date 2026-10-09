@@ -14,16 +14,19 @@ tři cesty podle toho, kolik techniky chcete.
    `08_cisla.csv` (mezikohortní stabilita, kap. 8), `E5_typologie_cisla.csv`
    (typologie). Je to obyčejná tabulka „název metriky, hodnota"; otevře ji
    jakýkoli tabulkový editor nebo prohlížeč.
-2. Ve zdrojovém textu kapitoly stojí u každého tvrdého čísla komentář s klíčem
-   ve tvaru `<!-- manifest 07_cisla: klíč=hodnota -->` (odkaz na řádek zdrojové
-   tabulky čísel). Podle klíče dohledáte tentýž řádek v příslušném `*_cisla.csv`
-   a ověříte shodu.
+2. Najděte v tabulce číslo, které vás v knize zajímá, a ověřte shodu. Při
+   sestavení knihy kontrola automaticky vyhledá každé tvrdé číslo z textu ve
+   všech výstupních tabulkách složky `vystupy/tabulky/`; kniha se nesestaví,
+   pokud některé číslo ve výstupech analýz chybí.
 
 ## Cesta 2: spustit analýzu v prohlížeči (Binder, ~15 minut poprvé)
 
 1. Klikněte na odznak „launch binder" v README tohoto repozitáře. Poprvé se
    prostředí sestaví (~15 minut), pak se otevře RStudio ve vašem prohlížeči;
-   nic se neinstaluje k vám do počítače.
+   nic se neinstaluje k vám do počítače. Prostředí má R 4.5 a balíčky ze snímku
+   CRAN k 10. 7. 2026, tedy ve stejných verzích, jaké zaznamenává `renv.lock`.
+   Dne 9. 10. 2026 se v něm všech pět notebooků vyrenderovalo a jejich výstupy
+   se shodovaly se zmrazenými tabulkami (síťový notebook 30 počítá asi 40 minut).
 2. **Analýzy běží rovnou** z anonymizovaných dat repozitáře. Otevřete notebook
    ve složce `analyzy/notebooks/` a klikněte na **Render**, pak porovnejte
    hodnoty s knihou:
@@ -45,7 +48,7 @@ ani render nemají vliv.
 
 Skript `analyzy/scripts/95_check_cisla.py` zkontroluje, že každé tvrdé číslo
 v próze knihy má kotvu na klíč zdrojové tabulky čísel a že se hodnoty shodují;
-`analyzy/scripts/check_references.py` zkontroluje citace proti seznamu literatury.
+`analyzy/scripts/96_check_references.py` zkontroluje citace proti seznamu literatury.
 
 ## Co znamená, když se čísla neshodují
 

@@ -17,7 +17,7 @@ Repository: <https://github.com/JanNehyba/perceived-justice-preservice-teachers>
 - `analyzy/figures/` — figure sources (Graphviz).
 - `vystupy/tabulky/` — frozen number manifests (`<chapter>_cisla.csv`); every number in the book traces here.
 - `vystupy/obrazky/` — figures as used in the book.
-- `vystupy/export/habilitace-CZ.pdf` — the rendered monograph (**Czech, primary edition**); its figure/table captions link directly back to the notebooks, scripts and datasets in this repository. `habilitace-EN.pdf` — English edition (may lag the Czech).
+- `vystupy/export/habilitace-CZ.pdf` — the rendered monograph (in Czech, with an English abstract); its figure/table captions link directly back to the notebooks, scripts and datasets in this repository.
 - `kniha/` — Quarto book build configuration.
 - `docs/` — a plain-language landing page (GitHub Pages) for non-technical readers.
 
@@ -26,15 +26,15 @@ Raw data (contains or derives from identifiers), source questionnaire exports, t
 
 ## Verify the book's numbers (three ways)
 Every hard number in the book is anchored to a **number manifest** (`vystupy/tabulky/<chapter>_cisla.csv`) produced by an analysis notebook. A plain-language Czech guide is in [`JAK-OVERIT-CISLA.md`](JAK-OVERIT-CISLA.md).
-1. **No install (2 min).** Open the manifest CSV for a chapter and match its keys to the `<!-- manifest chapter: key=value -->` comments in the book's source text.
-2. **In the browser (Binder, ~15 min first run).** Click the Binder badge above; RStudio opens in your browser with nothing installed locally. Render a notebook in `analyzy/notebooks/` and compare with the book.
+1. **No install (2 min).** Open the manifest CSV for a chapter and look up the number from the book. When the book is built, every hard number in its text is automatically searched for in the output tables in `vystupy/tabulky/`; the build fails if a number is missing.
+2. **In the browser (Binder, ~15 min first run).** Click the Binder badge above; RStudio opens in your browser with nothing installed locally. Render a notebook in `analyzy/notebooks/` and compare with the book. The environment uses R 4.5 with a CRAN snapshot of 10 July 2026, i.e. the package versions recorded in `renv.lock`; on 9 October 2026 all five notebooks rendered in it and reproduced the frozen output tables (the network notebook 30 takes about 40 minutes).
 3. **Locally.** `./reproduce.sh` restores the R environment (`renv`), renders the notebooks, regenerates figures, and runs the gates.
 
 ## Reproduce
-- Analyses: render the Quarto notebooks in `analyzy/notebooks/` (R 4.5.3; packages pinned in `renv.lock`). Each notebook writes its manifest to `vystupy/tabulky/`.
+- Analyses: render the Quarto notebooks in `analyzy/notebooks/` (R 4.5.3; packages pinned in `renv.lock`; packages loaded only by the notebooks are listed in `.binder/install.R`). Each notebook writes its manifest to `vystupy/tabulky/`.
 - Data prep: `python3 analyzy/scripts/03_prepare_forms.py` (Python 3.11; see `requirements.txt`).
-- Gates: `python3 analyzy/scripts/95_check_cisla.py` (prose numbers ↔ manifests) and `analyzy/scripts/check_references.py` (citations ↔ references).
-- Book: `cd kniha && ./build.sh` (Quarto; default is the **Czech primary** edition, `./build.sh en` for the English mirror; MUNI fonts not included — substitute or install locally).
+- Gates: `python3 analyzy/scripts/95_check_cisla.py` (every hard number in the prose is searched for in the output tables) and `analyzy/scripts/96_check_references.py` (citations ↔ references).
+- Book: `cd kniha && ./build.sh cs pdf` (Quarto; the book is in Czech; MUNI fonts not included — substitute or install locally).
 
 ## Ethics
 Participation was voluntary and anonymous; informed consent covered anonymous academic and research use of the data (see the monograph's ethics appendix). No direct identifiers are present in this repository.
