@@ -31,7 +31,7 @@ Every hard number in the book is anchored to a **number manifest** (`vystupy/tab
 3. **Locally.** `./reproduce.sh` restores the R environment (`renv`), renders the notebooks, regenerates figures, and runs the gates.
 
 ## Reproduce
-- Analyses: render the Quarto notebooks in `analyzy/notebooks/` (R 4.5.3; packages pinned in `renv.lock`; packages loaded only by the notebooks are listed in `.binder/install.R`). Each notebook writes its manifest to `vystupy/tabulky/`.
+- Analyses: render the Quarto notebooks in `analyzy/notebooks/` (R 4.5.3; packages pinned in `renv.lock`, completed on 10 October 2026 with the packages used only by the notebooks). Each notebook writes its manifest to `vystupy/tabulky/`.
 - Data prep: `python3 analyzy/scripts/03_prepare_forms.py` (Python 3.11; see `requirements.txt`).
 - Gates: `python3 analyzy/scripts/95_check_cisla.py` (every hard number in the prose is searched for in the output tables) and `analyzy/scripts/96_check_references.py` (citations ↔ references).
 - Book: `cd kniha && ./build.sh cs pdf` (Quarto; the book is in Czech; MUNI fonts not included — substitute or install locally).
