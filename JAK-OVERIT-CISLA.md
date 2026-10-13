@@ -9,7 +9,7 @@ tři cesty podle toho, kolik techniky chcete.
 ## Cesta 1: bez instalace čehokoli (2 minuty)
 
 1. Otevřete složku `vystupy/tabulky/` a v ní zdrojovou tabulku čísel kapitoly,
-   která vás zajímá: `05_cisla.csv` (viněty, kap. 5), `06_cisla.csv` (vývoj nástroje,
+   která vás zajímá: `05_cisla.csv` a `05_typologie_resp_cisla.csv` (viněty, kap. 5; pro typologii respondentů v oddílu 5.5 platí jen `05_typologie_resp_*`), `06_cisla.csv` (vývoj nástroje,
    kap. 6), `07_cisla.csv`, `07_network_cisla.csv` a `07_reliabilita_kompozit_cisla.csv`
    (struktura, sítě a reliabilita skórů subškál, kap. 7),
    `08_cisla.csv` (mezikohortní stabilita, kap. 8), `E5_typologie_cisla.csv`

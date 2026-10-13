@@ -1,0 +1,5 @@
+"k","n_poradi","volba_siluetou_2az5","silueta_median","silueta_min","silueta_max","pac","ari_mezi_poradimi_median","ari_mezi_poradimi_q10","ari_s_konsenzem_median","n_ruznych_rozdeleni"
+2,1000,474,0.101,0.095,0.129,0.38,0.841,0.27,0.365,3
+3,1000,263,0.106,0.08,0.107,0.362,0.861,0.254,0.671,4
+4,1000,263,0.102,0.092,0.118,0.334,0.707,0.272,0.573,4
+5,1000,0,0.1,0.099,0.109,0.259,0.799,0.304,0.793,4
