@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 # =============================================================================
 # typologie_respondentu.R
-# Kap. 5 (studie 1, viněty, n = 315), oddíl 5.5: obsahují data stabilní typy respondentů?
+# Kap. 5 (studie 1, viněty, n = 315), oddíl 5.3.3 (v knize jen jednou větou, rozhodnutí autora 13. 10. 2026): obsahují data stabilní typy respondentů?
 #
 # Spuštění v referenčním prostředí (verze balíčků podle analyzy/renv.lock):
 #   MSYS_NO_PATHCONV=1 docker run --rm --entrypoint /bin/bash \
