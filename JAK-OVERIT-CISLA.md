@@ -10,7 +10,8 @@ tři cesty podle toho, kolik techniky chcete.
 
 1. Otevřete složku `vystupy/tabulky/` a v ní zdrojovou tabulku čísel kapitoly,
    která vás zajímá: `05_cisla.csv` (viněty, kap. 5), `06_cisla.csv` (vývoj nástroje,
-   kap. 6), `07_cisla.csv` a `07_network_cisla.csv` (struktura a sítě, kap. 7),
+   kap. 6), `07_cisla.csv`, `07_network_cisla.csv` a `07_reliabilita_kompozit_cisla.csv`
+   (struktura, sítě a reliabilita skórů subškál, kap. 7),
    `08_cisla.csv` (mezikohortní stabilita, kap. 8), `E5_typologie_cisla.csv`
    (typologie). Je to obyčejná tabulka „název metriky, hodnota"; otevře ji
    jakýkoli tabulkový editor nebo prohlížeč.
@@ -25,8 +26,10 @@ tři cesty podle toho, kolik techniky chcete.
    prostředí sestaví (~15 minut), pak se otevře RStudio ve vašem prohlížeči;
    nic se neinstaluje k vám do počítače. Prostředí má R 4.5 a balíčky ze snímku
    CRAN k 10. 7. 2026, tedy ve stejných verzích, jaké zaznamenává `renv.lock`.
-   Dne 9. 10. 2026 se v něm všech pět notebooků vyrenderovalo a jejich výstupy
-   se shodovaly se zmrazenými tabulkami (síťový notebook 30 počítá asi 40 minut).
+   Dne 9. 10. 2026 se v něm všech pět notebooků vyrenderovalo (síťový notebook 30
+   počítá asi 40 minut); výstupy notebooků 20, 40 a 50 byly v tomto prostředí
+   naposledy spočteny 13. 10. 2026. Paralelní analýza běží sériově, aby pevné
+   počáteční semínko dávalo pokaždé stejný výsledek.
 2. **Analýzy běží rovnou** z anonymizovaných dat repozitáře. Otevřete notebook
    ve složce `analyzy/notebooks/` a klikněte na **Render**, pak porovnejte
    hodnoty s knihou:
@@ -46,9 +49,13 @@ ani render nemají vliv.
 ./reproduce.sh          # ověří prostředí (renv), přepočítá notebooky a spustí brány
 ```
 
-Skript `analyzy/scripts/95_check_cisla.py` zkontroluje, že každé tvrdé číslo
-v próze knihy má kotvu na klíč zdrojové tabulky čísel a že se hodnoty shodují;
-`analyzy/scripts/96_check_references.py` zkontroluje citace proti seznamu literatury.
+Skript `analyzy/scripts/95_check_cisla.py` vyhledá každé tvrdé číslo z prózy
+knihy ve výstupních tabulkách `vystupy/tabulky/`; čísla s ruční kotvou
+`<!-- manifest … -->` porovná přímo s uvedeným klíčem. Próza knihy (zdrojové
+kapitoly `kapitoly/cs/`) není součástí tohoto repozitáře, proto zde skript skončí
+hlášením „nic k ověření“; zkouška čísel se tu dělá podle cesty 1 nebo 2.
+`analyzy/scripts/96_check_references.py` zkontroluje citace proti seznamu
+literatury a potřebuje tytéž zdrojové kapitoly.
 
 ## Co znamená, když se čísla neshodují
 

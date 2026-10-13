@@ -18,10 +18,14 @@ for nb in analyzy/notebooks/10_vinety.qmd analyzy/notebooks/20_psychometrie.qmd 
     echo "   (přeskočeno: $nb vyžaduje data mimo companion)"
 done
 
+echo "── doplňkové skripty (reliabilita skórů subškál, stabilita paralelní analýzy 2021)"
+(cd analyzy && Rscript scripts/reliabilita_kompozit.R && Rscript scripts/parallel2021_stabilita.R) || \
+  echo "   (přeskočeno: doplňkový skript selhal)"
+
 echo "── figury knihy (z manifestů)"
 [ -x analyzy/figures/render_figures.sh ] && analyzy/figures/render_figures.sh || true
 
-echo "── kontrolní brány (čísla ↔ manifesty, reference)"
+echo "── kontrolní brány (čísla ↔ manifesty, reference; potřebují zdrojové kapitoly kapitoly/cs, bez nich hlásí „nic k ověření“)"
 python3 analyzy/scripts/95_check_cisla.py || true
 python3 analyzy/scripts/96_check_references.py || true
 

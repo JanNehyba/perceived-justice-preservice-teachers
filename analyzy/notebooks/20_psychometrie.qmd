@@ -22,6 +22,9 @@ suppressPackageStartupMessages({
   library(EGAnet); library(BifactorIndicesCalculator)
 })
 set.seed(744)
+# fa.parallel simuluje přes parallel::mclapply; ve forkovaných procesech set.seed neplatí a počet
+# faktorů pak mezi běhy kolísá. Sériový běh dělá paralelní analýzu opakovatelnou (audit 13. 10. 2026).
+options(mc.cores = 1)
 
 find_root <- function() {
   for (p in c(".","..","../..","../../..")) if (dir.exists(file.path(p,"data/processed"))) return(normalizePath(p))
@@ -287,6 +290,75 @@ if(!is.null(fits$esem26)){
   p7("cfi_esem_2026", fr[["cfi.robust"]]); p7("rmsea_esem_2026", fr[["rmsea.robust"]]); p7("srmr_esem_2026", fr[["srmr"]])
   cat("HOLDOUT 2026 ESEM: CFI=",fr[["cfi.robust"]]," RMSEA=",fr[["rmsea.robust"]]," SRMR=",fr[["srmr"]],"\n",sep="")
 } else p7("cfi_esem_2026", NA)
+```
+
+## E2.3c — ESEM loading matrices (2024 and 2026) and factor-to-principle matching
+
+```{r esem-loadings}
+# Audit A08 (added 2026-10-13). Freezes the full rotated (geomin) standardized loading matrix
+# (std.all, latent-response scale) of both ESEM fits: fits$esem (2024, n=333) and
+# fits$esem26 (2026 holdout, n=164; same syntax, estimator and rotation).
+# Factor-to-principle matching: Tucker congruence of every ESEM loading column with every
+# a-priori 0/1 target column (item belongs to the principle = 1, else 0); one-to-one
+# assignment maximising the summed |congruence| over all 4! = 24 permutations. A factor whose
+# congruence with its principle is negative would be reflected (sign flip) before summaries.
+# Primary match: an item counts when its largest |loading| lies on the factor matched to its
+# own a-priori principle. Cross-loadings = the item's loadings on the three factors NOT matched
+# to its a-priori principle (26 x 3 = 78 values per wave). No random numbers are drawn here.
+PR_SHORT <- c(procedural="proc", equality="equal", needs="needs", merit="merit")
+apr_item <- setNames(rep(NA_character_, length(ITEMS)), ITEMS)
+for(f in names(MAP)) apr_item[MAP[[f]]] <- f
+TARGET <- sapply(names(MAP), function(f) as.numeric(ITEMS %in% MAP[[f]])); rownames(TARGET) <- ITEMS
+tucker <- function(a, b) sum(a*b)/sqrt(sum(a^2)*sum(b^2))
+perms <- function(v) if(length(v) <= 1) list(v) else
+  do.call(c, lapply(seq_along(v), function(i) lapply(perms(v[-i]), function(p) c(v[i], p))))
+
+esem_match <- function(fit, pref, outfile){
+  L <- lavaan::lavInspect(fit, "std")$lambda[ITEMS, , drop=FALSE]
+  fac <- colnames(L)
+  C <- sapply(names(MAP), function(p) apply(L, 2, function(l) tucker(l, TARGET[,p])))  # factors x principles
+  pp <- perms(seq_along(fac))
+  best <- pp[[which.max(sapply(pp, function(p) sum(abs(C[cbind(p, seq_along(MAP))]))))]]
+  names(best) <- names(MAP)                                   # principle -> factor index
+  sgn <- sign(C[cbind(best, seq_along(MAP))])
+  La <- L; for(j in seq_along(MAP)) La[, best[j]] <- sgn[j] * L[, best[j]]   # aligned signs
+  own <- best[apr_item[ITEMS]]                                # own factor index per item
+  prim <- apply(abs(La), 1, which.max)
+  crossm <- t(sapply(seq_along(ITEMS), function(i) abs(La[i, -own[i]])))   # 26 x 3
+  ownl <- La[cbind(seq_along(ITEMS), own)]
+  fac_of <- setNames(names(MAP)[match(seq_along(fac), best)], fac)
+  out <- data.frame(item=ITEMS, round(L, 3), principle=unname(apr_item), check.names=FALSE)
+  write.csv(out, file.path(TAB, outfile), row.names=FALSE)
+  for(j in seq_along(MAP)) p7(paste0(pref, "_tucker_", PR_SHORT[[names(MAP)[j]]]), round(abs(C[best[j], j]), 3))
+  p7(paste0(pref, "_factor_map"), paste(sprintf("%s=%s", fac, fac_of), collapse="; "))
+  p7(paste0(pref, "_n_reflected"), sum(sgn < 0))
+  p7(paste0(pref, "_n_primary_match"), sum(prim == own))
+  p7(paste0(pref, "_primary_mismatch_items"),
+     if(any(prim != own)) paste(sprintf("%s(%s->%s)", ITEMS[prim != own], apr_item[prim != own],
+                                        fac_of[fac[prim[prim != own]]]), collapse="; ") else "none")
+  p7(paste0(pref, "_target_median"), round(median(ownl), 3))
+  p7(paste0(pref, "_target_min"), round(min(ownl), 3))
+  p7(paste0(pref, "_cross_median"), round(median(crossm), 3))
+  p7(paste0(pref, "_cross_max"), round(max(crossm), 3))
+  p7(paste0(pref, "_n_cross_ge30"), sum(crossm >= .30))
+  ge <- which(abs(La) >= .30 & col(La) != own, arr.ind=TRUE)
+  p7(paste0(pref, "_cross_ge30_items"),
+     if(nrow(ge)) paste(sprintf("%s(%s) on %s=%.2f", ITEMS[ge[,1]], apr_item[ge[,1]], fac_of[fac[ge[,2]]],
+                                La[ge]), collapse="; ") else "none")
+  cat(pref, ": factor map ", paste(sprintf("%s=%s", fac, fac_of), collapse=", "),
+      " | primary match ", sum(prim == own), "/26 | cross |median| ", round(median(crossm),3),
+      " max ", round(max(crossm),3), " n>=.30 ", sum(crossm >= .30), "\n", sep="")
+  La_p <- sapply(names(MAP), function(p) La[, best[[p]]])     # items x principles (aligned)
+  invisible(La_p)
+}
+E24 <- if(!is.null(fits$esem))   esem_match(fits$esem,   "esem24", "07_esem_loadings_2024.csv") else NULL
+E26 <- if(!is.null(fits$esem26)) esem_match(fits$esem26, "esem26", "07_esem_loadings_2026.csv") else NULL
+# replication of the matched ESEM factors 2024 -> 2026 (Tucker congruence per principle)
+if(!is.null(E24) && !is.null(E26)){
+  cg <- sapply(names(MAP), function(p) tucker(E24[,p], E26[,p]))
+  for(p in names(MAP)) p7(paste0("esem_cong_24_26_", PR_SHORT[[p]]), round(cg[[p]], 3))
+  p7("esem_cong_24_26_min", round(min(cg), 3)); p7("esem_cong_24_26_max", round(max(cg), 3))
+}
 ```
 
 ## E2.5 — Duplicate-pattern sensitivity (n=742)

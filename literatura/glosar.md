@@ -33,11 +33,11 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | item | položka | prvek dotazníku |
 | reverse-coded item | reverzně kódovaná položka | ve finálním datasetu žádná |
 | exploratory factor analysis (EFA) | explorativní faktorová analýza | analýza (2021) |
-| Gaussian graphical model (GGM) | gaussovský grafický model (síť) | analýza (2023+2024) |
+| Gaussian graphical model (GGM) | gaussovský grafický model (síť) | analýza (sloučené kohorty 2023, 2024, 2026) |
 | wave / cohort | vlna / kohorta (sběru dat) | 2019 / 2020 / 2021 / 2022 / 2023 / 2024 / 2026 |
-| repeated cross-sections | opakované průřezy | kohorty různých let, NE panel; opakovanou účast téhož studenta nelze dodatečně ověřit (identifikátory odstraněny) |
-| measurement invariance | měřicí invariance | configural/metric(thresholds)/scalar; jen tier 1 |
-| latent mean comparison | srovnání latentních průměrů | jen při skalární invarianci (2023/24/26) |
+| repeated cross-sections | opakované průřezy | kohorty různých let, NE panel; opakovanou účast téhož studenta nelze vyloučit (identifikátory odstraněny) |
+| measurement invariance | měřicí invariance | konfigurální / metrická / skalární / striktní úroveň, spojitá aproximace (MLR), kritérium ΔCFI; prahy netestovány; jen stupeň 1 (8.2.1) |
+| latent mean comparison | srovnání latentních průměrů | jen když omezení interceptů (skalární úroveň) shodu podstatně nezhorší (2023/24/26); výsledek: rozdíl zjištěn v jednom z osmi kontrastů; **NE** „shoda latentních průměrů“, „stabilní úrovně“, „latentní průměry se neliší“ (A05) |
 | congruence coefficient (Tucker's φ) | koeficient kongruence | strukturní replikace tier 2 |
 | numbers manifest | zdrojová tabulka čísel | soubor `*_cisla.csv`; v próze nepopisovat interní postup (S4), stačí „výstupy analýz v doprovodném repozitáři" |
 | companion repository | doprovodný repozitář | v próze NEpsat „companion" |
@@ -46,15 +46,17 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | data set | datová sada | v próze NEpsat „dataset"; „pipeline" → „zpracovatelská linka" |
 | community detection | detekce komunit (v síti) | EGA/walktrap; „síťové klastry" |
 | exploratory graph analysis (EGA) | explorativní grafová analýza | EGAnet |
-| ESEM (exploratory SEM) | explorativní strukturní modelování (ESEM) | doplňková analýza k CFA (D2): položky smějí slabě sytit i ostatní faktory |
+| ESEM (exploratory SEM) | explorativní strukturní modelování (ESEM) | doplňková analýza k CFA (D2): položky smějí sytit i ostatní faktory; **NE** „slabě sytit“ (A08) |
 | bifactor model | bifaktorový model | verdikt dle ωH/ECV/PUC, ne jen fitu |
-| categorical omega (ω) | kategoriální omega | reliabilita pro ordinální položky |
+| ordinal omega (ω) | ordinální omega (na škále latentních odpovědí) | reliabilita nevážného součtu latentních odpovědí z ordinálního modelu (7.3.3, 8.5); **NE** „kategoriální omega“, „reliabilita na latentní úrovni“ (A07) |
+| omega of the sum score | omega součtového skóru (omega součtu) | reliabilita pozorovaného součtu subškály, uváděná vedle alfy (7.3.3) |
+| factor score determinacy | determinace faktorových skórů | korelace odhadnutého faktorového skóru s faktorem (7.3.3; Rodriguez et al., 2016) |
 | expected influence | očekávaný vliv (uzlu) | centralita v síti |
 | bridge centrality | mostová centralita | položky spojující komunity/principy |
 | node predictability | prediktabilita uzlu | R² uzlu z jeho sousedů (mgm) |
 | network comparison test (NCT) | test srovnání sítí | jen tier 1 (stejná škála) |
 | social desirability (responding) | sociálně žádoucí odpovídání; sociální žádoucnost | **NE** „sociální desirabilita", „desirabilní" (B1-009); BIDR, kap. 7.6 |
-| normative vs. self-report framing | normativní vs sebepopisné znění | 2020 „by měl" vs 2021+ „já" |
+| normative vs. first-person framing | normativní znění vs. znění v první osobě | 2020 „by měl“ vs 2021+ „já“; **NE** „sebepopisné znění“ (A01) |
 | anchoring vignettes | kotvicí viněty | Voňková; budoucí směr |
 | comparability boundary | hranice srovnatelnosti | mezi 2022 (souhlas) a 2023 (spravedlnost) |
 | three-tier comparability framework | třístupňový rámec srovnatelnosti | tier 1 invariance / tier 2 struktura / tier 3 konfigurace |
@@ -71,8 +73,10 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | interactional justice (interpersonal / informational) | interakční spravedlnost (interpersonální / informativní) | mimo rozsah; z organizační tradice |
 | self-deceptive enhancement (BIDR) | sebeklamné nadhodnocení (BIDR) | subškála BIDR-CZ; validizace (kap. 7.6) |
 | data minimization | minimalizace dat | etický princip (kap. 4.7; vypuštění BIDR položky 18) |
-| phenetic / conceptual dendrogram | dendrogram konceptuální podobnosti | explorativní mapa v příloze A (D6); NE „fylogenetika"; není test čtyř principů |
-| self-perceived justice | subjektivně vnímaná spravedlnost | dle Nehyba (2021b); doplněno 14. 7. 2026 při CZ překladu (P9) |
+| phenetic / conceptual dendrogram | dendrogram konceptuální podobnosti | explorativní mapa v příloze A (D6); NE „fylogenetika"; není test čtyř principů; čtyři skupiny jsou jedním ze dvou blízkých řešení, **NE** „konceptuální typologie“ (A10) |
+| subjectively perceived justice; v anglickém názvu práce perceived justice | subjektivně vnímaná spravedlnost | termín konstruktu (název knihy), dle Nehyba (2021b); doplněno 14. 7. 2026 při CZ překladu (P9); operační vymezení viz další řádek; v anglickém abstraktu **NE** „self-perceived justice“ (A01) |
+| judgments of the justice of one's own anticipated conduct (toward pupils) | úsudek o spravedlnosti vlastního anticipovaného jednání | operační vymezení konstruktu (2.1, 6.6): respondent posuzuje, nakolik spravedlivé je jednání, které položka popisuje v první osobě jako jeho vlastní; nástroj nezjišťuje, zda a jak často tak jedná; **NE** „sebepercepce“, „sebepopis“ (A01) |
+| response task | odpověďová úloha | od 2023 posoudit, nakolik spravedlivé je popsané jednání (1 = zcela nespravedlivé, 7 = zcela spravedlivé); 2020–2022 souhlas s popisem jednání |
 | convergence of two lenses | shoda dvou pohledů | faktory × sítě; podpora s výhradami, ne důkaz strukturní validity (D20) |
 | allocator | ten, kdo rozděluje; ve třídě učitel | **NE** „alokátor" (B1-028) |
 | allocation; allocation rule / norm | rozdělování, přidělování; norma (pravidlo) rozdělování | **NE** „alokace", „alokační", „alokovat" (D16) |

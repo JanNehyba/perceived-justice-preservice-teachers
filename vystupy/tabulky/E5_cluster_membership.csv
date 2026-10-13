@@ -1,25 +1,25 @@
-"taxon","ward_cluster","measured_in_book"
-"Equality",1,TRUE
-"Need",1,TRUE
-"Merit/desert (equity)",1,TRUE
-"Difference principle",1,FALSE
-"Sufficiency",1,FALSE
-"Fair equality of opportunity",1,FALSE
-"Luck egalitarianism",1,FALSE
-"Capabilities approach",1,FALSE
-"Procedural justice",2,TRUE
-"Interpersonal justice",2,FALSE
-"Informational justice",2,FALSE
-"Retributive justice",3,FALSE
-"Restorative justice",3,FALSE
-"Corrective (rectificatory) justice",3,FALSE
-"Compensatory justice",3,FALSE
-"Social justice",1,FALSE
-"Commutative justice",2,FALSE
-"Justice as fairness",1,FALSE
-"Complex equality (spheres)",1,FALSE
-"Recognition justice",4,FALSE
-"Relational equality",4,FALSE
-"Entitlement (libertarian) justice",2,FALSE
-"Utilitarian justice",1,FALSE
-"Formal justice (impartiality)",1,FALSE
+"taxon","ward_cluster","legend_group","measured_in_book"
+"Equality",1,1,TRUE
+"Need",1,1,TRUE
+"Merit/desert (equity)",1,1,TRUE
+"Difference principle",1,1,FALSE
+"Sufficiency",1,1,FALSE
+"Fair equality of opportunity",1,1,FALSE
+"Luck egalitarianism",1,1,FALSE
+"Capabilities approach",1,1,FALSE
+"Procedural justice",2,4,TRUE
+"Interpersonal justice",2,4,FALSE
+"Informational justice",2,4,FALSE
+"Retributive justice",3,2,FALSE
+"Restorative justice",3,2,FALSE
+"Corrective (rectificatory) justice",3,2,FALSE
+"Compensatory justice",3,2,FALSE
+"Social justice",1,1,FALSE
+"Commutative justice",2,4,FALSE
+"Justice as fairness",1,1,FALSE
+"Complex equality (spheres)",1,1,FALSE
+"Recognition justice",4,3,FALSE
+"Relational equality",4,3,FALSE
+"Entitlement (libertarian) justice",2,4,FALSE
+"Utilitarian justice",1,1,FALSE
+"Formal justice (impartiality)",1,1,FALSE

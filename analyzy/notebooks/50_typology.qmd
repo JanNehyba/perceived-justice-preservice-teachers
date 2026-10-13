@@ -85,6 +85,20 @@ write.csv(cbind(taxon=rownames(wide), wide[,CH]), file.path(TAB,"E5_consensus_ma
 
 ```{r trees}
 D <- cluster::daisy(W, metric="gower")
+# Ward geometry (audit A10, fix 2026-10-13): hclust(..., "ward.D2") squares its input and
+# minimises within-cluster sums of squares, which presupposes EUCLIDEAN distances. For all-nominal
+# features Gower = simple-matching dissimilarity (share of features with different codes), and
+# sqrt(Gower) is Euclidean: it equals the Euclidean distance between one-hot (dummy) codings
+# divided by sqrt(2 x number of features); the same holds for the alpha-weighted Gower below.
+# Every Ward tree is therefore built on sqrt(Gower). Check: the double-centred matrix
+# B = -1/2 J D^2 J of a Euclidean distance matrix D is positive semidefinite, so its smallest
+# eigenvalue must be 0 up to rounding error. NeighborNet and the silhouette diagnostic keep
+# the Gower dissimilarity itself (neither requires Euclidean input).
+min_eigen_dc <- function(d){ D2 <- as.matrix(d)^2; n <- nrow(D2); J <- diag(n) - matrix(1/n, n, n)
+  min(eigen(-0.5 * J %*% D2 %*% J, symmetric=TRUE, only.values=TRUE)$values) }
+DE <- sqrt(D)
+put("ward_distance", "sqrt(Gower) (Euclidean) passed to hclust ward.D2; silhouette on Gower")
+put("gower_sqrt_min_eigen", signif(min_eigen_dc(DE), 3))
 
 # NeighborNet (reticulate network) — auxiliary exploratory map, with no family encoding
 nn <- tryCatch(phangorn::neighborNet(D), error=function(e){message("nnet: ",conditionMessage(e)); NULL})
@@ -97,12 +111,15 @@ if(!is.null(nn)){
 
 # Ward dendrogram + simple data-based diagnostic for a display cut.
 # With only 24 concepts this selects an exploratory visual aid, not a validated typology.
-hc <- hclust(D, method="ward.D2")
+hc <- hclust(DE, method="ward.D2")
 ks <- 2:8
 diag <- data.frame(
   k=ks,
   average_silhouette=vapply(ks, function(k)
-    mean(cluster::silhouette(cutree(hc,k), D)[,"sil_width"]), numeric(1))
+    mean(cluster::silhouette(cutree(hc,k), D)[,"sil_width"]), numeric(1)),
+  # sensitivity column: the same cuts evaluated on sqrt(Gower), the geometry Ward works in
+  average_silhouette_sqrt=vapply(ks, function(k)
+    mean(cluster::silhouette(cutree(hc,k), DE)[,"sil_width"]), numeric(1))
 )
 write.csv(diag, file.path(TAB,"E5_cluster_diagnostics.csv"), row.names=FALSE)
 best_k <- diag$k[which.max(diag$average_silhouette)]
@@ -114,7 +131,12 @@ put("cluster_silhouette_runner_up", round(runner$average_silhouette,3))
 put("cluster_silhouette_delta", round(max(diag$average_silhouette)-runner$average_silhouette,3))
 cl <- cutree(hc, best_k)
 measured <- rownames(wide) %in% c("Procedural justice","Equality","Need","Merit/desert (equity)")
-write.csv(data.frame(taxon=rownames(wide), ward_cluster=unname(cl), measured_in_book=measured),
+# legend_group: číslování skupin v obrázku A.1 a v textu přílohy A (podle pořadí listů dendrogramu,
+# jak je přečísluje dendextend při barvení větví); ward_cluster je číslování cutree
+leaf <- labels(as.dendrogram(hc))
+legend_group <- match(cl, unique(cl[leaf]))
+write.csv(data.frame(taxon=rownames(wide), ward_cluster=unname(cl), legend_group=legend_group,
+                     measured_in_book=measured),
           file.path(TAB,"E5_cluster_membership.csv"), row.names=FALSE)
 cat("Exploratory silhouette-selected cut: k =",best_k,"\n"); print(diag)
 
@@ -125,20 +147,58 @@ rel <- per_df$character[!is.na(per_df$alpha) & per_df$alpha >= .667]
 put("n_reliable_chars", length(rel))
 put("dropped_chars_low_alpha", paste(setdiff(CH, rel), collapse="; "))
 if(length(rel) >= 3){
-  hc_rel <- hclust(cluster::daisy(W[,rel,drop=FALSE], metric="gower"),"ward.D2")
+  hc_rel <- hclust(sqrt(cluster::daisy(W[,rel,drop=FALSE], metric="gower")),"ward.D2")
   put("cophenetic_r_all_vs_reliable", round(cor(cophenetic(hc),cophenetic(hc_rel)),3))
 }
 # (c) alpha-weighted Gower — nothing dropped; each character contributes in proportion to its
 #     inter-coder reliability (negative/NA alpha clamped to 0). The principled middle ground.
 wts <- pmax(0, per_df$alpha[match(CH, per_df$character)]); wts[is.na(wts)] <- 0
 Dw <- cluster::daisy(W, metric="gower", weights=wts)
-hc_w <- hclust(Dw, "ward.D2")
+hc_w <- hclust(sqrt(Dw), "ward.D2")
 put("cophenetic_r_all_vs_alpha_weighted", round(cor(cophenetic(hc),cophenetic(hc_w)),3))
 # the contested characters are a finding, not noise: record them with their alpha
 contested <- per_df[!is.na(per_df$alpha) & per_df$alpha < .667, ]
 contested <- contested[order(contested$alpha), ]
 put("contested_characters", paste(sprintf("%s(%.2f)", contested$character, contested$alpha), collapse="; "))
 
+```
+
+## Stability of the Ward tree to tie-breaking (input order)
+
+```{r ward-stability}
+# Audit A10 asks to reassess the number and stability of groups. Gower distances on 16 nominal
+# features are multiples of 1/16, so many distances tie and hclust's merge order then depends
+# on the order of the concepts in the input. The tree above uses the canonical order of the
+# taxon table. Here the same procedure (sqrt(Gower), ward.D2, silhouette on Gower) is repeated
+# for B random input orders; reported: how often the canonical k=4 partition recurs, the ARI
+# with it, which k the silhouette selects, and the first merge partners of the measured concepts.
+set.seed(20261013)
+B <- 500
+Dm <- as.matrix(D)
+ref4 <- cutree(hc, 4)
+perm <- t(replicate(B, {
+  o <- sample(nrow(Dm)); h <- hclust(as.dist(sqrt(Dm[o, o])), "ward.D2")
+  C <- as.matrix(cophenetic(h)); first <- function(a) names(which(C[a, ] == min(C[a, colnames(C) != a]) & colnames(C) != a))
+  sil <- vapply(ks, function(k) mean(cluster::silhouette(cutree(h, k)[rownames(Dm)], D)[, "sil_width"]), numeric(1))
+  c(ari4 = mclust::adjustedRandIndex(cutree(h, 4)[names(ref4)], ref4),
+    ksel = ks[which.max(sil)],
+    eq_merit = "Merit/desert (equity)" %in% first("Equality"),
+    eq_need = "Need" %in% first("Equality"),
+    need_suff = "Sufficiency" %in% first("Need"),
+    proc_info = "Informational justice" %in% first("Procedural justice"))
+}))
+put("ward_perm_B", B)
+put("ward_perm_k4_identical_share", round(mean(perm[, "ari4"] == 1), 3))
+put("ward_perm_k4_ari_median", round(median(perm[, "ari4"]), 3))
+put("ward_perm_k4_ari_min", round(min(perm[, "ari4"]), 3))
+put("ward_perm_ksel_share", paste(sprintf("k%s=%.3f", names(table(perm[, "ksel"])),
+    as.numeric(table(perm[, "ksel"])) / B), collapse="; "))
+put("ward_perm_equality_first_with_merit_share", round(mean(perm[, "eq_merit"]), 3))
+put("ward_perm_equality_first_with_need_share", round(mean(perm[, "eq_need"]), 3))
+put("ward_perm_need_first_with_sufficiency_share", round(mean(perm[, "need_suff"]), 3))
+put("ward_perm_procedural_first_with_informational_share", round(mean(perm[, "proc_info"]), 3))
+cat("Input-order stability (B =", B, "): canonical k=4 recurs in", mean(perm[, "ari4"] == 1),
+    "; silhouette-selected k:", MAN[["ward_perm_ksel_share"]], "\n")
 ```
 
 ## Freeze manifest

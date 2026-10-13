@@ -210,6 +210,10 @@ def main() -> int:
     orphans = [(k, v) for k, v in sorted(refs.items()) if k not in used]
 
     print(f"96_check_references (CZ-HARD): {len(cited)} citací v textu, {len(refs)} záznamů.")
+    if not cited or not refs:
+        # Prázdný vstup není úspěch (např. veřejný repozitář bez zdrojových kapitol).
+        print("❌ nic k ověření: chybí kapitoly (--chapters) nebo seznam literatury (--refs).")
+        return 1
     if missing:
         print(f"\n❌ CITACE BEZ ZÁZNAMU ({len(missing)}):")
         for (s, y), files in missing:

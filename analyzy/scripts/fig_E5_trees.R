@@ -8,7 +8,7 @@
 suppressPackageStartupMessages({
   library(cluster); library(dendextend)
 })
-SCR <- Filter(dir.exists, c("../scripts", "analyzy/scripts"))[1]
+SCR <- Filter(dir.exists, c("../scripts", "scripts", "analyzy/scripts"))[1]
 ROOT <- normalizePath(file.path(SCR, "..", ".."))
 FIG  <- file.path(ROOT, "vystupy", "obrazky")
 PROC <- file.path(ROOT, "data", "processed")
@@ -53,8 +53,8 @@ if (FIG_LANG == "cs") {
   L_CLUSTER <- paste("skupina", 1:4)
   L_CLUSTERTITLE <- "Explorativní řez stromu (k = 4)"
   L_MEASURED <- "princip měřený knihou"
-  L_XGOWER <- "Konceptuální vzdálenost (Gower, Wardovo spojování)"
-  L_XEMBED <- "Sémantická vzdálenost (embeddingy definic, Wardovo spojování)"
+  L_XGOWER <- "Výška spojení (Wardova metoda, odmocnina Gowerovy vzdálenosti)"
+  L_XEMBED <- "Výška spojení (Wardova metoda, eukleidovská vzdálenost normovaných embeddingů)"
   L_TL <- "znakové kódování"; L_TR <- "embeddingy"
   # delší česká jména (až 38 znaků) potřebují širší vnitřní okraj a menší písmo,
   # jinak se v tanglegramu ořezávají (Korektivní…, Nároková…, Formální…)
@@ -63,8 +63,8 @@ if (FIG_LANG == "cs") {
   L_CLUSTER <- paste("cluster", 1:4)
   L_CLUSTERTITLE <- "Exploratory tree cut (k = 4)"
   L_MEASURED <- "principle measured in the book"
-  L_XGOWER <- "Conceptual distance (Gower, Ward linkage)"
-  L_XEMBED <- "Semantic distance (definition embeddings, Ward linkage)"
+  L_XGOWER <- "Merge height (Ward linkage, square root of Gower distance)"
+  L_XEMBED <- "Merge height (Ward linkage, Euclidean distance of normalised embeddings)"
   L_TL <- "character-coded"; L_TR <- "embedding"
   MAR_R <- 12; TG_MARGIN <- 11; TG_CEX <- 0.95
 }
@@ -89,7 +89,10 @@ rownames(cons) <- cons$taxon
 CH <- setdiff(names(cons), "taxon")
 W <- cons[, CH]; W[] <- lapply(W, factor)
 D <- cluster::daisy(W, metric = "gower")
-hc <- hclust(D, method = "ward.D2")
+# Ward (ward.D2) potrebuje eukleidovske vzdalenosti (audit A10, oprava 13. 10. 2026):
+# sqrt(Gower) je pro nominalni vlastnosti eukleidovska; kosinova vzdalenost 1 - cos
+# normalizovanych embeddingu prechazi na eukleidovskou jako sqrt(2 * D). Stejne jako 50_typology.qmd.
+hc <- hclust(sqrt(D), method = "ward.D2")
 cl4 <- stats::cutree(hc, k = 4)
 
 # --- Figure 2.2: čitelný horizontální dendrogram -----------------------------
@@ -125,7 +128,7 @@ cat(sprintf("written: 02_dendrogram_hlavni%s.png\n", SUF))
 # jako hlavní dendrogram (Fig 2.2), aby šly oba pohledy přímo porovnat.
 E <- read.csv(file.path(PROC, "typology_embed_dist.csv"), row.names = 1,
               check.names = FALSE)
-Ee <- as.dist(as.matrix(E))
+Ee <- as.dist(sqrt(2 * as.matrix(E)))
 hce <- hclust(Ee, method = "ward.D2")
 dend_e <- as.dendrogram(hce)
 dend_e <- set(dend_e, "labels_cex", 0.95)
@@ -143,9 +146,12 @@ cat(sprintf("written: E5_embed_dendrogram%s.png (dendrogram, čitelný)\n", SUF)
 
 # --- Figure E.2: tanglegram — dva pohledy vedle sebe, čitelně -----------------
 # Sladíme listy obou stromů a spojíme neutralnimi carami. Velke pismo.
+# Tytéž stromy jako v obrázcích hlavního a embeddingového dendrogramu (hc, hce): přepočet z matice
+# přeuspořádané podle listů by při shodných vzdálenostech rozhodl větvení jinak.
 common <- intersect(labels(hc), labels(hce))
-dcc <- as.dendrogram(hclust(as.dist(as.matrix(daisy(W, "gower"))[common, common]), "ward.D2"))
-dee <- as.dendrogram(hclust(as.dist(as.matrix(E)[common, common]), "ward.D2"))
+stopifnot(length(common) == length(labels(hc)), length(common) == length(labels(hce)))
+dcc <- as.dendrogram(hc)
+dee <- as.dendrogram(hce)
 dcc <- set(dcc, "branches_col", "#3D3D3D")
 dee <- set(dee, "branches_col", "#3D3D3D")
 dcc <- style_labels(dcc); dee <- style_labels(dee)   # shodne prejmenovani obou stromu

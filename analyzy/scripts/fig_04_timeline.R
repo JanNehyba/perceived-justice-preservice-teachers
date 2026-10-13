@@ -51,10 +51,10 @@ TXT <- list(
       sprintf("2020\nn = %s\npilotní\nverze 2", N$y2020),
       sprintf("2021\nn = %s\nzásobník\npoložek", N$y2021),
       sprintf("2022\nn = %s\n26 položek\n+ BIDR", N$y2022),
-      sprintf("2023\nn = %s\nfinální nástroj", N$y2023),
-      sprintf("2024\nn = %s\nfinální nástroj", N$y2024),
-      sprintf("2026\nn = %s\nfinální nástroj", N$y2026)),
-    bands = c("STUPEŇ 3\njen konfigurální srovnání", "STUPEŇ 2\njen struktura",
+      sprintf("2023\nn = %s\nfinální\nnástroj", N$y2023),
+      sprintf("2024\nn = %s\nfinální\nnástroj", N$y2024),
+      sprintf("2026\nn = %s\nfinální\nnástroj", N$y2026)),
+    bands = c("STUPEŇ 3\njen konfigurální\nsrovnání", "STUPEŇ 2\njen struktura",
               "STUPEŇ 1\nplná invariance + latentní průměry"),
     boundary = "HRANICE ŠKÁLY:  souhlas -> spravedlnost",
     vign = sprintf("Viněty šesti vesnic\njaro 2019, n = %s", N$vinety),
@@ -77,29 +77,29 @@ make_fig <- function(L) {
     geom_rect(data = bands, aes(xmin = xmin, xmax = xmax),
               ymin = QY - 0.42, ymax = QY + 0.42, fill = bands$col, alpha = .45) +
     geom_text(data = bands, aes(x = (xmin + xmax) / 2, label = lab),
-              y = QY + 0.58, size = 3.6, fontface = "bold", color = "black",
+              y = QY + 0.66, size = 4.7, fontface = "bold", color = "black",
               lineheight = .95) +
     annotate("segment", x = 2018.75, xend = 2026.65, y = 0.28, yend = 0.28,
-             arrow = arrow(length = unit(6, "pt"), type = "closed"),
+             arrow = arrow(length = unit(9, "pt"), type = "closed"),
              color = "black", linewidth = .5) +
     annotate("text", x = c(2019:2024, 2026), y = 0.17,
-             label = c(2019:2024, 2026), size = 3.8, color = "black") +
+             label = c(2019:2024, 2026), size = 4.9, color = "black") +
     annotate("segment", x = 2022.52, xend = 2022.52, y = 0.30, yend = 2.42,
              linetype = "dashed", color = MU_RED, linewidth = .7) +
     annotate("text", x = 2022.52, y = 2.55, label = L$boundary,
-             color = MU_RED, size = 3.8, fontface = "bold") +
+             color = MU_RED, size = 4.7, fontface = "bold") +
     geom_label(aes(x = 2018.85, y = VY), label = L$vign,
                fill = "white", color = MU_GREEN, label.size = .8, hjust = 0,
-               size = 3.6, lineheight = .95, fontface = "bold") +
-    annotate("text", x = 2022.75, y = VY, hjust = 0, size = 3.5, color = GREY_TEXT,
+               size = 4.7, lineheight = .95, fontface = "bold") +
+    annotate("text", x = 2022.75, y = VY, hjust = 0, size = 4.6, color = GREY_TEXT,
              label = L$stream) +
     geom_label(data = coh, aes(x = year, y = QY, label = label),
-               fill = coh$fill, colour = coh$txt, size = 3.0, lineheight = .92,
-               label.size = .45, label.padding = unit(.18, "lines"),
+               fill = coh$fill, colour = coh$txt, size = 4.3, lineheight = .92,
+               label.size = .45, label.padding = unit(.22, "lines"),
                label.r = unit(.12, "lines")) +
     annotate("segment", x = 2022.7, xend = 2026.35, y = QY - 0.52, yend = QY - 0.52,
              color = MUNI_BLUE, linewidth = .8) +
-    annotate("text", x = 2024.5, y = QY - 0.66, color = MUNI_BLUE, size = 3.6,
+    annotate("text", x = 2024.5, y = QY - 0.66, color = MUNI_BLUE, size = 4.7,
              fontface = "bold", label = L$pooled) +
     scale_x_continuous(limits = c(2018.45, 2027.15), expand = c(0, 0)) +
     scale_y_continuous(limits = c(0.05, 2.75), expand = c(0, 0)) +

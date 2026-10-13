@@ -27,17 +27,17 @@ Raw data (contains or derives from identifiers), source questionnaire exports, t
 ## Verify the book's numbers (three ways)
 Every hard number in the book is anchored to a **number manifest** (`vystupy/tabulky/<chapter>_cisla.csv`) produced by an analysis notebook. A plain-language Czech guide is in [`JAK-OVERIT-CISLA.md`](JAK-OVERIT-CISLA.md).
 1. **No install (2 min).** Open the manifest CSV for a chapter and look up the number from the book. When the book is built, every hard number in its text is automatically searched for in the output tables in `vystupy/tabulky/`; the build fails if a number is missing.
-2. **In the browser (Binder, ~15 min first run).** Click the Binder badge above; RStudio opens in your browser with nothing installed locally. Render a notebook in `analyzy/notebooks/` and compare with the book. The environment uses R 4.5 with a CRAN snapshot of 10 July 2026, i.e. the package versions recorded in `renv.lock`; on 9 October 2026 all five notebooks rendered in it and reproduced the frozen output tables (the network notebook 30 takes about 40 minutes).
+2. **In the browser (Binder, ~15 min first run).** Click the Binder badge above; RStudio opens in your browser with nothing installed locally. Render a notebook in `analyzy/notebooks/` and compare with the book. The environment uses R 4.5 with a CRAN snapshot of 10 July 2026, i.e. the package versions recorded in `renv.lock`; on 9 October 2026 all five notebooks rendered in it (the network notebook 30 takes about 40 minutes), and the frozen outputs of notebooks 20, 40 and 50 were last computed in it on 13 October 2026. Parallel analysis runs serially so that the fixed seed gives the same result on every run.
 3. **Locally.** `./reproduce.sh` restores the R environment (`renv`), renders the notebooks, regenerates figures, and runs the gates.
 
 ## Reproduce
 - Analyses: render the Quarto notebooks in `analyzy/notebooks/` (R 4.5.3; packages pinned in `renv.lock`, completed on 10 October 2026 with the packages used only by the notebooks). Each notebook writes its manifest to `vystupy/tabulky/`.
 - Data prep: `python3 analyzy/scripts/03_prepare_forms.py` (Python 3.11; see `requirements.txt`).
-- Gates: `python3 analyzy/scripts/95_check_cisla.py` (every hard number in the prose is searched for in the output tables) and `analyzy/scripts/96_check_references.py` (citations ↔ references).
+- Gates: `python3 analyzy/scripts/95_check_cisla.py` (every hard number in the prose is searched for in the output tables) and `analyzy/scripts/96_check_references.py` (citations ↔ references). Both need the chapter sources (`kapitoly/cs/`), which are not part of this repository; here the number gate stops with "nic k ověření" (nothing to check) instead of reporting success.
 - Book: `cd kniha && ./build.sh cs pdf` (Quarto; the book is in Czech; MUNI fonts not included — substitute or install locally).
 
 ## Ethics
-Participation was voluntary and anonymous; informed consent covered anonymous academic and research use of the data (see the monograph's ethics appendix). No direct identifiers are present in this repository.
+Participation was voluntary; the consent statement described anonymous academic and research use of the data (see the monograph's ethics appendix). In some cohorts the forms recorded an e-mail address; addresses and other direct identifiers were removed before analysis and are not present in this repository. The data keep gender, year of birth, fields of study and prior teaching experience; in combination these can be unique within a cohort.
 
 ## Cite
 See `CITATION.cff`. Please cite the monograph and the GitHub repository URL shown there.

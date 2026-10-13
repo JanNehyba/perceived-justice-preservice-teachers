@@ -22,10 +22,24 @@ E <- rd("typology_embed_dist.csv"); rownames(E) <- E[[1]]; E <- as.matrix(E[,-1]
 E <- E[ord, ord]                                        # align rows/cols to consensus order
 De <- as.dist(E)
 
+# --- Euclidean inputs for Ward (audit A10, fix 2026-10-13) ---
+# hclust(..., "ward.D2") presupposes Euclidean distances. sqrt(Gower) is Euclidean for nominal
+# features (see 50_typology.qmd). The embedding distance is the cosine distance 1 - cos
+# (embed_taxonomy.py); for vectors u, v normalised to unit length ||u - v||^2 = 2(1 - cos),
+# so sqrt(2 * D) is the Euclidean distance between the normalised embeddings.
+# Check: smallest eigenvalue of B = -1/2 J D^2 J (0 up to rounding of the stored 6-decimal
+# distances for a Euclidean D).
+min_eigen_dc <- function(d){ D2 <- as.matrix(d)^2; n <- nrow(D2); J <- diag(n) - matrix(1/n, n, n)
+  min(eigen(-0.5 * J %*% D2 %*% J, symmetric=TRUE, only.values=TRUE)$values) }
+DcE <- sqrt(Dc)
+DeE <- sqrt(2 * De)
+embed_min_eig <- min_eigen_dc(DeE)
+
 # --- convergence of the two complementary distance structures ---
+# (distance correlations use the original dissimilarities; Ward trees use the Euclidean forms)
 mant_p <- cor(as.vector(Dc), as.vector(De), method="pearson")
 mant_s <- cor(as.vector(Dc), as.vector(De), method="spearman")
-hc_c <- hclust(Dc,"ward.D2"); hc_e <- hclust(De,"ward.D2")
+hc_c <- hclust(DcE,"ward.D2"); hc_e <- hclust(DeE,"ward.D2")
 coph  <- cor(cophenetic(hc_c), cophenetic(hc_e))        # cophenetic correlation between trees
 rf    <- phangorn::RF.dist(ape::as.phylo(hc_c), ape::as.phylo(hc_e))
 rf_norm <- as.numeric(rf) / (2*(length(ord)-3))         # normalised 0..1
@@ -46,10 +60,10 @@ man <- file.path(PROC,"..","..","vystupy","tabulky","E5_typologie_cisla.csv")
 m <- read.csv(man, stringsAsFactors=FALSE)
 # A complete core rerun normally replaces the manifest. This broader prefix
 # filter also prevents stale convergence keys from surviving a numerical-only rerun.
-m <- m[!m$metric == "second_lens_embedding" & !startsWith(m$metric, "conv_"),]
-add <- data.frame(metric=c("second_lens_embedding","conv_dist_cor_pearson","conv_dist_cor_spearman",
+m <- m[!m$metric %in% c("second_lens_embedding", "embed_min_eigen") & !startsWith(m$metric, "conv_"),]
+add <- data.frame(metric=c("second_lens_embedding","embed_min_eigen","conv_dist_cor_pearson","conv_dist_cor_spearman",
   "conv_cophenetic_r","conv_RF_norm","conv_ARI_char_vs_embed_k4"),
-  value=c("DONE (OpenAI text-embedding-3-large; character-free)", round(mant_p,3), round(mant_s,3),
+  value=c("DONE (OpenAI text-embedding-3-large; character-free)", signif(embed_min_eig,3), round(mant_p,3), round(mant_s,3),
   round(coph,3), round(rf_norm,3), round(ari_ce,3)))
 write.csv(rbind(m,add), man, row.names=FALSE)
 cat("\nappended convergence metrics to E5_typologie_cisla.csv\n")

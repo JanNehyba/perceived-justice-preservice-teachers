@@ -240,6 +240,11 @@ def main() -> int:
 
     print(f"95_check_cisla: {len(files)} kapitol, {n_checked} tvrdých čísel, "
           f"hledáno v {nfiles} výstupech ({len(index)} různých hodnot).")
+    if not files or n_checked == 0 or not any(args.tabulky.glob("*.csv")):
+        # Prázdný vstup není úspěch: bez kapitol nebo výstupů se nic neověřilo
+        # (např. ve veřejném repozitáři, kde zdrojové kapitoly nejsou).
+        print("❌ nic k ověření: chybí kapitoly (--chapters) nebo výstupy analýz (--tabulky).")
+        return 1
     if all_errors:
         print(f"\n❌ NENALEZENO ({len(all_errors)}):")
         for e in all_errors:

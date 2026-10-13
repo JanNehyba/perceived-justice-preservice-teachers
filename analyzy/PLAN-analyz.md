@@ -331,3 +331,12 @@ formátově neutrální, ale externí odkazy se musí správně přenést do vš
 - [x] Ruční revize 6 REVIEW párování v `item_map_full.csv` — potvrzeno autorem 11. 7. 2026 (všech 6 = stejná položka) → E4 tier 3 odblokován
 - [x] Rozhodnutí o rozsahu BIDR analýz po prvních výsledcích (E3.9) — uzavřeno
   11. 7. 2026: diskriminační validita + dichotomizovaná senzitivita, bez rozšíření
+
+## Doplňky po externím auditu (13. 10. 2026; dodatečné, nikoli předem plánované)
+
+- **E2, ESEM:** úplné standardizované náboje (2024, 2026) do `07_esem_loadings_2024/2026.csv`; faktory přiřazeny k principům Tuckerovou kongruencí s apriorním vzorem; souhrn vedlejších nábojů v `07_cisla.csv` (`esem24_*`, `esem26_*`). Tabulka D.5 se generuje skriptem `scripts/tab_D5_esem.py`.
+- **E2, reliabilita skórů:** `scripts/reliabilita_kompozit.R` (alfa a omega pozorovaného součtu, determinace faktorových skórů; manifest `07_reliabilita_kompozit_cisla.csv`). Ordinální omega zůstává ukazatelem na škále latentních odpovědí, ne reliabilitou součtu.
+- **E2, paralelní analýza:** `options(mc.cores = 1)`, protože ve forkovaných procesech `mclapply` neplatí `set.seed`; totéž ve `scripts/parallel2021_stabilita.R`, který nově opakuje paralelní analýzu pro deset počátečních stavů i na vlně 2023 (`07_parallel2023_cisla.csv`).
+- **E4, latentní průměry:** 95% intervaly (nestandardizované i `std.all`), Holmova korekce přes osm kontrastů, škálovaný test rozdílu χ² mezi kroky invariance ve dvou variantách (Satorra & Bentler, 2001, 2010); ΔCFI ≤ 0,01 zůstává rozhodovacím kritériem. Diagnostika kovarianční matice skalárního modelu porovnává počet nulových vlastních čísel s počtem rovnostních omezení.
+- **E4, stupeň 2:** reverzně formulovaná položka 16 se otáčí v kohortě 2021 i 2022; omega rovnosti ze čtyř položek se shodným zněním (`omega_eq4_*`).
+- **E5, Ward:** `hclust(ward.D2)` dostává eukleidovské vzdálenosti: odmocninu Gowerovy vzdálenosti a pro embeddingy √(2(1 − cos)); stabilita řezu na 500 náhodných pořadích pojmů (`ward_perm_*`).
