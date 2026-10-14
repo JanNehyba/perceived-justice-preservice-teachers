@@ -46,7 +46,8 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | data set | datová sada | v próze NEpsat „dataset"; „pipeline" → „zpracovatelská linka" |
 | community detection | detekce komunit (v síti) | EGA/walktrap; „síťové klastry" |
 | exploratory graph analysis (EGA) | explorativní grafová analýza | EGAnet |
-| ESEM (exploratory SEM) | explorativní strukturní modelování (ESEM) | doplňková analýza k CFA (D2): položky smějí sytit i ostatní faktory; **NE** „slabě sytit“ (A08) |
+| ESEM (exploratory SEM) | explorativní strukturní modelování (ESEM) | rovnocenný s CFA (rozhodnutí 14. 10. 2026, mění D2); spolu se síťovou analýzou hlavní popis struktury: principy existují a částečně se překrývají; položky smějí sytit i ostatní faktory; Marsh et al. (2014); **NE** „doplňkový ESEM“, „doplňková analýza ESEM“, **NE** „slabě sytit“ (A08) |
+| confirmatory factor analysis (CFA) | konfirmační faktorová analýza (CFA); „přísná CFA“ | přísný test: každá položka sytí jen svůj princip, a proto ukazuje překryv principů (slabá shoda); omega a faktorové skóry se počítají z čtyřfaktorové CFA; **NE** „hlavní/ústřední model“ ve smyslu hierarchie modelů, **NE** „apriorní faktorový model“ bez upřesnění |
 | bifactor model | bifaktorový model | verdikt dle ωH/ECV/PUC, ne jen fitu |
 | ordinal omega (ω) | ordinální omega (na škále latentních odpovědí) | reliabilita nevážného součtu latentních odpovědí z ordinálního modelu (7.3.3, 8.5); **NE** „kategoriální omega“, „reliabilita na latentní úrovni“ (A07) |
 | omega of the sum score | omega součtového skóru (omega součtu) | reliabilita pozorovaného součtu subškály, uváděná vedle alfy (7.3.3) |
@@ -61,7 +62,7 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | comparability boundary | hranice srovnatelnosti | mezi 2022 (souhlas) a 2023 (spravedlnost) |
 | three-tier comparability framework | třístupňový rámec srovnatelnosti | tier 1 invariance / tier 2 struktura / tier 3 konfigurace |
 | WLSMV / polychoric correlations | WLSMV / polychorické korelace | ordinální odhad (kap. 7–8) |
-| ESEM — shoda | lepší shoda než CFA | čtení: položky nejsou čistými ukazateli jednoho principu; NE „nejlépe padnoucí model dokládá strukturu" (D2, D20) |
+| ESEM — shoda | lepší shoda než přísná CFA | čtení: položky nejsou čistými ukazateli jednoho principu; v kohortě 2026 sedí slabě i ESEM; NE „ESEM sedí dobře“, NE „nejlépe padnoucí model dokládá strukturu" (D20) |
 | bifactor indices (ECV, PUC, ωH) | bifaktorové indexy (ECV, PUC, ωH) | rozhodují proti sumačnímu skóru |
 | temporal split | rozdělení podle let | explorace 2023 → konfirmace 2024 → ověření na kohortě 2026 |
 | holdout | ověřovací kohorta (2026) | **NE** „holdout" (B6-311) |
