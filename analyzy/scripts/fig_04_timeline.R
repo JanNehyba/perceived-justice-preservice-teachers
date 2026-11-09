@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # Figure 4.1 — výzkum na časové ose: dva proudy, kohortové roky 2019-2026,
-# tři stupně srovnatelnosti, hranice škály 2022|2023. Nahrazuje dřívější graphviz
+# tři stupně srovnatelnosti, hranice stupnice 2022|2023. Nahrazuje dřívější graphviz
 # verzi (Janova výtka: "měl by tam být naznačený vývoj"). Manuál: kniha/GRAFICKY-MANUAL.md.
 # Velikosti vzorků se čtou z manifestů čísel (vystupy/tabulky/*_cisla.csv), nikdy natvrdo
 # (revize 8. 10. 2026: dřívější natvrdo zapsané „viněty n = 146" neodpovídalo datům, n = 315).
@@ -56,7 +56,7 @@ TXT <- list(
       sprintf("2026\nn = %s\nfinální\nnástroj", N$y2026)),
     bands = c("STUPEŇ 3\njen konfigurální\nsrovnání", "STUPEŇ 2\njen struktura",
               "STUPEŇ 1\nplná invariance + latentní průměry"),
-    boundary = "HRANICE ŠKÁLY:  souhlas -> spravedlnost",
+    boundary = "HRANICE STUPNICE:  souhlas -> spravedlnost",
     vign = sprintf("Viněty šesti vesnic\njaro 2019, n = %s", N$vinety),
     stream = "Samostatná studie posuzování vinět (studie 1);\ndata se s dotazníkovým proudem neslučují",
     pooled = sprintf("sloučeno n = %s (studie 3)", N$pooled),
