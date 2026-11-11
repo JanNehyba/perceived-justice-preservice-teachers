@@ -37,6 +37,7 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | wave / cohort; cohort year | vlna / kohorta (sběru dat); kohortový ročník | 2019 / 2020 / 2021 / 2022 / 2023 / 2024 / 2026; kohorta = studenti, kteří odpovídali v téže vlně sběru (4.1); rok sběru jako celek „kohortový ročník" (1.5, tab. 1.1, obr. 4.1, 8.1); **NE** „kohortní rok" (sjednoceno 14. 10. 2026) |
 | repeated cross-sections | opakované průřezy | kohorty různých let, NE panel; opakovanou účast téhož studenta nelze vyloučit (identifikátory odstraněny) |
 | measurement invariance | měřicí invariance | konfigurální / metrická / skalární / striktní úroveň, spojitá aproximace (MLR), kritérium ΔCFI; prahy netestovány; jen stupeň 1 (8.2.1) |
+| equality constraints (invariance) | požadavek na shodné náboje / intercepty / reziduální rozptyly | metrická, skalární a striktní úroveň (4.3, 7.3, 8.2, 9.1); sjednoceno 11. 11. 2026 (rozhodnutí autora); **NE** „omezení shodných nábojů“, „omezení shodných interceptů“ |
 | latent mean comparison | srovnání latentních průměrů | jen když omezení interceptů (skalární úroveň) shodu podstatně nezhorší (2023/24/26); výsledek: rozdíl zjištěn v jednom z osmi kontrastů; **NE** „shoda latentních průměrů“, „stabilní úrovně“, „latentní průměry se neliší“ (A05) |
 | congruence coefficient (Tucker's φ) | Tuckerův koeficient kongruence (Tuckerova kongruence) | podobnost dvou vzorců nábojů; strukturní replikace ve stupni 2, srovnání kohort 2024 a 2026, citlivostní analýza D.3 |
 | numbers manifest | zdrojová tabulka čísel | soubor `*_cisla.csv`; v próze nepopisovat interní postup (S4), stačí „výstupy analýz v doprovodném repozitáři" |
@@ -50,7 +51,7 @@ Jednotná česká terminologie knihy a anglické ekvivalenty pro anglický abstr
 | confirmatory factor analysis (CFA) | konfirmační faktorová analýza (CFA); „přísná CFA“ | přísný test: každá položka sytí jen svůj princip, a proto ukazuje překryv principů (slabá shoda); omega a faktorové skóry se počítají z čtyřfaktorové CFA; **NE** „hlavní/ústřední model“ ve smyslu hierarchie modelů, **NE** „apriorní faktorový model“ bez upřesnění |
 | bifactor model | bifaktorový model | verdikt dle ωH/ECV/PUC, ne jen fitu |
 | group (specific) factor | skupinový faktor | v bifaktorovém modelu vedle obecného faktoru; v próze jednotně „skupinový“, „(specifický)“ jen jednou při zavedení (7.3.2; sjednoceno 14. 10. 2026) |
-| ordinal omega (ω) | ordinální omega (na škále latentních odpovědí) | reliabilita nevážného součtu latentních odpovědí z ordinálního modelu (7.3.3, 8.5); **NE** „kategoriální omega“, „reliabilita na latentní úrovni“ (A07) |
+| ordinal omega (ω) | ordinální omega (na škále latentních odpovědí) | reliabilita neváženého součtu latentních odpovědí z ordinálního modelu (7.3.3, 8.5); **NE** „kategoriální omega“, „reliabilita na latentní úrovni“ (A07) |
 | omega of the sum score | omega součtového skóru (omega součtu) | reliabilita pozorovaného součtu subškály, uváděná vedle alfy (7.3.3) |
 | factor score determinacy | determinace faktorových skórů | korelace odhadnutého faktorového skóru s faktorem (v 7.3.3 jen závěr, podrobně příloha D.8.3; Rodriguez et al., 2016); **NE** „determinace faktorů" (sjednoceno 9. 11. 2026) |
 | expected influence | očekávaný vliv (uzlu) | centralita v síti |
